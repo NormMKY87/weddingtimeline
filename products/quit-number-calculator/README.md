@@ -43,4 +43,4 @@ Every July, in this order: `model.py` section 1, `RATES` in `app/index.html`, th
 - JavaScript matches `model.py` to the dollar on all three scenarios.
 - No em dashes, en dashes or semicolons in any visible text.
 - No horizontal scroll at phone width. No console errors.
-- Worksheet renders to four A4 pages.
+- Worksheet renders to three A4 pages.

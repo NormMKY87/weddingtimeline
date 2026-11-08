@@ -9,7 +9,8 @@ const path = require('path');
   await page.evaluate(() => document.fonts.ready);
   await page.waitForSelector('#ladder .tier');
   await page.addStyleTag({ content: `
-    header.top .lede, .tabs, #tab-calc, #disclaimer { display: none !important; }
+    header.top, #tab-calc, #disclaimer { display: none !important; }
+    main { padding-top: 4mm; }
     body { background: #fff; }
     section.panel { box-shadow: none; border: 0; padding: 0; display: block; }
     section.panel > * + * { margin-top: 14px; }
