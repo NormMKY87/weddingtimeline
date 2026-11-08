@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>The Follow-Up Vault</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm 20mm 16mm; }
+  :root {
+    --ink: #1f1b17; --mute: #6b625a; --rule: #d9d1c7; --paper: #fbf8f3; --accent: #8a5a3c; --card: #f3ede4;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: var(--ink); font-size: 10.4pt; line-height: 1.5; background: #fff; }
+  h1, h2, h3, .serif { font-family: Georgia, "Times New Roman", serif; font-weight: normal; letter-spacing: -0.01em; }
+  h1 { font-size: 34pt; line-height: 1.1; margin: 0 0 10pt; }
+  h2 { font-size: 20pt; margin: 0 0 6pt; }
+  h3 { font-size: 13.5pt; margin: 18pt 0 4pt; page-break-after: avoid; }
+  .meta { page-break-after: avoid; }
+  table.toc { font-size: 10pt; max-width: 150mm; }
+  table.toc td { border-bottom: 1px solid var(--rule); padding: 7pt 8pt 7pt 0; }
+  table.toc td.day { font-size: 14pt; color: var(--accent); width: 9mm; }
+  p { margin: 0 0 7pt; }
+  .page { page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .avoid { page-break-inside: avoid; }
+  .kicker { text-transform: uppercase; letter-spacing: 0.14em; font-size: 7.5pt; color: var(--accent); margin-bottom: 6pt; }
+  .lede { font-size: 12.5pt; line-height: 1.45; color: var(--ink); max-width: 150mm; }
+  .mute { color: var(--mute); }
+  .small { font-size: 9pt; }
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 12pt 0; }
+
+  /* cover */
+  .cover { height: 250mm; display: flex; flex-direction: column; justify-content: space-between; }
+  .cover h1 { font-size: 46pt; max-width: 140mm; }
+  .cover .foot { border-top: 1px solid var(--ink); padding-top: 8pt; display: flex; justify-content: space-between; font-size: 8.5pt; }
+
+  /* tables */
+  table { width: 100%; border-collapse: collapse; font-size: 8.8pt; margin: 6pt 0 10pt; }
+  th { text-align: left; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--mute); padding: 5pt 6pt; border-bottom: 1px solid var(--ink); }
+  td { padding: 5pt 6pt; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  td.day { font-family: Georgia, serif; font-size: 12pt; width: 11mm; }
+  tr.bp td { color: var(--mute); }
+
+  /* message cards */
+  .msg { background: var(--card); border-left: 2px solid var(--accent); padding: 8pt 11pt 6pt; margin: 6pt 0 8pt; page-break-inside: avoid; }
+  .msg .ch { display: inline-block; text-transform: uppercase; letter-spacing: 0.12em; font-size: 6.8pt; color: var(--accent); font-weight: 600; margin-bottom: 3pt; }
+  .msg .subj { font-size: 9pt; color: var(--mute); margin-bottom: 5pt; }
+  .msg p { margin: 0 0 5pt; font-size: 9.8pt; }
+  .msg p:last-child { margin-bottom: 0; }
+  .v { color: var(--accent); }
+  .pers { font-style: italic; color: var(--mute); }
+  .meta { font-size: 8.8pt; color: var(--mute); margin: 0 0 6pt; }
+  .meta b { color: var(--ink); font-weight: 600; }
+  .skip { font-size: 9pt; margin: 2pt 0 14pt; padding-left: 11pt; border-left: 2px solid var(--rule); }
+  .skip b { font-weight: 600; }
+  .two { columns: 2; column-gap: 9mm; }
+  ul, ol { margin: 0 0 8pt 14pt; padding: 0; }
+  li { margin-bottom: 3pt; }
+  .num { font-family: Georgia, serif; font-size: 22pt; color: var(--accent); line-height: 1; margin-bottom: 2pt; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6mm; margin: 8pt 0 12pt; }
+  .grid3 > div { border-top: 1px solid var(--ink); padding-top: 6pt; }
+  .grid3 h4 { font-family: Georgia, serif; font-weight: normal; font-size: 12pt; margin: 0 0 3pt; }
+  .grid3 p { font-size: 9pt; }
+  .oneline { font-family: Georgia, serif; font-size: 18pt; margin: 18pt 0; }
+  .section-head { margin-bottom: 10pt; }
+  .section-head p { max-width: 150mm; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div>
+    <div class="kicker">A companion to the Booking Pack</div>
+    <h1>The Follow-Up Vault</h1>
+    <p class="lede">Every follow-up from the first reply to the signed contract, by day and by channel. Two tracks, seven messages each, and the one rule that makes sure the day arrives.</p>
+  </div>
+  <div class="contents">
+    <div class="kicker">Inside</div>
+    <table class="toc">
+      <tr><td class="day">1</td><td>How the Vault works</td><td class="mute">Three levels of personalisation, channel and timing rules</td></tr>
+      <tr><td class="day">2</td><td>The cadence map</td><td class="mute">Both tracks, day by day, with the channel for every touch</td></tr>
+      <tr><td class="day">3</td><td>Track A: new enquiry, no reply</td><td class="mute">Five messages, day 2 to day 21</td></tr>
+      <tr><td class="day">4</td><td>Track B: proposal sent, no decision</td><td class="mute">Five messages, day 2 to day 18</td></tr>
+      <tr><td class="day">5</td><td>Revival and closing the file</td><td class="mute">The last two messages on each track</td></tr>
+      <tr><td class="day">6</td><td>The to-do rule</td><td class="mute">How to make sure the day arrives, in any CRM or a calendar</td></tr>
+    </table>
+  </div>
+  <div>
+    <p class="lede serif">Nobody should have to invent a nudge at nine at night after a shift. Open this, find the day, change the one thing in brackets, press send.</p>
+    <div class="foot"><span>Part-Time to Full-Time</span><span>Follow-Up Vault, first edition</span></div>
+  </div>
+</section>
+
+<!-- HOW TO USE -->
+<section class="page">
+  <div class="kicker">Start here</div>
+  <h2>How the Vault works</h2>
+  <p class="lede">The Booking Pack holds your first reply and your proposal email. The Vault starts the moment one of those goes out and nothing comes back. Day 0 is the Booking Pack message. The Vault begins at day 2.</p>
+
+  <div class="grid3">
+    <div><h4>Fully personalised</h4><p>Message 1 on each track. Written for this couple. One real detail from their enquiry or the consult, one question. Four or five minutes. Never automated.</p></div>
+    <div><h4>Half personalised</h4><p>Message 2 on each track. Template body with a personal opening line. Their date, their venue, or the question they have not asked yet. Two minutes.</p></div>
+    <div><h4>Template, one variable</h4><p>Messages 3 to 7. Ready to send. Change the one thing in [square brackets] and press send. Under a minute. Safe to automate from a CRM.</p></div>
+  </div>
+
+  <div class="two">
+    <h3>Channel rules</h3>
+    <ul>
+      <li>Email is the record. Every touch has an email version, kept in the same thread as the Booking Pack message.</li>
+      <li>SMS, Instagram DM and WhatsApp go where the couple came from. Enquired through Instagram, the DM leads and the email backs it up.</li>
+      <li>A second channel on the same day points at the first. It never carries a second ask.</li>
+      <li>One ask per touch. One link at most.</li>
+      <li>A phone call replaces the message where the map says so. Voicemail, then the email the same day as the record.</li>
+    </ul>
+    <h3>Timing rules</h3>
+    <ul>
+      <li>Count from the send date of the Booking Pack message, not from when they read it.</li>
+      <li>Any reply stops the track. From then on it is a conversation, not a sequence. If they go quiet again, restart from the next unsent touch.</li>
+      <li>A date you promised wins. "I'll check in Thursday" beats the map.</li>
+      <li>A touch that lands on a weekend or a public holiday goes out the next weekday morning.</li>
+      <li>Built for couples booking six to eighteen months out. Under four months, halve every gap.</li>
+    </ul>
+    <h3>Reading the messages</h3>
+    <ul>
+      <li>Anything in [square brackets] is yours to fill. Delete the brackets.</li>
+      <li>Lines marked PERSONAL get one real sentence about this couple, or nothing. Never a generic line.</li>
+      <li>Sign off with your first name. Your signature does the rest.</li>
+      <li>Under every message: when to skip it. Read that line before you send.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CADENCE MAP -->
+<section class="page">
+  <div class="kicker">The cadence map</div>
+  <h2>Track A: new enquiry, no reply</h2>
+  <p class="meta">Trigger: you sent the first reply and the couple has not replied. Seven messages, day 2 to day 60. If a touch is skipped (no date given, no resource, the competing enquiry is not true), send the next message in its place and shift the rest of the track forward.</p>
+  <table>
+    <tr><th>Day</th><th>Message</th><th>Channel</th><th>Level</th><th>The variable</th></tr>
+    <tr class="bp"><td class="day">0</td><td>First reply</td><td>Email, plus the instant SMS</td><td>Booking Pack</td><td></td></tr>
+    <tr><td class="day">2</td><td>A1. The detail and the question</td><td>Email in thread, plus SMS or DM</td><td>Fully personalised</td><td>One detail, one question</td></tr>
+    <tr><td class="day">5</td><td>A2. Their date, still open</td><td>Email in thread. DM if they came via Instagram</td><td>Half personalised</td><td>Their date or venue</td></tr>
+    <tr><td class="day">9</td><td>A3. Something useful</td><td>Email, plus SMS pointing to the inbox</td><td>Template</td><td>[Planning resource]</td></tr>
+    <tr><td class="day">14</td><td>A4. The date check</td><td>SMS or DM first. Email only if you have neither</td><td>Template</td><td>[Wedding date]</td></tr>
+    <tr><td class="day">21</td><td>A5. The soft close</td><td>Email</td><td>Template</td><td>[Month of the wedding]</td></tr>
+    <tr><td class="day">35</td><td>A6. Revival</td><td>Email, plus WhatsApp or SMS</td><td>Template</td><td>[One true, recent thing]</td></tr>
+    <tr><td class="day">60</td><td>A7. Close the file</td><td>Email only</td><td>Template</td><td>[Wedding date]</td></tr>
+  </table>
+
+</section>
+
+<section class="page">
+  <div class="kicker">The cadence map</div>
+  <h2>Track B: proposal sent, no decision</h2>
+  <p class="meta">Trigger: you sent the proposal after the consult and the couple has not said yes or no. Seven messages, day 2 to day 45.</p>
+  <table>
+    <tr><th>Day</th><th>Message</th><th>Channel</th><th>Level</th><th>The variable</th></tr>
+    <tr class="bp"><td class="day">0</td><td>Proposal email</td><td>Email</td><td>Booking Pack</td><td></td></tr>
+    <tr><td class="day">2</td><td>B1. One line from the call</td><td>Email in the proposal thread, plus SMS or WhatsApp</td><td>Fully personalised</td><td>One line they said on the call</td></tr>
+    <tr><td class="day">5</td><td>B2. The unasked question</td><td>Email</td><td>Half personalised</td><td>Price or availability</td></tr>
+    <tr><td class="day">8</td><td>B3. Another couple on your date</td><td>Email, plus short WhatsApp or SMS</td><td>Template, only if true</td><td>[Day of the other call]</td></tr>
+    <tr><td class="day">12</td><td>B4. Something useful</td><td>Email</td><td>Template</td><td>[Planning resource]</td></tr>
+    <tr><td class="day">18</td><td>B5. Hold or release</td><td>Phone call first. Email the same day</td><td>Template</td><td>[Wedding date]</td></tr>
+    <tr><td class="day">30</td><td>B6. Revival</td><td>Email, plus WhatsApp</td><td>Template</td><td>[One true, recent thing]</td></tr>
+    <tr><td class="day">45</td><td>B7. Close the file, door open</td><td>Email only</td><td>Template</td><td>[Wedding date]</td></tr>
+  </table>
+</section>
+
+<!-- TRACK A -->
+<section class="page">
+  <div class="section-head">
+    <div class="kicker">Track A</div>
+    <h2>New enquiry, no reply</h2>
+    <p>You sent the first reply. Nothing came back. Five messages from day 2 to day 21, then revival and close. Keep every email in the thread of your first reply.</p>
+  </div>
+
+  <h3>A1. The detail and the question</h3>
+  <p class="meta"><b>Day 2.</b> Fully personalised. Email in the thread, plus a short SMS or DM. Open their form. Find the one thing they wrote that was not a box they had to fill. That is your detail.</p>
+  <div class="msg"><span class="ch">Email</span><p class="subj">Subject: Re: [your first reply subject]</p>
+    <p>Hi [Partner 1] and [Partner 2],</p>
+    <p>A quick one, because I kept thinking about your enquiry after I replied.</p>
+    <p class="pers">PERSONAL: [One real sentence about something they told you. Example: "A ceremony on the lawn at four in the afternoon in March is my favourite light of the year."]</p>
+    <p class="pers">PERSONAL: [One easy question that follows. Example: "Is the ceremony outside too, or just the photos after?"]</p>
+    <p>Your date is still open with me. No rush on the reply.</p>
+    <p>[Your first name]</p></div>
+  <div class="msg"><span class="ch">SMS</span><p>Hi [Partner 1], [Your first name] here. I sent a note about your [Month] wedding on [Day], with one question about [the detail]. No rush, it's in your inbox whenever you're ready.</p></div>
+  <div class="msg"><span class="ch">Instagram DM (instead of the email if they enquired on Instagram)</span><p>Hi [Partner 1]! Thanks again for reaching out about [Month]. I've been thinking about [the detail] since. [The question]? Your date is still open with me, and there's no rush.</p></div>
+  <div class="msg"><span class="ch">WhatsApp</span><p>Hi [Partner 1], it's [Your first name]. I've been thinking about your [Month] wedding since you wrote. [The question]? The date's still open with me. No rush at all.</p></div>
+  <p class="skip"><b>Skip it when:</b> they have opened your booking link, replied anywhere, or booked a call. This track is over. You are in a conversation now.</p>
+
+  <h3>A2. Their date, still open</h3>
+  <p class="meta"><b>Day 5.</b> Half personalised. Email in the thread, or Instagram DM if they came through Instagram. The body is a template. The opening line is yours.</p>
+  <div class="msg"><span class="ch">Email</span><p class="subj">Subject: Re: [your first reply subject]</p>
+    <p>Hi [Partner 1] and [Partner 2],</p>
+    <p class="pers">PERSONAL, pick one. Date: "[Wedding date] is still open with me, and I'd like to keep it that way for you." Venue: "I've been thinking about [Venue] since you wrote. [One true sentence about shooting there, or wanting to.]"</p>
+    <p>Wedding planning throws a lot at you at once, and a photographer's email slides down the list. That's completely fine.</p>
+    <p>If a quick chat would help you decide, grab any time here: [Call link]. Fifteen minutes. I'll ask about your day and answer anything you're unsure about.</p>
+    <p>[Your first name]</p></div>
+  <div class="msg"><span class="ch">SMS</span><p>Hi [Partner 1], [Your first name] here. [Wedding date] is still open with me. If a quick chat would help, there's a link in your inbox. No pressure either way.</p></div>
+  <div class="msg"><span class="ch">Instagram DM</span><p>Hi [Partner 1], [Wedding date] is still open with me. If it helps to talk it through, I can do a quick call any day this week. Fifteen minutes, no pitch. Want me to send a link?</p></div>
+  <div class="msg"><span class="ch">WhatsApp</span><p>Hi [Partner 1], it's [Your first name]. [Wedding date] is still open with me. If a quick chat would help you decide, here's a link to grab a time: [Call link]. Fifteen minutes, no pressure.</p></div>
+  <p class="skip"><b>Skip it when:</b> you have neither a date nor a venue from them. Send A3 on day 5 instead and shift the rest of the track forward by four days.</p>
+
+  <h3>A3. Something useful</h3>
+  <p class="meta"><b>Day 9.</b> Template, one variable: [Planning resource]. Email, plus SMS pointing to the inbox. The resource must be free, genuinely useful and ready today. A timeline planner, a family photo checklist, a first look pros and cons page. A pricing guide is not a resource.</p>
+  <div class="msg"><span class="ch">Email</span><p class="subj">Subject: Something to help with the planning</p>
+    <p>Hi [Partner 1] and [Partner 2],</p>
+    <p>No chasing today. I wanted to send you something useful, whether or not we end up working together.</p>
+    <p>[Planning resource]: [Link]</p>
+    <p>It [one plain sentence on what it does, for example "builds a rough plan for your day around the light"]. I go through it with every couple I work with, and it settles a few things early.</p>
+    <p>If you want a hand reading what it gives you, you know where I am.</p>
+    <p>[Your first name]</p></div>
+  <div class="msg"><span class="ch">SMS</span><p>Hi [Partner 1], [Your first name] here. I've sent a free [Planning resource] to your inbox. A lot of couples find it handy. No strings.</p></div>
+  <div class="msg"><span class="ch">Instagram DM</span><p>Hi [Partner 1], I made a [Planning resource] that a lot of couples find handy at this stage. Want me to send it over? No strings, it's useful whoever you book.</p></div>
+  <div class="msg"><span class="ch">WhatsApp</span><p>Hi [Partner 1], it's [Your first name]. I've just sent a free [Planning resource] to your inbox. It's useful whoever ends up photographing your day. Shout if you want a hand with it.</p></div>
+  <p class="skip"><b>Skip it when:</b> they already have the resource. Send A4 on day 9 instead.</p>
+
+  <h3>A4. The date check</h3>
+  <p class="meta"><b>Day 14.</b> Template, one variable: [Wedding date]. SMS or DM first. A one-line question gets a one-line answer. An email invites a reply they feel they should write properly, so they put it off.</p>
+  <div class="msg"><span class="ch">SMS</span><p>Hi [Partner 1], it's [Your first name]. Quick one. Are you still deciding on [Wedding date], or has the plan moved? Either answer helps me, and there's no wrong one.</p></div>
+  <div class="msg"><span class="ch">Instagram DM</span><p>Hi [Partner 1], quick one. Still deciding on [Wedding date], or has the plan changed? Either answer is completely fine, it just helps me know where things sit.</p></div>
+  <div class="msg"><span class="ch">WhatsApp</span><p>Hi [Partner 1], [Your first name] here. Quick one. Are you still deciding on [Wedding date], or has the plan moved? No wrong answer, it just helps me plan.</p></div>
+  <div class="msg"><span class="ch">Email (only if you have no mobile or handle)</span><p class="subj">Subject: Re: [your first reply subject]</p>
+    <p>Hi [Partner 1] and [Partner 2],</p>
+    <p>Quick one from me. Are you still deciding on [Wedding date], or has the plan moved?</p>
+    <p>Either answer helps me plan my year, and there's no wrong one.</p>
+    <p>[Your first name]</p></div>
+  <p class="skip"><b>Skip it when:</b> they never gave you a date. Send A5 on day 14 instead.</p>
+
+  <h3>A5. The soft close</h3>
+  <p class="meta"><b>Day 21.</b> Template, one variable: [Month of the wedding]. Email. You are stepping back, and saying so.</p>
+  <div class="msg"><span class="ch">Email</span><p class="subj">Subject: Re: [your first reply subject]</p>
+    <p>Hi [Partner 1] and [Partner 2],</p>
+    <p>I've sent a few notes about your [Month] wedding and haven't heard back, so I'll take the hint for now.</p>
+    <p>If you've booked someone else, congratulations, genuinely. If you're still deciding, your date is open with me until someone else books it, and I'd love to be part of it.</p>
+    <p>A quick line either way means I can plan properly. After this I'll leave your inbox alone for a while.</p>
+    <p>[Your first name]</p></div>
+  <div class="msg"><span class="ch">SMS</span><p>Hi [Partner 1], [Your first name] here. I'll stop filling your inbox after this. If you've booked someone else, congratulations. If you're still deciding, your [Month] date is open with me. A quick line either way would be a help.</p></div>
+  <div class="msg"><span class="ch">Instagram DM</span><p>Hi [Partner 1], last nudge from me for a while. If you've booked someone, congratulations. If you're still deciding, your [Month] date is still open with me. A quick line either way helps me plan.</p></div>
+  <div class="msg"><span class="ch">WhatsApp</span><p>Hi [Partner 1], it's [Your first name]. I'll leave you be after this one. If you've booked someone else, congratulations. If you're still deciding, your [Month] date is open with me. A quick line either way would help.</p></div>
+  <p class="skip"><b>Skip it when:</b> another couple has since booked their date. Send A7 early, with the date-gone version.</p>
+</section>
+
+<!-- TRACK B -->
+<section class="page">
+  <div class="section-head">
+    <div class="kicker">Track B</div>
+    <h2>Proposal sent, no decision</h2>
+    <p>You had the call and sent the proposal. The couple has not said yes or no. Five messages from day 2 to day 18, then revival and close. The couple has met you now. Write like it: shorter, warmer, more direct.</p>
+  </div>
+
+  <h3>B1. One line from the call</h3>
+  <p class="meta"><b>Day 2.</b> Fully personalised. Email in the proposal thread, plus SMS or WhatsApp. Go back to your recording or transcript. Find one line they said about what matters on the day. Quote it. Show them how it shaped the proposal. Never guess at a quote.</p>
+  <div class="msg"><span class="ch">Email</span><p class="subj">Subject: Re: [your proposal email subject]</p>
+    <p>Hi [Partner 1] and [Partner 2],</p>
+    <p>I've been thinking about something you said on our call.</p>
+    <p class="pers">PERSONAL: [Their line in quotation marks, then one sentence on what it changed. Example: "You said 'I don't want to be dragged away from the party for photos.' That one line is why the proposal has your portraits before sunset, so the evening is yours."]</p>
+    <p>Have a read when you're both together. If anything in there isn't quite right, I'd rather change it than have you work around it.</p>
+    <p>[Your first name]</p></div>
+  <div class="msg"><span class="ch">SMS</span><p>Hi [Partner 1], [Your first name] here. Lovely talking with you both on [Day]. I've sent a short note to go with the proposal, about something you said on the call. Have a look when you're together.</p></div>
+  <div class="msg"><span class="ch">WhatsApp</span><p>Hi [Partner 1], it's [Your first name]. Really enjoyed the call on [Day]. I've sent a note to go with the proposal about something you said that stuck with me. Read it when you're both free, no rush.</p></div>
+  <div class="msg"><span class="ch">Instagram DM (only if the DM has been your main channel throughout)</span><p>Hi [Partner 1], loved talking with you both on [Day]. Something you said stuck with me and I've written about it in a note with the proposal. Have a look when you're together.</p></div>
+  <p class="skip"><b>Skip it when:</b> they have already opened the proposal and asked a question. Answer that question. The answer is your day 2 touch.</p>
+
+  <h3>B2. The unasked question</h3>
+  <p class="meta"><b>Day 5.</b> Half personalised. Email. Most couples sit on a proposal because of one question they have not asked. It is almost always price or availability. You heard which one on the call. Pick that paragraph and cut the other.</p>
+  <div class="msg"><span class="ch">Email</span><p class="subj">Subject: Re: [your proposal email subject]</p>
+    <p>Hi [Partner 1] and [Partner 2],</p>
+    <p>Most couples have one question they don't ask straight away, so I'll have a go at answering the one I think is yours.</p>
+    <p class="pers">PERSONAL, pick one.</p>
+    <p>[Price] If it's the number, tell me what you're weighing it against. I don't discount, but I can reshape what's included so you only pay for what matters on your day. And I'll tell you honestly if something in there isn't worth it for you.</p>
+    <p>[Availability] If it's the date, it's open as I write this. It stays open until a signed contract and retainer are in, from you or from anyone else. I'm not saying that to hurry you. I just don't want any surprises.</p>
+    <p>Reply here, or call me on [Your mobile] if that's easier.</p>
+    <p>[Your first name]</p></div>
+  <div class="msg"><span class="ch">SMS</span><p>Hi [Partner 1], [Your first name] here. I've sent a note answering the question I suspect you haven't asked yet. If I've guessed wrong, tell me the real one. Happy to talk it through on the phone too.</p></div>
+  <div class="msg"><span class="ch">WhatsApp</span><p>Hi [Partner 1], it's [Your first name]. I've had a go at answering the question I think you're sitting on, it's in your inbox. If I've guessed wrong, just tell me the real one. Call me any time on this number.</p></div>
+  <p class="small mute">On the price paragraph: I don't discount, and the Booking Pack explains why. Credits and reshaping, never a lower number for the same work. If you do discount, cut the sentence. I'd rather you didn't.</p>
+  <p class="skip"><b>Skip it when:</b> they have already asked the question. Answer it directly instead, same day.</p>
+
+  <h3>B3. Another couple on your date</h3>
+  <p class="meta"><b>Day 8.</b> Template, one variable: [Day of the other call]. Email, plus a short WhatsApp or SMS. Only if it is true. Never invent it, never imply it, never name the other couple. A couple who finds out you made it up will tell everyone they know, and they will be right to.</p>
+  <div class="msg"><span class="ch">Email</span><p class="subj">Subject: Re: [your proposal email subject]</p>
+    <p>Hi [Partner 1] and [Partner 2],</p>
+    <p>I want to be upfront about [Wedding date].</p>
+    <p>I have a call on [Day of the other call] with another couple looking at the same date. Your date isn't held until a signed contract and retainer are in, from you or from them, and whoever books first secures it.</p>
+    <p>I'm not telling you this to rush you. I'd hate for you to decide and then find the date gone. If you're leaning towards going ahead, tell me and I'll make the next step easy.</p>
+    <p>[Your first name]</p></div>
+  <div class="msg"><span class="ch">SMS</span><p>Hi [Partner 1], [Your first name] here. I've just emailed about [Wedding date]. Another couple has asked about the same date and I wanted you to hear it from me first. Nothing has changed on my end, and no rush.</p></div>
+  <div class="msg"><span class="ch">WhatsApp</span><p>Hi [Partner 1], it's [Your first name]. Quick heads up, I've emailed you about [Wedding date]. Another couple has asked about the same date, and I'd rather you heard that from me than found out later. No pressure from me at all.</p></div>
+  <p class="skip"><b>Skip it when:</b> it is not true. Send B4 on day 8 instead and shift the rest of the track forward by four days.</p>
+
+  <h3>B4. Something useful</h3>
+  <p class="meta"><b>Day 12.</b> Template, one variable: [Planning resource]. Email. If you sent a resource during Track A, send a different one here.</p>
+  <div class="msg"><span class="ch">Email</span><p class="subj">Subject: Something for the planning, no decision needed</p>
+    <p>Hi [Partner 1] and [Partner 2],</p>
+    <p>No decision needed today. I wanted to send something useful while you're thinking.</p>
+    <p>[Planning resource]: [Link]</p>
+    <p>It [one plain sentence on what it does]. It's the first thing I work through with every couple I book, and it's just as useful if you book someone else.</p>
+    <p>[Your first name]</p></div>
+  <div class="msg"><span class="ch">SMS</span><p>Hi [Partner 1], [Your first name] here. No decision needed, I've just sent a [Planning resource] to your inbox that should help with the planning whoever you book.</p></div>
+  <div class="msg"><span class="ch">WhatsApp</span><p>Hi [Partner 1], it's [Your first name]. Nothing to decide today. I've sent a [Planning resource] to your inbox that helps with the planning whoever you book. Hope it's useful.</p></div>
+  <p class="skip"><b>Skip it when:</b> they already have the resource and you have no second one ready. Send B5 on day 12 instead.</p>
+
+  <h3>B5. Hold or release</h3>
+  <p class="meta"><b>Day 18.</b> Template, one variable: [Wedding date]. Phone call first, because a voice gets a straight answer where an email gets silence. Thirty seconds. Then the email, whether you reached them or not.</p>
+  <div class="msg"><span class="ch">Phone script</span><p>Hi [Partner 1], it's [Your first name]. This isn't a sales call. I'm planning the next few months and wanted to know where you've landed on [Wedding date]. If you're going another way, that's completely fine and I'll release the date. If you're still deciding, tell me what's in the way and I'll see if I can help.</p></div>
+  <div class="msg"><span class="ch">Voicemail</span><p>Hi [Partner 1], it's [Your first name]. Not a sales call. I'm planning the months ahead and wanted to know where you've landed on [Wedding date]. Any answer is a good answer. I'll send a short email too, so you can reply whichever way is easiest.</p></div>
+  <div class="msg"><span class="ch">Email (the record, same day)</span><p class="subj">Subject: [Wedding date]: holding or releasing</p>
+    <p>Hi [Partner 1] and [Partner 2],</p>
+    <p>I tried to call today. I'm planning the months ahead and need to know whether to keep [Wedding date] open for you.</p>
+    <p>Three easy answers. "Yes" and I'll send the contract and retainer details today. "No" and I'll release the date, no hard feelings. "Stuck" and you tell me what's in the way.</p>
+    <p>A quick line is all I need.</p>
+    <p>[Your first name]</p></div>
+  <div class="msg"><span class="ch">SMS (if the call went to voicemail)</span><p>Hi [Partner 1], [Your first name] here. Left you a voicemail about [Wedding date]. Yes, no, or stuck, any answer is a good one. Email's in your inbox too.</p></div>
+  <div class="msg"><span class="ch">WhatsApp</span><p>Hi [Partner 1], it's [Your first name]. Tried calling about [Wedding date]. Yes, no, or stuck, any of the three is a good answer and I'll take it from there. No hard feelings whichever way.</p></div>
+  <p class="skip"><b>Skip it when:</b> they told you a decision date later than day 18. Call the day after that date instead.</p>
+  <p class="small mute">If they say yes, send the contract and retainer details the same hour. Booked means signed and paid, not a yes in a text.</p>
+</section>
+
+<!-- REVIVAL AND CLOSE -->
+<section class="page">
+  <div class="section-head">
+    <div class="kicker">Ghosted lead revival and closing the file</div>
+    <h2>The last two messages on each track</h2>
+    <p>The revival brings a quiet lead back with something true. The close-the-file message ends the sequence kindly, releases the date, and leaves the door open.</p>
+  </div>
+  <div class="two">
+    <h3 style="margin-top:0">Rules for revival</h3>
+    <ul>
+      <li>Point to something true. A wedding you shot at a venue like theirs. A resource you just finished. If none of it is true, do not send it. Wait until something is, up to ten days past the mapped day.</li>
+      <li>Never manufacture scarcity. "Dates are filling fast" is a lie unless you can name the dates.</li>
+      <li>Never count the unanswered messages. It is a guilt trip, and it does not work.</li>
+      <li>Never ask "are you still interested". It invites a no and sounds like everyone else.</li>
+      <li>One revival per track. If it does not land, you close the file.</li>
+    </ul>
+    <h3 style="margin-top:0">Rules for closing the file</h3>
+    <ul>
+      <li>Always send it. This is the one touch that never gets skipped.</li>
+      <li>Release the date the same day, in your calendar and your CRM. Lost reason: no response.</li>
+      <li>Offer to keep in touch only if they say yes. "Yes please" is the only way onto your nurture list.</li>
+      <li>Then stop. A couple who comes back after this does so because you stopped, not despite it.</li>
+    </ul>
+  </div>
+
+  <h3>A6. Revival, Track A</h3>
+  <p class="meta"><b>Day 35.</b> Template, one variable: [One true, recent thing]. Email, plus WhatsApp or SMS.</p>
+  <div class="msg"><span class="ch">Email</span><p class="subj">Subject: Thought of you both</p>
+    <p>Hi [Partner 1] and [Partner 2],</p>
+    <p class="pers">[One true, recent thing. Examples, only if true: "I photographed a wedding at a garden venue like yours on Saturday, and the light at four o'clock was exactly what I'd want for you." Or: "I've just finished a [resource] and you two were the couple I had in mind."]</p>
+    <p>I'm not chasing an answer. If you're booked, I'm glad for you. If you're still looking, your date is open with me as I write this, and I'd love to talk.</p>
+    <p>[Your first name]</p></div>
+  <div class="msg"><span class="ch">SMS</span><p>Hi [Partner 1], [Your first name] here. [One true, recent thing, one sentence.] Not chasing, just thought of you both. Your date's still open with me if you're still looking.</p></div>
+  <div class="msg"><span class="ch">Instagram DM</span><p>Hi [Partner 1], [one true, recent thing, one sentence]. Made me think of you two. Not chasing an answer, but your date is still open with me if you're still looking.</p></div>
+  <div class="msg"><span class="ch">WhatsApp</span><p>Hi [Partner 1], it's [Your first name]. [One true, recent thing, one sentence.] Thought of you both. Not chasing, but if you're still looking, your date is still open with me.</p></div>
+  <p class="skip"><b>Skip it when:</b> you have nothing true to point to. Wait until you do, up to day 45. If day 45 arrives with nothing, go straight to A7 on day 60.</p>
+
+  <h3>A7. Close the file, Track A</h3>
+  <p class="meta"><b>Day 60.</b> Template, one variable: [Wedding date]. Email only.</p>
+  <div class="msg"><span class="ch">Email</span><p class="subj">Subject: Closing the file on [Wedding date]</p>
+    <p>Hi [Partner 1] and [Partner 2],</p>
+    <p>This is my last note about [Wedding date]. I'll take it as a no, release the date, and stop filling your inbox.</p>
+    <p>If I've got that wrong, one word back fixes it.</p>
+    <p>Whoever is photographing your day, I hope it's wonderful. And if you'd like the odd useful thing for the planning from me, reply "yes please". Otherwise, this is goodbye and good luck from me.</p>
+    <p>[Your first name]</p></div>
+  <div class="msg"><span class="ch">Date-gone version (send early, any day another couple books their date)</span><p class="subj">Subject: [Wedding date] has been booked</p>
+    <p>Hi [Partner 1] and [Partner 2],</p>
+    <p>Another couple has booked [Wedding date], so I wanted to tell you rather than leave you wondering.</p>
+    <p>If your plans change, or you have a second date in mind, I'd love to hear from you. And if you've already booked someone, I hope the day is everything you want it to be.</p>
+    <p>[Your first name]</p></div>
+  <p class="skip"><b>Skip it when:</b> never. This message ends every unanswered enquiry.</p>
+
+  <h3>B6. Revival, Track B</h3>
+  <p class="meta"><b>Day 30.</b> Template, one variable: [One true, recent thing]. Email, plus WhatsApp. The proposal is still live. Point to something true, then remind them it can change.</p>
+  <div class="msg"><span class="ch">Email</span><p class="subj">Subject: Re: [your proposal email subject]</p>
+    <p>Hi [Partner 1] and [Partner 2],</p>
+    <p class="pers">[One true, recent thing. Example, only if true: "I shot a wedding on Saturday that ran to a timeline a lot like the one we talked about, and the evening light was worth every minute of planning."]</p>
+    <p>Your proposal is still there, and still yours to change. If something in it has been the sticking point, tell me what, and I'll rework it rather than guess.</p>
+    <p>[Your first name]</p></div>
+  <div class="msg"><span class="ch">SMS</span><p>Hi [Partner 1], [Your first name] here. [One true, recent thing, one sentence.] Your proposal's still live and still changeable. If something in it is the sticking point, tell me and I'll rework it.</p></div>
+  <div class="msg"><span class="ch">WhatsApp</span><p>Hi [Partner 1], it's [Your first name]. [One true, recent thing, one sentence.] Your proposal is still there and still open to changes. If something in it is the sticking point, tell me what and I'll fix it rather than guess.</p></div>
+  <p class="skip"><b>Skip it when:</b> you have nothing true to point to. Wait until you do, up to day 40. If day 40 arrives with nothing, go straight to B7 on day 45.</p>
+
+  <h3>B7. Close the file, door open, Track B</h3>
+  <p class="meta"><b>Day 45.</b> Template, one variable: [Wedding date]. Email only.</p>
+  <div class="msg"><span class="ch">Email</span><p class="subj">Subject: Closing the file on [Wedding date]</p>
+    <p>Hi [Partner 1] and [Partner 2],</p>
+    <p>I'm closing the file on [Wedding date] today and releasing the date. No reply needed.</p>
+    <p>If you've booked someone else, I hope they're brilliant. If it's still open and you've been meaning to reply, the door isn't locked. One line and I'll pick it straight back up.</p>
+    <p>Thank you for the call. I enjoyed hearing about your day.</p>
+    <p>[Your first name]</p></div>
+  <p class="skip"><b>Skip it when:</b> never.</p>
+
+  <h3>After the file is closed</h3>
+  <ol>
+    <li>Mark the enquiry lost in your CRM the same day. Reason: no response, or date taken.</li>
+    <li>Release the date in every calendar you check availability against.</li>
+    <li>Delete every remaining to-do for this couple.</li>
+    <li>If they replied "yes please", add them to your keep-in-touch list. Nobody else goes on it.</li>
+    <li>If they come back later, they start a fresh conversation, not a sequence. Reply like a person, book the call, and let the Booking Pack take it from there.</li>
+  </ol>
+</section>
+
+<!-- TO-DO RULE -->
+<section class="page">
+  <div class="kicker">The to-do rule</div>
+  <h2>If it has no to-do, it is not a lead</h2>
+  <p class="lede">A follow-up that lives in your head is a hope. The rule fixes that in one move: the moment you send anything to a couple, set the to-do for the next touch before you close the tab.</p>
+  <p>Not after the next enquiry. Not at the end of the day. Before you close the tab. The default gap is two days. The cadence map gives the exact day for each touch, and the to-do carries three things: the couple's names, the message code, and the channel.</p>
+  <div class="msg"><span class="ch">Example to-do</span><p>Fri 14 Mar. A3 email + SMS. Priya and Tom.</p></div>
+
+  <h3>Why two days</h3>
+  <p>Long enough that you are not pestering, short enough that they have not forgotten you, and short enough that a to-do can slip a day and still land inside the window. Every other gap in the map is built outward from that first two-day step.</p>
+
+  <h3>The four moves</h3>
+  <div class="grid3" style="grid-template-columns: 1fr 1fr;">
+    <div><div class="num">1</div><h4>Reply, then set</h4><p>First reply goes out, the A1 to-do goes in for two days from today. Same for the proposal: send it, set B1. One minute, every time.</p></div>
+    <div><div class="num">2</div><h4>They reply, you reset</h4><p>Any reply kills every open to-do on their track. Delete them. Set one new to-do for whatever you promised in your reply. The conversation sets the dates now.</p></div>
+    <div><div class="num">3</div><h4>They go quiet again, you resume</h4><p>Pick the track up at the next unsent touch, counting from your last message. Do not start from A1 again.</p></div>
+    <div><div class="num">4</div><h4>Close the file, clear the list</h4><p>The last message on each track releases the date and ends the to-dos. Nothing for that couple stays on your list.</p></div>
+  </div>
+
+  <div class="two">
+    <h3 style="margin-top:0">In a CRM</h3>
+    <p>Any CRM works. The steps are the same.</p>
+    <ol>
+      <li>Open the couple's record straight after you send.</li>
+      <li>Add a task. Title: day, message code, channel, names. Due date from the map.</li>
+      <li>If your CRM runs workflows, build one per track that creates all seven to-dos when the couple moves into "Replied" or "Proposal sent". Your only manual job is deleting them when the couple replies.</li>
+      <li>Have the CRM email you the day's to-dos each morning. Do them in one sitting.</li>
+    </ol>
+    <h3 style="margin-top:0">In a calendar</h3>
+    <p>No CRM yet? Your phone calendar is enough.</p>
+    <ol>
+      <li>The day you send the first reply, create one all-day event per touch, seven in total, titled "A1 email + SMS: Priya and Tom" and so on, on the days from the map.</li>
+      <li>One colour that means "follow-up" and nothing else.</li>
+      <li>When the couple replies, search their names, select all, delete.</li>
+      <li>A to-do on a weekend or holiday gets dragged to the next weekday morning.</li>
+    </ol>
+    <p>Paper works too. The system matters less than the rule.</p>
+  </div>
+
+  <h3>Batching and the weekly sweep</h3>
+  <p>Set one window a day for follow-ups. Twenty minutes, same time every day, before your shift or after it. Open the list, send everything due, set the next to-dos, close the list. Nothing from this product gets sent at nine at night from the couch unless nine at night is your window.</p>
+  <p>Friday, ten minutes. Open every enquiry and every proposal that is not booked and not closed. Each one has a to-do with a date on it, or you set one now. An open lead with no to-do is the only failure this system has, and the sweep catches it.</p>
+  <p class="oneline">If it has no to-do, it is not a lead.</p>
+</section>
+
+</body>
+</html>
