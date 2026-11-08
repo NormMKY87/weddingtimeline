@@ -38,7 +38,7 @@ Before I write, I search the transcript for five things:
 
 1. The personal detail. Where they proposed, the thing they laughed about, the venue they chose and why. One of these opens the email.
 2. Their words for the photography. "Candid." "Not a production." "Editorial but still us." I use their words, not mine.
-3. The coverage we agreed and why. The getting-ready locations, the second photographer decision, the finish time they chose. The proposal repeats the reasoning, not just the number.
+3. The coverage we agreed and why. The getting-ready locations, the second photographer decision, the finish time they chose. The proposal repeats the reasoning as well as the number.
 4. Anything I promised to send. Vendor recommendations, a gallery link, a check on a videographer's availability. If I said it, it goes in the email or I lose trust.
 5. Anything still open. Ceremony time not confirmed, a tea ceremony they are deciding on. I name it so they know the plan can flex.
 
