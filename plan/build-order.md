@@ -9,7 +9,7 @@ Working plan as of 8 November 2026. Dates are deadlines on the Asana board. Vanc
 | Channel name and handle decided, channel, list and landing page set up | 14 Nov | PC or cloud |
 | Quit-Number Calculator live with email opt-in | 16 Nov | Cloud (static page) plus email tool |
 | Free channel piece 1: calculator launch | 16 Nov | PC |
-| Booking Pack written, designed and reviewed | 30 Nov | PC (needs NYP source material) |
+| Booking Pack written, designed and reviewed | 30 Nov | Done 8 Nov in a cloud session. The NYP source (Quinn DM playbook, voice library, Vance rulings) was in Dropbox, so no PC session was needed. Five parts, review log and PDF in `products/booking-pack/`. Two confirmations for Norm in `REVIEW-LOG.md` |
 | Free channel: one piece a week teaching the quick wins (0.2 to 0.7) | Weekly, 22 Nov to 27 Dec | PC |
 
 ### Week by week
