@@ -1,6 +1,8 @@
 # Quit-Number Calculator
 
-Free lead magnet and list builder. Due live 16 November 2026. Asana task 1220327478129069.
+Free lead magnet and list builder. Due live 16 November 2026. Asana task 1220327478129069. Full build brief, maths rules and Dropbox sources in `sessions/01-quit-number-calculator.md`.
+
+Scope widened 8 Nov 2026: sliding scale design with on and off switches, employment type dial (full time, part time, casual), buffer and sustainability built into the target, a transition path that funds the buffer first then trials full time on unpaid leave, and the Package Ladder sheet as the second deliverable.
 
 ## Job
 
