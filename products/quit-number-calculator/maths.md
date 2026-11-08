@@ -70,7 +70,7 @@ These are defaults the user is expected to overwrite from their own contract or 
 | Annual leave, shiftworker | 5 weeks (switch, default off) | Fair Work Act 2009 s 87(1)(b). Same verification note. Norm's paramedic case would use this. |
 | Personal and carer's leave | 2 weeks (10 days) | Fair Work Act 2009 s 96. Same verification note. |
 | Long service leave | 0.8667 weeks a year (switch, default on for full time and part time) | WA Long Service Leave Act 1958 as described on wa.gov.au "Overview of long service leave in WA", page updated 2 September 2026: 8.667 weeks after 10 years of continuous employment, a further 4.333 weeks for each 5 years after. Pro rata payout possible after 7 years. Other states differ, so the field is editable and the help names WA. |
-| Casual loading | 25 percent | The standard loading adopted by the Fair Work Commission's 2008 modern awards Full Bench and carried in most modern awards. Casuals receive no paid annual, personal or long service leave; the loading is paid in their place. Awards and agreements vary, so the field is editable. |
+| Casual loading | 25 percent | The standard loading adopted by the Fair Work Commission's 2008 modern awards Full Bench and carried in most modern awards. Casuals receive no paid annual, personal or long service leave. The loading is paid in their place. Awards and agreements vary, so the field is editable. |
 | Full-time hours | 38 a week | Fair Work Act 2009 s 62 maximum weekly hours. Used only to convert an hourly rate to an annual figure. Part time and casual users must enter their hours. |
 
 ### 3e. Studio defaults from Norm's locked standards
@@ -79,8 +79,8 @@ Direct costs per wedding, each with an on and off switch. Defaults are NYP's sta
 
 | Line | Default | Switch default | Source |
 |---|---|---|---|
-| Second photographer | $70 an hour for 8 hours, $560 | on | Rate: cost-base.md section 1, Mel $70 an hour, stated 3 Sep 2026. Hours: nyp-per-job-cost-standards.md, standard 8 hours. The cost base ladder uses 6 and 10 hours by tier; 8 is the standing per-job standard. |
-| Editing and culling, outsourced | $650 | on | cost-base.md 2b, stated and resolved 3 Sep 2026 as a genuine outsourced cash cost. The older per-job standard carried $850 ($600 editing plus $250 culling); the cost base supersedes it. If the user edits their own weddings the switch goes off, because their hours are not a per-job cost (rule 2). |
+| Second photographer | $70 an hour for 8 hours, $560 | on | Rate: cost-base.md section 1, Mel $70 an hour, stated 3 Sep 2026. Hours: nyp-per-job-cost-standards.md, standard 8 hours. The cost base ladder uses 6 and 10 hours by tier. Eight is the standing per-job standard. |
+| Editing and culling, outsourced | $650 | on | cost-base.md 2b, stated and resolved 3 Sep 2026 as a genuine outsourced cash cost. The older per-job standard carried $850 ($600 editing plus $250 culling). The cost base supersedes it. If the user edits their own weddings the switch goes off, because their hours are not a per-job cost (rule 2). |
 | Album cost of goods | $1,100 ($850 book plus $250 design) | off | cost-base.md 1f and 2c. Only on if albums are inside the package. |
 | Travel and fuel | $50 | on | nyp-per-job-cost-standards.md operating block, travel and fuel $50. |
 | Card fees | 1.78 percent of the inc GST sale | on | Vance associate model 29 Oct 2026, netted out of Xero sales and so invisible until named. The older standard was Stripe 1.7 percent plus 30 cents. |
@@ -93,7 +93,7 @@ Annual overhead, each with a switch. A part-time studio does not carry NYP's ful
 | Insurance | $2,496 ($208 a month) | on | cost-base.md section 2, stated 3 Sep 2026 |
 | Bookkeeping and accounting | $3,000 ($250 a month) | on | cost-base.md section 2 |
 | Software stack | $2,916 ($243 a month: Pic-Time $52, Adobe $24, Dropbox $23, Photo Mechanic $20, Dubsado $61, hosting $63) | on | cost-base.md section 2, the production and client lines only. NYP's full subscriptions line is $1,628 a month and is shown as the reference. |
-| Gear sinking fund | kit replacement value divided by years of life. No default value; the user must enter the kit figure. Life defaults to 5 years. | on | cost-base.md section 3: NYP carries equipment depreciation at $0 and Vance names it the most material omission in the stack. The field is required precisely because of that finding. The 5 year life is a model choice for Norm to confirm. |
+| Gear sinking fund | kit replacement value divided by years of life. No default value. The user must enter the kit figure. Life defaults to 5 years. | on | cost-base.md section 3: NYP carries equipment depreciation at $0 and Vance names it the most material omission in the stack. The field is required precisely because of that finding. The 5 year life is a model choice for Norm to confirm. |
 | Marketing | $0 a month | off | NYP spends $1,500 to $2,000 a month (cost-base.md 1g). Most part-timers spend nothing, so the default is zero with NYP's figure as the reference. When on, the result shows cost per booking (spend over bookings) and applies Hormozi's same-CAC principle in the Package Ladder: every tier inherits the full cost per booking. |
 | Other overhead | $0 | | user line (phone, vehicle, studio rent) |
 
@@ -104,7 +104,7 @@ Cash defaults.
 | Deposit at booking | 50 percent | Norm's ruling 5 Sep 2026, Vance memory.md |
 | Balance due | 90 days before the wedding | Norm's ruling 5 Sep 2026 |
 | Booking lead time | 11.5 months | NYP census of 237 Dubsado records, cost-base.md section 0, median lead time |
-| Net margin floor | 50 percent | NYP's own ladder floor, Norm 3 Sep 2026. NYP's associate jobs use 30 percent; the dial explains both. |
+| Net margin floor | 50 percent | NYP's own ladder floor, Norm 3 Sep 2026. NYP's associate jobs use 30 percent. The dial explains both. |
 
 ## 4. Inputs
 
@@ -280,7 +280,7 @@ Bookings added per year, G = this year minus last year. The model projects booki
 Months until profit reaches X = ((X + O) / C(A_path) - n) / G x 12     (0 if already there, never if G <= 0)
 ```
 
-When G is zero or negative and the gap is positive, the dates read "not at this trajectory" and the result page says what G would need to be to quit in 24 months. Linear growth in bookings is a model choice (decision D6); it is conservative against compounding and honest about a business that books through referrals.
+When G is zero or negative and the gap is positive, the dates read "not at this trajectory" and the result page says what G would need to be to quit in 24 months. Linear growth in bookings is a model choice (decision D6). It is conservative against compounding and honest about a business that books through referrals.
 
 ### The three scenario cards
 
@@ -294,7 +294,7 @@ Each card shows its date, its bookings target and one sentence on what it trades
 
 ## 8. Deposits are not your buffer
 
-At steady state with lead time of 11.5 months, roughly one year of bookings sits on the calendar. Each has paid the deposit; those inside the 90 day balance window have paid the rest.
+At steady state with lead time of 11.5 months, roughly one year of bookings sits on the calendar. Each has paid the deposit. Those inside the 90 day balance window have paid the rest.
 
 ```
 Client money held H(n, A) = n x min(lead / 12, 1.5) x A x ( d + (1 - d) x balance_days / 365 )
@@ -304,7 +304,7 @@ Shown at each required volume with one line: "Cash at bank must be at least this
 
 ## 9. Worked scenarios
 
-Inputs in this section are hypothetical and labelled so. Scenario A is the shape of Norm's own case with stand-in figures; Norm replaces them with his payslip before the scenario is used in any lesson or on the free channel. Figures from `model.py`, start date 16 November 2026, all defaults unless stated.
+Inputs in this section are hypothetical and labelled so. Scenario A is the shape of Norm's own case with stand-in figures. Norm replaces them with his payslip before the scenario is used in any lesson or on the free channel. Figures from `model.py`, start date 16 November 2026, all defaults unless stated.
 
 ### A. Full-time shift worker to full-time photographer (stand-in figures)
 
@@ -382,9 +382,9 @@ Each is implemented as written above unless Norm changes it.
 - D4. Overhead defaults are the production and compliance lines a part-timer must carry, at NYP's stated figures, with NYP's full stack shown as the reference. The gear sinking fund has no default and must be entered.
 - D5. The two higher averages default to today's average times 1.25 and 1.5.
 - D6. Trajectory is linear in bookings per year, from this year minus last year.
-- D7. Email tool for the educator list. Candidates: GoHighLevel on a separate location or sub-account (already paid for, but shared infrastructure with NYP), ConvertKit or MailerLite (separate by construction). CLAUDE.md requires the list to be separate from NYP; a separate GHL sub-account meets that, a shared one does not.
+- D7. Email tool for the educator list. Candidates: GoHighLevel on a separate location or sub-account (already paid for, but shared infrastructure with NYP), ConvertKit or MailerLite (separate by construction). CLAUDE.md requires the list to be separate from NYP. A separate GHL sub-account meets that, a shared one does not.
 - D8. Sole trader tax treatment is assumed for the business. A Pty Ltd structure (company tax, then a wage or dividends) is out of scope for a lead magnet and belongs in Module 5.
-- D9. Norm's own paramedic figures. The context file says around 12 years at St John WA; the Shift Change offer design says 15. Norm to confirm the years and supply the salary, penalties and super from his last payslip so Scenario A becomes real.
+- D9. Norm's own paramedic figures. The context file says around 12 years at St John WA. The Shift Change offer design says 15. Norm to confirm the years and supply the salary, penalties and super from his last payslip so Scenario A becomes real.
 
 ## 12. Excluded, and said so on the assumptions panel
 
