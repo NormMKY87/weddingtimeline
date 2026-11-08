@@ -63,4 +63,4 @@ Go through these once, write your answers down, and the pack is yours.
 
 It does not write your follow-ups after a couple goes quiet. That is the Follow-Up Vault, by day and channel. It does not run your call. That is the Consult Call Kit. It does not set your prices. Nothing here tells you what to charge, and nothing should.
 
-If you bought this pack and later join the full program, the price you paid here comes off the program. These scripts are the foundation of two of its modules, and I will not sell you the same thing twice.
+If you bought this pack and later join the full program, you will not pay for these scripts twice. They are the foundation of two of its modules, and buyers of this pack are credited or upgraded, never charged again for the same material.

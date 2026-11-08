@@ -143,7 +143,7 @@ If they skip it twice, leave it. Ask again in the booking confirmation or the la
 
 ### They want to see more work
 
-> Of course! Happy to send through a couple of full weddings so you can see a whole day, not just the highlights.
+> Of course! Happy to send through a couple of full weddings so you can see a whole day rather than only the highlights.
 > Was there a particular venue or feel you'd like to see?
 
 Send one titled gallery at a time, picked to match their venue or feel. Not a list. Invite the chat in your next message.
