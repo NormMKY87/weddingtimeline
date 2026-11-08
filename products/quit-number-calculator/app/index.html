@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Quit-Number Calculator</title>
+<meta name="description" content="Can I leave my job, and when. The maths for part-time wedding photographers who want to go full time, net to net, with a buffer and a dated plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one column tool, 720px measure, steps stacked, result as a ledger. Numbers in mono. */
+:root{
+  --bg:#f5f6f2; --surface:#ffffff; --surface-2:#eceee7; --fg:#172028; --muted:#5b6670; --line:#d6dad1;
+  --accent:#1f6f5f; --accent-ink:#ffffff; --accent-soft:#e3efea;
+  --good:#1f6f5f; --warn:#a8641b; --warn-soft:#f6ead8; --bad:#a53d2e; --bad-soft:#f5e1dd;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono","SFMono-Regular",Menlo,Consolas,monospace;
+  --radius:10px; --shadow:0 1px 2px rgba(23,32,40,.06),0 8px 24px rgba(23,32,40,.06);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141a1e; --surface:#1c2429; --surface-2:#232d33; --fg:#e8ebe6; --muted:#9aa5ab; --line:#33403f;
+  --accent:#6fc2ad; --accent-ink:#0f1a17; --accent-soft:#1f3a33;
+  --good:#6fc2ad; --warn:#e0a860; --warn-soft:#3a2d1a; --bad:#e58a7a; --bad-soft:#3d2320; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a1e; --surface:#1c2429; --surface-2:#232d33; --fg:#e8ebe6; --muted:#9aa5ab; --line:#33403f;
+  --accent:#6fc2ad; --accent-ink:#0f1a17; --accent-soft:#1f3a33;
+  --good:#6fc2ad; --warn:#e0a860; --warn-soft:#3a2d1a; --bad:#e58a7a; --bad-soft:#3d2320; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+.wrap{max-width:760px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,6vw,2.9rem);letter-spacing:-.01em}
+h2{font-size:1.45rem}
+h3{font-size:1.1rem}
+p{margin:0}
+a{color:var(--accent)}
+.muted{color:var(--muted)}
+.small{font-size:.875rem}
+.mono,.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+header.top{padding-block:36px 20px;display:grid;gap:14px}
+header.top .lede{max-width:62ch;font-size:1.05rem}
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin-top:8px}
+.tab{appearance:none;background:none;border:0;border-bottom:3px solid transparent;padding:10px 4px;margin-right:14px;font:inherit;font-weight:600;color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{color:var(--fg);border-color:var(--accent)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.steps{display:flex;gap:4px;margin:22px 0 6px;list-style:none;padding:0}
+.steps li{flex:1;height:4px;border-radius:2px;background:var(--line)}
+.steps li.on{background:var(--accent)}
+.stepname{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:18px}
+
+section.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;display:grid;gap:18px;box-shadow:var(--shadow)}
+section.panel + section.panel{margin-top:16px}
+.group{display:grid;gap:14px}
+.group > .eyebrow{margin-bottom:-4px}
+
+.field{display:grid;gap:6px;padding-block:8px;border-top:1px solid var(--line)}
+.field:first-of-type{border-top:0}
+.field .row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.field label.lbl{font-weight:600}
+.field .help{font-size:.85rem;color:var(--muted);max-width:60ch}
+.field .ctl{display:flex;align-items:center;gap:10px;flex:1 1 100%;min-width:0}
+input[type=range]{flex:1 1 auto;min-width:0;accent-color:var(--accent);height:28px}
+input[type=number],input[type=text],input[type=email],select{font:inherit;font-family:var(--mono);color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:7px 9px;width:9.5ch;text-align:right}
+input[type=text],input[type=email]{font-family:var(--body);width:100%;text-align:left}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.unit{font-size:.85rem;color:var(--muted);min-width:3ch}
+.field.off .ctl{opacity:.45}
+
+.switch{display:inline-flex;align-items:center;gap:8px;cursor:pointer;user-select:none;font-size:.9rem;font-weight:500}
+.switch input{position:absolute;opacity:0;width:1px;height:1px}
+.switch .knob{width:40px;height:22px;border-radius:11px;background:var(--line);position:relative;transition:background .15s}
+.switch .knob::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--surface);box-shadow:0 1px 2px rgba(0,0,0,.25);transition:left .15s}
+.switch input:checked + .knob{background:var(--accent)}
+.switch input:checked + .knob::after{left:21px}
+.switch input:focus-visible + .knob{outline:2px solid var(--accent);outline-offset:2px}
+
+.dial{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface-2)}
+.dial button{appearance:none;border:0;background:none;font:inherit;font-weight:600;padding:9px 6px;border-radius:999px;cursor:pointer;color:var(--muted)}
+.dial button[aria-pressed="true"]{background:var(--surface);color:var(--fg);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{appearance:none;border:0;background:var(--surface);font:inherit;font-size:.9rem;padding:7px 12px;cursor:pointer;color:var(--muted)}
+.seg button + button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--accent-soft);color:var(--fg);font-weight:600}
+
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:18px}
+.btn{appearance:none;font:inherit;font-weight:600;border-radius:8px;padding:12px 18px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.ghost{background:none}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
+.note{border-left:3px solid var(--accent);padding:8px 12px;background:var(--accent-soft);border-radius:0 6px 6px 0;font-size:.92rem}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.note.bad{border-color:var(--bad);background:var(--bad-soft)}
+.ref{font-size:.8rem;color:var(--muted)}
+
+/* Result ledger */
+.headline{display:grid;gap:6px;padding:22px 20px;border-radius:var(--radius);background:var(--fg);color:var(--bg)}
+:root[data-theme="dark"] .headline{background:var(--surface-2);color:var(--fg)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .headline{background:var(--surface-2);color:var(--fg)}}
+.headline .big{font-family:var(--mono);font-size:clamp(2.2rem,8vw,3.4rem);font-weight:500;letter-spacing:-.02em;line-height:1}
+.headline .sub{opacity:.85}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:grid;gap:2px;min-width:0}
+.kpi .v{font-family:var(--mono);font-size:1.35rem;font-weight:500}
+.kpi .k{font-size:.8rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+.tablewrap{overflow-x:auto}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.pill{display:inline-block;font-size:.75rem;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--fg)}
+.pill.bad{background:var(--bad-soft)}
+.pill.warn{background:var(--warn-soft)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:grid;gap:8px;min-width:0}
+.card .date{font-family:var(--mono);font-size:1.3rem;font-weight:500}
+.card ul{margin:0;padding-left:1.1em;font-size:.9rem}
+.card li{margin:2px 0}
+details{border:1px solid var(--line);border-radius:8px;padding:10px 14px;background:var(--surface)}
+summary{cursor:pointer;font-weight:600}
+details .inner{margin-top:10px;display:grid;gap:10px;font-size:.9rem}
+.voice{font-family:var(--display);font-size:1.15rem;line-height:1.45;max-width:60ch}
+.gate{display:grid;gap:12px}
+.gate .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.gate .two{grid-template-columns:1fr}}
+.foot{margin-top:28px;font-size:.8rem;color:var(--muted);max-width:70ch}
+.ladder-tiers{display:grid;gap:12px}
+.tier{border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--surface);display:grid;gap:10px}
+.tier .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.tier .f{display:grid;gap:4px;font-size:.85rem;color:var(--muted)}
+.tier .f input{width:100%}
+.tier .out{display:flex;gap:14px;flex-wrap:wrap;font-size:.9rem}
+.tier .out b{font-family:var(--mono);font-weight:500}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+@media print{
+  body{background:#fff;color:#000;padding:0}
+  .tabs,.nav,.btn,header.top .lede,.steps,.stepname,#tab-calc{display:none!important}
+  section.panel,.card,.kpi,.tier{box-shadow:none;break-inside:avoid}
+  .wrap{max-width:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">A tool from Norman Yap, for photographers with a day job</div>
+  <h1>Can I leave my job, and when?</h1>
+  <p class="lede">I was a paramedic shooting weddings on the side. This is the maths I wish I had run before I handed in my notice. It compares your take-home pay to what the business must actually earn, builds in a buffer, and gives you a date. Twenty minutes, your real numbers, no guessing.</p>
+  <p class="small muted">For wedding photographers who are already booking paid weddings. If you are not earning from weddings yet, follow along and come back when you are.</p>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tabbtn-calc" aria-selected="true" aria-controls="tab-calc">The calculator</button>
+    <button class="tab" role="tab" id="tabbtn-ladder" aria-selected="false" aria-controls="tab-ladder">The Package Ladder</button>
+  </div>
+</header>
+
+<main>
+<div id="tab-calc" role="tabpanel" aria-labelledby="tabbtn-calc">
+  <ol class="steps" id="steps"><li class="on"></li><li></li><li></li><li></li></ol>
+  <div class="stepname"><h2 id="stepTitle">Step 1. Your job</h2><span class="small muted" id="stepCount">1 of 4</span></div>
+
+  <!-- Step 1 -->
+  <section class="panel" data-step="1">
+    <div class="group">
+      <div class="eyebrow">How you are employed now</div>
+      <div class="dial" id="empDial" role="group" aria-label="Employment type">
+        <button type="button" data-v="full" aria-pressed="true">Full time</button>
+        <button type="button" data-v="part" aria-pressed="false">Part time</button>
+        <button type="button" data-v="casual" aria-pressed="false">Casual</button>
+      </div>
+      <p class="help muted small" id="empHelp"></p>
+    </div>
+    <div class="group" id="g-pay"></div>
+    <div class="group" id="g-leave"></div>
+    <div class="group" id="g-house"></div>
+    <div class="nav"><span></span><button class="btn primary" data-go="2">Next: your business</button></div>
+  </section>
+
+  <!-- Step 2 -->
+  <section class="panel" data-step="2" hidden>
+    <div class="group" id="g-biz"></div>
+    <div class="group" id="g-direct"></div>
+    <div class="group" id="g-overhead"></div>
+    <div class="group" id="g-cash"></div>
+    <div class="nav"><button class="btn ghost" data-go="1">Back</button><button class="btn primary" data-go="3">Next: your targets</button></div>
+  </section>
+
+  <!-- Step 3 -->
+  <section class="panel" data-step="3" hidden>
+    <div class="group" id="g-targets"></div>
+    <div class="group" id="g-path"></div>
+    <div class="nav"><button class="btn ghost" data-go="2">Back</button><button class="btn primary" data-go="4">Next: get my number</button></div>
+  </section>
+
+  <!-- Step 4: gate -->
+  <section class="panel" data-step="4" hidden>
+    <div class="gate">
+      <h3>Where should I send your result?</h3>
+      <p class="muted">Your number, your gap, your dates and the three scenarios, on screen now and in your inbox so you can come back to it. I will also send the Package Ladder sheet that turns the number into prices. One email a week from me after that, and you can leave any time.</p>
+      <form id="gateForm" novalidate>
+        <div class="two">
+          <div class="field"><label class="lbl" for="firstName">First name</label><input type="text" id="firstName" name="firstName" autocomplete="given-name" required></div>
+          <div class="field"><label class="lbl" for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+        </div>
+        <p class="small muted" id="gateErr" hidden></p>
+        <div class="nav"><button class="btn ghost" type="button" data-go="3">Back</button><button class="btn primary" type="submit" id="gateSubmit">Show me my number</button></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Result -->
+  <section class="panel" data-step="5" hidden id="result"></section>
+</div>
+
+<div id="tab-ladder" role="tabpanel" aria-labelledby="tabbtn-ladder" hidden>
+  <section class="panel" id="ladder"></section>
+</div>
+</main>
+
+<p class="foot" id="disclaimer"></p>
+</div>
+
+<script>
+/* ============================================================
+   Quit-Number Calculator. Model mirrors products/quit-number-calculator/model.py
+   and maths.md. Change rates in RATES only, once a year.
+   ============================================================ */
+const CONFIG = {
+  // Educator list endpoint. Decide the tool with Norm (maths.md D7). Leave empty to run without posting.
+  emailEndpoint: "",
+  startDate: new Date()
+};
+
+const RATES = {
+  asAt: "8 November 2026",
+  fy: "2026-27",
+  taxFree: 18200,
+  // Income Tax Rates Act 1986, Compilation No. 66 (1 July 2026), Sch 7 Pt I, 2026-27 table
+  brackets: [[18200,45000,.15],[45000,135000,.30],[135000,190000,.37],[190000,Infinity,.45]],
+  // Medicare Levy Act 1986, Compilation No. 53 (1 July 2026): s6 2%, s3 $28,011 / $35,013, s7 10% of excess
+  medicare: {rate:.02, threshold:28011, phaseIn:35013, phaseRate:.10},
+  // SG (Administration) Act 1992, Compilation No. 77 (27 March 2026), s19(2) item 13: 12%
+  sg: .12,
+  gst: 1.1
+};
+
+function incomeTax(t){let x=0;for(const [lo,hi,r] of RATES.brackets){if(t>lo)x+=(Math.min(t,hi)-lo)*r}return Math.max(x,0)}
+function medicare(t){const m=RATES.medicare;if(t<=m.threshold)return 0;const full=t*m.rate;if(t<=m.phaseIn)return Math.min(full,(t-m.threshold)*m.phaseRate);return full}
+function takeHome(t){return t-incomeTax(t)-medicare(t)}
+function grossFromNet(n){let lo=0,hi=Math.max(n*3,50000);for(let i=0;i<120;i++){const mid=(lo+hi)/2;if(takeHome(mid)<n)lo=mid;else hi=mid}return (lo+hi)/2}
+
+/* ---------- state ---------- */
+const S = {
+  emp:"full", payBasis:"annual", salary:90000, hourly:45, hours:38, rateLoaded:true, loading:25, penalties:0,
+  knowNet:false, netPay:70000, superRate:12, shiftworker:false, alWeeks:4, plWeeks:2, lslOn:true, lslWeeks:0.87, household:6000,
+  wedNow:10, wedLast:10, avg:5000, gst:true,
+  ssOn:true, ssRate:70, ssHours:8, editOn:true, editCost:650, albumOn:false, albumCost:1100, travelOn:true, travelCost:50, cardOn:true, cardRate:1.78, otherDirect:0,
+  insOn:true, ins:2496, acctOn:true, acct:3000, swOn:true, sw:2916, gearOn:true, kit:0, kitLife:5, mktOn:false, mkt:0, otherOH:0,
+  deposit:50, balanceDays:90, lead:11.5,
+  floor:50, bufferMonths:3, cashSaved:0, otherSave:0, sustain:true, ip:0, growthOn:false, targetAvg:7500,
+  trialMonths:3, partFrac:60, casualShifts:4, casualHours:10
+};
+try{const saved=JSON.parse(localStorage.getItem("qn_state_v1")||"null");if(saved&&typeof saved==="object")Object.assign(S,saved)}catch(e){}
+function persist(){try{localStorage.setItem("qn_state_v1",JSON.stringify(S))}catch(e){}}
+
+/* ---------- model ---------- */
+function model(s){
+  const g = s.gst ? RATES.gst : 1;
+  const casual = s.emp==="casual";
+  let rate = s.hourly; if(casual && !s.rateLoaded) rate *= 1 + s.loading/100;
+  const gross = s.payBasis==="hourly" ? rate*s.hours*52 : s.salary;
+  const T0 = gross + s.penalties;
+  const N = s.knowNet ? s.netPay : takeHome(T0);
+  const T = s.knowNet ? grossFromNet(s.netPay) : T0;
+  const U = gross * s.superRate/100;
+  const L = casual ? 0 : (s.shiftworker?5:s.alWeeks) + s.plWeeks + (s.lslOn?s.lslWeeks:0);
+  const W = 52 - L;
+  const sustain = (s.sustain?U:0) + (s.ip>0?s.ip:0);
+  const Q = T + sustain;
+
+  const rev = a => a/g;
+  const fixedDirect = (s.ssOn?s.ssRate*s.ssHours:0)+(s.editOn?s.editCost:0)+(s.albumOn?s.albumCost:0)+(s.travelOn?s.travelCost:0)+s.otherDirect;
+  const card = s.cardOn ? s.cardRate/100 : 0;
+  const direct = a => fixedDirect + card*a;
+  const contrib = a => rev(a) - direct(a);
+  const O = (s.insOn?s.ins:0)+(s.acctOn?s.acct:0)+(s.swOn?s.sw:0)+(s.gearOn&&s.kitLife>0?s.kit/s.kitLife:0)+(s.mktOn?s.mkt*12:0)+s.otherOH;
+  const n = s.wedNow, A = s.avg;
+  const B = n*contrib(A) - O;
+  const margin = (nn,a) => nn>0 ? (contrib(a) - O/nn)/rev(a) : null;
+  const taxBiz = (incomeTax(T+Math.max(B,0))+medicare(T+Math.max(B,0))) - (incomeTax(T)+medicare(T));
+  const Bnet = B - taxBiz;
+  const gap = Q - B;
+  const need = (a, req=Q) => { const c=contrib(a); return c>0 ? Math.ceil((req+O)/c) : Infinity };
+  const held = (nn,a) => nn*Math.min(s.lead/12,1.5)*a*(s.deposit/100 + (1-s.deposit/100)*s.balanceDays/365);
+  const r100 = x => Math.round(x/100)*100;
+  const avgs = (s.growthOn && s.targetAvg>0) ? [A, s.targetAvg, r100(s.targetAvg*1.25)] : [A, r100(A*1.25), r100(A*1.5)];
+  const f = s.floor/100;
+  const required = avgs.map(a=>{const nn=need(a);return {a, n:nn, oh: isFinite(nn)?O/nn:null, m: isFinite(nn)?margin(nn,a):null, ok: isFinite(nn)?margin(nn,a)>=f:false, held: isFinite(nn)?held(nn,a):null}});
+  const nStar = required[0].n;
+  const denom = (1-f)/g - card;
+  const floorAvg = (isFinite(nStar) && denom>0) ? (fixedDirect + O/nStar)/denom : null;
+
+  const sick = (s.sustain && !casual) ? s.plWeeks/52*s.household*12 : 0;
+  const buffer = s.bufferMonths*s.household + sick;
+  const F = Math.max(Bnet,0)/12 + s.otherSave;
+  const mBuffer = F>0 ? Math.max(buffer - s.cashSaved,0)/F : Infinity;
+  const trialNeed = s.trialMonths*s.household;
+  const mTrial = F>0 ? Math.max(trialNeed - s.cashSaved,0)/F : Infinity;
+
+  const G = n - s.wedLast;
+  const aPath = (s.growthOn && s.targetAvg>0) ? s.targetAvg : A;
+  const monthsTo = (req) => { const c=contrib(aPath); const needN=c>0?(req+O)/c:Infinity; if(n>=needN)return 0; if(G<=0)return Infinity; return (needN-n)/G*12 };
+  const mQuit = Math.max(monthsTo(Q), mBuffer);
+  const phi = s.partFrac/100;
+  const Qstep = Q - phi*(T + (s.sustain?U:0));
+  const mStep = Math.max(monthsTo(Qstep), mTrial);
+  const hourlyNow = s.hours>0 ? gross/(s.hours*52) : 0;
+  const casualRate = casual ? hourlyNow : hourlyNow*(1+s.loading/100);
+  const Y = casualRate*s.casualHours*s.casualShifts*12;
+  const Qcas = Q - Y - (s.sustain?Y*s.superRate/100:0);
+  const mCas = Math.max(monthsTo(Qcas), mTrial);
+  // bookings a year needed to be at Q in 24 months
+  const needN24 = contrib(aPath)>0 ? (Q+O)/contrib(aPath) : Infinity;
+  const gPer24 = isFinite(needN24) ? Math.max((needN24-n)/2,0) : Infinity;
+
+  return {gross,T,N,U,L,W,sustain,Q,O,ohNow:n>0?O/n:null,contribNow:contrib(A),B,taxBiz,Bnet,marginNow:margin(n,A),gap,required,floorAvg,
+    sick,buffer,F,mBuffer,mTrial,trialNeed,G,aPath,
+    full:{n:need(aPath),mTrial,mQuit},
+    part:{phi,Qstep,n:need(aPath,Math.max(Qstep,0)),mStep,mQuit},
+    cas:{Y,Qcas,n:need(aPath,Math.max(Qcas,0)),mCas},
+    gPer24, cac: (s.mktOn&&n>0)?s.mkt*12/n:0, fixedDirect, card, g, contrib, rev, need, held, margin};
+}
+
+/* ---------- helpers ---------- */
+const $ = sel => document.querySelector(sel);
+const money = v => v==null||!isFinite(v) ? "n/a" : (v<0?"-":"")+"$"+Math.round(Math.abs(v)).toLocaleString("en-AU");
+const pct = v => v==null ? "n/a" : (v*100).toFixed(1)+"%";
+const months = m => !isFinite(m) ? "not at this trajectory" : m<1 ? "under a month" : Math.round(m)+" months";
+function addMonths(d,m){const x=new Date(d.getFullYear(),d.getMonth()+Math.round(m),1);return x}
+const dateStr = m => !isFinite(m) ? "No date at this trajectory" : addMonths(CONFIG.startDate,m).toLocaleDateString("en-AU",{month:"long",year:"numeric"});
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+
+/* ---------- field renderer ---------- */
+/* spec: {key, label, help, min, max, step, unit, prefix, sw (switch key), ref} */
+function field(sp){
+  const sw = sp.sw ? `<label class="switch"><input type="checkbox" id="sw-${sp.sw}" data-sw="${sp.sw}" ${S[sp.sw]?"checked":""}><span class="knob"></span><span>${S[sp.sw]?"On":"Off"}</span></label>` : "";
+  const off = sp.sw && !S[sp.sw] ? " off" : "";
+  const slider = sp.min!=null ? `<input type="range" id="rg-${sp.key}" data-key="${sp.key}" min="${sp.min}" max="${sp.max}" step="${sp.step||1}" value="${S[sp.key]}" aria-label="${esc(sp.label)} slider">` : "";
+  return `<div class="field${off}" data-field="${sp.key}">
+    <div class="row"><label class="lbl" for="in-${sp.key}">${sp.label}</label>${sw}</div>
+    ${sp.help?`<div class="help">${sp.help}</div>`:""}
+    <div class="ctl">${slider}<span class="unit">${sp.prefix||""}</span><input type="number" id="in-${sp.key}" data-key="${sp.key}" value="${S[sp.key]}" step="${sp.step||1}" min="${sp.min!=null?sp.min:0}" inputmode="decimal"><span class="unit">${sp.unit||""}</span></div>
+    ${sp.ref?`<div class="ref">${sp.ref}</div>`:""}
+  </div>`;
+}
+function switchOnly(key,label,help,ref){
+  return `<div class="field" data-field="${key}"><div class="row"><span class="lbl">${label}</span><label class="switch"><input type="checkbox" id="sw-${key}" data-sw="${key}" ${S[key]?"checked":""}><span class="knob"></span><span>${S[key]?"On":"Off"}</span></label></div>${help?`<div class="help">${help}</div>`:""}${ref?`<div class="ref">${ref}</div>`:""}</div>`;
+}
+
+const EMP_HELP = {
+  full: "Full time sets 38 hours and the standard paid leave. Change anything that does not match your contract.",
+  part: "Part time means fewer hours, same leave in weeks. Enter your hours and your pay as it is on the payslip.",
+  casual: "Casual means no paid leave and a loading in your hourly rate instead. Nothing is added for leave, because the loading already stands in for it."
+};
+
+function renderStep1(){
+  const casual = S.emp==="casual";
+  $("#empHelp").textContent = EMP_HELP[S.emp];
+  const payToggle = `<div class="field"><div class="row"><span class="lbl">How you want to enter your pay</span>
+    <div class="seg" id="payBasis"><button type="button" data-v="annual" aria-pressed="${S.payBasis==="annual"}">Annual salary</button><button type="button" data-v="hourly" aria-pressed="${S.payBasis==="hourly"}">Hourly rate</button></div></div></div>`;
+  let pay = `<div class="eyebrow">Your pay</div>${payToggle}`;
+  if(S.payBasis==="annual"){
+    pay += field({key:"salary",label:"Gross salary, a year",help:"Before tax, not counting super. From your contract or the year-to-date line on a payslip.",min:30000,max:250000,step:500,prefix:"$"});
+  } else {
+    pay += field({key:"hourly",label:"Hourly rate",help:casual?"Most casual rates are quoted with the loading already in them.":"Your base hourly rate.",min:20,max:150,step:0.5,prefix:"$"});
+    pay += field({key:"hours",label:"Hours a week",help:"Average paid hours. Full time is 38.",min:4,max:60,step:0.5,unit:"hrs"});
+    if(casual) pay += switchOnly("rateLoaded","My hourly rate already includes the casual loading","If it does not, I add the loading below before working out your annual figure.");
+    if(casual) pay += field({key:"loading",label:"Casual loading",help:"The standard loading in most modern awards is 25 percent. Your award or agreement may differ.",min:0,max:40,step:1,unit:"%"});
+  }
+  pay += field({key:"penalties",label:"Penalties and allowances, a year",help:"Shift penalties, overtime, allowances. Taxed as income. Super is not added on these here, so if yours attract super, add them to your salary instead.",min:0,max:60000,step:500,prefix:"$"});
+  pay += field({key:"netPay",label:"I know my take-home",help:"If you know your annual net pay from the payslip, switch this on and type it. It replaces my tax estimate for the job side.",min:20000,max:200000,step:500,prefix:"$",sw:"knowNet"});
+  pay += field({key:"superRate",label:"Employer super rate",help:"The super guarantee is 12 percent from 1 July 2025. Some employers pay more.",min:10,max:20,step:0.5,unit:"%",ref:"Superannuation Guarantee (Administration) Act 1992, s 19(2), compilation of 27 March 2026."});
+  $("#g-pay").innerHTML = pay;
+
+  let leave = `<div class="eyebrow">Paid leave the job gives you</div>`;
+  if(casual){
+    leave += `<p class="help muted small">Casual work carries no paid leave. The loading in your rate is what you get instead, and it is already counted above.</p>`;
+  } else {
+    leave += switchOnly("shiftworker","I am a shiftworker under my award","Shiftworkers get a fifth week of annual leave.");
+    leave += field({key:"alWeeks",label:"Annual leave, weeks a year",min:0,max:8,step:0.5,unit:"wks",ref:"National Employment Standards, Fair Work Act 2009 s 87: four weeks, five for shiftworkers."});
+    leave += field({key:"plWeeks",label:"Personal and carer's leave, weeks a year",help:"Ten days is two weeks. This becomes a sick provision in your buffer, because nobody pays you when you are sick once you leave.",min:0,max:6,step:0.5,unit:"wks",ref:"Fair Work Act 2009 s 96: ten days a year."});
+    leave += field({key:"lslWeeks",label:"Long service leave, weeks a year",help:"In WA it is 8.667 weeks after ten years, which is 0.87 of a week a year. Other states differ.",min:0,max:2,step:0.01,unit:"wks",sw:"lslOn",ref:"WA Long Service Leave Act 1958, per wa.gov.au, page updated 2 September 2026."});
+  }
+  $("#g-leave").innerHTML = leave;
+
+  $("#g-house").innerHTML = `<div class="eyebrow">Your household</div>` + field({key:"household",label:"Household expenses, a month",help:"What the household spends, not what you earn. Mortgage or rent, food, cars, kids, insurance, the lot. This sizes your buffer.",min:2000,max:20000,step:100,prefix:"$"});
+  wire();
+}
+
+function renderStep2(){
+  let biz = `<div class="eyebrow">Your weddings</div>`;
+  biz += field({key:"wedNow",label:"Weddings this year",help:"Paid weddings shot or booked for this calendar year.",min:0,max:60,step:1});
+  biz += field({key:"wedLast",label:"Weddings last year",help:"This sets your trajectory. If this year is the same as last year, the dates will tell you that too.",min:0,max:60,step:1});
+  biz += field({key:"avg",label:"Average sale per wedding, inc GST",help:"Total paid per wedding including add-ons, averaged across the year.",min:1000,max:25000,step:100,prefix:"$"});
+  biz += switchOnly("gst","Registered for GST","Your quit number sits above the $75,000 registration turnover for almost everyone, so I treat one eleventh of every sale as GST and never as yours. Switch off only if you are under the threshold and not registered.");
+  $("#g-biz").innerHTML = biz;
+
+  let d = `<div class="eyebrow">Cash cost of each wedding</div><p class="help muted small">Only cash you pay out. Your own hours never go here. Paying yourself per job and again as a wage is the double count that made my own packages look thin for a year.</p>`;
+  d += field({key:"ssRate",label:"Second photographer, rate an hour",min:0,max:200,step:5,prefix:"$",sw:"ssOn",ref:"My second shooters cost $70 an hour (cost base, 3 September 2026)."});
+  d += field({key:"ssHours",label:"Second photographer, hours",min:1,max:14,step:1,unit:"hrs",ref:"My standard is eight hours."});
+  d += field({key:"editCost",label:"Outsourced editing and culling",help:"Only if you pay someone. If you edit your own, switch it off. Your time is not a per-job cost.",min:0,max:2000,step:25,prefix:"$",sw:"editOn",ref:"Mine is $650 a wedding, outsourced (cost base 2b)."});
+  d += field({key:"albumCost",label:"Album, cost of goods and design",help:"Only if an album is inside your package.",min:0,max:3000,step:50,prefix:"$",sw:"albumOn",ref:"Mine costs $850 for the book and $250 for the design."});
+  d += field({key:"travelCost",label:"Travel and fuel",min:0,max:1000,step:10,prefix:"$",sw:"travelOn",ref:"My per-job standard is $50 inside Perth."});
+  d += field({key:"cardRate",label:"Card fees",help:"Charged on the inc GST amount. Netted out of your sales by the processor, so it never shows up as a cost until you name it.",min:0,max:4,step:0.01,unit:"%",sw:"cardOn",ref:"1.78 percent on my books (29 October 2026)."});
+  d += field({key:"otherDirect",label:"Other cash cost per wedding",min:0,max:3000,step:25,prefix:"$"});
+  $("#g-direct").innerHTML = d;
+
+  let o = `<div class="eyebrow">What the business costs a year, whether or not you shoot</div><p class="help muted small">Annual lines. I divide them by your bookings, so overhead per wedding falls as you grow. My own studio's figure sits beside each line for reference. You do not need to carry mine.</p>`;
+  o += field({key:"ins",label:"Insurance",min:0,max:10000,step:50,prefix:"$",sw:"insOn",ref:"Mine is $208 a month, $2,496 a year."});
+  o += field({key:"acct",label:"Bookkeeping and accounting",min:0,max:12000,step:100,prefix:"$",sw:"acctOn",ref:"Mine is $250 a month."});
+  o += field({key:"sw",label:"Software: gallery, editing, storage, CRM, website",min:0,max:20000,step:50,prefix:"$",sw:"swOn",ref:"My production and client lines run $243 a month. My full stack is far larger and you do not need it yet."});
+  o += field({key:"kit",label:"What it would cost to replace your kit today",help:"Bodies, lenses, lights, computer, drives. This is the line nearly every part-timer leaves out. My own books carried it at zero and my finance review called it the most dangerous number in the stack.",min:0,max:80000,step:500,prefix:"$",sw:"gearOn"});
+  o += field({key:"kitLife",label:"Years before you replace it",min:2,max:10,step:1,unit:"yrs"});
+  o += field({key:"mkt",label:"Marketing spend, a month",help:"Ads, directories, shows. When this is on I show your cost per booking, and every package inherits it.",min:0,max:5000,step:50,prefix:"$",sw:"mktOn",ref:"I spend $1,500 to $2,000 a month. Most part-timers spend nothing yet."});
+  o += field({key:"otherOH",label:"Other annual overhead",help:"Phone, vehicle, studio, subscriptions not listed.",min:0,max:30000,step:100,prefix:"$"});
+  $("#g-overhead").innerHTML = o;
+
+  let c = `<div class="eyebrow">How couples pay you</div>`;
+  c += field({key:"deposit",label:"Retainer at booking",min:10,max:100,step:5,unit:"%",ref:"Mine is 50 percent."});
+  c += field({key:"balanceDays",label:"Balance due, days before the wedding",min:0,max:180,step:5,unit:"days",ref:"Mine is 90 days."});
+  c += field({key:"lead",label:"Months between booking and wedding",min:1,max:24,step:0.5,unit:"mo",ref:"My median is 11.5 months across 237 bookings."});
+  $("#g-cash").innerHTML = c;
+  wire();
+}
+
+function renderStep3(){
+  let t = `<div class="eyebrow">Your targets</div>`;
+  t += field({key:"floor",label:"Net margin floor",help:"Profit after direct costs and overhead, over revenue ex GST, before your own tax and wage. I hold my own packages to 50 percent and my associate jobs to 30. Under 30 is a hobby with expenses.",min:20,max:70,step:1,unit:"%"});
+  t += field({key:"bufferMonths",label:"Buffer, months of household expenses",help:"Cash in the household account before you resign. Three months is my minimum. Client deposits do not count.",min:0,max:12,step:1,unit:"months"});
+  t += field({key:"cashSaved",label:"Cash already set aside for this",min:0,max:150000,step:500,prefix:"$"});
+  t += field({key:"otherSave",label:"Other savings a month toward the buffer",help:"From the household, outside the business.",min:0,max:10000,step:50,prefix:"$"});
+  t += switchOnly("sustain","Sustainable, not just replaced","Adds your own super at the same rate your employer pays, and a sick-leave provision to the buffer. Replacing the payslip alone is how people quit and go backwards.");
+  t += field({key:"ip",label:"Income protection premium, a year",help:"Optional. Counts when above zero.",min:0,max:8000,step:50,prefix:"$"});
+  t += field({key:"targetAvg",label:"Target average sale, inc GST",help:"Hold today's average, or set where you intend to price. The Package Ladder tab helps you get there.",min:1000,max:30000,step:100,prefix:"$",sw:"growthOn"});
+  $("#g-targets").innerHTML = t;
+
+  let p = `<div class="eyebrow">The path</div><p class="help muted small">Build the buffer first. Then take unpaid leave and run the business full time for a trial before you resign. Then choose how to step out.</p>`;
+  p += field({key:"trialMonths",label:"Unpaid leave trial, months",help:"Long enough to live the full-time week and shoot through a season. Your household needs this many months of expenses in cash before you take it.",min:1,max:6,step:1,unit:"months"});
+  p += field({key:"partFrac",label:"If you drop to part time first, how much of the job you keep",help:"Three days of five is 60 percent.",min:20,max:80,step:10,unit:"%"});
+  p += field({key:"casualShifts",label:"If you go casual, shifts a month",min:1,max:12,step:1});
+  p += field({key:"casualHours",label:"Hours a shift",min:4,max:14,step:1,unit:"hrs"});
+  $("#g-path").innerHTML = p;
+  wire();
+}
+
+function wire(){
+  document.querySelectorAll('input[data-key]').forEach(el=>{
+    el.oninput = e => {
+      const k = el.dataset.key; let v = parseFloat(el.value); if(isNaN(v)) return;
+      S[k] = v; persist();
+      const other = el.type==="range" ? document.getElementById("in-"+k) : document.getElementById("rg-"+k);
+      if(other) other.value = v;
+    };
+  });
+  document.querySelectorAll('input[data-sw]').forEach(el=>{
+    el.onchange = () => { S[el.dataset.sw] = el.checked; persist(); el.parentElement.querySelector("span:last-child").textContent = el.checked?"On":"Off";
+      const f = el.closest(".field"); if(f && f.dataset.field!==el.dataset.sw) f.classList.toggle("off",!el.checked);
+      if(el.dataset.sw==="shiftworker"){ S.alWeeks = el.checked?5:4; persist(); renderStep1(); }
+      if(el.dataset.sw==="rateLoaded") renderStep1(); };
+  });
+  const pb = $("#payBasis"); if(pb) pb.querySelectorAll("button").forEach(b=>b.onclick=()=>{S.payBasis=b.dataset.v;persist();renderStep1()});
+}
+
+$("#empDial").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  S.emp=b.dataset.v; if(S.emp!=="full"&&S.payBasis==="annual"&&S.hours===38){S.hours=S.emp==="part"?22.8:20} if(S.emp==="full")S.hours=38;
+  persist(); $("#empDial").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b)); renderStep1();
+});
+
+/* ---------- steps ---------- */
+const TITLES = {1:"Step 1. Your job",2:"Step 2. Your business",3:"Step 3. Your targets and the path",4:"Step 4. Your result",5:"Your number"};
+function go(n){
+  document.querySelectorAll("section.panel[data-step]").forEach(s=>s.hidden = +s.dataset.step!==n);
+  $("#stepTitle").textContent = TITLES[n]; $("#stepCount").textContent = (Math.min(n,4))+" of 4";
+  $("#steps").querySelectorAll("li").forEach((li,i)=>li.classList.toggle("on",i<Math.min(n,4)));
+  if(n===5) $("#result").scrollIntoView({behavior:"smooth",block:"start"}); else window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(+b.dataset.go));
+
+/* ---------- tabs ---------- */
+function showTab(id){
+  ["calc","ladder"].forEach(t=>{ $("#tab-"+t).hidden = t!==id; $("#tabbtn-"+t).setAttribute("aria-selected", t===id) });
+  if(id==="ladder") renderLadder();
+}
+$("#tabbtn-calc").onclick=()=>showTab("calc"); $("#tabbtn-ladder").onclick=()=>showTab("ladder");
+
+/* ---------- gate ---------- */
+$("#gateForm").onsubmit = async e => {
+  e.preventDefault();
+  const name=$("#firstName").value.trim(), email=$("#email").value.trim();
+  const err=$("#gateErr");
+  if(!name||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){err.textContent="I need a first name and a working email to send the result.";err.hidden=false;return}
+  err.hidden=true;
+  const r = model(S);
+  renderResult(r,name);
+  go(5);
+  try{localStorage.setItem("qn_lead",JSON.stringify({name,email,at:new Date().toISOString()}))}catch(x){}
+  if(CONFIG.emailEndpoint){
+    try{
+      await fetch(CONFIG.emailEndpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({firstName:name,email,source:"quit-number-calculator",result:resultSummary(r),inputs:S})});
+    }catch(x){ console.warn("List tool not reachable", x) }
+  } else { console.info("No email endpoint configured. Result:", resultSummary(r)); }
+};
+
+function resultSummary(r){
+  return {
+    quitNumberAnnual: Math.round(r.Q), quitNumberMonthly: Math.round(r.Q/12), inBankMonthly: Math.round(r.N/12),
+    gapAnnual: Math.round(r.gap), bookingsAtCurrentAverage: r.required[0].n, averageSale: S.avg,
+    bookingsAt: r.required.map(x=>({average:x.a,bookings:x.n})),
+    bufferTarget: Math.round(r.buffer), monthsToBuffer: isFinite(r.mBuffer)?Math.round(r.mBuffer):null,
+    trialDate: dateStr(r.mTrial), quitDate: dateStr(r.full.mQuit),
+    stepDownDate: dateStr(r.part.mStep), casualBridgeDate: dateStr(r.cas.mCas),
+    employment: S.emp, ratesAsAt: RATES.asAt
+  };
+}
+
+/* ---------- result ---------- */
+function voicePara(r){
+  const n0=r.required[0].n, a=S.avg;
+  if(r.gap<=0) return `On paper the business already pays for the job. I would not resign on paper. Your question now is the buffer and the calendar: ${money(r.buffer)} in the household account before you go, and enough signed contracts in the next twelve months that the quit number is covered by work already booked. Run the Package Ladder anyway, because a thin margin at this volume breaks the first quiet season.`;
+  if(!isFinite(n0)) return `At your current average sale each wedding costs you more than it brings in once card fees and direct costs come out. Nothing else on this page matters until the price moves. Open the Package Ladder and price the floor tier first.`;
+  if(r.G<=0) return `You booked the same or fewer weddings this year than last, so at this trajectory the dates never arrive. That is useful to know now. To be at your number in 24 months you need to add about ${Math.ceil(r.gPer24)} bookings a year at ${money(r.aPath)}, or lift the average. ${n0} weddings at ${money(a)} is the hard way. ${r.required[2].n} at ${money(r.required[2].a)} is the same money with ${n0-r.required[2].n} fewer Saturdays. Build the ladder before you build the calendar.`;
+  if(n0>=30) return `At ${money(a)} you need ${n0} weddings a year. That is a full-time studio's workload at a part-timer's price, and you would arrive exhausted. The lever is the average sale, not the volume. ${r.required[2].n} weddings at ${money(r.required[2].a)} replaces the same package with ${n0-r.required[2].n} fewer Saturdays and more room for the quiet months. Twenty weddings at a higher average beats forty at a lower one. Open the Package Ladder next and build the prices backwards from this number.`;
+  return `You need ${n0} weddings a year at ${money(a)}, or ${r.required[2].n} at ${money(r.required[2].a)}. Fund the buffer first, trial the full-time week on unpaid leave in ${dateStr(r.mTrial)}, and hold the resignation until the trial has run and the calendar for the next twelve months carries the number. The Package Ladder tab turns the number into prices.`;
+}
+
+function renderResult(r,name){
+  const rq = r.required;
+  const rows = rq.map(x=>`<tr><td class="num">${money(x.a)}</td><td class="num"><b>${isFinite(x.n)?x.n:"n/a"}</b></td><td class="num">${money(x.oh)}</td><td class="num">${pct(x.m)} ${x.ok?'<span class="pill">clears floor</span>':'<span class="pill bad">under floor</span>'}</td><td class="num">${money(x.held)}</td></tr>`).join("");
+  const leaveLine = S.emp==="casual" ? "no paid leave, the loading stands in for it" : `${r.L.toFixed(2)} weeks of paid leave, so ${r.W.toFixed(1)} working weeks`;
+  const html = `
+  <div class="headline">
+    <div class="eyebrow" style="color:inherit;opacity:.75">${esc(name)}, your quit number</div>
+    <div class="big">${money(r.Q/12)} <span style="font-size:.4em;font-weight:400;opacity:.8">a month</span></div>
+    <div class="sub">${money(r.Q)} a year of business profit, after every cost of running it and before your own tax. It lands <b class="mono">${money(r.N/12)}</b> a month in your bank, the same as the job does now.</div>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><span class="v">${money(r.gap/12)}</span><span class="k">Gap a month. Quit number less what the business makes today.</span></div>
+    <div class="kpi"><span class="v">${money(r.B)}</span><span class="k">Business profit this year, before tax. ${money(r.Bnet)} after the tax it adds on top of your salary.</span></div>
+    <div class="kpi"><span class="v">${money(r.ohNow)}</span><span class="k">Overhead per wedding at ${S.wedNow} a year</span></div>
+    <div class="kpi"><span class="v">${pct(r.marginNow)}</span><span class="k">Net margin today. Floor ${S.floor}%.</span></div>
+  </div>
+  <p class="voice">${voicePara(r)}</p>
+
+  <div class="group">
+    <div class="eyebrow">Net to net</div>
+    <div class="tablewrap"><table>
+      <tr><td>The job pays, before tax</td><td class="num">${money(r.T)}</td></tr>
+      <tr><td>Income tax and Medicare levy, ${RATES.fy} resident rates</td><td class="num">${money(incomeTax(r.T)+medicare(r.T))}</td></tr>
+      <tr><td><b>Take-home</b></td><td class="num"><b>${money(r.N)}</b></td></tr>
+      <tr><td>Employer super at ${S.superRate}%</td><td class="num">${money(r.U)}</td></tr>
+      <tr><td>Paid leave</td><td class="num">${leaveLine}</td></tr>
+      <tr><td>Sustainability items${S.sustain?" (your own super"+(S.ip>0?", income protection":"")+")":" (off)"}</td><td class="num">${money(r.sustain)}</td></tr>
+      <tr><td><b>Quit number</b> (job pay before tax, plus sustainability)</td><td class="num"><b>${money(r.Q)}</b></td></tr>
+    </table></div>
+    <p class="small muted">Both sides sit before your personal tax, under the same tax law, for the same person. That is what net to net means. Gross wedding income never sits beside a net payslip on this page.</p>
+  </div>
+
+  <div class="group">
+    <div class="eyebrow">Bookings required</div>
+    <div class="tablewrap"><table>
+      <thead><tr><th class="num">Average sale</th><th class="num">Weddings a year</th><th class="num">Overhead each</th><th class="num">Net margin</th><th class="num">Client money you will hold</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table></div>
+    <p class="small muted">${r.floorAvg?`At ${rq[0].n} weddings a year, anything under <b class="mono">${money(r.floorAvg)}</b> a wedding fails your ${S.floor}% margin floor.`:""} ${r.cac>0?`Your cost per booking is <b class="mono">${money(r.cac)}</b> and every package inherits it.`:""}</p>
+    <div class="note warn"><b>Deposits are not your buffer.</b> The last column is other people's money sitting in your account for weddings you have not photographed. Cash at bank must be at least that before any of it counts as yours. Retainer ${S.deposit}%, balance ${S.balanceDays} days out, ${S.lead} months lead time.</div>
+  </div>
+
+  <div class="group">
+    <div class="eyebrow">The buffer</div>
+    <div class="kpis">
+      <div class="kpi"><span class="v">${money(r.buffer)}</span><span class="k">Buffer target: ${S.bufferMonths} months of household expenses${r.sick>0?` plus ${money(r.sick)} sick provision`:""}</span></div>
+      <div class="kpi"><span class="v">${money(r.F)}</span><span class="k">Going into it each month: business profit after tax, plus other savings</span></div>
+      <div class="kpi"><span class="v">${months(r.mBuffer)}</span><span class="k">To fund the buffer</span></div>
+      <div class="kpi"><span class="v">${dateStr(r.mTrial)}</span><span class="k">Trial date: ${S.trialMonths} months of household cash, enough to take unpaid leave</span></div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="eyebrow">Three ways out, dated</div>
+    <div class="cards">
+      <div class="card"><div class="eyebrow">Part time to full time</div><div class="date">${dateStr(r.full.mQuit)}</div>
+        <ul><li>Trial on unpaid leave: ${dateStr(r.mTrial)}</li><li>${isFinite(r.full.n)?r.full.n+" weddings a year at "+money(r.aPath):"Price is the problem first"}</li><li>Resign when the buffer is funded and the calendar carries the number</li></ul></div>
+      <div class="card"><div class="eyebrow">Drop to part time first</div><div class="date">${dateStr(r.part.mStep)}</div>
+        <ul><li>Keep ${S.partFrac}% of the job</li><li>Business must make ${money(Math.max(r.part.Qstep,0))} a year, ${isFinite(r.part.n)?r.part.n+" weddings":"n/a"}</li><li>Full quit: ${dateStr(r.full.mQuit)}. The step down buys you weekdays to add bookings sooner than this line assumes.</li></ul></div>
+      <div class="card"><div class="eyebrow">Casual bridge</div><div class="date">${dateStr(r.cas.mCas)}</div>
+        <ul><li>${S.casualShifts} shifts a month of ${S.casualHours} hours earns about ${money(r.cas.Y)} a year</li><li>Business must make ${money(Math.max(r.cas.Qcas,0))}, ${isFinite(r.cas.n)?r.cas.n+" weddings":"n/a"}</li><li>Casual shifts have no paid leave. Keep the sick provision.</li></ul></div>
+    </div>
+    <p class="small muted">Dates assume you keep adding ${r.G>0?r.G:0} booking${r.G===1?"":"s"} a year (this year less last year) at ${money(r.aPath)}. Change last year's figure or set a target average to see the dates move.</p>
+  </div>
+
+  <div class="nav"><button class="btn primary" type="button" id="toLadder">Build the Package Ladder from this number</button><button class="btn ghost" type="button" data-go="1" id="editInputs">Change my inputs</button></div>
+
+  <details><summary>Every rate and default on this page, with its source</summary><div class="inner">
+    <p><b>Income tax, ${RATES.fy} resident rates.</b> Nil to $18,200, then 15% to $45,000, 30% to $135,000, 37% to $190,000, 45% above. Income Tax Rates Act 1986, Compilation No. 66, 1 July 2026, Schedule 7 Part I. Tax-free threshold s 3(1).</p>
+    <p><b>Medicare levy.</b> 2% of taxable income. Nil at or below $28,011, phasing in at 10% of the excess to $35,013. Medicare Levy Act 1986, Compilation No. 53, 1 July 2026, ss 3, 6, 7. Family thresholds and the surcharge are not modelled.</p>
+    <p><b>Super guarantee.</b> 12% for years from 1 July 2025. Superannuation Guarantee (Administration) Act 1992, Compilation No. 77, 27 March 2026, s 19(2).</p>
+    <p><b>Leave.</b> Four weeks annual leave, five for shiftworkers, ten days personal leave (Fair Work Act 2009 ss 87, 96). WA long service leave 8.667 weeks after ten years (wa.gov.au, 2 September 2026). Casual loading 25% as the modern awards standard. Edit any of these to match your award.</p>
+    <p><b>Not modelled.</b> The low income tax offset, study loan repayments, salary sacrifice, other offsets, company structures, seasonality. GST at one eleventh of sales when registered.</p>
+    <p><b>Studio defaults</b> are my own stated costs from my cost base, each labelled where it appears. Every one is editable and most part-timers will not carry all of them.</p>
+    <p><b>Rates as at ${RATES.asAt}.</b> Reviewed every July. This is a planning tool, not tax advice. Your accountant confirms before anything is set.</p>
+  </div></details>`;
+  $("#result").innerHTML = html;
+  $("#toLadder").onclick = ()=>{showTab("ladder");window.scrollTo({top:0,behavior:"smooth"})};
+  $("#editInputs").onclick = ()=>go(1);
+}
+
+/* ---------- Package Ladder ---------- */
+const LAD = { volume:null, tiers:[
+  {name:"The Ceremony", hours:7, ss:0, album:false, extra:0, price:0, mix:30},
+  {name:"The Story", hours:10, ss:6, album:false, extra:0, price:0, mix:45},
+  {name:"The Feature", hours:12, ss:10, album:false, extra:0, price:0, mix:20},
+  {name:"The Heirloom", hours:12, ss:10, album:true, extra:0, price:0, mix:5}
+], four:true, addons:[
+  {name:"Second photographer, 8 hours", cost:560, retail:1750},
+  {name:"Engagement session", cost:0, retail:1600},
+  {name:"Fine art album", cost:1100, retail:2600},
+  {name:"Extra hour of coverage", cost:0, retail:850}
+]};
+try{const l=JSON.parse(localStorage.getItem("qn_ladder_v1")||"null");if(l)Object.assign(LAD,l)}catch(e){}
+function persistL(){try{localStorage.setItem("qn_ladder_v1",JSON.stringify(LAD))}catch(e){}}
+
+function renderLadder(){
+  const r = model(S);
+  const n = LAD.volume || (isFinite(r.required[0].n)?r.required[0].n:S.wedNow||1);
+  const f=S.floor/100, g=r.g, card=r.card;
+  const oh = r.O/n;
+  const cac = (S.mktOn&&n>0) ? S.mkt*12/n : 0;
+  const denom = (1-f)/g - card;
+  const tiers = LAD.tiers.slice(0, LAD.four?4:3);
+  let prevPH=null, prevPrice=null;
+  const rows = tiers.map((t,i)=>{
+    const fixed = (S.editOn?S.editCost:0)+(S.travelOn?S.travelCost:0)+S.otherDirect + t.ss*S.ssRate + (t.album?S.albumCost:0) + t.extra + cac;
+    const floor = denom>0 ? (fixed+oh)/denom : Infinity;
+    // Default price: the floor, lifted so the per-hour ramp never dips below the tier beneath it.
+    const rampMin = prevPH!=null ? prevPH*t.hours : 0;
+    const price = t.price>0 ? t.price : Math.ceil(Math.max(floor,rampMin)/50)*50;
+    const rev = price/g, direct = fixed + card*price, net = rev-direct-oh, m = net/rev;
+    const ph = t.hours>0 ? price/t.hours : null;
+    const dip = prevPH!=null && ph!=null && ph<prevPH-0.5;
+    const step = prevPrice ? price/prevPrice : null;
+    prevPH=ph; prevPrice=price;
+    return {t,i,fixed,floor,price,m,ph,dip,step,net};
+  });
+  const mixTotal = rows.reduce((a,x)=>a+(x.t.mix||0),0) || rows.length;
+  rows.forEach(x=>{ x.share = mixTotal ? ((x.t.mix||0)/mixTotal) : 1/rows.length; if(!rows.some(y=>y.t.mix>0)) x.share = 1/rows.length });
+  const mixAvg = rows.reduce((a,x)=>a+x.share*x.price,0);
+  const mixNet = rows.reduce((a,x)=>a+x.share*x.net,0)*n;
+  const reqAvg = (1/g - card)>0 ? ((r.Q+r.O)/n + r.fixedDirect)/(1/g - card) : null;
+  const ownerHours = rows.reduce((a,x)=>a+x.share*x.t.hours*1.35,0); // shoot plus cull at 0.35, weighted by mix
+  const weeklyHours = ownerHours*n/r.W;
+  const flat = rows.length>1 && rows.every(x=>x.ph!=null && Math.abs(x.ph-rows[0].ph)<1);
+  const leaveOut = [
+    ["Overhead a year", money(r.O)], ["Overhead per wedding at "+n, money(oh)], ["Gear sinking fund a year", money(S.gearOn&&S.kitLife>0?S.kit/S.kitLife:0)],
+    ["Your wage, as the quit number", money(r.Q)], ["Your own super", money(S.sustain?r.U:0)], ["GST on every sale", "one eleventh"], ["Card fees", S.cardOn?S.cardRate+"% of the sale":"off"],
+    ["Marketing a year", money(S.mktOn?S.mkt*12:0)], ["Cost per booking", money(cac)]
+  ];
+  const html = `
+  <div class="stepname"><h2>The Package Ladder</h2><span class="small muted">Turns the number into prices</span></div>
+  <p class="voice">The calculator gave you a number. Prices are how you reach it, and part-timers price from what they see other people charge, not from what the business has to clear. Every tier below starts at its floor: the price that holds your ${S.floor}% margin at ${n} weddings a year, after overhead, direct costs, card fees and the cost of winning the booking. The floor is the minimum, not the price. Price to your market above it, and keep the ramp rising.</p>
+  <div class="field"><div class="row"><label class="lbl" for="in-ladvol">Weddings a year to price for</label></div><div class="help">Defaults to the bookings your quit number needs at today's average. Overhead per wedding is ${money(oh)} at this volume.</div>
+    <div class="ctl"><input type="range" id="rg-ladvol" min="5" max="60" step="1" value="${n}" aria-label="Weddings a year slider"><span class="unit"></span><input type="number" id="in-ladvol" value="${n}" min="1" step="1"><span class="unit">a year</span></div></div>
+  <div class="row" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><span class="eyebrow">Tiers</span><div class="seg" id="tierCount"><button type="button" data-v="3" aria-pressed="${!LAD.four}">Three</button><button type="button" data-v="4" aria-pressed="${LAD.four}">Four</button></div></div>
+  <div class="ladder-tiers">${rows.map(x=>`
+    <div class="tier">
+      <div class="grid">
+        <div class="f"><span>Tier name</span><input type="text" data-t="${x.i}" data-k="name" value="${esc(x.t.name)}"></div>
+        <div class="f"><span>Coverage hours</span><input type="number" data-t="${x.i}" data-k="hours" value="${x.t.hours}" min="1" step="1"></div>
+        <div class="f"><span>Second shooter hours</span><input type="number" data-t="${x.i}" data-k="ss" value="${x.t.ss}" min="0" step="1"></div>
+        <div class="f"><span>Other inclusion cash cost</span><input type="number" data-t="${x.i}" data-k="extra" value="${x.t.extra}" min="0" step="10"></div>
+        <div class="f"><span>Album included</span><label class="switch"><input type="checkbox" data-t="${x.i}" data-k="album" ${x.t.album?"checked":""}><span class="knob"></span><span>${x.t.album?"Yes":"No"}</span></label></div>
+        <div class="f"><span>Your price, inc GST (0 = use the floor)</span><input type="number" data-t="${x.i}" data-k="price" value="${x.t.price}" min="0" step="50"></div>
+        <div class="f"><span>Share of bookings, %</span><input type="number" data-t="${x.i}" data-k="mix" value="${x.t.mix||0}" min="0" max="100" step="5"></div>
+      </div>
+      <div class="out">
+        <span>Floor <b>${money(x.floor)}</b></span>
+        <span>Price <b>${money(x.price)}</b></span>
+        <span>Net margin <b>${pct(x.m)}</b> ${x.m>=f?'<span class="pill">clears</span>':'<span class="pill bad">under floor</span>'}</span>
+        <span>Per hour <b>${x.ph?money(x.ph):"n/a"}</b> ${x.dip?'<span class="pill bad">dips</span>':''}</span>
+        ${x.step?`<span>Step <b>x${x.step.toFixed(2)}</b></span>`:""}
+      </div>
+    </div>`).join("")}
+  </div>
+  ${rows.some(x=>x.dip)?`<div class="note bad"><b>The ramp dips.</b> A tier that is cheaper per hour than the one below it pulls couples down out of the tier above. I made this mistake with my own middle package and it was the single structural fix in my rework. Raise the price or trim the hours until every step rises.</div>`:`<div class="note"><b>The ramp rises at every step.</b> Each tier earns at least as much per hour as the one below it, so nothing cannibalises the tier above.</div>`}
+  ${flat?`<div class="note warn"><b>This is an hourly rate wearing collection names.</b> Every tier works out to the same price per hour, so couples will shop you by the hour and the cheapest photographer wins. Make each step add something a cheaper photographer cannot copy, not just hours.</div>`:""}
+  <div class="note warn"><b>Do not sell base hours plus add-on hours on every tier.</b> That rebuilds the hourly trap. Take hour counts off anything a couple sees, put a finish time and a continuation rate in the contract, and set that rate at or above your top tier's price per hour (${money(Math.max(...rows.map(x=>x.ph||0)))} here).</div>
+
+  <div class="group">
+    <div class="eyebrow">Backwards from the number</div>
+    <div class="kpis">
+      <div class="kpi"><span class="v">${money(mixAvg)}</span><span class="k">Average sale at this mix (${rows.map(x=>Math.round(x.share*100)).join("/")})</span></div>
+      <div class="kpi"><span class="v">${money(mixNet)}</span><span class="k">Profit at ${n} weddings, before your tax</span></div>
+      <div class="kpi"><span class="v">${money(r.Q)}</span><span class="k">Your quit number</span></div>
+      <div class="kpi"><span class="v">${money(reqAvg)}</span><span class="k">Average sale that reaches the number at ${n} weddings</span></div>
+    </div>
+    ${mixNet>=r.Q?`<div class="note"><b>This ladder reaches your number at ${n} weddings.</b> ${money(mixNet-r.Q)} of room above it for the quiet season and the costs you have not met yet.</div>`:`<div class="note bad"><b>This ladder does not reach your number.</b> At ${n} weddings and this mix it is ${money(r.Q-mixNet)} a year short. Lift prices toward an average of ${money(reqAvg)}, move the mix up the ladder, or add bookings. Lifting the average is the lever that does not cost Saturdays.</div>`}
+    <p class="small muted">The floor prices only protect the margin. Reaching the quit number is a separate test, and it is the one that decides the resignation date. The share of bookings is your guess until you have twenty consults on these prices.</p>
+  </div>
+
+  <div class="group">
+    <div class="eyebrow">Add-ons, each with its own margin</div>
+    <div class="tablewrap"><table><thead><tr><th>Add-on</th><th class="num">Cash cost</th><th class="num">Retail inc GST</th><th class="num">Margin</th></tr></thead><tbody>
+    ${LAD.addons.map((a,i)=>{const rev=a.retail/g;const m=rev>0?(rev-a.cost-card*a.retail)/rev:0;return `<tr><td><input type="text" data-a="${i}" data-k="name" value="${esc(a.name)}" style="width:100%"></td><td class="num"><input type="number" data-a="${i}" data-k="cost" value="${a.cost}" min="0" step="10"></td><td class="num"><input type="number" data-a="${i}" data-k="retail" value="${a.retail}" min="0" step="50"></td><td class="num">${pct(m)} ${m>=f?'<span class="pill">ok</span>':'<span class="pill warn">thin</span>'}</td></tr>`}).join("")}
+    </tbody></table></div>
+    <p class="small muted">Cash cost only. Your own hours on an engagement session are not a cost, they are capacity, so its margin reads high and its real price is a Saturday morning. Never discount or gift the thin ones.</p>
+  </div>
+
+  <div class="group">
+    <div class="eyebrow">What part-timers leave out</div>
+    <div class="tablewrap"><table><tbody>${leaveOut.map(([k,v])=>`<tr><td>${k}</td><td class="num">${v}</td></tr>`).join("")}</tbody></table></div>
+    <p class="small muted">Every one of these sits inside the floor prices above. Income tax then comes out of what is left, which is why the quit number is a before-tax figure.</p>
+  </div>
+
+  <div class="group">
+    <div class="eyebrow">Capacity check</div>
+    <p class="small">About ${ownerHours.toFixed(1)} of your hours per wedding (shooting plus culling at 0.35 an hour, editing outsourced) times ${n} weddings over ${r.W.toFixed(0)} working weeks is <b class="mono">${weeklyHours.toFixed(1)} hours a week</b> on weddings alone, before enquiries, consults and admin. ${weeklyHours>30?"That is a full week. Price higher or book fewer.":""}</p>
+  </div>
+  <p class="ref">Print this page for the Module 1 worksheet. Rates as at ${RATES.asAt}. Not tax advice.</p>`;
+  $("#ladder").innerHTML = html;
+  const vol = v => { LAD.volume = Math.max(1,parseInt(v)||1); persistL(); renderLadder() };
+  $("#rg-ladvol").oninput = e => vol(e.target.value); $("#in-ladvol").onchange = e => vol(e.target.value);
+  $("#tierCount").querySelectorAll("button").forEach(b=>b.onclick=()=>{LAD.four=b.dataset.v==="4";persistL();renderLadder()});
+  document.querySelectorAll("#ladder [data-t]").forEach(el=>el.onchange=()=>{const t=LAD.tiers[+el.dataset.t];const k=el.dataset.k;t[k]= el.type==="checkbox"?el.checked : el.type==="text"?el.value : (parseFloat(el.value)||0);persistL();renderLadder()});
+  document.querySelectorAll("#ladder [data-a]").forEach(el=>el.onchange=()=>{const a=LAD.addons[+el.dataset.a];const k=el.dataset.k;a[k]= el.type==="text"?el.value:(parseFloat(el.value)||0);persistL();renderLadder()});
+}
+
+/* ---------- boot ---------- */
+$("#disclaimer").textContent = `Rates as at ${RATES.asAt}, financial year ${RATES.fy}, reviewed every July. This is a planning tool and not tax or financial advice. Your accountant confirms before anything is set. Your inputs stay in your browser and are not sent anywhere until you ask for your result.`;
+$("#empDial").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.v===S.emp));
+renderStep1(); renderStep2(); renderStep3();
+if(location.hash==="#ladder") showTab("ladder");
+window.QN = {model, S, RATES, incomeTax, medicare, takeHome, grossFromNet};
+</script>
+</body>
+</html>
