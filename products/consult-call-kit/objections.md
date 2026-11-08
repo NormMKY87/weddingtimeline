@@ -84,7 +84,7 @@ What it usually means. Either the number is too high and they are looking for a 
 
 The question: "Which parts of the day are most important for you to have fully documented?" I go back to the timeline on the screen and we look together. If getting ready is not important to them, it comes off and the day shrinks honestly. If the first dance matters, it stays. The timeline does the negotiating, not me.
 
-Two things I say plainly. First, a shorter day does not scale down in a straight line, because a wedding has fixed costs to me before the first frame. I say that as a fact, not an apology. Second, the hours I would protect last are the ones around the ceremony and the two hours before sunset, because those are the ones they will miss if they are gone. The morning and the late dance floor are the honest places to trim.
+Two things I say plainly. First, a shorter day costs less because they are buying less. What they keep costs what it costs, and the rate does not move because the day got shorter. I say that as a fact, not an apology. Second, the hours I would protect last are the ones around the ceremony and the two hours before sunset, because those are the ones they will miss if they are gone. The morning and the late dance floor are the honest places to trim.
 
 What I never do: cut the price for the same scope, or let the couple cut coverage I know they will regret without telling them. If they cut it anyway after hearing me, that is their call and I book it cheerfully.
 

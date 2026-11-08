@@ -18,4 +18,4 @@ What was reachable from the cloud session on 8 November 2026, and what still nee
 1. Live test of the ten questions. The list was checked against three recorded consults. The brief asks for a test on a real call. Run the list on the next consult, tick what was asked, circle the tells heard, and note the result in the Asana task. Then the task can close.
 2. Engagement Session Experience fit call structure. Not found as a document in Dropbox. If a distinct fit call script exists in PC memory, check the run sheet against it and fold in anything missing.
 3. Timeline planner walkthrough step text. If the kit needs the exact wording of the planner's walkthrough steps, open the HTML on the PC and copy the step array.
-4. Second stranger review of the objections section against the Booking Pack short replies once the Booking Pack is written, so the two do not contradict each other.
+4. Done 8 Nov. The objections section was checked against the Booking Pack Part 4 replies once they landed on the branch. Same stance on discounting, scope, credits, the album, payment spread, the partner call and date honesty. One line on shorter days was reworded to match.
