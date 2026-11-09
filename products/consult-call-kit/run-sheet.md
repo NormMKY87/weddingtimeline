@@ -1,6 +1,6 @@
 # The Consult Call Run Sheet
 
-One page. Print it and keep it beside the screen. Book 30 minutes. Most of my calls run 30 to 45, because the timeline walk-through is where the couple starts to trust me, and I let it breathe.
+One page. Print it and keep it beside the screen. Book [your consult length, I use 30 minutes]. Most of my calls run 30 to 45, because the timeline walk-through is where the couple starts to trust me, and I let it breathe.
 
 ## Before the call (10 minutes)
 
@@ -18,7 +18,7 @@ Congratulate them. Ask how long since the proposal and where it happened. Ask ho
 
 ## 2. Discovery (4 minutes)
 
-Listen more than you talk. Your lines are questions, restatements and one short story. Pull from the ten questions. The minimum you need: where each of them is getting ready, ceremony time and place, reception place, bridal party size, traditions or extra events, whether video is in the picture. Then restate: "So what I'm hearing is you want it to feel editorial without the day turning into a photoshoot. Is that about right?" Wait for the yes.
+Listen more than you talk. Your lines are questions, restatements and one short story. Pull from the ten questions and [your own additions]. The minimum you need: where each of them is getting ready, ceremony time and place, reception place, bridal party size, traditions or extra events, whether video is in the picture. Then restate: "So what I'm hearing is you want it to feel editorial without the day turning into a photoshoot. Is that about right?" Wait for the yes.
 
 ## 3. The wedding day walk-through (10 to 15 minutes)
 
@@ -34,7 +34,7 @@ Share your screen. Type in the date and the ceremony time. Build the day out lou
 
 ## 6. Next steps and close (3 minutes)
 
-If they are ready, confirm the direction, state the retainer and what happens after booking (group chat, timeline planning, a pre-wedding call). If they need their partner or more time: "What will you want to think through?" Then book the next touchpoint: "I'll send the proposal and the timeline today. Can I check in on Thursday?" Your last question is always: "Is there anything I haven't answered that would help you decide?"
+If they are ready, confirm the direction, state [your retainer] and what happens after booking ([your onboarding steps, for example a group chat, timeline planning, a pre-wedding call]). If they need their partner or more time: "What will you want to think through?" Then book the next touchpoint: "I'll send the proposal and the timeline today. Can I check in on [day]?" Your last question is always: "Is there anything I haven't answered that would help you decide?"
 
 ## After the call (20 minutes, same day)
 

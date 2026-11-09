@@ -13,6 +13,10 @@ What was reachable from the cloud session on 8 November 2026, and what still nee
 - Wedding timeline planner walkthrough (Dropbox). Only the form labels extracted, the step text is in script and did not come through.
 - Three Fireflies consult transcripts read in full for question patterns and the timeline method. No couple is named or quoted in the kit.
 
+## De-identification pass, 9 November 2026
+
+Norm asked that nothing in the kit depend on NYP. Every business-specific detail is now a bracketed fill-in (consult length, recording tool, retainer, onboarding steps, check-in day, price range sentence, delivery timeframe, price hold count, referral photographer, consent law, ceremony lengths, buffer, sunset source). A sixth section, `make-it-yours.md`, collects all the blanks on one page. The intro explains the brackets.
+
 ## Still to do, PC or live
 
 1. Live test of the ten questions. The list was checked against three recorded consults. The brief asks for a test on a real call. Run the list on the next consult, tick what was asked, circle the tells heard, and note the result in the Asana task. Then the task can close.

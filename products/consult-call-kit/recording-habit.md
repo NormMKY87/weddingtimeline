@@ -4,11 +4,11 @@ I record every consult. It is the single fastest skill jump available to a photo
 
 ## Asking for consent
 
-I use a notetaker that joins the video call as a participant, so the couple can see it. If you run calls by phone, your phone can record with an app and the same sentence applies. Either way, I say it before anything else of substance:
+I use [your recording tool], a notetaker that joins the video call as a participant so the couple can see it. If you run calls by phone, your phone can record with an app and the same sentence applies. Either way, I say it before anything else of substance:
 
 "Just so you know, I record these calls so I can send you a proper summary afterwards instead of scribbling notes while you talk. Is that alright with you?"
 
-Nobody has ever said no. The reason is in the sentence. The recording is for them. It means I can look at them and listen instead of typing. If a couple did say no I would stop the recorder, say thank you, and take notes the old way. Consent is not a formality. In Australia you need it, and the couple deserves it.
+Nobody has ever said no. The reason is in the sentence. The recording is for them. It means I can look at them and listen instead of typing. If a couple did say no I would stop the recorder, say thank you, and take notes the old way. Consent is not a formality. Where I live the law requires it. [Check the recording consent rule where you are.] Ask regardless, because the couple deserves it.
 
 Tell them again if someone new joins the call late. Partners drop in halfway through all the time.
 
@@ -42,7 +42,7 @@ Before I write, I search the transcript for five things:
 4. Anything I promised to send. Vendor recommendations, a gallery link, a check on a videographer's availability. If I said it, it goes in the email or I lose trust.
 5. Anything still open. Ceremony time not confirmed, a tea ceremony they are deciding on. I name it so they know the plan can flex.
 
-The proposal then writes itself in about twenty minutes. Opening with the personal detail. One paragraph of what I recommended and why, in their language. The draft timeline from the call, pasted in plain text. The next step. A line saying I will check in on a named day if that is alright with them. Deliverables as dot points, with the exact gallery delivery date, never "six to eight weeks".
+The proposal then writes itself in about twenty minutes. Opening with the personal detail. One paragraph of what I recommended and why, in their language. The draft timeline from the call, pasted in plain text. The next step. A line saying I will check in on a named day if that is alright with them. Deliverables as dot points, with the exact gallery delivery date worked out from [your delivery timeframe], never "six to eight weeks".
 
 If the notetaker produces a summary, use it as a checklist, not as copy. Summaries flatten everyone into the same voice. The point of the transcript is that it preserves theirs.
 

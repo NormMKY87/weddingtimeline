@@ -51,6 +51,7 @@ sections = [
     ('03', 'The recording habit', 'recording-habit.md', ''),
     ('04', 'The objections, in depth', 'objections.md', ''),
     ('05', 'The ten questions', 'ten-questions.md', ''),
+    ('06', 'Make it yours', 'make-it-yours.md', 'fillin'),
 ]
 
 def first_para(text):
@@ -84,7 +85,7 @@ This kit exists to kill one sentence: "I don't know what to say on a consult." E
 
 Read the run sheet first and print it. Read the timeline section before your next call and build your day grid, even if it is a spreadsheet. Start recording on the next call. Then read the objections and the questions once each, and let them come up on their own.
 
-Nothing here has a price in it. Your numbers are yours. What this kit gives you is the shape of a call that earns the booking and leaves the couple better off whichever way they decide.
+Nothing here has a price in it, and nothing in it depends on my business. Wherever you see square brackets, that is where your business goes: your retainer, your range, your onboarding steps, your check-in day. The last section collects every bracket on one page so you can fill them once. Your numbers are yours. What this kit gives you is the shape of a call that earns the booking and leaves the couple better off whichever way they decide.
 ''')
 
 html_doc = f'''<!doctype html>
@@ -138,6 +139,12 @@ h1, h2, .num, .toc-num, .cover h1, .cover .sub {{ font-family: 'Cormorant Garamo
 .runsheet .body p {{ margin: 0 0 2mm; }}
 .runsheet .body ol {{ margin: 0 0 2mm; padding-left: 4.5mm; }}
 .runsheet .body li {{ margin-bottom: 0.8mm; }}
+/* fill-in page */
+.fillin .body ol {{ list-style: none; padding-left: 0; margin: 0; }}
+.fillin .body li {{ position: relative; padding: 0 0 11mm 9mm; margin: 0 0 4mm; border-bottom: 1px solid var(--rule); font-size: 9.8pt; color: var(--ink); }}
+.fillin .body li::before {{ content: counter(fill) '.'; counter-increment: fill; position: absolute; left: 0; top: 0; font-family: 'Cormorant Garamond', serif; font-size: 12pt; color: var(--accent); }}
+.fillin .body {{ counter-reset: fill; }}
+.fillin .body h2 {{ margin-top: 7mm; }}
 /* closing */
 .closing h1 {{ font-size: 30pt; font-weight: 400; margin: 0 0 8mm; }}
 .closing p {{ font-size: 11pt; max-width: 150mm; }}
