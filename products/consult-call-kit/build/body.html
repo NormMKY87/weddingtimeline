@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8">
+<title>The Consult Call Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#F7F3EC; --ink:#26231F; --muted:#6F675C; --accent:#8C6A3F; --rule:#D9CFC0; --soft:#EFE8DC;
+}
+@page { size: A4; margin: 20mm 20mm 24mm 20mm; }
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; background:var(--bg); color:var(--ink); }
+body { font-family: 'Inter', 'Liberation Sans', sans-serif; font-size: 10.4pt; line-height: 1.55; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+h1, h2, .num, .toc-num, .cover h1, .cover .sub { font-family: 'Cormorant Garamond', 'Liberation Serif', serif; font-weight: 500; }
+.page { page-break-after: always; }
+.chapter { page-break-before: always; }
+/* cover */
+.cover { display:flex; flex-direction:column; justify-content:space-between; background: var(--ink); color: var(--bg); width:210mm; height:297mm; padding: 22mm 20mm; }
+.coverdoc { background: var(--ink); }
+.coverdoc @page { margin:0; }
+.cover .kicker { font-size: 8.5pt; letter-spacing: .18em; text-transform: uppercase; color: #C9B894; }
+.cover h1 { font-size: 54pt; line-height: 1.02; margin: 0 0 10mm 0; font-weight: 400; }
+.cover .sub { font-size: 16pt; line-height: 1.35; max-width: 140mm; color: #E9E1D2; font-weight: 400; }
+.cover .foot { display:flex; justify-content:space-between; font-size: 9pt; color:#C9B894; letter-spacing:.06em; border-top: 1px solid #5a5248; padding-top: 6mm; }
+/* intro + contents */
+.intro h1 { font-size: 30pt; font-weight: 400; margin: 0 0 8mm; }
+.intro .body p { font-size: 11pt; }
+.toc { margin-top: 12mm; border-top: 1px solid var(--rule); }
+.toc-row { display:flex; gap: 8mm; align-items: baseline; padding: 4.2mm 0; border-bottom: 1px solid var(--rule); }
+.toc-num { font-size: 15pt; color: var(--accent); width: 12mm; }
+.toc-title { font-family:'Cormorant Garamond', serif; font-size: 17pt; }
+/* chapters */
+.chapter-head { border-top: 2px solid var(--ink); padding-top: 5mm; margin-bottom: 8mm; }
+.chapter-head .num { font-size: 13pt; color: var(--accent); letter-spacing: .08em; }
+.chapter-head h1 { font-size: 32pt; line-height: 1.05; margin: 1mm 0 5mm; font-weight: 400; }
+.chapter-head .lead { font-family:'Cormorant Garamond', serif; font-size: 15pt; line-height: 1.35; color: var(--ink); margin:0; max-width: 150mm; }
+.body h2 { font-size: 17pt; margin: 8mm 0 2.5mm; line-height: 1.15; page-break-after: avoid; }
+.body p { margin: 0 0 3.2mm; }
+.body ol, .body ul { margin: 0 0 3.5mm; padding-left: 5.5mm; }
+.body li { margin-bottom: 1.6mm; }
+.body li::marker { color: var(--accent); font-weight: 600; }
+/* run sheet, one page */
+.runsheet .chapter-head { margin-bottom: 5mm; }
+.runsheet .chapter-head h1 { font-size: 28pt; margin-bottom: 3mm; }
+.runsheet .chapter-head .lead { font-size: 12.5pt; max-width: 170mm; }
+.runsheet .body { column-count: 2; column-gap: 9mm; column-rule: 1px solid var(--rule); font-size: 8.9pt; line-height: 1.45; }
+.runsheet .body h2 { font-size: 13pt; margin: 3.2mm 0 1.4mm; break-after: avoid; }
+.runsheet .body h2:first-child { margin-top: 0; }
+.runsheet .body p { margin: 0 0 2mm; }
+.runsheet .body ol { margin: 0 0 2mm; padding-left: 4.5mm; }
+.runsheet .body li { margin-bottom: 0.8mm; }
+/* fill-in page */
+.fillin .body ol { list-style: none; padding-left: 0; margin: 0; }
+.fillin .body li { position: relative; padding: 0 0 11mm 9mm; margin: 0 0 4mm; border-bottom: 1px solid var(--rule); font-size: 9.8pt; color: var(--ink); }
+.fillin .body li::before { content: counter(fill) '.'; counter-increment: fill; position: absolute; left: 0; top: 0; font-family: 'Cormorant Garamond', serif; font-size: 12pt; color: var(--accent); }
+.fillin .body { counter-reset: fill; }
+.fillin .body h2 { margin-top: 7mm; }
+/* closing */
+.closing h1 { font-size: 30pt; font-weight: 400; margin: 0 0 8mm; }
+.closing p { font-size: 11pt; max-width: 150mm; }
+</style></head><body><section class="page intro">
+  <h1>How to use this kit</h1>
+  <div class="body"><p>This kit exists to kill one sentence: “I don’t know what to say on a consult.” Everything in it is what I actually use. The run sheet is the page I keep beside the screen. The timeline method is how I run discovery and the recommendation at the same time. The recording habit is how I got better at this faster than anything else I tried. The objections section is the long form of what I say when a couple hesitates, and the position on discounting that sits underneath it. The ten questions are how I hear the budget and the decision makers without ever asking for them.</p>
+<p>Read the run sheet first and print it. Read the timeline section before your next call and build your day grid, even if it is a spreadsheet. Start recording on the next call. Then read the objections and the questions once each, and let them come up on their own.</p>
+<p>Nothing here has a price in it, and nothing in it depends on my business. Wherever you see square brackets, that is where your business goes: your retainer, your range, your onboarding steps, your check-in day. The last section collects every bracket on one page so you can fill them once. Your numbers are yours. What this kit gives you is the shape of a call that earns the booking and leaves the couple better off whichever way they decide.</p></div>
+  <div class="toc"><div class="toc-row"><span class="toc-num">01</span><span class="toc-title">The run sheet</span></div>
+<div class="toc-row"><span class="toc-num">02</span><span class="toc-title">The timeline on the call</span></div>
+<div class="toc-row"><span class="toc-num">03</span><span class="toc-title">The recording habit</span></div>
+<div class="toc-row"><span class="toc-num">04</span><span class="toc-title">The objections, in depth</span></div>
+<div class="toc-row"><span class="toc-num">05</span><span class="toc-title">The ten questions</span></div>
+<div class="toc-row"><span class="toc-num">06</span><span class="toc-title">Make it yours</span></div></div>
+</section>
+
+
+<section class="chapter runsheet">
+  <header class="chapter-head">
+    <div class="num">01</div>
+    <h1>The run sheet</h1>
+    <p class="lead">One page. Print it and keep it beside the screen. Book [your consult length, I use 30 minutes]. Most of my calls run 30 to 45, because the timeline walk-through is where the couple starts to trust me, and I let it breathe.</p>
+  </header>
+  <div class="body"><h2>Before the call (10 minutes)</h2>
+<p>Read the enquiry again. Check the date across every calendar you keep. Open your timeline builder and one recent gallery that looks like their day. Write three lines on paper:</p>
+<ol>
+<li>What seems to matter most to them.</li>
+<li>What could change my recommendation (separate getting-ready locations, a cultural ceremony, a big bridal party, an early ceremony, a late sunset).</li>
+<li>The one thing I want them to feel clearer about by the end.</li>
+</ol>
+<p>Start the recorder. Tell them it is running and why.</p>
+<h2>1. Opening (2 minutes)</h2>
+<p>Congratulate them. Ask how long since the proposal and where it happened. Ask how planning is going. Then say what the call is: “I’d love to hear what you have planned. Then I’ll build a rough timeline for your day on screen, and we’ll see how much coverage it actually needs. I’ll send you everything afterwards whether you book me or not.” Close the opening with: “Any questions before I start?”</p>
+<h2>2. Discovery (4 minutes)</h2>
+<p>Listen more than you talk. Your lines are questions, restatements and one short story. Pull from the ten questions and [your own additions]. The minimum you need: where each of them is getting ready, ceremony time and place, reception place, bridal party size, traditions or extra events, whether video is in the picture. Then restate: “So what I’m hearing is you want it to feel editorial without the day turning into a photoshoot. Is that about right?” Wait for the yes.</p>
+<h2>3. The wedding day walk-through (10 to 15 minutes)</h2>
+<p>Share your screen. Type in the date and the ceremony time. Build the day out loud, block by block, working back from sunset. Let the coverage hours fall out of the timeline, never the other way round. Decide the second photographer on distance between locations and on moments that happen at the same time, never on status. Finish with: “How does that look to you both?”</p>
+<h2>4. Recommendation (3 minutes)</h2>
+<p>“Based on what you’ve told me, the part I’d protect first is [their priority]. So I’d recommend [coverage], because that gives you [outcome].” Two pillars at most. No inclusion list unless they ask. Show the one gallery. Name the investment the timeline produced and say it is a ceiling: “Everything we tighten from here brings it down, never up.”</p>
+<h2>5. Concerns (3 minutes)</h2>
+<p>“How does that direction feel?” If something is off, acknowledge it, normalise it only if that is true, then ask one question to find the real concern. Never discount before you have diagnosed. The objections section carries the replies.</p>
+<h2>6. Next steps and close (3 minutes)</h2>
+<p>If they are ready, confirm the direction, state [your retainer] and what happens after booking ([your onboarding steps, for example a group chat, timeline planning, a pre-wedding call]). If they need their partner or more time: “What will you want to think through?” Then book the next touchpoint: “I’ll send the proposal and the timeline today. Can I check in on [day]?” Your last question is always: “Is there anything I haven’t answered that would help you decide?”</p>
+<h2>After the call (20 minutes, same day)</h2>
+<p>Send the summary, the timeline and the proposal. Listen back once at 1.5 speed. Score the call with the scorecard. Write one improvement for the next call. Log any price objection in the couple’s exact words. Note every question they asked. Those questions are your next posts.</p></div>
+</section>
+<section class="chapter ">
+  <header class="chapter-head">
+    <div class="num">02</div>
+    <h1>The timeline on the call</h1>
+    <p class="lead">Most photographers run a consult as an interview followed by a price. I run it as a planning session. Somewhere around minute eight I share my screen, type the couple’s wedding date and ceremony time into my timeline builder, and build their day in front of them. That ten minutes does three jobs at once. It is my discovery. It is my recommendation. And it is the moment the couple stops interviewing a photographer and starts planning a wedding with one.</p>
+  </header>
+  <div class="body"><p>This section gives you the short version for the call. The full pre-wedding timeline process, the one I run [four to six weeks] before the day, is a separate piece of work and is pointed to at the end.</p>
+<h2>Why this works</h2>
+<p>A couple at the consult stage has booked a venue and maybe a celebrant. They have no idea how their day will actually run. They are nervous about it. When I show them that a 1pm ceremony gives them two portrait locations and an hour to rest before they walk into the reception, I have solved a problem they did not know how to solve. I did it for free, in real time, with no sales language.</p>
+<p>It also answers the question they came to ask me. The coverage hours fall out of the timeline. I never have to say “most couples take the ten hour package”. I say “your day runs from 10 in the morning to 10 at night, so that is what I would cover”, and the couple watched me work it out. Nobody argues with arithmetic they did themselves.</p>
+<p>The third job is quieter. Building the timeline is how I find the facts I need. Where each of them is getting ready. How far apart those two places are. How big the bridal party is. Whether there is a tea ceremony, a church with a hard finish, a cultural morning that starts at seven. Each of those changes the recommendation, and each one surfaces naturally when I ask “what time do you want to be at the church?” rather than “how many hours do you want?”</p>
+<h2>What I say to open it</h2>
+<p>Once I have the ceremony time I stop them. “Let me share my screen before you go any further. I’ve got a little tool I use for this and it’ll save you about three hours of work. I’ll send it to you afterwards whether you book me or not.”</p>
+<p>That last sentence matters. It tells them the next ten minutes are a gift, not a pitch. It also means I can be honest about the day without them wondering what I am selling.</p>
+<h2>The six inputs</h2>
+<p>I need six things to build a draft that holds up. I ask for them in roughly this order. Some they know, some they guess, some I fill in from experience and say so.</p>
+<ol>
+<li>The date. This gives me sunset, and sunset sets the back half of the day.</li>
+<li>The ceremony time and how long it runs. A civil ceremony is 20 to 30 minutes. A full church service is 45 to 60. A cultural ceremony can run longer. [Write in the ceremony lengths you see most where you shoot.] If I do not know, and I say “I’ll put down an hour for now and we can tidy it later.”</li>
+<li>Where the ceremony and reception are, and the travel time between them.</li>
+<li>Where each of them is getting ready, and how far apart those two places are. This is the single input that decides whether the day needs two photographers.</li>
+<li>Bridal party size. Big groups move slowly. Every location change with eighteen people costs more time than the couple expects.</li>
+<li>Anything happening before the ceremony or after the entrance that must be photographed. A tea ceremony. A groom’s shaving. A first dance they care about. A send-off.</li>
+</ol>
+<p>If they do not know an answer I do not stall. I put in a sensible number, say “we can always adjust this later”, and keep moving. The draft only needs to be close enough to show the shape of the day.</p>
+<h2>The blocks I build, in order</h2>
+<p>I build from the ceremony outwards, then check the whole thing against sunset.</p>
+<p>After the ceremony. Fifteen to thirty minutes of congratulations, because people will hug them whether or not it is on the timeline. Then family and friend portraits straight away, while everyone is still in one place. Then ten minutes for the two of them alone, because it is a real wedding and they have just been married.</p>
+<p>Portrait locations. Travel time to each one, plus a buffer. One hour at each location. Travel back. I say the buffer out loud: “I give every car trip [ten] minutes on top of the drive time, because parking, gear and finding the spot always eat it.” Couples relax when they hear that. It tells them I have done this before.</p>
+<p>The rest window. If the day allows it, an hour before the reception entrance to sit down, touch up and breathe. I point at it and say “you get an hour to rest here”. That hour is often the thing they remember from the call.</p>
+<p>Sunset. The light decides when portraits should end, and therefore when the entrance should be. If the entrance is set too early for the sunset, I say so and suggest moving it. Venues rarely mind thirty minutes.</p>
+<p>The morning. I work backwards from the ceremony. Travel to the ceremony with a buffer. Final touches and getting into the dress or suit. Hair and makeup, roughly an hour each per person being styled, more for a big party. That gives me a start time for the first photographer and tells me when the second one is needed on the other side of town.</p>
+<p>The evening. Entrance, speeches, cake, first dance, and anything cultural. I ask what matters most and where they would be happy for coverage to end. “Most couples finish me around the first dance. Some want the dance floor. After about ten o’clock it is evidence, not photography.” They laugh, and they pick.</p>
+<h2>Letting the hours fall out</h2>
+<p>Once the blocks are in place I read the day back. “So that is 10am to 10pm, about twelve hours. The second photographer starts with you at 11 and finishes when you enter the reception at 6.30, so about seven and a half hours.” Then I stop and ask how it looks.</p>
+<p>This is where the recommendation lives. I do not present packages. I say what the day needs and why, using the facts we just put on the screen together. If two photographers make sense I say exactly which block made them make sense: “You’re getting ready 45 minutes apart, so one photographer would miss half of one of you.” If the day is small and close together I say one photographer is enough, and I say it before they ask. Telling a couple they need less than they expected is the fastest trust I know how to build.</p>
+<p>If the day is still fluid, which it usually is twelve months out, I build the longest realistic version and name it as a ceiling. “This is the maximum. Everything we tighten from here brings the number down, never up.” That one sentence removes the fear that the price will grow after they book.</p>
+<h2>What I send afterwards</h2>
+<p>The same day, the couple gets the draft timeline, a short summary of what we discussed and the proposal. The timeline goes in the proposal email as plain text they can forward to their planner, their parents and their hair and makeup artist. I tell them to send it back when vendors firm up and I will lock the changes in.</p>
+<p>The draft does not need to be perfect. It needs to be theirs, built with them, in a form they can share.</p>
+<h2>If you do not have a timeline tool</h2>
+<p>Build one. A spreadsheet with a column of times and a column of events is enough to start. The rules the tool needs are the ones above: ceremony length, 15 to 30 minutes of congratulations, 30 minutes of family portraits, 10 minutes alone, travel plus a 10 minute buffer every car trip, one hour per portrait location, an hour of rest if the day allows, entrance set against sunset, and the morning worked backwards from the ceremony at about an hour per person for hair and an hour for makeup. Look up the sunset for the date before the call, from [your sunset source]. Never guess it.</p>
+<p>The tool is not the point. Building the day in front of them is the point. A pen and a printed grid would do the same job, slower.</p>
+<h2>The full process this points to</h2>
+<p>What I build on the call is the draft. [Four to six weeks] before the wedding I run the full pre-wedding timeline process with the couple: confirmed vendor times, exact addresses, the family photo list, a named person to round people up for portraits, and the back-to-back check with the church or venue. That process is its own tool in the program. The call version exists to earn the booking and to give the couple something useful on the way out, whichever way they decide.</p></div>
+</section>
+<section class="chapter ">
+  <header class="chapter-head">
+    <div class="num">03</div>
+    <h1>The recording habit</h1>
+    <p class="lead">I record every consult. It is the single fastest skill jump available to a photographer who sells on the phone, and it costs nothing but the first awkward sentence. This section covers how I ask, how I listen back, how I write the proposal off the transcript, and how the questions couples ask become the posts I publish.</p>
+  </header>
+  <div class="body"><h2>Asking for consent</h2>
+<p>I use [your recording tool], a notetaker that joins the video call as a participant so the couple can see it. If you run calls by phone, your phone can record with an app and the same sentence applies. Either way, I say it before anything else of substance:</p>
+<p>“Just so you know, I record these calls so I can send you a proper summary afterwards instead of scribbling notes while you talk. Is that alright with you?”</p>
+<p>Nobody has ever said no. The reason is in the sentence. The recording is for them. It means I can look at them and listen instead of typing. If a couple did say no I would stop the recorder, say thank you, and take notes the old way. Consent is not a formality. Where I live the law requires it. [Check the recording consent rule where you are.] Ask regardless, because the couple deserves it.</p>
+<p>Tell them again if someone new joins the call late. Partners drop in halfway through all the time.</p>
+<h2>Listening back once</h2>
+<p>Within 24 hours I listen to the call once, at one and a half speed. Not to relive it. To score it. I keep the scorecard short and I answer each line yes, partly or no:</p>
+<ul>
+<li>Did I find out why they reached out to me specifically?</li>
+<li>Did I learn what they want the photographs to feel like, in their words?</li>
+<li>Did I reflect their priorities back and get a yes?</li>
+<li>Did I learn the parts of the day that could change my recommendation?</li>
+<li>Did I avoid asking things they had already told me in the enquiry?</li>
+<li>Did I listen more than I talked?</li>
+<li>Did I recommend, rather than list options?</li>
+<li>Did I ask what “think about it” actually meant?</li>
+<li>Did I agree the next touchpoint before we hung up?</li>
+</ul>
+<p>Then I write one improvement for the next call. One. Not five. The first time I did this I discovered I was answering my own questions before the couple could. The second time I discovered I said “yeah” about ninety times. Pick the single thing that would have changed the outcome most and fix that one on the next call.</p>
+<p>Three or four calls in, patterns show up that you would never catch live. You will hear where the couple went quiet. You will hear the question they asked twice because you did not answer it the first time. You will hear the moment they decided, which is almost never where you thought it was.</p>
+<h2>Writing the proposal off the transcript</h2>
+<p>The proposal is a note from me, not a quote. The transcript is how I make it sound like one.</p>
+<p>Before I write, I search the transcript for five things:</p>
+<ol>
+<li>The personal detail. Where they proposed, the thing they laughed about, the venue they chose and why. One of these opens the email.</li>
+<li>Their words for the photography. “Candid.” “Not a production.” “Editorial but still us.” I use their words, not mine.</li>
+<li>The coverage we agreed and why. The getting-ready locations, the second photographer decision, the finish time they chose. The proposal repeats the reasoning as well as the number.</li>
+<li>Anything I promised to send. Vendor recommendations, a gallery link, a check on a videographer’s availability. If I said it, it goes in the email or I lose trust.</li>
+<li>Anything still open. Ceremony time not confirmed, a tea ceremony they are deciding on. I name it so they know the plan can flex.</li>
+</ol>
+<p>The proposal then writes itself in about twenty minutes. Opening with the personal detail. One paragraph of what I recommended and why, in their language. The draft timeline from the call, pasted in plain text. The next step. A line saying I will check in on a named day if that is alright with them. Deliverables as dot points, with the exact gallery delivery date worked out from [your delivery timeframe], never “six to eight weeks”.</p>
+<p>If the notetaker produces a summary, use it as a checklist, not as copy. Summaries flatten everyone into the same voice. The point of the transcript is that it preserves theirs.</p>
+<p>One more thing the transcript does. If a couple pushes on price, I copy their exact sentence into a log with the date. Never paraphrased softer or harder than they said it. Ten of those lines tell me more about my pricing than any amount of thinking does, and the pricing section explains how I read them.</p>
+<h2>Mining the call for content</h2>
+<p>Every consult is a content session the couple paid for with their attention. Three things come out of each one.</p>
+<p>The questions. Couples ask the same things in different words. “How many photos do we get?” “Are they all edited?” “Do we get a sneak peek?” “What if it rains?” “Do you help with the timeline?” Each question is a post, a reel script, a frequently asked questions entry on your website and a line in your next enquiry reply. I keep a running list with a tally. The question that has been asked most this quarter is the one I film next.</p>
+<p>The answers. The way you explain something to a nervous couple at 7pm on a Tuesday is your voice. It is warmer and plainer than anything you would write cold. When I need a caption or a script, I search the transcripts for the time I explained that thing well and I start from what I actually said.</p>
+<p>The moments. “Would you be happy to end around the first dance? After ten o’clock it’s evidence, not photography.” A couple laughed at that on a call. It became a post about coverage length that did better than anything I had written about packages. The lines that land live are the lines that land on screen.</p>
+<p>Never quote a couple by name. Never post anything they would recognise as theirs without asking. The pattern is yours. The specifics are not.</p>
+<h2>The habit, in one line</h2>
+<p>Record with consent. Listen back once and fix one thing. Write the proposal in their words. Turn their questions into your next post. Four steps, maybe forty minutes a consult, and the compounding is faster than anything else in this business.</p></div>
+</section>
+<section class="chapter ">
+  <header class="chapter-head">
+    <div class="num">04</div>
+    <h1>The objections, in depth</h1>
+    <p class="lead">The Booking Pack carries the short replies you can paste into a message. This is the long version, the one for the call itself, where you have a voice and a face and a couple who can hear whether you mean it.</p>
+  </header>
+  <div class="body"><h2>Objections are information</h2>
+<p>Before any technique, the stance. An objection is not a wall between me and a booking. It is the couple telling me what they need to know or believe before they can decide. My job on the call is to find that out and answer it honestly. Sometimes the honest answer is that I am not the right fit, and a clean no is a successful call.</p>
+<p>The numbers back the stance. If I close fewer than three consults in ten, objection handling is not my problem. The offer is wrong, or the wrong people are reaching the call, and no reply will fix that. If I close more than seven in ten, my prices are too low and the next move is a rise, not a celebration. The band in between is where selling skill matters at all. So I count. Consults held, bookings made, and every price objection written down in the couple’s own words with the date. Ten of those lines tell me more than a month of worrying.</p>
+<p>Two more distinctions I hold onto. An obstacle comes up before I have made a recommendation, and I can usually clear it with a question or a fact. An objection comes up after I have asked for the decision, and it needs diagnosis before it needs an answer. And the first reason a couple gives is often not the real one. “We need to think about it” can mean money, fit, a partner, a parent, a bad experience with a photographer at a sibling’s wedding, or simple exhaustion with planning. I do not solve the first thing I hear. I ask.</p>
+<h2>The three moves</h2>
+<p>Every reply below runs the same three moves. Acknowledge, associate, ask.</p>
+<p>Acknowledge. Say back what they said, calmly, so they know it landed. “That makes sense. It is a significant investment and I would never expect you to decide it lightly.”</p>
+<p>Associate. Normalise it, but only if that is true. “A lot of couples find it hard to compare photographers when the inclusions look the same on paper.” Never “serious couples invest more”, never “you only get married once”, never anything that trades on status or shame. If you cannot normalise it honestly, skip this move.</p>
+<p>Ask. One targeted question that finds the real concern. Then stop talking and let them answer.</p>
+<p>Once I know the real concern I answer it, check whether that resolved it, and if fit is still clear I ask for the decision once more. If a new concern appears I run the three moves again. If they decline or ask for space, I stop closing and I mean it.</p>
+<h2>1. Price pushback</h2>
+<p>What it sounds like: “That’s more than we were expecting.” “Why are you more than the others we’ve spoken to?” “That’s a lot.”</p>
+<p>What it usually means. One of two things, and they need different answers. Either the total is outside what they are comfortable spending, which is affordability. Or they can spend it but are not yet convinced the difference is worth it, which is value. Most photographers hear the first and answer the second, with a list of inclusions. That makes it worse.</p>
+<p>The question: “When you say it feels like a lot, is it more that the total is outside what you’d be comfortable spending, or that you’re not yet sure the difference is worth the extra?”</p>
+<p>If it is value, I go back to what they told me mattered in discovery and I explain the difference through that, not through features. Two pillars at most. “You told me the thing you were most worried about was the day turning into a photoshoot. The second photographer is what lets me stay with you while the other side of the morning still gets covered. That is most of the difference between the two options you’re looking at.” Then one piece of real proof if I have it. A gallery from a day shaped like theirs. A story about a couple with the same worry.</p>
+<p>If it is comparison, I ask: “Apart from price, what feels different between the two options?” and if they are not sure: “If both were the same investment, which would you feel more confident choosing, and why?” The answer tells me whether the real decision is style, trust, coverage or price. I never criticise the other photographer and I never guess why they are cheaper.</p>
+<p>If it is affordability, I go to the budget section below.</p>
+<p>What I never do: defend the price with an inclusion list, discount before I have diagnosed, or keep closing after the real answer is that they cannot spend it.</p>
+<h2>2. The budget question</h2>
+<p>This one has two faces and I handle them differently.</p>
+<p>The first face is a couple asking the price early, before I have built the timeline. I answer. A starting figure and the typical range, in one sentence, then one helpful question. “Full day commissions with two photographers typically sit in [your range], and the main thing I’d want to understand before pointing you to a number is how your day is shaped and whether a second photographer actually earns its place. Where are you both getting ready?” Answer first, then ask. Never force a couple through a call before they get a number. It reads as hiding and it is.</p>
+<p>The second face is a couple naming a budget that is under my floor. “We’ve got about [X] set aside for photography.” This is affordability, and I respect it as a real boundary. I do not pretend it is a value problem, and I do not find them finance.</p>
+<p>The question: “What were you hoping that would include?” Often the answer is a shape of day that does not need what they think it needs. A couple who assumed they needed ten hours and two photographers may have a six hour day with everyone in one building. Then the honest route is to change the scope. Shorter coverage, one photographer, a smaller deliverable. I rebuild around what matters most to them and I quote that.</p>
+<p>If the scope cannot move and the number cannot either, I have two honest options left. If I work with other photographers whose rates sit where the couple is, [name yours], I introduce one properly, by name, as a recommendation and not a consolation. If I do not, I say so kindly and leave the door open. “I’d rather tell you straight than squeeze a day I can’t do properly. If anything changes, you know where I am.”</p>
+<p>I never ask a couple for their budget. The ten questions exist so I can hear it without asking.</p>
+<h2>3. Still deciding</h2>
+<p>What it sounds like: “We need to think about it.” “We want to speak to a few more people.” “Can we come back to you?”</p>
+<p>What it usually means. Something is unresolved and they do not yet have the words for it, or they are simply not ready and need the permission to say so.</p>
+<p>The question: “Of course. What are the main things you want to think through?” Asked with real curiosity, not as a trap. If they can name it, I now have an obstacle to clear, and I clear it. If they cannot, I offer the menu: “Is it mainly the investment, the fit, the coverage, or are you just not ready to decide yet?” Any of the four is a fine answer. “Not ready” is a fine answer.</p>
+<p>Then I make the decision easier to make, not harder to avoid. I summarise what we agreed in two sentences. I tell them exactly what they will receive from me and when. I say what is true about the date. If the date is one that fills early I say so. If it is not, I do not invent a deadline. Manufactured urgency costs more trust than it earns, and a wedding date is real enough on its own.</p>
+<p>Finally I book the next touchpoint before we hang up. Never “let me know”. Always a day. “I’ll send the proposal and the timeline tonight. Would it help if I checked in on Thursday after you’ve both had a look?” They almost always say yes, and now the follow-up is something they asked for.</p>
+<h2>4. The partner wants someone else</h2>
+<p>What it sounds like: “My partner really liked another photographer.” “I love your work but [partner] is leaning a different way.” Sometimes it arrives by message after the call, from the one who was not on it.</p>
+<p>What it usually means. A joint decision with two sets of criteria, and the couple is working out how to reconcile them. It is almost never a verdict on you.</p>
+<p>What I never do: tell one partner to overrule the other, frame the decision as support versus permission, or encourage a booking one half of the couple does not want. A wedding photographed for a couple where one of them wanted someone else is a bad day for everyone.</p>
+<p>The question: “What was it about their work that [partner] responded to?” The answer is useful whichever way it goes. If it is a style I do not shoot, I say so and wish them well. If it is something I do and simply did not show, I can show it. If it is a feeling rather than a style, I ask the second question: “What would [partner] need to feel clear on before you both decide?”</p>
+<p>Then the offer: a short second call with both of them, fifteen minutes, specifically so the absent partner can meet me. Most of these objections dissolve when the second person hears the plan for the day from the person who will be running it. If a second call is not possible I send a short written recap aimed at the partner, in plain language, with the timeline attached, and I agree a day to check in.</p>
+<h2>5. Fewer hours</h2>
+<p>What it sounds like: “Can we do it with less coverage?” “Do we really need the morning?” “What if we just do the ceremony and portraits?”</p>
+<p>What it usually means. Either the number is too high and they are looking for a lever, or they do not yet see what the hours buy them. Sometimes they are right and the day is shorter than I drafted.</p>
+<p>The question: “Which parts of the day are most important for you to have fully documented?” I go back to the timeline on the screen and we look together. If getting ready is not important to them, it comes off and the day shrinks honestly. If the first dance matters, it stays. The timeline does the negotiating, not me.</p>
+<p>Two things I say plainly. First, a shorter day costs less because they are buying less. What they keep costs what it costs, and the rate does not move because the day got shorter. I say that as a fact, not an apology. Second, the hours I would protect last are the ones around the ceremony and the two hours before sunset, because those are the ones they will miss if they are gone. The morning and the late dance floor are the honest places to trim.</p>
+<p>What I never do: cut the price for the same scope, or let the couple cut coverage I know they will regret without telling them. If they cut it anyway after hearing me, that is their call and I book it cheerfully.</p>
+<h2>My position on discounting</h2>
+<p>I do not discount. Not because I am precious about the number, but because a discount tells the couple the first number was not real, and every couple they refer to me will arrive expecting the same conversation. Here is the whole position.</p>
+<p>Change the scope, never the price. If a couple cannot reach the number, the honest move is a smaller day, fewer photographers or a smaller deliverable, quoted at full rate. The same work for less money is the one thing I will not do.</p>
+<p>Add rather than subtract. When I want to be generous, and I often do, I add value. An engagement session with a booking made by a date. A print credit. Extra time on a session. Generosity that adds something costs me hours, not margin, and it never resets the price in anyone’s head.</p>
+<p>Credits, not discounts. If I have promised a gift that the couple’s booking already includes, I convert it to a credit toward something else rather than knocking money off. A gift that quietly becomes a discount teaches the wrong lesson.</p>
+<p>Never discount the album, never gift it. In my ladder the album is the product with real cost of goods and a thin margin. [Name the equivalent in yours.] Giving it away or cutting it is the fastest way to turn a profitable booking into a loss while feeling generous.</p>
+<p>Spread, never front-load. If I ever structure a payment concession, it is across the schedule, not a cheap first payment. A small deposit invites an easy yes and an easy cancellation. The deposit is what makes the date real for both of us.</p>
+<p>Hold the price long enough to learn. When I change my prices I hold them for a set number of consults before I touch them again, [twenty] in my case, and I write the number down before the first call. The reversal trigger is written down in advance: the number of price objections per ten consults, each one logged in the couple’s exact words. If the log fills, the price is wrong and I move it. If the log stays empty while the close rate climbs past seven in ten, the price is low and I move it the other way. Either way the decision comes from the log, not from how the last call felt.</p>
+<h2>Asking for the decision</h2>
+<p>A close is one clear question after fit is established and concerns are resolved. “From everything we’ve talked through, I think [direction] is the right shape for your day. Would you like me to send the proposal for that?” Then silence. I do not fill it, I do not add a feature, I do not apologise for asking.</p>
+<p>If they say yes, I stop selling. I confirm the direction, [your retainer], and what happens next. People who have decided do not want to be sold to.</p>
+<p>If a concern appears, I resolve it, check that it is resolved, and ask once more. If a second, different concern appears, I address that too. If they clearly decline or ask for space, I stop. I agree a follow-up only if they want one. The respectful re-ask rule is simple: one ask per resolved concern, and never through silence.</p>
+<h2>After the call</h2>
+<p>Three lines in the notes, every time. Where they landed. The exact words of any price objection, dated. One thing I will do differently next call. The first builds the follow-up. The second builds the pricing decision. The third builds the skill.</p></div>
+</section>
+<section class="chapter ">
+  <header class="chapter-head">
+    <div class="num">05</div>
+    <h1>The ten questions</h1>
+    <p class="lead">I never ask a couple what their budget is. I never ask who makes the decision. Both questions put people on guard, and both get answers that are polite rather than true. Instead I ask about the day. The budget and the decision makers surface on their own, inside answers the couple is happy to give, and I listen for them.</p>
+  </header>
+  <div class="body"><p>Each question below does honest work on its own. Each one also carries a tell. The tell is what I am listening for underneath. Do not ask all ten. Pick the ones the enquiry has not already answered, and let the rest come up while you build the timeline.</p>
+<h2>1. “Where are you both getting ready?”</h2>
+<p>Why it works. It is the most natural planning question there is, and it decides whether the day needs two photographers.</p>
+<p>The tell. Listen for the conditional. “A hotel suite if the budget allows.” “Probably at home, we’re trying to keep costs down.” “We’ve booked the penthouse.” Couples tell you where they sit financially in the way they talk about the morning. Listen also for who decided. “Her mum wants us at the house” means a parent is in the room for this wedding, and possibly paying for it.</p>
+<p>What I do with it. Build the morning. Decide the second photographer on distance. File the budget signal without commenting on it.</p>
+<h2>2. “What have you locked in so far, and what’s next on the list?”</h2>
+<p>Why it works. It tells me where photography sits in their priorities and how far along they are.</p>
+<p>The tell. If I am third after venue and celebrant, photography matters to them and they have budgeted for it. If I am eighth after the band and the cake, I am a line item. Listen for the planner. “Our planner said to sort photography now” means a third decision maker who will read the proposal before they do. Listen for the money words: “we’ve paid the venue deposit”, “we’re waiting on the parents for the rest”.</p>
+<p>What I do with it. Match the pace of the call to where they are. A couple twelve months out gets a ceiling and a draft. A couple four months out gets a recommendation and a date to decide by.</p>
+<h2>3. “What made you reach out to me specifically?”</h2>
+<p>Why it works. It tells me what they already value, in their words, so I can reflect it back instead of guessing.</p>
+<p>The tell. Referral is the biggest. “Our friends had you” means they have already seen a price and a gallery and chosen to call anyway. That is a couple who can afford me and has half decided. “We found you on Instagram and loved the editing” means style is the criterion and price is still an open question. “Our venue recommended you” means the venue will hear how this goes.</p>
+<p>What I do with it. Honour the referral by name if they give one. Use their words for my work in the recommendation. Note who else is listening.</p>
+<h2>4. “What feeling are you getting from your parents? Traditional, or low key?”</h2>
+<p>Why it works. For many couples the day is shaped as much by parents as by the couple, and asking about the feeling rather than the money lets them tell me either way.</p>
+<p>The tell. “Mum’s quite traditional” is a decision maker. “Dad’s paying for the reception so he has opinions” is a decision maker with a budget. “They’re leaving it to us” tells me the couple is both deciding and paying, and I should expect them to decide together, slowly, and on their own money.</p>
+<p>What I do with it. If a parent is paying or deciding, I make sure the proposal reads well to someone who was not on the call. Plain language, the timeline attached, the reasoning for each decision written down. I may suggest the couple share the draft timeline with the parent before anything else, because a parent who sees the day planned relaxes about the photographer.</p>
+<h2>5. “How big is your bridal party?”</h2>
+<p>Why it works. Movement. Eighteen people take longer to get anywhere than six, and that changes the timeline and the second photographer decision.</p>
+<p>The tell. Scale is a budget proxy. A large party at a city hotel with a church ceremony and two portrait locations is a wedding with a large guest list and a large spend, and photography will be sized to match. A party of two and a small ceremony in a park tells me to lead with a shorter day and say so before they ask.</p>
+<p>What I do with it. Build travel and buffer time to suit. Recommend the day that fits the scale, in both directions.</p>
+<h2>6. “Are you exploring a videographer?”</h2>
+<p>Why it works. It is helpful. I can recommend good ones, I can check their availability, and I need to know for the timeline.</p>
+<p>The tell. A booked videographer means the couple has already spent at a known level on an adjacent service, and photography usually sits at or above it. “Not yet, we’re starting with photos” tells me photography is first and the whole budget is still intact. “We might just get a friend to film” tells me they are trimming.</p>
+<p>What I do with it. Recommend, offer to check availability, and shape the recommendation to what the video tells me about the day.</p>
+<h2>7. “Is it a full day, or is there a part of the day that matters most to you?”</h2>
+<p>Why it works. It asks for priorities, which is what I need to recommend well.</p>
+<p>The tell. The way they answer the first half is the budget tell. “Oh, the whole thing, start to finish” is a couple who expects to pay for a full day. “Mostly the ceremony and the portraits” is a couple who has either a smaller budget or a clear sense of what they value, and either way the right answer is a shorter day. The second half tells me what they will fight to keep when hours are trimmed.</p>
+<p>What I do with it. Build the timeline to match, and name the coverage that falls out of it.</p>
+<h2>8. “Have you been to a wedding recently that you loved, or one that showed you what you don’t want?”</h2>
+<p>Why it works. It is the kindest way to learn their taste and their fears, and it never asks them to criticise a photographer by name.</p>
+<p>The tell. “My sister’s photographer made everyone pose for two hours” is a fear I can answer with how I run portraits. “Our friends got their photos eight months later” is a fear I answer with a delivery date. “Our friends’ wedding was beautiful but they spent a fortune” is the budget tell, and I hear it without responding to it. Listen also for who was at that wedding with them. “Mum hated the photographer” tells me who will have a view on mine.</p>
+<p>What I do with it. Address the fear directly in the recommendation. It is the most persuasive thing I can do.</p>
+<h2>9. “Am I the first photographer you’ve spoken to, or have you got a few lined up?”</h2>
+<p>Why it works. It is honest and it is disarming. Couples expect photographers to avoid this question, and asking it plainly earns trust.</p>
+<p>The tell. “You’re the first” means I am setting the anchor for everything they see next, and I should make the recommendation and the timeline count. “We’ve spoken to three” means they have a price range in their head already, and if they are still on the call with me the range includes me. “We’ve spoken to a few and you’re the most expensive” is price pushback arriving early, and I take it to the objections section.</p>
+<p>What I do with it. If I am first, I give them the questions to ask the others. If I am last, I ask what has made comparing difficult so far.</p>
+<h2>10. “What would you both want to feel clear on before you decide?”</h2>
+<p>Why it works. It is the decision maker question, asked without asking it. It names the decision as joint, it gives the quiet partner a reason to speak, and it tells me what is unresolved.</p>
+<p>The tell. If one partner answers for both, that is the decision maker, and the other partner’s silence is what I need to address before the call ends. “I’d want to run it past my dad” is a third decision maker named out loud. “Honestly the only thing is the number” is the budget, delivered without me asking for it. “Nothing, we’re pretty sure” is a couple who is ready, and I should ask for the decision.</p>
+<p>What I do with it. Answer what can be answered now. Offer a short second call if a partner or parent needs to meet me. Agree the next touchpoint.</p>
+<h2>A note on the order</h2>
+<p>Questions one, two and five come up while I build the timeline and need no set-up. Three and eight belong in discovery, before the screen share. Four and six fit anywhere planning is being discussed. Seven is the bridge from the timeline into the recommendation. Nine and ten belong at the end, after the recommendation, when the couple is deciding.</p>
+<h2>How these were tested</h2>
+<p>I checked each question against three recorded consults from my own calendar before writing it down. Every tell above appeared in at least one of those calls without the couple being asked for it directly. A couple told me their getting-ready plan depended on the budget inside the first five minutes. Another named the parents’ expectations the moment I asked about tradition. A third told me I was the first photographer they had spoken to, unprompted, when I asked how the number felt.</p>
+<p>Run the list on your next live consult, with [your own questions] added where they fit. Tick the questions you asked, circle the tells you heard, and note which ones you missed. After three calls you will know which four or five do the most work for the way you sell.</p></div>
+</section>
+<section class="chapter fillin">
+  <header class="chapter-head">
+    <div class="num">06</div>
+    <h1>Make it yours</h1>
+    <p class="lead">Everything in square brackets in this kit is a place where my business sits and yours should. Fill this page once, in pen, and the kit is yours. Then go back through the run sheet and write your answers over the brackets.</p>
+  </header>
+  <div class="body"><h2>The call</h2>
+<ol>
+<li>My consult length, and the link or tool couples use to book it:</li>
+<li>My recording tool, and the consent sentence I will say in my own words:</li>
+<li>My timeline builder (app, spreadsheet or printed grid), and where I look up sunset:</li>
+<li>The ceremony lengths I see most, by type, and the travel buffer I give every car trip:</li>
+<li>My default check-in day after a proposal goes out:</li>
+</ol>
+<h2>The money</h2>
+<ol>
+<li>My starting figure and typical range, as the one sentence I say when asked early:</li>
+<li>My retainer, and the payment schedule after it:</li>
+<li>What happens after booking, in three steps I can say out loud:</li>
+<li>My delivery timeframe, and how I turn it into an exact gallery date on every proposal:</li>
+<li>The product in my ladder I will never discount or gift, and what I offer as a credit instead:</li>
+</ol>
+<h2>The rules I hold myself to</h2>
+<ol>
+<li>The number of consults I hold a price for before I move it, and the objection count that would make me move it sooner:</li>
+<li>The photographer I refer to when a couple cannot reach my floor and the scope cannot move:</li>
+<li>Where my three logs live (consults against bookings, price objections in the couple’s words, questions couples ask):</li>
+<li>The questions I would add to the ten, in the words I actually use:</li>
+<li>The one improvement I am carrying into my next call:</li>
+</ol></div>
+</section>
+
+<section class="chapter closing">
+  <header class="chapter-head"><div class="num">After</div><h1>Where this goes next</h1></header>
+  <div class="body">
+  <p>Run three consults with the run sheet beside you and the recorder on. Do not try to use all of it at once. The first call, get the opening and the timeline right. The second, listen back and fix one thing. The third, run the ten questions and tick what you heard. By the fourth call the structure will have disappeared into the way you talk, which is the point.</p>
+  <p>Keep three logs. Consults held against bookings made, so you know which band you are in. Every price objection in the couple’s exact words, dated, so your pricing decisions come from evidence. Every question a couple asks, tallied, so you always know what to post next.</p>
+  <p>This kit is the consult worksheet from Module 3 of my program, Part-Time to Full-Time, where it sits alongside the proposal template and the pipeline that feeds it. If you bought the kit on its own and later join the program, what you paid here is credited. I do not sell the same pages twice.</p>
+  </div>
+</section>
+</body></html>
