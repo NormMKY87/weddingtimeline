@@ -92,4 +92,4 @@ Questions one, two and five come up while I build the timeline and need no set-u
 
 I checked each question against three recorded consults from my own calendar before writing it down. Every tell above appeared in at least one of those calls without the couple being asked for it directly. A couple told me their getting-ready plan depended on the budget inside the first five minutes. Another named the parents' expectations the moment I asked about tradition. A third told me I was the first photographer they had spoken to, unprompted, when I asked how the number felt.
 
-Run the list on your next live consult. Tick the questions you asked, circle the tells you heard, and note which ones you missed. After three calls you will know which four or five do the most work for the way you sell.
+Run the list on your next live consult, with [your own questions] added where they fit. Tick the questions you asked, circle the tells you heard, and note which ones you missed. After three calls you will know which four or five do the most work for the way you sell.

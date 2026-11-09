@@ -48,7 +48,7 @@ The second face is a couple naming a budget that is under my floor. "We've got a
 
 The question: "What were you hoping that would include?" Often the answer is a shape of day that does not need what they think it needs. A couple who assumed they needed ten hours and two photographers may have a six hour day with everyone in one building. Then the honest route is to change the scope. Shorter coverage, one photographer, a smaller deliverable. I rebuild around what matters most to them and I quote that.
 
-If the scope cannot move and the number cannot either, I have two honest options left. If I work with other photographers whose rates sit where the couple is, I introduce one properly, by name, as a recommendation and not a consolation. If I do not, I say so kindly and leave the door open. "I'd rather tell you straight than squeeze a day I can't do properly. If anything changes, you know where I am."
+If the scope cannot move and the number cannot either, I have two honest options left. If I work with other photographers whose rates sit where the couple is, [name yours], I introduce one properly, by name, as a recommendation and not a consolation. If I do not, I say so kindly and leave the door open. "I'd rather tell you straight than squeeze a day I can't do properly. If anything changes, you know where I am."
 
 I never ask a couple for their budget. The ten questions exist so I can hear it without asking.
 
@@ -98,17 +98,17 @@ Add rather than subtract. When I want to be generous, and I often do, I add valu
 
 Credits, not discounts. If I have promised a gift that the couple's booking already includes, I convert it to a credit toward something else rather than knocking money off. A gift that quietly becomes a discount teaches the wrong lesson.
 
-Never discount the album, never gift it. The album is the one product in the ladder with real cost of goods and a thin margin. Giving it away or cutting it is the fastest way to turn a profitable booking into a loss while feeling generous.
+Never discount the album, never gift it. In my ladder the album is the product with real cost of goods and a thin margin. [Name the equivalent in yours.] Giving it away or cutting it is the fastest way to turn a profitable booking into a loss while feeling generous.
 
 Spread, never front-load. If I ever structure a payment concession, it is across the schedule, not a cheap first payment. A small deposit invites an easy yes and an easy cancellation. The deposit is what makes the date real for both of us.
 
-Hold the price long enough to learn. When I change my prices I hold them for twenty consults before I touch them again. The reversal trigger is written down in advance: the number of price objections per ten consults, each one logged in the couple's exact words. If the log fills, the price is wrong and I move it. If the log stays empty while the close rate climbs past seven in ten, the price is low and I move it the other way. Either way the decision comes from the log, not from how the last call felt.
+Hold the price long enough to learn. When I change my prices I hold them for a set number of consults before I touch them again, [twenty] in my case, and I write the number down before the first call. The reversal trigger is written down in advance: the number of price objections per ten consults, each one logged in the couple's exact words. If the log fills, the price is wrong and I move it. If the log stays empty while the close rate climbs past seven in ten, the price is low and I move it the other way. Either way the decision comes from the log, not from how the last call felt.
 
 ## Asking for the decision
 
 A close is one clear question after fit is established and concerns are resolved. "From everything we've talked through, I think [direction] is the right shape for your day. Would you like me to send the proposal for that?" Then silence. I do not fill it, I do not add a feature, I do not apologise for asking.
 
-If they say yes, I stop selling. I confirm the direction, the retainer, and what happens next. People who have decided do not want to be sold to.
+If they say yes, I stop selling. I confirm the direction, [your retainer], and what happens next. People who have decided do not want to be sold to.
 
 If a concern appears, I resolve it, check that it is resolved, and ask once more. If a second, different concern appears, I address that too. If they clearly decline or ask for space, I stop. I agree a follow-up only if they want one. The respectful re-ask rule is simple: one ask per resolved concern, and never through silence.
 

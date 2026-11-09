@@ -2,7 +2,7 @@
 
 Most photographers run a consult as an interview followed by a price. I run it as a planning session. Somewhere around minute eight I share my screen, type the couple's wedding date and ceremony time into my timeline builder, and build their day in front of them. That ten minutes does three jobs at once. It is my discovery. It is my recommendation. And it is the moment the couple stops interviewing a photographer and starts planning a wedding with one.
 
-This section gives you the short version for the call. The full pre-wedding timeline process, the one I run four to six weeks before the day, is a separate piece of work and is pointed to at the end.
+This section gives you the short version for the call. The full pre-wedding timeline process, the one I run [four to six weeks] before the day, is a separate piece of work and is pointed to at the end.
 
 ## Why this works
 
@@ -23,7 +23,7 @@ That last sentence matters. It tells them the next ten minutes are a gift, not a
 I need six things to build a draft that holds up. I ask for them in roughly this order. Some they know, some they guess, some I fill in from experience and say so.
 
 1. The date. This gives me sunset, and sunset sets the back half of the day.
-2. The ceremony time and how long it runs. A civil ceremony is 20 to 30 minutes. A full church service is 45 to 60. A cultural ceremony can run longer, and I say "I'll put down an hour for now and we can tidy it later."
+2. The ceremony time and how long it runs. A civil ceremony is 20 to 30 minutes. A full church service is 45 to 60. A cultural ceremony can run longer. [Write in the ceremony lengths you see most where you shoot.] If I do not know, and I say "I'll put down an hour for now and we can tidy it later."
 3. Where the ceremony and reception are, and the travel time between them.
 4. Where each of them is getting ready, and how far apart those two places are. This is the single input that decides whether the day needs two photographers.
 5. Bridal party size. Big groups move slowly. Every location change with eighteen people costs more time than the couple expects.
@@ -37,7 +37,7 @@ I build from the ceremony outwards, then check the whole thing against sunset.
 
 After the ceremony. Fifteen to thirty minutes of congratulations, because people will hug them whether or not it is on the timeline. Then family and friend portraits straight away, while everyone is still in one place. Then ten minutes for the two of them alone, because it is a real wedding and they have just been married.
 
-Portrait locations. Travel time to each one, plus a buffer. One hour at each location. Travel back. I say the buffer out loud: "I give every car trip ten minutes on top of the drive time, because parking, gear and finding the spot always eat it." Couples relax when they hear that. It tells them I have done this before.
+Portrait locations. Travel time to each one, plus a buffer. One hour at each location. Travel back. I say the buffer out loud: "I give every car trip [ten] minutes on top of the drive time, because parking, gear and finding the spot always eat it." Couples relax when they hear that. It tells them I have done this before.
 
 The rest window. If the day allows it, an hour before the reception entrance to sit down, touch up and breathe. I point at it and say "you get an hour to rest here". That hour is often the thing they remember from the call.
 
@@ -63,10 +63,10 @@ The draft does not need to be perfect. It needs to be theirs, built with them, i
 
 ## If you do not have a timeline tool
 
-Build one. A spreadsheet with a column of times and a column of events is enough to start. The rules the tool needs are the ones above: ceremony length, 15 to 30 minutes of congratulations, 30 minutes of family portraits, 10 minutes alone, travel plus a 10 minute buffer every car trip, one hour per portrait location, an hour of rest if the day allows, entrance set against sunset, and the morning worked backwards from the ceremony at about an hour per person for hair and an hour for makeup. Look up the sunset for the date before the call. Never guess it.
+Build one. A spreadsheet with a column of times and a column of events is enough to start. The rules the tool needs are the ones above: ceremony length, 15 to 30 minutes of congratulations, 30 minutes of family portraits, 10 minutes alone, travel plus a 10 minute buffer every car trip, one hour per portrait location, an hour of rest if the day allows, entrance set against sunset, and the morning worked backwards from the ceremony at about an hour per person for hair and an hour for makeup. Look up the sunset for the date before the call, from [your sunset source]. Never guess it.
 
 The tool is not the point. Building the day in front of them is the point. A pen and a printed grid would do the same job, slower.
 
 ## The full process this points to
 
-What I build on the call is the draft. Four to six weeks before the wedding I run the full pre-wedding timeline process with the couple: confirmed vendor times, exact addresses, the family photo list, a named person to round people up for portraits, and the back-to-back check with the church or venue. That process is its own tool in the program. The call version exists to earn the booking and to give the couple something useful on the way out, whichever way they decide.
+What I build on the call is the draft. [Four to six weeks] before the wedding I run the full pre-wedding timeline process with the couple: confirmed vendor times, exact addresses, the family photo list, a named person to round people up for portraits, and the back-to-back check with the church or venue. That process is its own tool in the program. The call version exists to earn the booking and to give the couple something useful on the way out, whichever way they decide.
