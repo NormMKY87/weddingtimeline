@@ -1,6 +1,6 @@
 # Quit-Number Calculator: copy
 
-All copy in first person singular, Australian English, no dashes, no semicolons. The page copy lives in `app/index.html` and is reproduced here so it can be reviewed and reused in the free channel. Emails are copy-ready. No prices anywhere.
+All copy in first person singular, Australian English, no dashes, no semicolons. The page copy lives in `app/index.html` and is reproduced here so it can be reviewed and reused in the free channel. No prices anywhere. No email capture (Norm, 9 November 2026).
 
 ## Page
 
@@ -8,27 +8,25 @@ Eyebrow: A tool from Norman Yap, for photographers with a day job
 
 Headline: Can I leave my job, and when?
 
-Lede: I was a paramedic shooting weddings on the side. This is the maths I wish I had run before I handed in my notice. It compares your take-home pay to what the business must actually earn, builds in a buffer, and gives you a date. Twenty minutes, your real numbers, no guessing.
+Lede: I was a paramedic shooting weddings on the side. This is the maths I wish I had run before I handed in my notice. It compares your take-home pay to what the business must actually earn, builds in a buffer, and gives you a date. Twenty minutes, your real numbers, no guessing. It works in any country, because every rate comes from your own payslip and your own tax office.
 
 Who it is for: For wedding photographers who are already booking paid weddings. If you are not earning from weddings yet, follow along and come back when you are.
 
 Tabs: The calculator. The Package Ladder.
 
-Steps: Step 1. Your job. Step 2. Your business. Step 3. Your targets and the path. Step 4. Your result.
+Steps: Step 1. Your job. Step 2. Your business. Step 3. Your targets and the path. Then your number.
 
-## Opt-in (step 4)
+## Where you work (step 1)
 
-Heading: Where should I send your result?
+Australia: Australian income tax, Medicare levy and super guarantee for 2026-27 are built in and sourced, so I can estimate your take-home from your salary. You can still type your real take-home from a payslip.
 
-Body: Your number, your gap, your dates and the three scenarios, on screen now and in your inbox so you can come back to it. I will also send the Package Ladder sheet that turns the number into prices. One email a week from me after that, and you can leave any time.
+Somewhere else: I do not carry tax tables for other countries, and I will not guess them. You type what your payslip and your tax office already tell you: gross pay, take-home, the tax rate on your next dollar, your employer's retirement contribution and your sales tax rate. Everything else works the same.
 
-Button: Show me my number
-
-Error: I need a first name and a working email to send the result.
+Button at the end of step 3: Show me my number
 
 ## Result page
 
-Headline: [Name], your quit number. [$X] a month.
+Headline: Your quit number. [X] a month.
 
 Sub: [$Y] a year of business profit, after every cost of running it and before your own tax. It lands [$Z] a month in your bank, the same as the job does now.
 
@@ -46,61 +44,11 @@ Deposit warning: Deposits are not your buffer. The last column is other people's
 
 Scenario cards: Part time to full time. Drop to part time first. Casual bridge.
 
-Footer: Rates as at 8 November 2026, financial year 2026-27, reviewed every July. This is a planning tool and not tax or financial advice. Your accountant confirms before anything is set. Your inputs stay in your browser and are not sent anywhere until you ask for your result.
+Footer: Australian rates as at 8 November 2026, financial year 2026-27, reviewed every July. Elsewhere, every rate is yours from your payslip and your tax office. This is a planning tool and not tax or financial advice. Your accountant confirms before anything is set. Your inputs stay in your browser and are never sent anywhere.
 
-## Result email
+## Emails
 
-Subject: Your quit number, [Name]
-
-Hi [Name],
-
-Here is the number you ran today.
-
-Quit number: [$Q] a year, [$Q/12] a month of business profit before your own tax. That lands [$N/12] a month in your bank, which is what the job pays you now.
-
-Gap today: [$gap] a year.
-
-Weddings a year to get there: [n] at [$A], [n2] at [$A2], [n3] at [$A3].
-
-Buffer target: [$buffer]. Funded by about [month year] at your current rate.
-
-Trial date (unpaid leave, full-time week): [month year].
-Provisional quit date: [month year].
-
-Three ways out: straight to full time by [date]. Drop to part time first by [date]. Casual bridge by [date].
-
-Two things to do this week.
-
-1. Check the average sale. Twenty weddings at a higher average beats forty at a lower one, and the Package Ladder sheet attached builds the prices backwards from your number.
-2. Open a separate account for the buffer and move the first transfer today. Client deposits do not count. They belong to couples you have not photographed yet.
-
-Rates are the 2026-27 resident rates as at 8 November 2026. This is a planning tool and not tax advice. Your accountant confirms before anything is set.
-
-I will send one email a week with the quick wins that move the number inside a fortnight. The first is tomorrow: reply within the hour and book the call.
-
-Norman
-
-## Follow-up email (two days later)
-
-Subject: The number is the easy part
-
-Hi [Name],
-
-Two days ago you ran your quit number. Most people look at it once and close the tab, because the bookings figure looks like a mountain.
-
-It is not a mountain. It is a price.
-
-When I ran my own numbers I was pricing from what other photographers in Perth charged. The calculator told me I needed close to forty weddings a year to replace my salary and the roster penalties. Forty weddings on top of a full-time job is how you get injured, divorced or both.
-
-The fix was never more weddings. It was the average sale. The same number at a higher average needed half the Saturdays, and the gap closed years sooner.
-
-So this week, one action. Add one priced add-on to every enquiry you answer. A second photographer, an album, travel. Do not touch the base price. Watch your average move inside a month, then run the calculator again.
-
-If you want the whole system I used to go from the roster to full time, I am opening a small founding intake in the new year. People on this list hear first.
-
-Looking forward to hearing your thoughts,
-
-Norman
+Withdrawn 9 November 2026. Norm's ruling: this is not a lead magnet, nothing is emailed, the result shows on the page.
 
 ## Free channel launch piece (notes only)
 

@@ -1,6 +1,6 @@
 # Quit-Number Calculator: the maths model
 
-Status: draft for Norm's sign-off, written 8 November 2026. The web app is built from this file and nothing else. If a rule or default changes, it changes here first.
+Status: draft for Norm's sign-off, written 8 November 2026, revised 9 November 2026 after two rulings from Norm: the calculator must work in any country, and it is not a lead magnet, so there is no email gate and the result shows on the page. The web app is built from this file and nothing else. If a rule or default changes, it changes here first.
 
 The reference implementation is `model.py` in this folder. It runs the three worked scenarios in section 9 and is what the JavaScript gets tested against.
 
@@ -12,23 +12,36 @@ Not tax advice. Every rate below is quoted from the legislation in force on 8 No
 
 One question: can I leave my job, and when.
 
-It takes what the photographer earns from the job today, converts it to the full package the job pays (take-home, super, leave, penalties), and shows the profit the photography business must make to replace that package, with a buffer, sustainably. Then it shows the gap from today's wedding profit, the bookings required at three average sale figures, and a dated path: fund the buffer, trial full time on unpaid leave, resign.
+It takes what the photographer earns from the job today, converts it to the full package the job pays (take-home, retirement contributions, leave, penalties), and shows the profit the photography business must make to replace that package, with a buffer, sustainably. Then it shows the gap from today's wedding profit, the bookings required at three average sale figures, and a dated path: fund the buffer, trial full time on unpaid leave, resign.
+
+### Any country
+
+The first dial is "Where you work": Australia, or somewhere else.
+
+- Australia carries built-in, sourced rates (section 3) so the tool can estimate take-home from a salary. The user can still type their real take-home.
+- Somewhere else carries no tax tables. The user types what their payslip and tax office already tell them: gross pay, take-home pay, the tax rate on their next dollar (including levies that scale with income), the employer's retirement contribution rate, the sales tax (GST or VAT) rate, and their currency symbol. Leave weeks come from their contract. Nothing is converted and nothing is guessed. This keeps rule 7 for every country without maintaining a table for each one.
+
+Both paths run the same model from section 5 onward. Section 5 names the two differences. Adding another country as a sourced preset later is a data change, not a model change.
+
+### Not a lead magnet
+
+Norm's ruling, 9 November 2026. The result shows on the page the moment the third step is done. No email is collected and nothing leaves the browser. The earlier email gate, result email and follow-up email are withdrawn.
 
 ## 2. Vance's rules and how the model keeps them
 
 | # | Rule | How it is kept |
 |---|---|---|
-| 1 | Compare net to net. Gross wedding income never sits beside a net payslip. | The job is converted to take-home with the 2026-27 resident tax table and Medicare levy, then grossed back up with the same table. The business side is profit after direct costs and overhead, before the owner's personal tax. Both sides are therefore pre-personal-tax, same tax law, same person. The result page also shows the after-tax "in your bank" figure for both sides. The tax the side business pays today, sitting on top of a salary at the marginal rate, is computed separately so the buffer funding rate is real money. |
+| 1 | Compare net to net. Gross wedding income never sits beside a net payslip. | The job is converted to take-home (Australia: the 2026-27 resident tax table and Medicare levy, then grossed back up with the same table. Elsewhere: gross and take-home straight from the payslip). The business side is profit after direct costs and overhead, before the owner's personal tax. Both sides are therefore pre-personal-tax, same tax law, same person. The result page also shows the after-tax "in your bank" figure for both sides. The tax the side business pays today, sitting on top of a salary at the marginal rate, is computed separately (Australia: bracket arithmetic. Elsewhere: the marginal rate the user enters) so the buffer funding rate is real money. |
 | 2 | The owner's wage is a fixed annual cost, never also charged per job. | No per-job line carries the owner's time. Direct costs are cash costs only: second shooter, outsourced editing, album goods, travel, card fees. The owner's hours appear once, as a capacity check in the Package Ladder. |
 | 3 | Overhead is annual and divided by volume. | Overhead is entered as annual lines with switches. Overhead per wedding is shown at today's volume and at every required volume, so the user sees it fall as bookings rise. |
 | 4 | Deposits are not income. Deposit cover ratio floor 1.0. | The buffer is household cash, never client money. At each required volume the result shows the client money the business will be holding on unshot weddings and says that cash at bank must at least equal it before any of it counts as buffer. |
-| 5 | Revenue is ex GST. Ex equals inc divided by 1.1. Margin is net over ex GST revenue. | Every sale is entered inc GST and divided by 1.1 when the business is GST registered (default on, because the quit number sits above the $75,000 registration turnover for almost every user). Card fees are charged on the inc GST amount. |
+| 5 | Revenue is ex GST. Ex equals inc divided by 1.1. Margin is net over ex GST revenue. | Every sale is entered as the couple pays it and divided by (1 plus the sales tax rate) when the business is registered. Australia: 10 percent, so divided by 1.1, default on because the quit number sits above the $75,000 registration turnover for almost every user. Elsewhere: the user's GST or VAT rate. Card fees are charged on the amount the couple pays. |
 | 6 | A net margin floor, exposed as a dial with a sensible default. | Default 50 percent (NYP's own ladder floor, Norm 3 Sep 2026). The result shows the margin at each required volume and the minimum average sale that clears the floor at that volume. The Package Ladder prices every tier off the floor. |
-| 7 | Never invent a figure. Rates from the ATO for the current financial year, dated, with a disclaimer. | Section 3. The ATO website refuses automated requests from the build environment, so the rates were taken from the Acts the ATO administers, in their 1 July 2026 compilations on the Federal Register of Legislation, and cross-checked against the ATO figures reported by third parties. Each figure carries its Act, section, compilation number and date. |
+| 7 | Never invent a figure. Rates from the ATO for the current financial year, dated, with a disclaimer. | Section 3 for Australia. The ATO website refuses automated requests from the build environment, so the rates were taken from the Acts the ATO administers, in their 1 July 2026 compilations on the Federal Register of Legislation, and cross-checked against the ATO figures reported by third parties. Each figure carries its Act, section, compilation number and date. For every other country the rule is kept by carrying no table at all: the user supplies the figures from their own payslip and tax office, and the assumptions panel says so. |
 
-## 3. Rates and statutory defaults
+## 3. Rates and statutory defaults (Australia preset)
 
-All figures AUD, financial year 2026-27, as at 8 November 2026. Review every July. The app shows this table on its assumptions panel.
+All figures AUD, financial year 2026-27, as at 8 November 2026. Review every July. The app shows this table on its assumptions panel when Australia is selected. Outside Australia none of 3a to 3d applies. The user's own figures take their place, and 3e's studio defaults are shown as Norm's Australian-dollar reference figures to be replaced.
 
 ### 3a. Resident income tax, 2026-27
 
@@ -114,14 +127,17 @@ Sliders carry a typed field beside them. Every default is visible and editable. 
 
 | Input | Type | Default | Notes |
 |---|---|---|---|
+| Where you work | dial: Australia, somewhere else | Australia | Australia loads the sourced preset (section 3). Somewhere else switches to payslip mode: take-home, marginal rate, retirement rate and sales tax rate become the user's own entries, long service leave becomes "other paid leave" at zero, casual loading defaults to zero, and a currency symbol field appears. Nothing is converted. |
+| Currency symbol | text, somewhere else only | $ | Display only |
 | Employment type | dial: full time, part time, casual | full time | Sets leave weeks, hours and the loading logic below |
 | Pay basis | toggle: annual salary or hourly rate plus hours | annual | |
 | Gross annual salary | slider, $30,000 to $250,000 | none, required | Before tax, excluding super. From the payslip or contract. |
 | Hourly rate and hours a week | sliders | hours: 38 for full time, required for part time and casual | Annual gross = rate times hours times 52 |
 | My hourly rate already includes casual loading | switch (casual only) | on | If off, the rate is multiplied by 1.25 |
 | Penalties and allowances a year | slider, $0 to $60,000 | $0 | Shift penalties, overtime, allowances. Taxed as income. No super applied (see 3c). |
-| I know my take-home | switch plus field | off | Annual or fortnightly net from the payslip. When on, it replaces the tax table for the job side and the gross is recovered by inverting the table. |
-| Employer super rate | slider, 10 to 20 percent | 12 percent | 3c |
+| I know my take-home | switch plus field | off (Australia). Always on and required elsewhere | Annual net from the payslip. Australia: when on, it replaces the tax table for the job side and the gross is recovered by inverting the table. Elsewhere: gross and take-home are both typed and nothing is inverted. |
+| Tax rate on your next dollar | slider, 0 to 60 percent, somewhere else only | none, required | The user's marginal rate including levies that scale with income, from their tax office's rate table. Taxes the side business profit while employed. A zero shows a warning on the result. |
+| Employer super rate (Australia) or employer retirement contribution rate (elsewhere) | slider | 12 percent (Australia). Required elsewhere, zero allowed | 3c for Australia. Elsewhere: pension, KiwiSaver, 401(k) match, provident fund. A zero with the sustainability switch on shows a warning. |
 | Paid leave weeks a year | three fields: annual, personal, long service | 4, 2, 0.87 (casual: 0, 0, 0 and locked) | 3d. Shiftworker switch sets annual leave to 5. |
 | Household expenses a month | slider, $2,000 to $20,000 | none, required | What the household spends, not what the user earns. Drives the buffer. |
 
@@ -132,7 +148,7 @@ Sliders carry a typed field beside them. Every default is visible and editable. 
 | Weddings this year | slider, 0 to 60 | required |
 | Weddings last year | slider, 0 to 60 | equals this year (flat trajectory) |
 | Average sale per wedding, inc GST | slider, $1,000 to $25,000 | required |
-| Registered for GST | switch | on |
+| Registered for sales tax (GST or VAT), and the rate | switch plus slider | on, 10 percent (Australia). Required elsewhere | Ex revenue is the couple's payment divided by (1 plus the rate) |
 | Direct costs | six lines with switches | 3e |
 | Annual overhead | seven lines with switches | 3e |
 | Deposit percent, balance days, lead time | sliders | 50, 90, 11.5 |
@@ -152,9 +168,9 @@ Sliders carry a typed field beside them. Every default is visible and editable. 
 | Drop to part time: fraction of the job kept | slider, 0.2 to 0.8 | 0.6 (three days of five) |
 | Casual bridge: shifts a month and hours a shift | sliders | 4 shifts, 10 hours |
 
-### Step 4. Email gate
+### The result
 
-Name and email. The result page and the result email are released on submit. The list is the educator list, separate from NYP (CLAUDE.md). Tool to be decided with Norm, see section 10.
+Shown the moment step 3 is done. No email gate (Norm, 9 November 2026). Nothing leaves the browser. Inputs persist in the visitor's own browser so they can come back.
 
 ## 5. The job, converted
 
@@ -167,7 +183,9 @@ Medicare levy             ml(T)    from 3b
 Take-home                 N  = T - tax(T) - ml(T)
 ```
 
-If the user supplies take-home N directly, T is recovered by inverting `take_home` (bisection, `model.py gross_from_net`).
+Australia: if the user supplies take-home N directly, T is recovered by inverting `take_home` (bisection, `model.py gross_from_net`).
+
+Somewhere else (payslip mode): T is the gross the user typed and N is the take-home the user typed. No table is applied. The one other place tax appears, the tax the side business pays today (section 6), uses the marginal rate the user entered: tax_biz = B x marginal rate. Everything else in sections 5 to 10 is identical in both modes.
 
 ```
 Employer super            U  = S x r
@@ -345,6 +363,12 @@ Inputs: $38 an hour loaded, 25 hours, 15 weddings this year, 11 last year, avera
 
 Quit number $55,328 ($4,611 a month, $3,589 in the bank). No leave, no sick provision. Profit today $28,892 ($19,646 after tax). Gap $26,436. Bookings 25 at $3,800, 19 at $4,800, 16 at $5,700. Buffer $18,000 in 11 months. Trial July 2027. Quit May 2029.
 
+### D. Somewhere else, payslip mode (hypothetical, any currency)
+
+Inputs: region somewhere else, gross 60,000, take-home 46,000, marginal rate 32 percent, employer retirement contribution 3 percent, sales tax 20 percent, 10 weddings this year, 7 last year, average 3,000, no second shooter, kit 9,000, household 3,200 a month, buffer 3 months, currency shown as the pound.
+
+Quit number 61,800 (5,150 a month, 3,833 in the bank). Profit today 7,254, taxed 2,321 at the marginal rate, 4,933 after tax. Gap 54,546. Bookings 42 at 3,000. Net margin today 29 percent, under the 50 percent floor. Buffer 11,077 in 26.9 months. The result tells this user the price is the problem before the calendar is.
+
 ### Check against Vance
 
 $84,000 net needs $109,588 gross on the 2026-27 table. Vance's cost base has $109,982 on the 2025-26 table. The difference is the 1 point rate cut in the second band. The model and Vance agree.
@@ -382,13 +406,15 @@ Each is implemented as written above unless Norm changes it.
 - D4. Overhead defaults are the production and compliance lines a part-timer must carry, at NYP's stated figures, with NYP's full stack shown as the reference. The gear sinking fund has no default and must be entered.
 - D5. The two higher averages default to today's average times 1.25 and 1.5.
 - D6. Trajectory is linear in bookings per year, from this year minus last year.
-- D7. Email tool for the educator list. Candidates: GoHighLevel on a separate location or sub-account (already paid for, but shared infrastructure with NYP), ConvertKit or MailerLite (separate by construction). CLAUDE.md requires the list to be separate from NYP. A separate GHL sub-account meets that, a shared one does not.
+- D7. Withdrawn 9 November 2026. No email gate and no list tool. The result shows on the page.
 - D8. Sole trader tax treatment is assumed for the business. A Pty Ltd structure (company tax, then a wage or dividends) is out of scope for a lead magnet and belongs in Module 5.
+- D10. Country agnostic by payslip, not by tables. Australia is the only sourced preset. Other countries can be added as presets later, each with its own dated sources, but the tool never needs them to work. Decided by Norm 9 November 2026 and implemented as above.
+- D11. In payslip mode the retirement contribution and marginal rate have no default and may be left at zero. The result page warns when either is zero rather than guessing a figure.
 - D9. Norm's own paramedic figures. The context file says around 12 years at St John WA. The Shift Change offer design says 15. Norm to confirm the years and supply the salary, penalties and super from his last payslip so Scenario A becomes real.
 
 ## 12. Excluded, and said so on the assumptions panel
 
-HELP and other study loan repayments. Salary sacrifice. Tax offsets. Medicare levy surcharge and family thresholds. Deductions against the business beyond the costs entered. Company structures. Seasonality of bookings inside the year. Income from engagement sessions, commercial or other work (enter it as "other monthly savings" if it is real cash today). Interest on the buffer.
+Tax tables for any country other than Australia (the user supplies the figures instead). HELP and other study loan repayments. Salary sacrifice. Tax offsets. Medicare levy surcharge and family thresholds. Deductions against the business beyond the costs entered. Company structures. Seasonality of bookings inside the year. Income from engagement sessions, commercial or other work (enter it as "other monthly savings" if it is real cash today). Interest on the buffer.
 
 ## 13. Yearly update
 

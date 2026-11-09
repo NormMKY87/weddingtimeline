@@ -1,5 +1,9 @@
 # Quit-Number Calculator
 
+Rulings 9 Nov 2026 (Norm): not a lead magnet and no email gate, the result shows on the page. Must work in any country, so Australia is a sourced preset and everywhere else runs on the user's own payslip figures. See `maths.md`.
+
+Original brief below, superseded where it conflicts.
+
 Free lead magnet and list builder. Due live 16 November 2026. Asana task 1220327478129069. Full build brief, maths rules and Dropbox sources in `sessions/01-quit-number-calculator.md`.
 
 Scope widened 8 Nov 2026: sliding scale design with on and off switches, employment type dial (full time, part time, casual), buffer and sustainability built into the target, a transition path that funds the buffer first then trials full time on unpaid leave, and the Package Ladder sheet as the second deliverable.

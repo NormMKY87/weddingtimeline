@@ -8,12 +8,14 @@ const scenarios = {
   A: { emp: 'full', payBasis: 'annual', salary: 95000, penalties: 20000, shiftworker: true, alWeeks: 5, wedNow: 12, wedLast: 8, avg: 5500, kit: 18000, household: 7000, bufferMonths: 3 },
   B: { emp: 'part', payBasis: 'hourly', hourly: 48, hours: 22.8, wedNow: 8, wedLast: 5, avg: 4200, ssOn: false, kit: 12000, household: 5000, bufferMonths: 3 },
   C: { emp: 'casual', payBasis: 'hourly', hourly: 38, hours: 25, wedNow: 15, wedLast: 11, avg: 3800, ssOn: false, kit: 15000, household: 4500, bufferMonths: 4 },
+  D: { region: 'other', taxMode: 'payslip', currency: '£', emp: 'full', payBasis: 'annual', salary: 60000, netPay: 46000, knowNet: true, marginalRate: 32, superRate: 3, salesTax: 20, loading: 0, lslOn: false, lslWeeks: 0, wedNow: 10, wedLast: 7, avg: 3000, ssOn: false, kit: 9000, household: 3200, bufferMonths: 3 },
 };
 // Expected from `python3 ../model.py` (quit number, business profit, bookings at today's average, buffer target)
 const expected = {
   A: { Q: 126400, B: 31693, n: 39, buffer: 24231, gap: 94707 },
   B: { Q: 63738, B: 13535, n: 25, buffer: 17308, gap: 50202 },
   C: { Q: 55328, B: 28892, n: 25, buffer: 18000, gap: 26436 },
+  D: { Q: 61800, B: 7254, n: 42, buffer: 11077, gap: 54546 },
 };
 
 (async () => {
@@ -42,9 +44,7 @@ const expected = {
   await page.evaluate((inp) => { Object.assign(window.QN.S, inp); localStorage.clear(); }, scenarios.A);
   await page.reload({ waitUntil: 'networkidle' });
   await page.evaluate((inp) => { Object.assign(window.QN.S, inp); }, scenarios.A);
-  await page.click('[data-go="2"]'); await page.click('[data-go="3"]'); await page.click('[data-go="4"]');
-  await page.fill('#firstName', 'Sam'); await page.fill('#email', 'sam@example.com');
-  await page.click('#gateSubmit');
+  await page.click('[data-go="2"]'); await page.click('[data-go="3"]'); await page.click('#showResult');
   await page.waitForSelector('#result .headline');
   const visiblePanels = await page.evaluate(() => [...document.querySelectorAll('section.panel[data-step]')].filter(s => s.offsetParent !== null).length);
   console.log(visiblePanels === 1 ? 'ok   one step panel visible at a time' : `FAIL ${visiblePanels} step panels visible`);
@@ -57,6 +57,13 @@ const expected = {
   await page.click('#toLadder');
   await page.waitForSelector('#ladder .tier');
   await page.screenshot({ path: path.join(__dirname, 'shot-ladder-desktop.png'), fullPage: true });
+
+  // Region switch: somewhere else renders payslip fields and the pound sign
+  await page.evaluate(() => { document.querySelector('#regionDial [data-v="other"]').click(); });
+  const otherOk = await page.evaluate(() => !!document.querySelector('#in-marginalRate') && !!document.querySelector('#in-currency') && !document.querySelector('#sw-shiftworker'));
+  console.log(otherOk ? 'ok   somewhere else shows payslip fields' : 'FAIL somewhere else fields missing');
+  if (!otherOk) fail++;
+  await page.evaluate(() => { document.querySelector('#regionDial [data-v="au"]').click(); });
 
   const phone = await browser.newPage({ viewport: { width: 390, height: 844 } });
   await phone.goto('file://' + path.join(__dirname, 'index.html'), { waitUntil: 'networkidle' });

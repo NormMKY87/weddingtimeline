@@ -45,7 +45,13 @@ MEDICARE_PHASE_IN_RATE = 0.10
 # charge percentage 12.
 SUPER_GUARANTEE = 0.12
 
-GST_FACTOR = 1.1  # Revenue ex GST = inc GST / 1.1 (Vance rule 5)
+GST_FACTOR = 1.1  # Australia preset: revenue ex GST = inc GST / 1.1 (Vance rule 5)
+
+# Country agnostic design (Norm, 9 Nov 2026). The tables above belong to the
+# Australia preset only. Everywhere else the user's own payslip and tax office
+# supply the figures: gross, take-home, marginal rate, employer retirement
+# contribution rate, sales tax rate. Nothing is typed from memory for any
+# other country (rule 7).
 
 
 def income_tax(taxable):
@@ -88,6 +94,9 @@ def gross_from_net(net):
 
 @dataclass
 class Job:
+    region: str = "au"                # au (sourced preset) | other (payslip mode)
+    tax_mode: str = "table"           # table (Australia preset) | payslip (any country)
+    marginal_rate: float = 0.0        # payslip mode: tax on the next dollar incl. levies, as a fraction
     employment: str = "full"          # full | part | casual
     pay_basis: str = "annual"         # annual | hourly
     gross_salary: float = 0.0         # annual gross, before tax, excluding super
@@ -119,14 +128,28 @@ class Job:
     def net(self):
         if self.known_take_home is not None:
             return self.known_take_home
+        if self.tax_mode == "payslip":
+            raise ValueError("payslip mode needs known_take_home")
         return take_home(self.taxable())
 
     def gross_equivalent(self):
-        """Taxable income that produces the net. Equals taxable() unless the
-        payslip override is used."""
+        """Taxable income that produces the net. In table mode with a payslip
+        override, recovered by inverting the table. In payslip mode the gross
+        is what the user typed."""
+        if self.tax_mode == "payslip":
+            return self.taxable()
         if self.known_take_home is not None:
             return gross_from_net(self.known_take_home)
         return self.taxable()
+
+    def tax_on_extra(self, base, extra):
+        """Tax the side business adds on top of the job. Table mode: the real
+        bracket arithmetic. Payslip mode: the marginal rate the user entered."""
+        if extra <= 0:
+            return 0.0
+        if self.tax_mode == "payslip":
+            return extra * self.marginal_rate
+        return (income_tax(base + extra) + medicare_levy(base + extra)) - (income_tax(base) + medicare_levy(base))
 
     def employer_super(self):
         # SG is paid on ordinary time earnings. Shift penalties count, overtime
@@ -148,7 +171,8 @@ class Business:
     weddings_now: int = 10
     weddings_last_year: int | None = None   # for the trajectory; defaults to weddings_now
     average_sale_inc: float = 5000.0
-    gst_registered: bool = True
+    gst_registered: bool = True             # registered for sales tax (GST or VAT)
+    sales_tax_rate: float = 0.10            # Australia preset 10%. Elsewhere the user enters it
     # Direct cost per wedding, each with a switch
     second_shooter_on: bool = True
     second_shooter_rate: float = 70.0       # $/hr, NYP cost base
@@ -180,8 +204,11 @@ class Business:
     balance_days_before: int = 90           # Norm's ruling 5 Sep 2026
     booking_lead_months: float = 11.5       # NYP census median, 4 Sep 2026
 
+    def gst_factor(self):
+        return 1 + self.sales_tax_rate if self.gst_registered else 1.0
+
     def revenue_ex(self, sale_inc):
-        return sale_inc / GST_FACTOR if self.gst_registered else sale_inc
+        return sale_inc / self.gst_factor()
 
     def direct_cost(self, sale_inc):
         c = 0.0
@@ -281,8 +308,8 @@ def run(job: Job, biz: Business, tg: Targets):
     gross_eq = job.gross_equivalent()
     out["job_net"] = net_job
     out["job_gross_equivalent"] = gross_eq
-    out["job_income_tax"] = income_tax(gross_eq)
-    out["job_medicare"] = medicare_levy(gross_eq)
+    out["job_income_tax"] = income_tax(gross_eq) if job.tax_mode == "table" else (gross_eq - net_job)
+    out["job_medicare"] = medicare_levy(gross_eq) if job.tax_mode == "table" else 0.0
     out["job_super"] = job.employer_super()
     out["job_leave_weeks"] = job.paid_leave_weeks()
     out["working_weeks"] = 52 - job.paid_leave_weeks()
@@ -309,8 +336,7 @@ def run(job: Job, biz: Business, tg: Targets):
     out["contribution_per_wedding_now"] = biz.contribution(biz.average_sale_inc)
     out["net_margin_now"] = biz.net_margin(biz.weddings_now, biz.average_sale_inc) if biz.weddings_now else None
     # Tax the side business pays today, on top of the salary
-    taxable_now = gross_eq + max(profit0, 0)
-    tax_on_business_now = (income_tax(taxable_now) + medicare_levy(taxable_now)) - (income_tax(gross_eq) + medicare_levy(gross_eq))
+    tax_on_business_now = job.tax_on_extra(gross_eq, profit0)
     out["business_tax_now"] = tax_on_business_now
     out["business_net_now"] = profit0 - tax_on_business_now
 
@@ -342,7 +368,7 @@ def run(job: Job, biz: Business, tg: Targets):
 
     # Minimum average sale that clears the margin floor at the required volume
     # Solve for A: (A/g)(1-f) = fixed_direct + card*A + OH/n  where g = GST factor
-    g = GST_FACTOR if biz.gst_registered else 1.0
+    g = biz.gst_factor()
     f = tg.net_margin_floor
     n_now = out["bookings_required"][0]["bookings"]
     fixed_direct = biz.direct_cost(0.0)
@@ -441,7 +467,7 @@ def run(job: Job, biz: Business, tg: Targets):
 def ladder(biz: Business, tg: Targets, weddings: int, tiers):
     """tiers: list of dicts with name, hours, inclusions (list of (name, cost, retail)).
     Returns each tier's floor price at the margin floor and the hourly ramp."""
-    g = GST_FACTOR if biz.gst_registered else 1.0
+    g = biz.gst_factor()
     f = tg.net_margin_floor
     card = biz.card_fee_rate if biz.card_fee_on else 0.0
     oh = biz.overhead() / weddings if weddings else math.inf
@@ -542,6 +568,15 @@ if __name__ == "__main__":
          Job(employment="casual", pay_basis="hourly", hourly_rate=38, hours_per_week=25),
          Business(weddings_now=15, weddings_last_year=11, average_sale_inc=3800, second_shooter_on=False, kit_replacement_value=15000),
          Targets(household_monthly=4500, buffer_months=4, start=start))
+
+    # Scenario D: somewhere else, payslip mode. Hypothetical figures in a
+    # currency that is not dollars. Gross 60,000, take-home 46,000, marginal
+    # rate 32% incl. levies, employer retirement contribution 3%, sales tax 20%.
+    show("D. Somewhere else, payslip mode (hypothetical, any currency)",
+         Job(region="other", tax_mode="payslip", gross_salary=60000, known_take_home=46000, marginal_rate=0.32,
+             super_rate=0.03, casual_loading=0.0, include_long_service=False),
+         Business(weddings_now=10, weddings_last_year=7, average_sale_inc=3000, sales_tax_rate=0.20, second_shooter_on=False, kit_replacement_value=9000),
+         Targets(household_monthly=3200, buffer_months=3, start=start))
 
     # Vance's own check from cost-base.md section 1: $84,000 net
     print("=" * 72)
