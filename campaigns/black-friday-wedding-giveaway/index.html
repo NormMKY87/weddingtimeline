@@ -25,6 +25,9 @@
     B. One couple. One whole wedding day. Photographed by me, at no cost.
     C. This Black Friday I'm not discounting anything. I'm giving one wedding away.
 
+  STRUCTURE (Norm, 9 Nov): no header, no footer. Four blocks in Hormozi's order: HERO, THE OFFER, THE CONTEXT, THE CALL TO ACTION.
+  Terms and privacy open as popups from a single line under the form. One button label everywhere. Mobile sticky button, hidden while the form is on screen.
+
   WRITING RULES APPLIED: no em dashes or en dashes, no exclamation marks, no countdown timer, one button label
   everywhere ("Enter the giveaway"), no site navigation or exit links, trust line under every button,
   real testimonials from normanyap.com.au only, no invented numbers.
@@ -77,16 +80,10 @@
   .trust{display:block;margin-top:14px;font-size:13px;letter-spacing:.5px;color:var(--warm-grey)}
   .cta-block{margin-top:38px}
 
-  /* top bar + header */
-  .topbar{background:var(--dark-section);color:var(--warm-white);text-align:center;padding:12px 20px;font-size:13px;letter-spacing:.6px}
-  .topbar .short{display:none}
-  .topbar a{color:var(--highlight);text-decoration:none;margin-left:14px;letter-spacing:2px;text-transform:uppercase;font-size:11px;font-weight:400}
-  header.brand{padding:30px 24px 10px;text-align:center}
-  header.brand img{height:34px;margin:0 auto}
-
   /* hero */
-  .hero{padding:40px 0 96px}
+  .hero{padding:64px 0 96px}
   .hero-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
+  .hero-copy .wordmark{font-family:'Karla',sans-serif;font-weight:400;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--charcoal);margin-bottom:14px}
   .hero-copy .callout{font-family:'Karla',sans-serif;font-weight:400;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-grey);margin-bottom:26px}
   .hero-copy h1{margin-bottom:26px}
   .hero-copy .sub{font-size:21px;line-height:1.6;color:var(--charcoal);margin-bottom:22px;font-family:'Cormorant Garamond',serif;font-weight:400}
@@ -208,17 +205,14 @@
   .f-step:first-of-type{margin-top:0;padding-top:0;border-top:0}
   .submit-row{margin-top:30px;text-align:center}
   .submit-row .btn{width:100%}
+  .legal-line{font-size:12px;letter-spacing:.5px;color:var(--warm-grey);text-align:center;margin-top:14px}
+  .legal-line a{color:var(--warm-grey);text-decoration:underline;text-decoration-color:var(--highlight);text-underline-offset:3px;cursor:pointer}
+  .legal-line span{color:var(--highlight);margin:0 4px}
   .privacy{font-size:13px;color:var(--warm-grey);margin-top:18px;line-height:1.6;text-align:center}
   .success{display:none;text-align:center;padding:30px 0}
   .success h3{font-size:34px;margin-bottom:14px}
   .closed{display:none;text-align:center;padding:30px 0}
   .hidden{display:none}
-
-  /* footer */
-  footer{background:var(--dark-section);color:rgba(250,249,247,.7);text-align:center;padding:48px 24px;font-size:12px;letter-spacing:2px;text-transform:uppercase;line-height:2.2}
-  footer img{height:26px;margin:0 auto 18px}
-  footer .legal{letter-spacing:.5px;text-transform:none;font-size:13px;margin-top:16px}
-  footer .legal a{color:var(--highlight);text-decoration:none;cursor:pointer;margin:0 8px}
 
   /* sticky mobile cta */
   .sticky{position:fixed;left:0;right:0;bottom:0;background:var(--warm-white);border-top:1px solid var(--light-border);padding:12px 16px;display:none;z-index:50;box-shadow:0 -10px 30px rgba(0,0,0,.06)}
@@ -237,7 +231,7 @@
   .modal li{margin-bottom:8px}
 
   @media (min-width:860px){
-    .hero{padding:56px 0 110px}
+    .hero{padding:84px 0 110px}
     .hero-grid{grid-template-columns:1.1fr .9fr;gap:72px}
     .stack li{grid-template-columns:1fr 1.2fr}
     .two-col{grid-template-columns:1fr 1fr;gap:64px}
@@ -252,15 +246,11 @@
   }
   @media (max-width:859px){
     section{padding:68px 0}
-    .topbar{padding:10px 16px;font-size:12px}
-    .topbar .long{display:none}
-    .topbar .short{display:inline}
-    .topbar a{margin-left:10px}
-    header.brand{padding:22px 24px 4px}
-    header.brand img{height:28px}
-    .hero{padding:26px 0 72px}
+    .hero{padding:40px 0 72px}
+    .hero-copy .wordmark{order:0}
     .hero-copy{display:flex;flex-direction:column}
-    .hero-copy .callout{order:1;margin-bottom:18px;font-size:11px}
+    .hero-copy .wordmark{font-family:'Karla',sans-serif;font-weight:400;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--charcoal);margin-bottom:14px}
+  .hero-copy .callout{order:1;margin-bottom:18px;font-size:11px}
     .hero-copy h1{order:2;margin-bottom:18px;font-size:44px}
     .hero-copy .sub{order:3;font-size:19px;margin-bottom:6px}
     .hero-copy .cta-block{order:4;margin:22px 0 30px}
@@ -274,19 +264,13 @@
 </style>
 </head>
 <body>
-
-<!-- 0. TOP BAR -->
-<div class="topbar"><span class="long">The Black Friday Wedding Giveaway. One wedding, photographed by me, at no cost. Entries close <span class="ph">Friday 4 December</span>.</span><span class="short">One wedding, photographed by me, at no cost.</span> <a href="#enter">Enter the giveaway</a></div>
-
-<header class="brand" aria-label="Norman Yap Photography">
-  <img src="images/logo-dark.png" alt="Norman Yap Photography">
-</header>
-
+<!-- ===================== HERO ===================== -->
 <!-- 1. HERO -->
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <div class="callout">For couples getting married in 2027 or 2028, in Perth or down south</div>
+      <div class="wordmark">Norman Yap Photography</div>
+      <div class="callout">The Black Friday Wedding Giveaway. For couples getting married in 2027 or 2028, in Perth or down south</div>
       <h1>I'm giving away<br>a wedding.</h1>
       <p class="sub">One couple gets their whole wedding day photographed by me. Ten hours, every photograph, nothing to pay. Valued at $8,500.</p>
       <p class="without">Not a discount. Not a voucher. Not a shortened version of what I do. The whole day, exactly as I'd photograph it for any couple who books me.</p>
@@ -304,7 +288,8 @@
   </div>
 </section>
 
-<!-- 2. PROOF STRIP -->
+
+<!-- 2. PROOF STRIP (trust next to the action) -->
 <div class="strip">
   <div class="wrap">
     <span class="eyebrow">Weddings I have photographed at</span>
@@ -314,23 +299,9 @@
   </div>
 </div>
 
-<!-- 3. THE REASON WHY -->
-<section class="dark">
-  <img class="ghost-img" src="images/band-masonmill.jpg" alt="" aria-hidden="true">
-  <div class="wrap narrow center">
-    <span class="eyebrow">Why I'm doing this</span>
-    <h2>Every November my inbox fills with discounts.<br><em>This isn't one.</em></h2>
-    <div class="rule"></div>
-    <p class="lead">I'm not taking anything off my prices this Black Friday. I'm choosing one wedding, photographing it from the first hour of the morning to the last of the night, and making it the signature piece of my portfolio for the year ahead. My team will be there too, recording how the day is made, so for once you'll see the work and the way it's done side by side.</p>
-    <p class="lead" style="margin-top:20px">That's the trade, and I want it in plain sight. You get your wedding photographed by me at no cost. I get one day I can point to and say, this is what I do. If being featured isn't for you, this one isn't for you, and that's completely fine.</p>
-    <div class="cta-block">
-      <a class="btn light" href="#enter">Enter the giveaway</a>
-      <span class="trust" style="color:rgba(250,249,247,.6)">One wedding. Chosen on <span class="ph">Monday 7 December</span>.</span>
-    </div>
-  </div>
-</section>
 
-<!-- 4. THE PRIZE -->
+<!-- ===================== THE OFFER ===================== -->
+<!-- 3. THE PRIZE -->
 <section>
   <div class="wrap">
     <div class="narrow center">
@@ -361,9 +332,8 @@
   </div>
 </section>
 
-<img class="full-img" src="images/full-ritz-carlton.jpg" alt="A wedding at The Ritz-Carlton Perth photographed by Norman Yap">
 
-<!-- 5. RUNNERS UP -->
+<!-- 4. THE RUNNER-UP OFFER -->
 <section class="runner">
   <div class="wrap two-col">
     <div>
@@ -393,40 +363,26 @@
   </div>
 </section>
 
-<!-- 6. HOW IT WORKS -->
-<section>
-  <div class="wrap">
-    <div class="narrow center">
-      <span class="eyebrow">How it works</span>
-      <h2>Four steps, and the fourth one<br><em>is your wedding day.</em></h2>
-      <div class="rule"></div>
-    </div>
-    <div class="steps">
-      <div class="step"><div class="num">01</div><h3>Enter</h3><p>About three minutes. Your names, your date if you have one, where you're getting married, and your story. The story is the part I read most closely.</p></div>
-      <div class="step"><div class="num">02</div><h3>Entries close</h3><p><span class="ph">Friday 4 December</span>, 11:59pm Perth time. Late entries can't be read, so don't leave it to the last night.</p></div>
-      <div class="step"><div class="num">03</div><h3>I choose one couple</h3><p><span class="ph">Monday 7 December</span>. I call the chosen couple myself. Every other couple hears from me by email the same day, with their runner-up offer and 72 hours to claim it.</p></div>
-      <div class="step"><div class="num">04</div><h3>The wedding</h3><p>We plan it the way I plan every wedding. Timeline, light, locations. Then I photograph it, start to finish, and it becomes the wedding I point to all year.</p></div>
+
+<!-- ===================== THE CONTEXT ===================== -->
+<!-- 5. THE REASON WHY -->
+<section class="dark">
+  <img class="ghost-img" src="images/band-masonmill.jpg" alt="" aria-hidden="true">
+  <div class="wrap narrow center">
+    <span class="eyebrow">Why I'm doing this</span>
+    <h2>Every November my inbox fills with discounts.<br><em>This isn't one.</em></h2>
+    <div class="rule"></div>
+    <p class="lead">I'm not taking anything off my prices this Black Friday. I'm choosing one wedding, photographing it from the first hour of the morning to the last of the night, and making it the signature piece of my portfolio for the year ahead. My team will be there too, recording how the day is made, so for once you'll see the work and the way it's done side by side.</p>
+    <p class="lead" style="margin-top:20px">That's the trade, and I want it in plain sight. You get your wedding photographed by me at no cost. I get one day I can point to and say, this is what I do. If being featured isn't for you, this one isn't for you, and that's completely fine.</p>
+    <div class="cta-block">
+      <a class="btn light" href="#enter">Enter the giveaway</a>
+      <span class="trust" style="color:rgba(250,249,247,.6)">One wedding. Chosen on <span class="ph">Monday 7 December</span>.</span>
     </div>
   </div>
 </section>
 
-<!-- 7. WHO IT'S FOR -->
-<section class="dark" style="padding-top:88px">
-  <div class="wrap">
-    <div class="narrow center">
-      <span class="eyebrow">Who this is for</span>
-      <h2>Built for couples who want it done properly,<br><em>and don't mind it being seen.</em></h2>
-      <div class="rule"></div>
-    </div>
-    <div class="who">
-      <div><span class="eyebrow" style="color:var(--charcoal)">Built for</span><p>Couples getting married in 2027 or 2028, in Perth or down south, who want their wedding photographed properly and are happy for it to be shown.</p></div>
-      <div><span class="eyebrow" style="color:var(--charcoal)">Best when</span><p>You have a date, or at least a season, and a venue or a shortlist. You like what you see here, and the idea of your day becoming the one I point to all year sits well with you.</p></div>
-      <div><span class="eyebrow" style="color:var(--charcoal)">Not for</span><p>Couples who want part of the day covered, couples marrying outside 2027 and 2028, or couples who would rather their wedding stayed private. I'd rather you knew that now.</p></div>
-    </div>
-  </div>
-</section>
 
-<!-- 8. WHAT THE CHOSEN COUPLE AGREES TO -->
+<!-- 6. WHAT THE CHOSEN COUPLE AGREES TO -->
 <section class="agree">
   <div class="wrap narrow">
     <div class="center">
@@ -445,7 +401,46 @@
   </div>
 </section>
 
-<!-- 9. PROOF: THE WORK -->
+
+<!-- 7. HOW IT WORKS -->
+<section>
+  <div class="wrap">
+    <div class="narrow center">
+      <span class="eyebrow">How it works</span>
+      <h2>Four steps, and the fourth one<br><em>is your wedding day.</em></h2>
+      <div class="rule"></div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h3>Enter</h3><p>About three minutes. Your names, your date if you have one, where you're getting married, and your story. The story is the part I read most closely.</p></div>
+      <div class="step"><div class="num">02</div><h3>Entries close</h3><p><span class="ph">Friday 4 December</span>, 11:59pm Perth time. Late entries can't be read, so don't leave it to the last night.</p></div>
+      <div class="step"><div class="num">03</div><h3>I choose one couple</h3><p><span class="ph">Monday 7 December</span>. I call the chosen couple myself. Every other couple hears from me by email the same day, with their runner-up offer and 72 hours to claim it.</p></div>
+      <div class="step"><div class="num">04</div><h3>The wedding</h3><p>We plan it the way I plan every wedding. Timeline, light, locations. Then I photograph it, start to finish, and it becomes the wedding I point to all year.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 8. WHO IT'S FOR -->
+<section class="dark" style="padding-top:88px">
+  <div class="wrap">
+    <div class="narrow center">
+      <span class="eyebrow">Who this is for</span>
+      <h2>Built for couples who want it done properly,<br><em>and don't mind it being seen.</em></h2>
+      <div class="rule"></div>
+    </div>
+    <div class="who">
+      <div><span class="eyebrow" style="color:var(--charcoal)">Built for</span><p>Couples getting married in 2027 or 2028, in Perth or down south, who want their wedding photographed properly and are happy for it to be shown.</p></div>
+      <div><span class="eyebrow" style="color:var(--charcoal)">Best when</span><p>You have a date, or at least a season, and a venue or a shortlist. You like what you see here, and the idea of your day becoming the one I point to all year sits well with you.</p></div>
+      <div><span class="eyebrow" style="color:var(--charcoal)">Not for</span><p>Couples who want part of the day covered, couples marrying outside 2027 and 2028, or couples who would rather their wedding stayed private. I'd rather you knew that now.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<img class="full-img" src="images/full-ritz-carlton.jpg" alt="A wedding at The Ritz-Carlton Perth photographed by Norman Yap">
+
+
+<!-- 9. PROOF: THE WORK AND REAL COUPLES -->
 <section>
   <div class="wrap">
     <div class="narrow center">
@@ -486,6 +481,7 @@
   </div>
 </section>
 
+
 <!-- 10. WHO YOU'RE BOOKING -->
 <section class="runner">
   <div class="wrap bio">
@@ -502,7 +498,9 @@
   </div>
 </section>
 
-<!-- 11. FAQ (Norm's exact accordion block) -->
+
+<!-- ===================== THE CALL TO ACTION ===================== -->
+<!-- 11. QUESTIONS (Norm's exact accordion block) -->
 <section class="faq-section">
   <div class="wrap">
 <h2 style="text-align:center;margin:0;">Frequently Asked Questions About The Giveaway</h2>
@@ -631,6 +629,7 @@
   </div>
 </section>
 
+
 <!-- 12. P.S. -->
 <div class="ps">
   <div class="wrap narrow">
@@ -638,6 +637,7 @@
     <div class="sig">Norman</div>
   </div>
 </div>
+
 
 <!-- 13. THE ACTION: ENTRY FORM -->
 <section class="entry" id="enter">
@@ -778,6 +778,7 @@
           <span class="trust">Entries close <span class="ph">Friday 4 December</span>, 11:59pm Perth time. One couple chosen on <span class="ph">Monday 7 December</span>.</span>
         </div>
         <p class="privacy">I use your details to run this giveaway and to answer your enquiry. The only marketing you will ever receive from me relates to wedding photography, and you can opt out at any time. I do not share your details with anyone.</p>
+        <p class="legal-line"><a data-open="terms">Terms and conditions</a> <span>&middot;</span> <a data-open="privacy">Privacy</a> <span>&middot;</span> hello@normanyap.com.au <span>&middot;</span> &copy; 2026, Norman Yap Photography</p>
       </form>
       <div class="success" id="successBox">
         <span class="eyebrow">You're in</span>
@@ -793,11 +794,6 @@
   </div>
 </section>
 
-<footer>
-  <img src="images/logo-white.png" alt="Norman Yap Photography">
-  Norman Yap Photography<br>Perth and the South West<br>hello@normanyap.com.au
-  <div class="legal"><a data-open="terms">Terms and conditions</a> <a data-open="privacy">Privacy</a><br>&copy; 2026, Norman Yap Photography</div>
-</footer>
 
 <!-- MOBILE STICKY CTA -->
 <div class="sticky" id="sticky"><a class="btn" href="#enter">Enter the giveaway</a></div>
