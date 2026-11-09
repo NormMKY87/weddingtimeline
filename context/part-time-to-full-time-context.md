@@ -70,7 +70,7 @@ Differentiator: almost every photography educator teaches marketing, mindset or 
 | Rung | Product | What it is | Source material | Role |
 |---|---|---|---|---|
 | Free | Quit-Number Calculator | Inputs: salary, weddings per year, average sale. Outputs: quit number, gap, provisional quit date. Email required for result | Module 1 worksheet | List builder and qualifier. Filters out hobbyists |
-| Low ticket | The Booking Pack | DM-to-Booking scripts + Enquiry-to-Booking sequence + proposal template + objection replies | Modules 2 and 3, rewritten for a stranger | First paid product. Tests demand. Buyers become the founding intake |
+| Low ticket | The Booking Pack | DM-to-Booking scripts + Enquiry-to-Booking sequence + proposal template + objection replies + proposal walk-through (blurred Dubsado screenshots, a 15 minute audio chat and an hour long Google Meet consult, decided 9 Nov 2026) | Modules 2 and 3, rewritten for a stranger | First paid product. Tests demand. Buyers become the founding intake |
 | Bump | The Follow-Up Vault | Every follow-up message from first reply to signed contract, by day and channel, plus ghosted lead revival | Follow-up cadence and to-do rules | Order bump at Booking Pack checkout |
 | Bump | The Consult Call Kit | One page call run sheet, recording and transcript habit, ten questions that surface budget and decision makers | Fit call structure | Second bump or bonus |
 | Flagship | Part-Time to Full-Time (90 days) | Nine actions over 12 weeks, one insight and one tool each, quick wins week first | Modules 0 to 6 | Main product. Founding intake live, then recorded once |

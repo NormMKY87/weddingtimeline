@@ -13,6 +13,7 @@ Kill two objections: they ghost me, and I don't know what to say in DMs. Everyth
 3. Proposal template. A note from you, not a quote. First person singular, deliverables as dot points, exact gallery delivery dates.
 4. Objection replies. Price pushback, the budget question, still deciding, partner wants someone else, fewer hours. Norm's position on discounting.
 5. How to use this pack. One page: the order things fire in, and what to change for your own business.
+6. See it done (added 9 Nov 2026). Screenshots of Norm's own Dubsado proposal, names and prices blurred, plus two recordings of Norm walking a couple through a proposal: a 15 minute audio chat and an hour long Google Meet consultation. Recording briefs in `media/recording-briefs.md`. The recordings show the proposal walk-through only. The call structure and questions stay in the Consult Call Kit.
 
 ## Source material (PC sessions)
 
@@ -22,7 +23,7 @@ Wedding enquiry workflow, ESE proposal email template, NYP DM scripts, objection
 
 - Rewritten for a stranger. If a line needs NYP context to make sense, cut or rewrite it.
 - Buyers are credited or upgraded into the flagship. These scripts are never sold twice, so the Module 2 and 3 worksheets adapt this material rather than duplicating it.
-- No prices in the product. Checkout price is Vance's call.
+- No prices in the product. Checkout price is Vance's call. Screenshots and recordings carry no visible or audible figures either.
 
 ## Done when
 

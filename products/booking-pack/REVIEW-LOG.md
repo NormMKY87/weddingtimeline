@@ -99,6 +99,12 @@ Norm asked for the DM scripts to look like the Instagram app rather than text in
 
 Second pass the same day, on Norm's feedback from the phone: the two-column layout was too busy, so every screen now sits in one centred column. Each reply carries a short callout beside the phone, joined to its bubble by a leader line, saying why the line is written that way (marked **Why:** in the markdown, under the bubble it explains). The contents page is now a full list of parts and sections, every line a link inside the PDF, and a Contents button repeats on every page and links back to it. The Part 4 DM replies gained a couple line and a callout each. 49 callouts in Part 1, 5 in Part 4.
 
+## Added 9 November 2026, evening
+
+Two additions from Norm. A Start here page before Part 1 that says what the pack fixes (the gap from lead to response and from response to booking, conversion rather than volume), what it helps you do, and what you hold at the end (personalised, intentional, systematic, a cadence, confidence, with sales as recommending and checking fit rather than pushing). And a Part 6, See it done, with seven slots for blurred screenshots of Norm's Dubsado proposal and two recordings, a 15 minute audio chat and an hour long Google Meet consult. The screenshots and recordings are Norm's to capture. Until they exist the PDF shows labelled frames and link placeholders. Briefs and the no-price, no-client-data rules are in `media/recording-briefs.md`. Stranger pass on the media is a subtask on the Asana task and gets logged here when done.
+
+Also on 9 November: six of Norm's own photographs added through the PDF (cover, three half page part openers, two breakers), black and white, none repeating the Consult Call Kit's four. Couples in the photographs are not named anywhere in the pack.
+
 ## Still for Norm
 
 1. Confirm the discounting stance in Part 4 as written for strangers who may not sell albums: never cut the price, never give away a product to close, move the scope or offer a credit toward something they would buy later.
