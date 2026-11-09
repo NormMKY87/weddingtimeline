@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<!--
+  THE BLACK FRIDAY WEDDING GIVEAWAY . Norman Yap Photography
+  Review draft v1, 9 November 2026. Single file, inline CSS and JS. Not yet wired to a form endpoint.
+
+  PROPOSED DATES (shown on the page with a dotted underline so they are easy to spot, change before launch):
+    Entries open      Friday 27 November 2026 (Black Friday)
+    Entries close     Friday 4 December 2026, 11:59pm Perth time
+    Announcement      Monday 7 December 2026
+    Runner-up claim   72 hours from the announcement email
+    Runner-up booking deadline   [[RUNNER_UP_BOOKING_DEADLINE]]  (suggest Sunday 31 January 2027)
+
+  PLACEHOLDERS STILL TO FILL (never invented, each one is visible on the page as [[...]]):
+    [[SECOND_PHOTOGRAPHER_VALUE]]     value of the six hour second photographer, for the stack and the terms
+    [[RUNNER_UP_BOOKING_DEADLINE]]    the date a runner-up must have signed and paid the retainer by
+    [[PEAK_DATE_RULE]]                whether peak Saturdays (Oct, Nov, Mar, Apr) are open to the prize, or weekdays and off peak only
+    [[TRAVEL_TERMS]]                  what happens if the winning wedding is outside Perth metro (South West travel, interstate)
+    [[ABN]]                           promoter ABN for the terms
+    [[LEGAL_REVIEW]]                  Western Australian trade promotion compliance check, a gate before any ad runs
+
+  HEADLINE VARIANTS TO TEST (one test a week, headline first, then the hero image):
+    A. I'm giving away a wedding.                                              (live in this draft)
+    B. One couple. One whole wedding day. Photographed by me, at no cost.
+    C. This Black Friday I'm not discounting anything. I'm giving one wedding away.
+
+  WRITING RULES APPLIED: no em dashes or en dashes, no exclamation marks, no countdown timer, one button label
+  everywhere ("Enter the giveaway"), no site navigation or exit links, trust line under every button,
+  real testimonials from normanyap.com.au only, no invented numbers.
+
+  IMAGES: real portfolio frames from normanyap.com.au, resized into images/ (long edge 1600px). Swap any frame by replacing the file.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Black Friday Wedding Giveaway | Norman Yap Photography</title>
+<meta name="description" content="One couple getting married in 2027 or 2028 gets their whole wedding day photographed by Norman Yap. Ten hours, every photograph, at no cost. Valued at $8,500. Every other couple who enters receives a complimentary second photographer when they book a full day.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --warm-white:#FAF9F7; --stone:#F5F3F0; --blush:#EDE8E3; --feature-bg:#F0EEEB; --light-border:#E5E1DC;
+    --highlight:#B8A99A; --warm-grey:#8A8580; --charcoal:#2A2A2A; --soft-black:#1A1A1A; --dark-section:#2F2B28;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{background:var(--warm-white);color:var(--charcoal);font-family:'Karla',sans-serif;font-weight:300;font-size:17px;line-height:1.7}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--soft-black);line-height:1.15}
+  h1{font-size:clamp(40px,6vw,66px);letter-spacing:-0.01em}
+  h2{font-size:clamp(32px,4.2vw,46px)}
+  h3{font-size:26px}
+  em{font-style:italic;font-weight:300}
+  .eyebrow{font-family:'Karla',sans-serif;font-weight:400;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-grey);display:block;margin-bottom:18px}
+  .rule{width:50px;height:1px;background:var(--highlight);margin:22px auto}
+  .rule.left{margin-left:0}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .narrow{max-width:760px;margin:0 auto}
+  section{padding:96px 0}
+  .center{text-align:center}
+  .lead{font-size:19px;line-height:1.75;color:var(--charcoal)}
+  .muted{color:var(--warm-grey)}
+  .small{font-size:14px;line-height:1.6}
+  .ph{text-decoration:underline dotted var(--highlight);text-decoration-thickness:1px;text-underline-offset:4px}
+  .pending{font-family:'Karla',sans-serif;font-weight:400;font-size:0.9em;color:#8A6D3B;background:#F6EEDC;padding:1px 6px;border-radius:2px;white-space:nowrap}
+
+  /* buttons */
+  .btn{display:inline-block;background:var(--charcoal);color:var(--warm-white);font-family:'Karla',sans-serif;font-weight:400;font-size:12px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;padding:19px 42px;border:1px solid var(--charcoal);cursor:pointer;transition:background .2s,color .2s}
+  .btn:hover{background:var(--soft-black)}
+  .btn.ghost{background:transparent;color:var(--charcoal)}
+  .btn.ghost:hover{background:var(--charcoal);color:var(--warm-white)}
+  .btn.light{background:transparent;color:var(--warm-white);border-color:rgba(250,249,247,.7)}
+  .btn.light:hover{background:var(--warm-white);color:var(--charcoal)}
+  .trust{display:block;margin-top:14px;font-size:13px;letter-spacing:.5px;color:var(--warm-grey)}
+  .cta-block{margin-top:38px}
+
+  /* top bar + header */
+  .topbar{background:var(--dark-section);color:var(--warm-white);text-align:center;padding:12px 20px;font-size:13px;letter-spacing:.6px}
+  .topbar .short{display:none}
+  .topbar a{color:var(--highlight);text-decoration:none;margin-left:14px;letter-spacing:2px;text-transform:uppercase;font-size:11px;font-weight:400}
+  header.brand{padding:30px 24px 10px;text-align:center}
+  header.brand img{height:34px;margin:0 auto}
+
+  /* hero */
+  .hero{padding:40px 0 96px}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
+  .hero-copy .callout{font-family:'Karla',sans-serif;font-weight:400;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-grey);margin-bottom:26px}
+  .hero-copy h1{margin-bottom:26px}
+  .hero-copy .sub{font-size:21px;line-height:1.6;color:var(--charcoal);margin-bottom:22px;font-family:'Cormorant Garamond',serif;font-weight:400}
+  .hero-copy .without{font-size:17px;color:var(--warm-grey);margin-bottom:22px}
+  .hero-copy .clarity{font-size:16px;line-height:1.7;border-left:1px solid var(--highlight);padding-left:18px;margin-bottom:34px}
+  .hero-media{position:relative}
+  .hero-media img{width:100%;aspect-ratio:3/4;object-fit:cover}
+  .hero-media .tag{position:absolute;left:0;bottom:0;background:rgba(26,26,26,.85);color:var(--warm-white);font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:12px 18px}
+  .video-slot{margin:30px 0 0;display:none}
+  .video-slot.on{display:block}
+  .video-slot iframe{width:100%;aspect-ratio:16/9;border:0}
+
+  /* proof strip */
+  .strip{background:var(--stone);padding:34px 0;border-top:1px solid var(--light-border);border-bottom:1px solid var(--light-border)}
+  .strip .eyebrow{text-align:center;margin-bottom:16px}
+  .venues{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--charcoal)}
+  .venues span::after{content:"\00b7";color:var(--highlight);margin-left:28px}
+  .venues span:last-child::after{content:""}
+
+  /* dark band */
+  .dark{background:var(--dark-section);color:var(--warm-white);position:relative;overflow:hidden}
+  .dark h2,.dark h3{color:var(--warm-white)}
+  .dark .eyebrow{color:var(--highlight)}
+  .dark p{color:rgba(250,249,247,.86)}
+  .dark .ghost-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.10;pointer-events:none}
+  .dark .wrap{position:relative}
+
+  /* stack */
+  .stack{list-style:none;border-top:1px solid var(--light-border);margin-top:40px}
+  .stack li{display:grid;grid-template-columns:1fr;gap:6px 40px;padding:26px 0;border-bottom:1px solid var(--light-border)}
+  .stack li h3{font-size:26px;line-height:1.2}
+  .stack li p{color:var(--warm-grey);font-size:16px}
+  .value-table{margin-top:34px;border-top:1px solid var(--charcoal)}
+  .value-table div{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid var(--light-border);font-family:'Karla',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase}
+  .value-table div strong{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:34px;letter-spacing:0;text-transform:none;color:var(--soft-black)}
+  .value-table div.total strong{font-size:40px}
+  .fine{font-size:14px;color:var(--warm-grey);margin-top:18px;line-height:1.6}
+
+  /* runner up */
+  .runner{background:var(--stone)}
+  .two-col{display:grid;grid-template-columns:1fr;gap:40px;align-items:start}
+  .checks{list-style:none;margin-top:26px}
+  .checks li{padding:12px 0 12px 30px;position:relative;border-bottom:1px solid var(--light-border);font-size:16px}
+  .checks li::before{content:"";position:absolute;left:0;top:23px;width:14px;height:1px;background:var(--highlight)}
+  .rules{margin-top:26px;padding:22px 26px;border:1px solid var(--light-border);background:var(--warm-white)}
+  .rules .eyebrow{margin-bottom:10px}
+  .rules p{font-size:15px;color:var(--charcoal);line-height:1.65}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:1fr;gap:28px;margin-top:48px}
+  .step{border-top:1px solid var(--light-border);padding-top:22px}
+  .step .num{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--highlight);line-height:1;margin-bottom:12px}
+  .step h3{font-size:24px;margin-bottom:8px}
+  .step p{font-size:16px;color:var(--warm-grey)}
+
+  /* who */
+  .who{display:grid;grid-template-columns:1fr;gap:20px;margin-top:44px}
+  .who div{background:var(--stone);padding:34px 30px;border:1px solid var(--light-border)}
+  .who .eyebrow{margin-bottom:12px;color:var(--charcoal)}
+  .who p{font-size:16px}
+  .dark .who p{color:var(--charcoal)}
+
+  /* agree */
+  .agree{background:var(--feature-bg)}
+  .agree ol{list-style:none;counter-reset:a;margin-top:40px;border-top:1px solid var(--light-border)}
+  .agree li{counter-increment:a;display:grid;grid-template-columns:56px 1fr;gap:0 18px;padding:24px 0;border-bottom:1px solid var(--light-border)}
+  .agree li::before{content:counter(a,decimal-leading-zero);font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--highlight);line-height:1.1}
+  .agree li h3{font-size:23px;margin-bottom:6px}
+  .agree li p{font-size:16px;color:var(--warm-grey)}
+
+  /* gallery */
+  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:48px}
+  .gallery figure img{width:100%;aspect-ratio:3/4;object-fit:cover}
+  .gallery figcaption{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--warm-grey);margin-top:10px}
+  .full-img{width:100%;height:60vh;min-height:360px;object-fit:cover}
+
+  /* testimonials */
+  .quotes{display:grid;grid-template-columns:1fr;gap:22px;margin-top:48px}
+  .quote{background:var(--warm-white);border:1px solid var(--light-border);padding:36px 32px}
+  .quote .stars{display:flex;gap:4px;margin-bottom:18px}
+  .quote blockquote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.45;color:var(--charcoal)}
+  .quote cite{display:block;margin-top:18px;font-style:normal;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--warm-grey)}
+
+  /* bio */
+  .bio{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+  .bio img{width:100%;max-width:420px;aspect-ratio:4/5;object-fit:cover;margin:0 auto}
+  .bio p{margin-bottom:16px}
+
+  /* FAQ wrapper (the accordion itself is Norm's exact block, untouched) */
+  .faq-section{padding:96px 0;background:var(--warm-white)}
+  .faq-section h2{text-align:center;margin:0}
+
+  /* PS */
+  .ps{background:var(--stone);padding:72px 0}
+  .ps p{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.5;color:var(--charcoal)}
+  .ps .sig{font-family:'Karla',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-grey);margin-top:22px}
+
+  /* form */
+  .entry{background:var(--blush)}
+  .form-card{background:var(--warm-white);border:1px solid var(--light-border);padding:44px 34px;margin-top:44px}
+  .f-row{display:grid;grid-template-columns:1fr;gap:18px;margin-bottom:18px}
+  .field label{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--charcoal);margin-bottom:8px;font-weight:400}
+  .field .help{display:block;font-size:13px;color:var(--warm-grey);margin-top:6px;line-height:1.5}
+  .field input[type=text],.field input[type=email],.field input[type=tel],.field input[type=date],.field select,.field textarea{width:100%;font-family:'Karla',sans-serif;font-weight:300;font-size:16px;color:var(--charcoal);background:var(--warm-white);border:1px solid var(--light-border);padding:14px 14px;border-radius:0;outline:none;transition:border-color .2s}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--charcoal)}
+  .field textarea{min-height:170px;resize:vertical;line-height:1.6}
+  .field select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--warm-grey) 50%),linear-gradient(135deg,var(--warm-grey) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+  .radios{display:flex;flex-wrap:wrap;gap:10px}
+  .radios label{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--light-border);padding:11px 16px;font-size:14px;letter-spacing:.5px;text-transform:none;cursor:pointer;margin:0}
+  .radios input{accent-color:var(--charcoal)}
+  .consent{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.6;color:var(--charcoal);margin-top:6px}
+  .field label.consent{text-transform:none;letter-spacing:0;font-size:14px;font-weight:300;color:var(--charcoal)}
+  .consent input{margin-top:5px;accent-color:var(--charcoal);flex:none}
+  .consent a{text-decoration:underline;text-decoration-color:var(--highlight);text-underline-offset:3px;cursor:pointer}
+  .err{display:none;font-size:13px;color:#8A3B3B;margin-top:6px}
+  .field.invalid .err{display:block}
+  .field.invalid input,.field.invalid select,.field.invalid textarea{border-color:#B07A7A}
+  .f-step{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-grey);margin:30px 0 18px;padding-top:26px;border-top:1px solid var(--light-border)}
+  .f-step:first-of-type{margin-top:0;padding-top:0;border-top:0}
+  .submit-row{margin-top:30px;text-align:center}
+  .submit-row .btn{width:100%}
+  .privacy{font-size:13px;color:var(--warm-grey);margin-top:18px;line-height:1.6;text-align:center}
+  .success{display:none;text-align:center;padding:30px 0}
+  .success h3{font-size:34px;margin-bottom:14px}
+  .closed{display:none;text-align:center;padding:30px 0}
+  .hidden{display:none}
+
+  /* footer */
+  footer{background:var(--dark-section);color:rgba(250,249,247,.7);text-align:center;padding:48px 24px;font-size:12px;letter-spacing:2px;text-transform:uppercase;line-height:2.2}
+  footer img{height:26px;margin:0 auto 18px}
+  footer .legal{letter-spacing:.5px;text-transform:none;font-size:13px;margin-top:16px}
+  footer .legal a{color:var(--highlight);text-decoration:none;cursor:pointer;margin:0 8px}
+
+  /* sticky mobile cta */
+  .sticky{position:fixed;left:0;right:0;bottom:0;background:var(--warm-white);border-top:1px solid var(--light-border);padding:12px 16px;display:none;z-index:50;box-shadow:0 -10px 30px rgba(0,0,0,.06)}
+  .sticky.show{display:block}
+  .sticky .btn{width:100%;text-align:center;padding:16px}
+
+  /* modal */
+  .modal{position:fixed;inset:0;background:rgba(26,26,26,.72);display:none;z-index:100;padding:20px;overflow:auto}
+  .modal.open{display:block}
+  .modal .box{background:var(--warm-white);max-width:820px;margin:40px auto;padding:48px 40px;position:relative}
+  .modal .close{position:absolute;top:16px;right:18px;background:none;border:1px solid var(--light-border);width:38px;height:38px;border-radius:999px;cursor:pointer;font-size:18px;color:var(--charcoal)}
+  .modal h2{font-size:34px;margin-bottom:8px}
+  .modal h3{font-size:20px;font-family:'Karla',sans-serif;font-weight:400;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:var(--warm-grey);margin:28px 0 8px}
+  .modal p,.modal li{font-size:15px;line-height:1.7;color:var(--charcoal)}
+  .modal ol{padding-left:20px}
+  .modal li{margin-bottom:8px}
+
+  @media (min-width:860px){
+    .hero{padding:56px 0 110px}
+    .hero-grid{grid-template-columns:1.1fr .9fr;gap:72px}
+    .stack li{grid-template-columns:1fr 1.2fr}
+    .two-col{grid-template-columns:1fr 1fr;gap:64px}
+    .steps{grid-template-columns:repeat(4,1fr);gap:36px}
+    .who{grid-template-columns:repeat(3,1fr)}
+    .gallery{grid-template-columns:repeat(3,1fr);gap:18px}
+    .quotes{grid-template-columns:repeat(3,1fr)}
+    .bio{grid-template-columns:.8fr 1.2fr;gap:72px}
+    .f-row.two{grid-template-columns:1fr 1fr}
+    .submit-row .btn{width:auto}
+    .form-card{padding:56px 60px}
+  }
+  @media (max-width:859px){
+    section{padding:68px 0}
+    .topbar{padding:10px 16px;font-size:12px}
+    .topbar .long{display:none}
+    .topbar .short{display:inline}
+    .topbar a{margin-left:10px}
+    header.brand{padding:22px 24px 4px}
+    header.brand img{height:28px}
+    .hero{padding:26px 0 72px}
+    .hero-copy{display:flex;flex-direction:column}
+    .hero-copy .callout{order:1;margin-bottom:18px;font-size:11px}
+    .hero-copy h1{order:2;margin-bottom:18px;font-size:44px}
+    .hero-copy .sub{order:3;font-size:19px;margin-bottom:6px}
+    .hero-copy .cta-block{order:4;margin:22px 0 30px}
+    .hero-copy .without{order:5;font-size:16px}
+    .hero-copy .clarity{order:6;margin-bottom:0}
+    .hero-copy .video-slot{order:7}
+    .venues{font-size:18px;gap:8px 22px}
+    .venues span::after{content:""}
+    .faq-section{padding:68px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- 0. TOP BAR -->
+<div class="topbar"><span class="long">The Black Friday Wedding Giveaway. One wedding, photographed by me, at no cost. Entries close <span class="ph">Friday 4 December</span>.</span><span class="short">One wedding, photographed by me, at no cost.</span> <a href="#enter">Enter the giveaway</a></div>
+
+<header class="brand" aria-label="Norman Yap Photography">
+  <img src="images/logo-dark.png" alt="Norman Yap Photography">
+</header>
+
+<!-- 1. HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="callout">For couples getting married in 2027 or 2028, in Perth or down south</div>
+      <h1>I'm giving away<br>a wedding.</h1>
+      <p class="sub">One couple gets their whole wedding day photographed by me. Ten hours, every photograph, nothing to pay. Valued at $8,500.</p>
+      <p class="without">Not a discount. Not a voucher. Not a shortened version of what I do. The whole day, exactly as I'd photograph it for any couple who books me.</p>
+      <p class="clarity">Entries open <span class="ph">Friday 27 November</span> and close <span class="ph">Friday 4 December</span>. I read every story and choose one couple on <span class="ph">Monday 7 December</span>. Every other couple who enters hears from me the same day with a runner-up offer.</p>
+      <div class="cta-block">
+        <a class="btn" href="#enter">Enter the giveaway</a>
+        <span class="trust">About three minutes. No cost to enter. Over fifteen years photographing weddings.</span>
+      </div>
+      <div class="video-slot" id="videoSlot"></div>
+    </div>
+    <div class="hero-media">
+      <img src="images/hero-como-treasury.jpg" alt="A couple photographed at COMO The Treasury, Perth, by Norman Yap">
+      <div class="tag">COMO The Treasury, Perth</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. PROOF STRIP -->
+<div class="strip">
+  <div class="wrap">
+    <span class="eyebrow">Weddings I have photographed at</span>
+    <div class="venues">
+      <span>COMO The Treasury</span><span>The Ritz-Carlton Perth</span><span>The Westin Perth</span><span>Caversham House</span><span>Sandalford Winery</span><span>Balmain Estate</span><span>Masonmill Gardens</span><span>St Georges College</span><span>Moana Hall</span>
+    </div>
+  </div>
+</div>
+
+<!-- 3. THE REASON WHY -->
+<section class="dark">
+  <img class="ghost-img" src="images/band-masonmill.jpg" alt="" aria-hidden="true">
+  <div class="wrap narrow center">
+    <span class="eyebrow">Why I'm doing this</span>
+    <h2>Every November my inbox fills with discounts.<br><em>This isn't one.</em></h2>
+    <div class="rule"></div>
+    <p class="lead">I'm not taking anything off my prices this Black Friday. I'm choosing one wedding, photographing it from the first hour of the morning to the last of the night, and making it the signature piece of my portfolio for the year ahead. My team will be there too, recording how the day is made, so for once you'll see the work and the way it's done side by side.</p>
+    <p class="lead" style="margin-top:20px">That's the trade, and I want it in plain sight. You get your wedding photographed by me at no cost. I get one day I can point to and say, this is what I do. If being featured isn't for you, this one isn't for you, and that's completely fine.</p>
+    <div class="cta-block">
+      <a class="btn light" href="#enter">Enter the giveaway</a>
+      <span class="trust" style="color:rgba(250,249,247,.6)">One wedding. Chosen on <span class="ph">Monday 7 December</span>.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 4. THE PRIZE -->
+<section>
+  <div class="wrap">
+    <div class="narrow center">
+      <span class="eyebrow">The prize</span>
+      <h2>One wedding, start to finish,<br><em>photographed by me.</em></h2>
+      <div class="rule"></div>
+      <p class="lead">This is my full day as it is sold, not a trimmed version of it. Everything below comes with it, and nothing is added to the bill.</p>
+    </div>
+    <ul class="stack">
+      <li><h3>Ten hours of wedding photography with me</h3><p>From getting ready to the dance floor. I photograph every wedding that carries my name, and I'd be photographing yours.</p></li>
+      <li><h3>Every finished photograph from the day</h3><p>Your complete edited gallery. High resolution, no watermarks, a mix of colour and black and white, with artisan highlight edits.</p></li>
+      <li><h3>Your first previews within 48 hours</h3><p>A few finished frames while the day is still fresh, before the full gallery follows.</p></li>
+      <li><h3>A private online gallery with cloud storage</h3><p>Yours to share with the people who matter, and safe for the long run.</p></li>
+      <li><h3>A timeline planned with you</h3><p>The same wedding timeline tool I plan every wedding with, so the light is right and nobody watches the clock on your day.</p></li>
+      <li><h3>Album and wall art design service</h3><p>So the photographs don't live on a hard drive. Design is included, print pieces are optional and at standard rates.</p></li>
+    </ul>
+    <div class="narrow">
+      <div class="value-table">
+        <div class="total"><span>Valued at</span><strong>$8,500</strong></div>
+        <div><span>What the chosen couple pays</span><strong>Nothing</strong></div>
+      </div>
+      <p class="fine">Prices include GST. Anything outside the day as described, extra hours, an album, the Editorial Curator film, is available at my standard rates. Nothing is required and nothing is assumed.</p>
+      <div class="cta-block center">
+        <a class="btn" href="#enter">Enter the giveaway</a>
+        <span class="trust">Entries close <span class="ph">Friday 4 December</span>, 11:59pm Perth time.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<img class="full-img" src="images/full-ritz-carlton.jpg" alt="A wedding at The Ritz-Carlton Perth photographed by Norman Yap">
+
+<!-- 5. RUNNERS UP -->
+<section class="runner">
+  <div class="wrap two-col">
+    <div>
+      <span class="eyebrow">If you enter and aren't chosen</span>
+      <h2>Every other couple who enters receives a second photographer, <em>complimentary.</em></h2>
+      <div class="rule left"></div>
+      <p class="lead">I can only give one wedding away. So every couple who enters and isn't chosen receives a runner-up offer: when you book me for a full day, eight to ten hours, for your 2027 or 2028 wedding, a second photographer joins me for six hours of it, complimentary. Normally a paid add-on, valued at <span class="pending">[[SECOND_PHOTOGRAPHER_VALUE]]</span>.</p>
+      <div class="rules">
+        <span class="eyebrow">The rules, plainly</span>
+        <p>Claim within 72 hours of the announcement email on <span class="ph">Monday 7 December</span>. Contract signed and retainer paid by <span class="pending">[[RUNNER_UP_BOOKING_DEADLINE]]</span>. Subject to my availability on your date. One per couple, and it can't be exchanged for anything else.</p>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-size:28px">What a second photographer changes on the day</h3>
+      <ul class="checks">
+        <li>Your partner's side of the morning covered properly, while I'm with you</li>
+        <li>A second angle on the ceremony, the first look and the speeches</li>
+        <li>The quiet moments, the transitions and the guests you didn't see</li>
+        <li>Venue and detail imagery, so the gallery tells the whole room</li>
+        <li>Six hours, placed where they matter most in your timeline</li>
+      </ul>
+      <div class="cta-block">
+        <a class="btn ghost" href="#enter">Enter the giveaway</a>
+        <span class="trust">Entering is the only way in. There is no separate sign up.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. HOW IT WORKS -->
+<section>
+  <div class="wrap">
+    <div class="narrow center">
+      <span class="eyebrow">How it works</span>
+      <h2>Four steps, and the fourth one<br><em>is your wedding day.</em></h2>
+      <div class="rule"></div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h3>Enter</h3><p>About three minutes. Your names, your date if you have one, where you're getting married, and your story. The story is the part I read most closely.</p></div>
+      <div class="step"><div class="num">02</div><h3>Entries close</h3><p><span class="ph">Friday 4 December</span>, 11:59pm Perth time. Late entries can't be read, so don't leave it to the last night.</p></div>
+      <div class="step"><div class="num">03</div><h3>I choose one couple</h3><p><span class="ph">Monday 7 December</span>. I call the chosen couple myself. Every other couple hears from me by email the same day, with their runner-up offer and 72 hours to claim it.</p></div>
+      <div class="step"><div class="num">04</div><h3>The wedding</h3><p>We plan it the way I plan every wedding. Timeline, light, locations. Then I photograph it, start to finish, and it becomes the wedding I point to all year.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. WHO IT'S FOR -->
+<section class="dark" style="padding-top:88px">
+  <div class="wrap">
+    <div class="narrow center">
+      <span class="eyebrow">Who this is for</span>
+      <h2>Built for couples who want it done properly,<br><em>and don't mind it being seen.</em></h2>
+      <div class="rule"></div>
+    </div>
+    <div class="who">
+      <div><span class="eyebrow" style="color:var(--charcoal)">Built for</span><p>Couples getting married in 2027 or 2028, in Perth or down south, who want their wedding photographed properly and are happy for it to be shown.</p></div>
+      <div><span class="eyebrow" style="color:var(--charcoal)">Best when</span><p>You have a date, or at least a season, and a venue or a shortlist. You like what you see here, and the idea of your day becoming the one I point to all year sits well with you.</p></div>
+      <div><span class="eyebrow" style="color:var(--charcoal)">Not for</span><p>Couples who want part of the day covered, couples marrying outside 2027 and 2028, or couples who would rather their wedding stayed private. I'd rather you knew that now.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. WHAT THE CHOSEN COUPLE AGREES TO -->
+<section class="agree">
+  <div class="wrap narrow">
+    <div class="center">
+      <span class="eyebrow">In plain sight</span>
+      <h2>What the chosen couple<br><em>says yes to.</em></h2>
+      <div class="rule"></div>
+      <p class="lead">No surprises after the phone call. These are the conditions, and they're the same ones in the terms.</p>
+    </div>
+    <ol>
+      <li><div><h3>A date I have open</h3><p>Your wedding falls in 2027 or 2028, on a date I'm free to photograph. Tell me your date in the form, or your season if it isn't set yet. <span class="pending">[[PEAK_DATE_RULE]]</span></p></div></li>
+      <li><div><h3>Being featured</h3><p>The photographs are published as a signature piece of my portfolio: my website, Instagram, awards and publications. This is the reason the giveaway exists.</p></div></li>
+      <li><div><h3>Content on the day</h3><p>My team records behind-the-scenes video of the day being photographed. Discreetly, with respect for the ceremony, and never in the way of the moment.</p></div></li>
+      <li><div><h3>My standard agreement</h3><p>The same contract every couple signs, with the photography fee set to nothing. <span class="pending">[[TRAVEL_TERMS]]</span></p></div></li>
+      <li><div><h3>Nothing else</h3><p>No add-ons required, no album to buy, no obligation beyond the day itself.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 9. PROOF: THE WORK -->
+<section>
+  <div class="wrap">
+    <div class="narrow center">
+      <span class="eyebrow">The work</span>
+      <h2>Real weddings,<br><em>start to finish.</em></h2>
+      <div class="rule"></div>
+      <p class="lead">Intentional, emotional, editorial. I don't recreate moments or ask you to do things again. I watch the light, position myself with intention, and let the day unfold.</p>
+    </div>
+    <div class="gallery">
+      <figure><img src="images/gallery-1-sandalford.jpg" alt="Wedding at Sandalford Wines, Swan Valley" loading="lazy"><figcaption>Sandalford Wines</figcaption></figure>
+      <figure><img src="images/gallery-2-caversham-house.jpg" alt="Wedding at Caversham House" loading="lazy"><figcaption>Caversham House</figcaption></figure>
+      <figure><img src="images/gallery-3-st-georges-college.jpg" alt="Wedding at St Georges College" loading="lazy"><figcaption>St Georges College</figcaption></figure>
+      <figure><img src="images/gallery-4-cottesloe-civic-centre.jpg" alt="Wedding at Cottesloe Civic Centre" loading="lazy"><figcaption>Cottesloe Civic Centre</figcaption></figure>
+      <figure><img src="images/gallery-5-gardens-at-bullimah.jpg" alt="Wedding at The Gardens at Bullimah, Albany" loading="lazy"><figcaption>The Gardens at Bullimah, Albany</figcaption></figure>
+      <figure><img src="images/gallery-6-uwa-sunken-garden.jpg" alt="Wedding at UWA Sunken Garden" loading="lazy"><figcaption>UWA Sunken Garden</figcaption></figure>
+    </div>
+    <div class="quotes">
+      <div class="quote">
+        <div class="stars" aria-label="Five stars"><svg viewBox="0 0 24 24" width="14" height="14"><polygon fill="#B8A99A" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24" width="14" height="14"><polygon fill="#B8A99A" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24" width="14" height="14"><polygon fill="#B8A99A" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24" width="14" height="14"><polygon fill="#B8A99A" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24" width="14" height="14"><polygon fill="#B8A99A" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+        <blockquote>"We honestly couldn't have asked for a better wedding photographer than Norman. From the very beginning, his professionalism stood out. He was organized, responsive, and clearly experienced, which immediately put us at ease during our planning process."</blockquote>
+        <cite>Talia and Benito</cite>
+      </div>
+      <div class="quote">
+        <div class="stars" aria-label="Five stars"><svg viewBox="0 0 24 24" width="14" height="14"><polygon fill="#B8A99A" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24" width="14" height="14"><polygon fill="#B8A99A" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24" width="14" height="14"><polygon fill="#B8A99A" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24" width="14" height="14"><polygon fill="#B8A99A" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24" width="14" height="14"><polygon fill="#B8A99A" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+        <blockquote>"What really stood out was how calm and reassuring Norman was throughout the entire day. He has such a genuine, positive energy that instantly makes you feel comfortable and confident in front of the camera, which made such a difference for us."</blockquote>
+        <cite>Lorrin McKay</cite>
+      </div>
+      <div class="quote">
+        <div class="stars" aria-label="Five stars"><svg viewBox="0 0 24 24" width="14" height="14"><polygon fill="#B8A99A" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24" width="14" height="14"><polygon fill="#B8A99A" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24" width="14" height="14"><polygon fill="#B8A99A" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24" width="14" height="14"><polygon fill="#B8A99A" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg viewBox="0 0 24 24" width="14" height="14"><polygon fill="#B8A99A" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+        <blockquote>"Norman has an incredible talent for capturing not just moments, but emotions. Each photo tells a story, and looking through our photos feels like reliving the most magical day of our lives."</blockquote>
+        <cite>Tanique and Nick</cite>
+      </div>
+    </div>
+    <div class="cta-block center">
+      <a class="btn" href="#enter">Enter the giveaway</a>
+      <span class="trust">Ask me for a full wedding gallery, start to finish. Ask everyone else you're talking to as well.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 10. WHO YOU'RE BOOKING -->
+<section class="runner">
+  <div class="wrap bio">
+    <img src="images/norman-portrait.jpg" alt="Norman Yap, wedding photographer, Perth">
+    <div>
+      <span class="eyebrow">Who you're booking</span>
+      <h2>Hi, I'm <em>Norman.</em></h2>
+      <div class="rule left"></div>
+      <p class="lead">I photograph weddings in Perth and down south, and I shoot every one of them myself. I've been doing it for over fifteen years.</p>
+      <p>My work is quiet and editorial. I don't recreate moments or ask you to redo something I may have missed. I observe the light, the composition and the room, and I'm ready when the moment arrives. The result is photographs that feel like your day did, made to live on a wall rather than a hard drive.</p>
+      <p>I know the other side of the camera too. I've been engaged, I've planned a wedding, and I've stood in front of a photographer I'd never met. So when I say I'll guide you calmly through the day, I mean it in the way I wanted someone to mean it for me.</p>
+      <p>This giveaway is the most direct thing I've done in fifteen years. One couple, one whole day, no fee. I'm looking forward to reading your story.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11. FAQ (Norm's exact accordion block) -->
+<section class="faq-section">
+  <div class="wrap">
+<h2 style="text-align:center;margin:0;">Frequently Asked Questions About The Giveaway</h2>
+<div class="faq-accordion">
+  <details class="faq-item">
+    <summary>
+      <span class="faq-q">Is the wedding really free?</span>
+      <span class="faq-toggle">+</span>
+    </summary>
+    <div class="faq-a">
+      Yes. One couple getting married in 2027 or 2028 gets ten hours of wedding day photography with me, every finished photograph, previews within 48 hours, a private online gallery and the planning that comes with it. Valued at $8,500 including GST, and the chosen couple pays nothing. Optional extras like an album or extra hours are at my standard rates, and none of them are required.
+    </div>
+  </details>
+  <details class="faq-item">
+    <summary>
+      <span class="faq-q">How do you choose the couple?</span>
+      <span class="faq-toggle">+</span>
+    </summary>
+    <div class="faq-a">
+      I read every entry myself. It isn't a raffle. I'm looking at the story you tell me, the setting and the light of the day you're planning, whether it can be the signature wedding of my year, and whether your date is one I have open. Then I choose one couple and call them on Monday 7 December.
+    </div>
+  </details>
+  <details class="faq-item">
+    <summary>
+      <span class="faq-q">Does our wedding have to be on a particular date?</span>
+      <span class="faq-toggle">+</span>
+    </summary>
+    <div class="faq-a">
+      It has to fall in 2027 or 2028, on a date I'm still free to photograph when the prize is confirmed. Tell me your date in the form, or your season if it isn't set yet, and I'll check it against my calendar. <span class="pending">[[PEAK_DATE_RULE]]</span>
+    </div>
+  </details>
+  <details class="faq-item">
+    <summary>
+      <span class="faq-q">What does being featured actually mean?</span>
+      <span class="faq-toggle">+</span>
+    </summary>
+    <div class="faq-a">
+      The chosen wedding becomes a signature piece of my portfolio. The photographs appear on my website and Instagram, in awards submissions and in publications, and my team records behind-the-scenes video of the day being made. It's done discreetly and with respect for the ceremony, and sensitive images come down on request. If that doesn't sit well with you, this giveaway isn't the right fit, and that's fine.
+    </div>
+  </details>
+  <details class="faq-item">
+    <summary>
+      <span class="faq-q">What do runners-up get?</span>
+      <span class="faq-toggle">+</span>
+    </summary>
+    <div class="faq-a">
+      Every couple who enters and isn't chosen receives a second photographer for six hours of their wedding day, complimentary, when they book me for a full day of eight to ten hours for a 2027 or 2028 wedding. Normally a paid add-on. Claim within 72 hours of the announcement email, book by <span class="pending">[[RUNNER_UP_BOOKING_DEADLINE]]</span>, and it's subject to my availability on your date.
+    </div>
+  </details>
+  <details class="faq-item">
+    <summary>
+      <span class="faq-q">What counts as a full day for the runner-up offer?</span>
+      <span class="faq-toggle">+</span>
+    </summary>
+    <div class="faq-a">
+      Eight to ten hours of wedding photography with me, which is what I photograph. I don't offer part days under my own name, so send me your timeline and I'll tell you honestly how many hours your day needs, including if it's fewer than you think.
+    </div>
+  </details>
+  <details class="faq-item">
+    <summary>
+      <span class="faq-q">We're not photogenic. Should we still enter?</span>
+      <span class="faq-toggle">+</span>
+    </summary>
+    <div class="faq-a">
+      Almost every couple tells me that, and you've probably never been photographed properly, so you've got nothing to go on. Direction is my job. I guide you calmly through the day, and the photographs people book me for come from spending time with a couple, not from how photogenic they are. Enter.
+    </div>
+  </details>
+  <details class="faq-item">
+    <summary>
+      <span class="faq-q">Where does the wedding need to be?</span>
+      <span class="faq-toggle">+</span>
+    </summary>
+    <div class="faq-a">
+      Perth or down south. If your wedding is further afield, say so in the form and I'll tell you what's possible. <span class="pending">[[TRAVEL_TERMS]]</span>
+    </div>
+  </details>
+  <details class="faq-item">
+    <summary>
+      <span class="faq-q">When do entries close, and when do we hear?</span>
+      <span class="faq-toggle">+</span>
+    </summary>
+    <div class="faq-a">
+      Entries close Friday 4 December at 11:59pm Perth time. I choose one couple on Monday 7 December and call them myself. Every other couple hears from me by email the same day with their runner-up offer and 72 hours to claim it.
+    </div>
+  </details>
+</div>
+<style>
+  .faq-accordion {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+    padding: 1.1rem 0;
+  }
+  .faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-q {
+    font-size: 1.05rem;
+    line-height: 1.4;
+  }
+  .faq-toggle {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0,0,0,0.18);
+    border-radius: 999px;
+    font-size: 1.2rem;
+  }
+  .faq-a {
+    margin-top: 0.9rem;
+    line-height: 1.7;
+  }
+</style>
+  </div>
+</section>
+
+<!-- 12. P.S. -->
+<div class="ps">
+  <div class="wrap narrow">
+    <p>P.S. If you're getting married in 2027 or 2028 and you've been putting off choosing your photographer, this is the week to put your names down. One couple gets their whole wedding day photographed by me at no cost. Every other couple who enters gets a second photographer, complimentary, when they book a full day. Entries close <span class="ph">Friday 4 December</span>. Tell me your story.</p>
+    <div class="sig">Norman</div>
+  </div>
+</div>
+
+<!-- 13. THE ACTION: ENTRY FORM -->
+<section class="entry" id="enter">
+  <div class="wrap narrow">
+    <div class="center">
+      <span class="eyebrow">Enter by <span class="ph">Friday 4 December</span></span>
+      <h2>Enter the <em>giveaway.</em></h2>
+      <div class="rule"></div>
+      <p class="lead">About three minutes. Tell me about the two of you and the day you're planning. The story is the part I read most closely, so take your time with it.</p>
+    </div>
+    <div class="form-card">
+      <form id="entryForm" novalidate>
+        <div class="f-step">Your wedding</div>
+        <div class="f-row two">
+          <div class="field">
+            <label for="year">Which year are you getting married</label>
+            <select id="year" name="wedding_year" required>
+              <option value="">Choose one</option>
+              <option>2027</option>
+              <option>2028</option>
+              <option>Not sure yet</option>
+            </select>
+            <span class="err">Choose the year, or Not sure yet.</span>
+          </div>
+          <div class="field">
+            <label for="wdate">Your wedding date, if you have one</label>
+            <input type="date" id="wdate" name="wedding_date">
+            <span class="help">Leave it blank if the date isn't set. Your season is enough.</span>
+          </div>
+        </div>
+        <div class="f-row two">
+          <div class="field">
+            <label for="venue">Venue, or the area you're looking at</label>
+            <input type="text" id="venue" name="venue" required placeholder="">
+            <span class="help">If the venue isn't locked in, the suburb or region is enough.</span>
+            <span class="err">Tell me where, even roughly.</span>
+          </div>
+          <div class="field">
+            <label for="guests">Roughly how many guests</label>
+            <select id="guests" name="guest_count">
+              <option value="">Choose one</option>
+              <option>Under 50</option>
+              <option>50 to 100</option>
+              <option>100 to 150</option>
+              <option>150 to 250</option>
+              <option>More than 250</option>
+            </select>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:18px">
+          <label>Where are you at with photography</label>
+          <div class="radios">
+            <label><input type="radio" name="photography_status" value="Haven't started looking"> Haven't started looking</label>
+            <label><input type="radio" name="photography_status" value="Comparing photographers"> Comparing photographers</label>
+            <label><input type="radio" name="photography_status" value="Already booked someone"> Already booked someone</label>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:18px">
+          <label for="story">Your story</label>
+          <textarea id="story" name="story" required placeholder=""></textarea>
+          <span class="help">How you met. What the day means to the two of you. Where it's happening and why there. Anything that makes it yours. There's no right length, and it doesn't need to be polished.</span>
+          <span class="err">This is the part I read most closely. A few sentences is enough to start.</span>
+        </div>
+        <div class="field" style="margin-bottom:6px">
+          <label for="links">Anything you'd like me to see</label>
+          <input type="text" id="links" name="links" placeholder="">
+          <span class="help">Instagram, a Pinterest board, the venue. Optional.</span>
+        </div>
+
+        <div class="f-step">Your details</div>
+        <div class="f-row two">
+          <div class="field">
+            <label for="fname">Your first name</label>
+            <input type="text" id="fname" name="first_name" required autocomplete="given-name">
+            <span class="err">Your first name, please.</span>
+          </div>
+          <div class="field">
+            <label for="lname">Your last name</label>
+            <input type="text" id="lname" name="last_name" required autocomplete="family-name">
+            <span class="err">Your last name, please.</span>
+          </div>
+        </div>
+        <div class="f-row two">
+          <div class="field">
+            <label for="pname">Your partner's first name</label>
+            <input type="text" id="pname" name="partner_first_name" required>
+            <span class="err">Your partner's first name, please.</span>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+            <span class="err">An email address I can reach you on.</span>
+          </div>
+        </div>
+        <div class="f-row two">
+          <div class="field">
+            <label for="phone">Mobile</label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel">
+            <span class="help">If you're chosen, I call. So I need a number that rings.</span>
+            <span class="err">A mobile number, please.</span>
+          </div>
+          <div class="field">
+            <label for="heard">How did you hear about this</label>
+            <select id="heard" name="heard_about">
+              <option value="">Choose one</option>
+              <option>Instagram</option>
+              <option>Facebook</option>
+              <option>Google</option>
+              <option>A friend or a couple I photographed</option>
+              <option>A venue or planner</option>
+              <option>Somewhere else</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="f-step">Two things to agree to</div>
+        <div class="field" style="margin-bottom:14px">
+          <label class="consent"><input type="checkbox" id="c_feature" name="consent_feature" required><span>I understand that the chosen couple's wedding is photographed as a signature portfolio piece and published, and that behind-the-scenes content may be recorded on the day.</span></label>
+          <span class="err">The giveaway only works if the chosen wedding can be shown. Tick this if that sits well with you.</span>
+        </div>
+        <div class="field">
+          <label class="consent"><input type="checkbox" id="c_terms" name="consent_terms" required><span>I've read the <a data-open="terms">terms and conditions</a>, and I understand that one entry per couple counts.</span></label>
+          <span class="err">Have a read of the terms, then tick this.</span>
+        </div>
+
+        <input type="hidden" name="source" id="h_source">
+        <input type="hidden" name="utm_source" id="h_utm_source">
+        <input type="hidden" name="utm_medium" id="h_utm_medium">
+        <input type="hidden" name="utm_campaign" id="h_utm_campaign">
+        <input type="hidden" name="utm_content" id="h_utm_content">
+        <input type="hidden" name="fbclid" id="h_fbclid">
+        <input type="hidden" name="page_url" id="h_page_url">
+        <input type="text" name="website" id="h_hp" class="hidden" tabindex="-1" autocomplete="off">
+
+        <div class="submit-row">
+          <button type="submit" class="btn" id="submitBtn">Enter the giveaway</button>
+          <span class="err" id="sendErr" style="margin-top:12px"></span>
+          <span class="trust">Entries close <span class="ph">Friday 4 December</span>, 11:59pm Perth time. One couple chosen on <span class="ph">Monday 7 December</span>.</span>
+        </div>
+        <p class="privacy">I use your details to run this giveaway and to answer your enquiry. The only marketing you will ever receive from me relates to wedding photography, and you can opt out at any time. I do not share your details with anyone.</p>
+      </form>
+      <div class="success" id="successBox">
+        <span class="eyebrow">You're in</span>
+        <h3>Thank you. I'll read it properly.</h3>
+        <p class="lead">Entries close <span class="ph">Friday 4 December</span> and I choose one couple on <span class="ph">Monday 7 December</span>. You'll hear from me either way, so keep an eye on your inbox and your phone that day.</p>
+      </div>
+      <div class="closed" id="closedBox">
+        <span class="eyebrow">Entries have closed</span>
+        <h3>Thank you to every couple who entered.</h3>
+        <p class="lead">The chosen couple hears from me by phone and every other couple by email on <span class="ph">Monday 7 December</span>. If you'd still like to talk about your wedding, write to hello@normanyap.com.au.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="images/logo-white.png" alt="Norman Yap Photography">
+  Norman Yap Photography<br>Perth and the South West<br>hello@normanyap.com.au
+  <div class="legal"><a data-open="terms">Terms and conditions</a> <a data-open="privacy">Privacy</a><br>&copy; 2026, Norman Yap Photography</div>
+</footer>
+
+<!-- MOBILE STICKY CTA -->
+<div class="sticky" id="sticky"><a class="btn" href="#enter">Enter the giveaway</a></div>
+
+<!-- TERMS MODAL (draft, legal review is a gate before launch) -->
+<div class="modal" id="modal-terms" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+  <div class="box">
+    <button class="close" data-close aria-label="Close">&times;</button>
+    <span class="eyebrow">Draft for review. <span class="pending">[[LEGAL_REVIEW]]</span></span>
+    <h2 id="termsTitle">Terms and conditions</h2>
+    <p class="muted small">The Black Friday Wedding Giveaway, Norman Yap Photography. These terms are a working draft. They must be checked against Western Australian trade promotion requirements before publication, and the bracketed items filled in.</p>
+
+    <h3>1. The promoter</h3>
+    <p>Norman Yap Photography, ABN <span class="pending">[[ABN]]</span>, Perth, Western Australia. Contact: hello@normanyap.com.au.</p>
+
+    <h3>2. The promotion period</h3>
+    <p>Entries open at 12:01am AWST on <span class="ph">Friday 27 November 2026</span> and close at 11:59pm AWST on <span class="ph">Friday 4 December 2026</span>. Entries received outside this period are not read.</p>
+
+    <h3>3. Who can enter</h3>
+    <ol>
+      <li>Couples aged 18 or over who are planning a wedding to take place in 2027 or 2028.</li>
+      <li>One entry per couple. Duplicate entries are removed and only the first is read.</li>
+      <li>Entry is free. No purchase or booking is required to enter or to be chosen.</li>
+      <li>Employees of the promoter, their immediate families, and anyone involved in running the promotion are not eligible.</li>
+    </ol>
+
+    <h3>4. How to enter</h3>
+    <p>Complete the entry form on this page in full, including your story and both consent boxes, before the close of the promotion period. Incomplete entries cannot be considered.</p>
+
+    <h3>5. How the chosen couple is selected</h3>
+    <p>This is a judged selection, not a draw. Chance plays no part. Norman Yap reads every eligible entry and selects one couple on the basis of the story submitted, the setting and light of the planned wedding, how well the wedding can be photographed as a signature portfolio piece, and whether the wedding date is one the promoter is available to photograph. The promoter's decision is final and no correspondence is entered into about it.</p>
+
+    <h3>6. The major prize</h3>
+    <ol>
+      <li>Ten hours of wedding day photography by Norman Yap, the complete edited gallery in high resolution without watermarks in colour and black and white, artisan highlight edits, first previews within 48 hours, a private online gallery with cloud storage, timeline planning, and album and wall art design service. Valued at $8,500 AUD including GST. One prize.</li>
+      <li>The wedding must take place in 2027 or 2028 on a date the promoter is available to photograph at the time the prize is confirmed. <span class="pending">[[PEAK_DATE_RULE]]</span></li>
+      <li>The wedding must take place in Perth or the South West of Western Australia. <span class="pending">[[TRAVEL_TERMS]]</span></li>
+      <li>The chosen couple signs the promoter's standard wedding photography agreement with the photography fee set to nil, and agrees to the publicity and content terms in section 9.</li>
+      <li>The prize is not transferable, cannot be exchanged for cash or any other service, and cannot be split across more than one event or date.</li>
+      <li>Additional hours, a second photographer, albums, prints, video and any other services outside the prize description are available at the promoter's standard rates. None are required.</li>
+      <li>If the chosen couple's wedding is cancelled, postponed to a date the promoter is unavailable, or moved outside the eligible years or area, the prize may be forfeited at the promoter's discretion and no cash alternative is offered.</li>
+    </ol>
+
+    <h3>7. The runner-up offer</h3>
+    <ol>
+      <li>Every eligible couple who enters and is not selected receives the runner-up offer: a second photographer for six hours of their wedding day, complimentary, when they book Norman Yap for a full day of eight to ten hours of wedding photography for a wedding taking place in 2027 or 2028. Valued at <span class="pending">[[SECOND_PHOTOGRAPHER_VALUE]]</span>.</li>
+      <li>To claim, the couple replies to the announcement email within 72 hours of it being sent, and has a signed contract and paid retainer in place by <span class="pending">[[RUNNER_UP_BOOKING_DEADLINE]]</span>.</li>
+      <li>Subject to the promoter's availability on the wedding date. One per couple. Not transferable, no cash value, and not combinable with any other offer or discount.</li>
+      <li>The six hours are placed within the wedding day by agreement with the promoter at the timeline planning stage.</li>
+    </ol>
+
+    <h3>8. Announcement</h3>
+    <p>The chosen couple is contacted by phone and email on <span class="ph">Monday 7 December 2026</span>. All other entrants are emailed the same day. If the chosen couple cannot be reached or does not confirm acceptance within 72 hours, the promoter may select another couple. The chosen couple's first names and wedding location may be announced on the promoter's website and social media.</p>
+
+    <h3>9. Publicity and content</h3>
+    <p>By entering, the chosen couple agrees that the photographs from their wedding may be published by the promoter as part of its portfolio, including on its website, social media, in awards submissions and in publications, and that the promoter's team may record behind-the-scenes video and audio on the wedding day for the promoter's marketing and educational use. The promoter photographs and records with discretion and respects the ceremony. Sensitive images are removed on request. These permissions are a condition of the prize.</p>
+
+    <h3>10. Privacy</h3>
+    <p>Entry details are used to run this promotion and to respond to the entrant's enquiry about wedding photography. Entrants may receive marketing from the promoter about wedding photography and can opt out at any time. Details are not sold or shared with third parties except as required to run the promotion or by law.</p>
+
+    <h3>11. General</h3>
+    <ol>
+      <li>The promoter may amend these terms if required by law or a regulator, and will publish any change on this page.</li>
+      <li>The promoter is not responsible for late, lost or misdirected entries, or for technical failures outside its control.</li>
+      <li>To the extent permitted by law, the promoter is not liable for any loss arising from the promotion or the prize.</li>
+      <li>These terms are governed by the laws of Western Australia.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="modal" id="modal-privacy" role="dialog" aria-modal="true" aria-labelledby="privTitle">
+  <div class="box">
+    <button class="close" data-close aria-label="Close">&times;</button>
+    <h2 id="privTitle">Privacy</h2>
+    <p>I use your details to run this giveaway and to answer your enquiry about wedding photography. The only marketing you will ever receive from me relates to wedding photography, and you can opt out at any time. I do not sell or share your details with anyone, except where I need to in order to run the giveaway or where the law requires it. Write to hello@normanyap.com.au if you'd like your details removed.</p>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the wedding really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. One couple getting married in 2027 or 2028 gets ten hours of wedding day photography with me, every finished photograph, previews within 48 hours, a private online gallery and the planning that comes with it. Valued at $8,500 including GST, and the chosen couple pays nothing. Optional extras like an album or extra hours are at my standard rates, and none of them are required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you choose the couple?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I read every entry myself. It isn't a raffle. I'm looking at the story you tell me, the setting and the light of the day you're planning, whether it can be the signature wedding of my year, and whether your date is one I have open. Then I choose one couple and call them on Monday 7 December."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does our wedding have to be on a particular date?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It has to fall in 2027 or 2028, on a date I'm still free to photograph when the prize is confirmed. Tell me your date in the form, or your season if it isn't set yet, and I'll check it against my calendar. [[PEAK_DATE_RULE]]"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does being featured actually mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The chosen wedding becomes a signature piece of my portfolio. The photographs appear on my website and Instagram, in awards submissions and in publications, and my team records behind-the-scenes video of the day being made. It's done discreetly and with respect for the ceremony, and sensitive images come down on request. If that doesn't sit well with you, this giveaway isn't the right fit, and that's fine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do runners-up get?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every couple who enters and isn't chosen receives a second photographer for six hours of their wedding day, complimentary, when they book me for a full day of eight to ten hours for a 2027 or 2028 wedding. Normally a paid add-on. Claim within 72 hours of the announcement email, book by [[RUNNER_UP_BOOKING_DEADLINE]], and it's subject to my availability on your date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What counts as a full day for the runner-up offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eight to ten hours of wedding photography with me, which is what I photograph. I don't offer part days under my own name, so send me your timeline and I'll tell you honestly how many hours your day needs, including if it's fewer than you think."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "We're not photogenic. Should we still enter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Almost every couple tells me that, and you've probably never been photographed properly, so you've got nothing to go on. Direction is my job. I guide you calmly through the day, and the photographs people book me for come from spending time with a couple, not from how photogenic they are. Enter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does the wedding need to be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Perth or down south. If your wedding is further afield, say so in the form and I'll tell you what's possible. [[TRAVEL_TERMS]]"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When do entries close, and when do we hear?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Entries close Friday 4 December at 11:59pm Perth time. I choose one couple on Monday 7 December and call them myself. Every other couple hears from me by email the same day with their runner-up offer and 72 hours to claim it."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+  /* ---------- CONFIG: set before launch ---------- */
+  var CONFIG = {
+    FORM_ENDPOINT: "",                 /* empty = preview mode: shows the success state and logs the payload to the console */
+    META_PIXEL_ID: "",                 /* inert until set; fires Lead with content_name = SOURCE_TAG on success */
+    SOURCE_TAG: "OFFER5_BLACK_FRIDAY_WEDDING_GIVEAWAY",
+    CONTACT_EMAIL: "hello@normanyap.com.au",
+    VIDEO_EMBED_URL: "",               /* optional short giveaway video under the headline; stays hidden while empty */
+    ENTRIES_CLOSE_ISO: "2026-12-04T23:59:00+08:00"   /* after this moment the form is replaced by the closed notice. Not a countdown. */
+  };
+
+  (function(){
+    var q = new URLSearchParams(location.search);
+    function set(id, v){ var el = document.getElementById(id); if (el) el.value = v || ""; }
+    set("h_source", CONFIG.SOURCE_TAG);
+    set("h_utm_source", q.get("utm_source"));
+    set("h_utm_medium", q.get("utm_medium"));
+    set("h_utm_campaign", q.get("utm_campaign"));
+    set("h_utm_content", q.get("utm_content"));
+    set("h_fbclid", q.get("fbclid"));
+    set("h_page_url", location.href);
+
+    if (CONFIG.VIDEO_EMBED_URL) {
+      var slot = document.getElementById("videoSlot");
+      slot.innerHTML = '<iframe src="' + CONFIG.VIDEO_EMBED_URL + '" title="The Black Friday Wedding Giveaway" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+      slot.classList.add("on");
+    }
+
+    if (CONFIG.META_PIXEL_ID) {
+      (function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(f._fbq===undefined)f._fbq=n;n.push=n;n.loaded=true;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=true;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)})(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', CONFIG.META_PIXEL_ID); fbq('track', 'PageView');
+    }
+
+    /* closed state */
+    var form = document.getElementById("entryForm");
+    var closedBox = document.getElementById("closedBox");
+    if (CONFIG.ENTRIES_CLOSE_ISO && Date.now() > new Date(CONFIG.ENTRIES_CLOSE_ISO).getTime()) {
+      form.style.display = "none"; closedBox.style.display = "block";
+    }
+
+    /* validation + submit */
+    function fieldOf(el){ var f = el; while (f && (!f.classList || !f.classList.contains("field"))) f = f.parentNode; return f; }
+    function validate(){
+      var ok = true, first = null;
+      form.querySelectorAll("[required]").forEach(function(el){
+        var f = fieldOf(el); if (!f) return;
+        var bad = (el.type === "checkbox") ? el.checked === false : el.value.trim() === "";
+        if (el.type === "email" && bad === false) bad = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()) === false;
+        f.classList.toggle("invalid", bad);
+        if (bad) { ok = false; if (first === null) first = el; }
+      });
+      if (first) { first.focus(); first.scrollIntoView({behavior:"smooth", block:"center"}); }
+      return ok;
+    }
+    form.querySelectorAll("input, select, textarea").forEach(function(el){
+      el.addEventListener("input", function(){ var f = fieldOf(el); if (f) f.classList.remove("invalid"); });
+      el.addEventListener("change", function(){ var f = fieldOf(el); if (f) f.classList.remove("invalid"); });
+    });
+    function success(){
+      form.style.display = "none";
+      document.getElementById("successBox").style.display = "block";
+      document.getElementById("sticky").classList.remove("show");
+      if (window.fbq) fbq('track', 'Lead', {content_name: CONFIG.SOURCE_TAG});
+      document.getElementById("enter").scrollIntoView({behavior:"smooth", block:"start"});
+    }
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      if (document.getElementById("h_hp").value) return;   /* honeypot */
+      if (validate() === false) return;
+      var btn = document.getElementById("submitBtn");
+      btn.disabled = true; btn.textContent = "Sending";
+      var data = new FormData(form);
+      if (CONFIG.FORM_ENDPOINT === "") {
+        var obj = {}; data.forEach(function(v,k){ obj[k] = v; });
+        console.log("[preview mode] entry payload", obj);
+        setTimeout(success, 500);
+        return;
+      }
+      fetch(CONFIG.FORM_ENDPOINT, {method:"POST", body:data, headers:{"Accept":"application/json"}})
+        .then(function(r){ if (r.ok === false) throw new Error("bad response"); success(); })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = "Enter the giveaway";
+          var se = document.getElementById("sendErr"); se.textContent = "That didn't go through. Please try again, or email " + CONFIG.CONTACT_EMAIL + " and I'll enter you by hand."; se.style.display = "block";
+        });
+    });
+
+    /* sticky mobile CTA: show after the hero, hide while the form is on screen */
+    var sticky = document.getElementById("sticky");
+    var hero = document.getElementById("top");
+    var entry = document.getElementById("enter");
+    var pastHero = false, formVisible = false;
+    function update(){ var mobile = window.innerWidth < 860; sticky.classList.toggle("show", mobile && pastHero && formVisible === false); }
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function(en){ pastHero = en[0].isIntersecting === false && en[0].boundingClientRect.bottom < 0; update(); }, {threshold:0}).observe(hero);
+      new IntersectionObserver(function(en){ formVisible = en[0].isIntersecting; update(); }, {threshold:0.05}).observe(entry);
+    }
+    window.addEventListener("resize", update);
+
+    /* modals */
+    function openModal(id){ var m = document.getElementById("modal-" + id); if (m) { m.classList.add("open"); document.body.style.overflow = "hidden"; } }
+    function closeModals(){ document.querySelectorAll(".modal.open").forEach(function(m){ m.classList.remove("open"); }); document.body.style.overflow = ""; }
+    document.querySelectorAll("[data-open]").forEach(function(a){ a.addEventListener("click", function(e){ e.preventDefault(); openModal(a.getAttribute("data-open")); }); });
+    document.querySelectorAll("[data-close]").forEach(function(b){ b.addEventListener("click", closeModals); });
+    document.querySelectorAll(".modal").forEach(function(m){ m.addEventListener("click", function(e){ if (e.target === m) closeModals(); }); });
+    document.addEventListener("keydown", function(e){ if (e.key === "Escape") closeModals(); });
+  })();
+</script>
+<script>
+  document.querySelectorAll(".faq-item").forEach(function(item){
+    var toggle = item.querySelector(".faq-toggle");
+    function setToggle(){
+      toggle.textContent = item.open ? "×" : "+";
+    }
+    setToggle();
+    item.addEventListener("toggle", setToggle);
+  });
+</script>
+</body>
+</html>
