@@ -46,8 +46,13 @@ Hold the price, acknowledge the reaction, and offer to change the shape of the d
 
 **DM**
 
-> Totally fair, and thanks for saying it rather than going quiet.
-> I don't discount, but I can change the shape of the day. Would it help to look at a shorter coverage, or taking the second photographer out?
+> **Couple:** It's a bit more than we'd budgeted for. Is there anything you can do on the price?
+>
+> **Me:** Totally fair, and thanks for saying it rather than going quiet.
+>
+> **Me:** I don't discount, but I can change the shape of the day. Would it help to look at a shorter coverage, or taking the second photographer out?
+>
+> **Why:** The position in one line, then the shape of the day as the thing that moves. Never the price.
 
 ## 2. The budget question
 
@@ -85,8 +90,13 @@ Hold the price, acknowledge the reaction, and offer to change the shape of the d
 
 **DM**
 
-> Thanks for telling me, that actually makes it easier.
-> What matters most to you in the photos? If I know that I can shape the coverage to fit, rather than guess.
+> **Couple:** We're working to about [figure] for photography.
+>
+> **Me:** Thanks for telling me, that actually makes it easier.
+>
+> **Me:** What matters most to you in the photos? If I know that I can shape the coverage to fit, rather than guess.
+>
+> **Why:** Asking what matters most turns a number into a brief I can build to.
 
 What I never do here: drop the price to meet the figure and keep the same scope. That is a discount wearing a budget costume, and the couple knows it.
 
@@ -110,8 +120,13 @@ Give them the time, make it easy to come back, and be honest about the date.
 
 **DM**
 
-> Of course, no rush at all. It's a big call.
-> Is there anything in the proposal you'd like changed, or a day that suits for me to check in?
+> **Couple:** We're still deciding, we're talking to a couple of others as well.
+>
+> **Me:** Of course, no rush at all. It's a big call.
+>
+> **Me:** Is there anything in the proposal you'd like changed, or a day that suits for me to check in?
+>
+> **Why:** Two ways to come back, one message. If they name a day, that day wins.
 
 If they name a day, that day wins over every follow-up in your system. If they do not, the Follow-Up Vault takes over from here.
 
@@ -135,8 +150,13 @@ Do not argue with the partner you have not met. Get them both on a call, or get 
 
 **DM**
 
-> Thanks for telling me, honestly. That's usually because one of you has chatted with me and the other's only seen the website.
-> Would [Partner 2] be up for a quick ten minute chat with the three of us? No pressure, just so you're deciding on the same info.
+> **Couple:** I love your work but [Partner 2] is leaning towards another photographer.
+>
+> **Me:** Thanks for telling me, honestly. That's usually because one of you has chatted with me and the other's only seen the website.
+>
+> **Me:** Would [Partner 2] be up for a quick ten minute chat with the three of us? No pressure, just so you're deciding on the same info.
+>
+> **Why:** Ten minutes with both of them is the only thing that changes this. Framed as fairness, it is not pushy.
 
 If they say no to the call, close warmly and mean it. A couple who chooses someone else and feels respected sends you their friends.
 
@@ -181,8 +201,13 @@ Sometimes fewer hours is right and I say so. Sometimes it quietly breaks the pho
 
 **DM**
 
-> Yep, [X] hours is doable. One thing to check first: you mentioned the [first dance] mattered. [X] hours from the ceremony would have me leaving before it.
-> Would you rather start later and keep it, or start at the ceremony and let it go?
+> **Couple:** Could we cut it down to [X] hours?
+>
+> **Me:** Yep, [X] hours is doable. One thing to check first: you mentioned the [first dance] mattered. [X] hours from the ceremony would have me leaving before it.
+>
+> **Why:** Yes first, then the one fact they need. Let them choose with it.
+>
+> **Me:** Would you rather start later and keep it, or start at the ceremony and let it go?
 
 Fewer hours is the one objection where the price genuinely drops, because they are buying less. The scope moves. The price per hour does not.
 

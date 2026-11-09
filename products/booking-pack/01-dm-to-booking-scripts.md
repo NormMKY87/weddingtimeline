@@ -51,7 +51,11 @@ Check the date in all three calendars first.
 >
 > **Me:** Oh amazing, congrats you two! What an exciting time. Good news, I've just checked and I'm free on [date]. [Venue] is gorgeous, I love it there.
 >
+> **Why:** The date comes first because it is the only thing they are actually waiting on. The venue line proves I read the message.
+>
 > **Me:** Every wedding's a bit different, so rather than guess I'd love to hear about your day. Would you be open to a quick 15 minute chat?
+>
+> **Why:** They asked about packages. This says why the number comes after the chat, then asks for 15 minutes. Nothing else.
 
 If they asked for prices, this reply still works. You have answered the question that matters more (are you free) and given the reason the number comes after the chat.
 
@@ -61,7 +65,11 @@ If they asked for prices, this reply still works. You have answered the question
 >
 > **Me:** Hey [name], congrats and thanks so much for reaching out! [Your one line reason: I don't have set packages, as every wedding's a bit different, so I'd rather hear about yours than throw a pile of info at you.]
 >
+> **Why:** Your one sentence reason, said once. Mine is true, which is the only reason it works.
+>
 > **Me:** When's the big day, and where are you thinking of having it?
+>
+> **Why:** One question. Date and venue count as one because couples answer them as a pair.
 
 ### First reply when they have not asked about price
 
@@ -70,6 +78,8 @@ If they asked for prices, this reply still works. You have answered the question
 > **Me:** Hi [name], congratulations! So exciting. And yes, I do.
 >
 > **Me:** I'd love to know a bit more about you both. What's the part of the day you're most excited about?
+>
+> **Why:** They have not asked about money, so I do not bring it up. A curiosity question gets a longer answer than "what's your date".
 
 ### A cold "how much for a wedding?"
 
@@ -77,7 +87,11 @@ If they asked for prices, this reply still works. You have answered the question
 >
 > **Me:** Hi! Congratulations, I'm guessing this is for your own wedding?
 >
+> **Why:** Half of these are a parent, a friend or a bot. One question sorts that out before I spend any effort.
+>
 > **Me:** Before I talk price I'd love to check I'm free for you. When's the big day, and where are you thinking?
+>
+> **Why:** The date check comes before any talk of price. If I am booked, the price was never the question.
 
 ### Someone asking on behalf of a sister, friend, son or daughter
 
@@ -86,6 +100,8 @@ Match their tone. A parent is often more formal than the couple would be.
 > **Couple:** Hi, my sister is getting married next year and I'd like to find out your prices. It's a gift from me.
 >
 > **Me:** Aw congratulations to your sister, what an exciting time! The easiest way to give you a proper figure is a quick 15 minute chat, so I can hear what she's after, like how much of the day she wants covered or whether she'd like a second photographer.
+>
+> **Why:** A sibling or parent cannot answer the questions I need, so the invite names what I would ask and makes it easy to bring the couple along.
 >
 > **Me:** Would you be open to that? Happy for her to jump on too.
 
@@ -96,6 +112,8 @@ Match their tone. A parent is often more formal than the couple would be.
 > **Me:** Congrats on the engagement [name], so exciting!
 >
 > **Me:** Have you two locked in a date or venue yet, or still dreaming it all up?
+>
+> **Why:** "Or still dreaming it all up" gives them an easy answer if nothing is locked in. Nobody feels behind.
 
 ### Qualifying, one question at a time
 
@@ -104,18 +122,24 @@ When they have only said thanks:
 > **Couple:** Thank you! We're so excited.
 >
 > **Me:** Have you locked in your date and venue yet, or still looking around?
+>
+> **Why:** This or that questions get answered. Open questions get ignored.
 
 When they have a date and no venue:
 
 > **Couple:** It's [date], we haven't picked a venue yet.
 >
 > **Me:** Oh lovely, [month] is a beautiful time of year for it. Is it local, or are you heading somewhere for it?
+>
+> **Why:** Mirror one detail, then one question. Local or away changes how I would run the day, so it is the question worth asking.
 
 When they have both:
 
 > **Couple:** [Date] at [venue]!
 >
 > **Me:** Love that spot. Are you thinking photos just around the ceremony, or the whole day through to the dancing?
+>
+> **Why:** Coverage framed as moments, never hours. They picture their day and I get what I need for the chat.
 
 ### When the date is taken
 
@@ -125,7 +149,11 @@ Only after all three calendars show it booked. If the date might move, ask about
 >
 > **Me:** Congratulations, what an exciting time! I've just checked and unfortunately I'm already booked on [date], I'm so sorry.
 >
+> **Why:** Say it straight away and say sorry once. Dragging it out wastes their time.
+>
 > **Me:** I'd love to point you towards [referral photographer]. [One honest line on why you trust them, for example: we've shot alongside each other for years and her style sits close to mine.] Here's her work: [titled link]. Would you like me to introduce you?
+>
+> **Why:** A referral turns a lost enquiry into goodwill. Offering to make the introduction, rather than naming someone, is what gets remembered.
 
 If yes, get their email and send a short introduction email that night, copying your colleague in. Only refer people you would book yourself.
 
@@ -137,13 +165,19 @@ Ask first. No days, no link.
 >
 > **Me:** That sounds lovely, a long dinner with the people you love is my favourite kind of day.
 >
+> **Why:** Mirror first. One line that shows I heard them, before I ask for anything.
+>
 > **Me:** Would love to hear a bit more about it. Would you be open to a quick 15 minute chat?
+>
+> **Why:** "Would you be open to" is easy to say yes to. No days and no link yet, because a link before a yes reads as a form.
 
 When they say they love your work:
 
 > **Couple:** We've been following you for ages and love your work!
 >
 > **Me:** Ah thanks [name], really appreciate that!
+>
+> **Why:** Thank them and move on. Lingering on the compliment makes the next line feel like a pitch.
 >
 > **Me:** Would love to hear what you've got planned. Would you be open to a quick 15 minute chat?
 
@@ -153,6 +187,8 @@ When they are unsure how much coverage they need:
 >
 > **Me:** Yeah, I can work through that with you.
 >
+> **Why:** Their uncertainty is the reason for the chat. Name it and offer to solve it there, not here.
+>
 > **Me:** A quick 15 minute chat is the easiest way to see what makes sense. Would you be open to that?
 
 ### "What would we talk about?"
@@ -160,6 +196,8 @@ When they are unsure how much coverage they need:
 > **Couple:** What would we talk about on the call?
 >
 > **Me:** Nothing too formal! Just your plans for the day, what sort of photos you love, and how much of the day you'd like covered.
+>
+> **Why:** Plain words and three small things. If it sounds like an agenda, they will not book it.
 
 ### They say yes, or ask when works
 
@@ -169,13 +207,19 @@ Pick two times that are free in every calendar you keep. Weekdays first. Never o
 >
 > **Me:** Amazing! I've just checked my calendar. Would [Thursday at 10am] or [Saturday at 2pm] suit?
 >
+> **Why:** Two specific times beats "when suits you". Both checked in every calendar first.
+>
 > **Me:** If neither works, here's my 15 minute chat booking link so you can check with your partner and pick a time: [link]
+>
+> **Why:** The link is the fallback, never the first move, and it is titled so it does not read as a bare URL.
 
 If they suggest a time you cannot do:
 
 > **Couple:** Could we do Saturday morning instead?
 >
 > **Me:** Would a time between [2pm and 4pm] work better? If that's the only time you have, let me know and I'll move a few things around.
+>
+> **Why:** Offer a window, then show flexibility. Never a flat no to the only time they have.
 
 ### Email and mobile, straight after the time is settled
 
@@ -186,12 +230,16 @@ Its own short message. One ask per conversation.
 > **Me:** Perfect, I'll lock that in now.
 >
 > **Me:** Could you also send me your email and mobile? I get a lot of DMs through the day and the last thing I'd want is for us to lose touch.
+>
+> **Why:** The reason serves them, and it is true. Sent as its own message so it does not get buried under the time.
 
 If they only give one:
 
 > **Couple:** [email]
 >
 > **Me:** Thanks [name]! And a mobile too, just in case I need to reach you on the day of the chat?
+>
+> **Why:** One gentle second ask, with a reason. After this I leave it.
 
 If they skip it twice, leave it. Ask again in the booking confirmation or the last follow-up, never a third time in chat.
 
@@ -200,6 +248,8 @@ If they skip it twice, leave it. Ask again in the booking confirmation or the la
 > **Couple:** Do you have any full galleries we could look through?
 >
 > **Me:** Of course! Happy to send through a couple of full weddings so you can see a whole day rather than only the highlights.
+>
+> **Why:** Yes, straight away. Then narrow it to one gallery that matches their day, so they can see themselves in it.
 >
 > **Me:** Was there a particular venue or feel you'd like to see?
 
@@ -213,7 +263,11 @@ A first push is normal. No figure yet.
 >
 > **Me:** Totally fair question! Every wedding is different, so I'd rather not guess and give you the wrong number.
 >
+> **Why:** A first push is normal, so the tone stays light. No figure. The reason is that I would get it wrong, not that it is a secret.
+>
 > **Me:** A quick 15 minute chat and I can give you a proper answer. Would you be open to that?
+>
+> **Why:** The invite is repeated because their question changed, not because I am ignoring it.
 
 ### Price pushback, second push ("just want a rough idea, we're getting quotes")
 
@@ -223,7 +277,11 @@ Any second ask about cost counts, however they word it. Now give a starting poin
 >
 > **Me:** Totally understand, it's smart to get a few quotes. To give you a starting point, weddings with me begin from [your starting figure], and it depends on things like how much of the day you want covered, a second photographer and albums.
 >
+> **Why:** A second ask means they need a number to keep talking, so they get one. A starting point, what moves it, and never tied to hours.
+>
 > **Me:** A quick 15 minute chat is the easiest way for me to give you a proper estimate. Would you be open to that?
+>
+> **Why:** Last invite. If they say no after this I stop asking and let the follow-ups carry it.
 
 If they clearly do not want a chat after this, stop inviting. Leave the door open and let the follow-ups do the rest.
 
@@ -235,7 +293,11 @@ Do not skip past it. Put the reassurance inside the invite.
 >
 > **Me:** Yeah I understand, weddings add up quickly.
 >
+> **Why:** Acknowledge it in their words. "I understand your concern" is what a bot says.
+>
 > **Me:** Happy to have a quick 15 minute chat and see what might work for your day. After a few questions you'll know for sure whether I'm in your budget, or whether you were overthinking it. No pressure either way.
+>
+> **Why:** The reassurance sits inside the invite. They are agreeing to find out, not to be sold to.
 
 ### "Can you just email the info?"
 
@@ -245,6 +307,8 @@ Never promise a guide or prices by email.
 >
 > **Me:** Yeah no worries! There isn't really a set info pack, as it all depends on your day.
 >
+> **Why:** Honest and true for me. If you have a set pack, you need a different line here, and maybe a different policy.
+>
 > **Me:** A quick 15 minute chat is the easiest way for me to put something together for you. Would you be open to that?
 
 ### "We already have a photographer, we just want a second quote"
@@ -252,6 +316,8 @@ Never promise a guide or prices by email.
 > **Couple:** We already have a photographer but wanted to get a second quote.
 >
 > **Me:** Ah no worries! Are you still deciding between photographers, or have you already booked someone?
+>
+> **Why:** One question tells me whether this is a real enquiry or a price check against someone else's quote.
 >
 > **Me:** Happy to have a quick 15 minute chat if you're still looking.
 
@@ -264,12 +330,16 @@ Do not re-offer times straight away.
 > **Me:** Yeah of course, no rush at all.
 >
 > **Me:** Would you like me to check in a little later on, or leave it with you for now?
+>
+> **Why:** Hand them the control. A couple who chose to be checked in on does not feel chased when it happens.
 
 ### Early couple, date two or more years away
 
 > **Couple:** We're not getting married until [year] but wanted to start looking!
 >
 > **Me:** You're nice and early! Are you locking in suppliers now, or just starting to look?
+>
+> **Why:** Early couples are not ready to book anything. This finds out whether they are shopping or browsing, which decides the follow-up.
 
 Then, on their next reply, ask permission to stay in touch and get their details.
 
@@ -278,6 +348,8 @@ Then, on their next reply, ask permission to stay in touch and get their details
 > **Me:** If it's okay with you, I'll check in every so often to see how the planning is going. Nothing pushy, more a friendly nudge so dates never sneak up on you.
 >
 > **Me:** Would you mind sharing your email and mobile so we don't lose touch?
+>
+> **Why:** Permission first, then the details. In that order it never feels like a data grab.
 
 ### Video
 
@@ -288,18 +360,24 @@ If you are photography only, say so warmly and offer an introduction. Never quot
 > **Me:** I focus purely on photography, so video isn't something I offer myself.
 >
 > **Me:** I work alongside a couple of film studios I trust and I'm happy to check if they're free for your date.
+>
+> **Why:** Offer the introduction, never the price. Never promise another studio's availability.
 
 ### Posing nerves
 
 > **Couple:** We're both so awkward in front of a camera haha.
 >
 > **Me:** Honestly most couples feel that way. I mostly give you something to do together and catch what happens.
+>
+> **Why:** Name how common it is, then say what I actually do. The specific beats "don't worry".
 
 ### Not a lead
 
 > **Couple:** Your photos are stunning!
 >
 > **Me:** Thanks, really appreciate it! Are you planning something, or did I just pop up on your feed?
+>
+> **Why:** A compliment is not an enquiry. One friendly question finds out, with no awkwardness either way.
 
 If not: no worries at all, when the time comes feel free to reach out.
 
@@ -309,7 +387,11 @@ If they went quiet after the invite, send one nudge inside 24 hours. Instagram c
 
 > **Me, next day, no reply:** Hey [name], hope your week's going well!
 >
+> **Why:** Light and human. No "just checking in", and no mention of them not replying.
+>
 > **Me:** Just popping my 15 minute chat link here in case it's easier to grab a time with your partner: [link]
+>
+> **Why:** Now the link makes sense, because they already said they were interested. Sent inside 24 hours or Instagram will not let you.
 
 Every follow-up after this one is in the Follow-Up Vault, by day and channel. Any reply from the couple resets the clock.
 
@@ -320,18 +402,24 @@ When it is booked:
 > **Couple:** All booked in, thanks!
 >
 > **Me:** Perfect, thanks [name]. Looking forward to hearing more about your day. Chat [Wednesday]!
+>
+> **Why:** Confirm the day. Warm, short, done.
 
 When they have gone with someone else:
 
 > **Couple:** We've actually gone with another photographer, sorry!
 >
 > **Me:** Ah amazing, so glad you're sorted! Have the best day.
+>
+> **Why:** Mean it. This couple has friends who are engaged.
 
 When it is not a fit:
 
 > **Couple:** Do you do newborn sessions as well?
 >
 > **Me:** That's not something I can help with, but I hope you find someone great for it.
+>
+> **Why:** A clean no that still helps them.
 
 ## One conversation, start to finish
 
@@ -339,17 +427,25 @@ When it is not a fit:
 >
 > **Me:** Hey [name], congrats to you both! [Venue] is a lovely spot. I've just checked and I'm free for your date.
 >
+> **Why:** Date checked in every calendar before "I'm free" went out.
+>
 > **Me:** Every wedding's a bit different, so rather than guess I'd love to hear about your day. Would you be open to a quick 15 minute chat?
 >
 > **Me, Tuesday, no reply:** Hey [name], hope your week's going well! Thought I'd pop my link here in case it's easier: [link]
+>
+> **Why:** Inside 24 hours, and the link appears only now.
 >
 > **Couple:** Sorry! Been flat out. Still working out how much coverage we need.
 >
 > **Me:** No worries at all, life gets busy! That's exactly what we'd figure out together on the chat so you're not guessing.
 >
+> **Why:** Their worry becomes the reason for the chat.
+>
 > **Couple:** Probably getting ready through to the first dance. We love natural photos, not too posed.
 >
 > **Me:** Ah nice, I love that. Sounds like you want the story of the whole day with all the in-between moments.
+>
+> **Why:** Mirror in one line. The two times come in the next bubble, both checked first.
 >
 > **Me:** I've just checked my calendar. Would Tuesday at 11am or Wednesday at 2pm suit?
 >
@@ -358,6 +454,8 @@ When it is not a fit:
 > **Me:** Perfect. Here's the link to lock it in: [link]
 >
 > **Me:** And what's the best email and mobile for you? I'll send a quick confirmation through.
+>
+> **Why:** Details come after the time is locked, as their own message.
 >
 > **Couple:** [email], [mobile]. All booked, thanks!
 >

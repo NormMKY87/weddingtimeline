@@ -97,6 +97,8 @@ Nothing in the five parts quotes the Next Level Club course, the Sell By Chat wo
 
 Norm asked for the DM scripts to look like the Instagram app rather than text in a grey box. Every exchange in Part 1, and every DM version in Part 4, now renders in the PDF as a phone screen: the couple's message as a grey bubble on the left, the reply as blue bubbles on the right, with the two-bubble limit visible. To make each screen read as a real exchange, an example couple message was added above every script in the Part 1 markdown, marked **Couple:**. Replies are marked **Me:**. Every couple line is invented and generic. The long example conversation splits across two screens marked "continued". Nothing in the scripts themselves changed.
 
+Second pass the same day, on Norm's feedback from the phone: the two-column layout was too busy, so every screen now sits in one centred column. Each reply carries a short callout beside the phone, joined to its bubble by a leader line, saying why the line is written that way (marked **Why:** in the markdown, under the bubble it explains). The contents page is now a full list of parts and sections, every line a link inside the PDF, and a Contents button repeats on every page and links back to it. The Part 4 DM replies gained a couple line and a callout each. 49 callouts in Part 1, 5 in Part 4.
+
 ## Still for Norm
 
 1. Confirm the discounting stance in Part 4 as written for strangers who may not sell albums: never cut the price, never give away a product to close, move the scope or offer a credit toward something they would buy later.
