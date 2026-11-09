@@ -93,6 +93,10 @@ The Dropbox file cleared Section 1 of the DM playbook. This continues it for the
 
 Nothing in the five parts quotes the Next Level Club course, the Sell By Chat workbook, or the Chat Script Builder GPT.
 
+## Change on 9 November 2026
+
+Norm asked for the DM scripts to look like the Instagram app rather than text in a grey box. Every exchange in Part 1, and every DM version in Part 4, now renders in the PDF as a phone screen: the couple's message as a grey bubble on the left, the reply as blue bubbles on the right, with the two-bubble limit visible. To make each screen read as a real exchange, an example couple message was added above every script in the Part 1 markdown, marked **Couple:**. Replies are marked **Me:**. Every couple line is invented and generic. The long example conversation splits across two screens marked "continued". Nothing in the scripts themselves changed.
+
 ## Still for Norm
 
 1. Confirm the discounting stance in Part 4 as written for strangers who may not sell albums: never cut the price, never give away a product to close, move the scope or offer a credit toward something they would buy later.
