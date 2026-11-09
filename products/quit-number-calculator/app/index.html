@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="claude:viewport-fit-sides" content="cover">
 <title>Quit-Number Calculator</title>
-<meta name="description" content="Can I leave my job, and when. The maths for wedding photographers with a day job who want to go full time, in any country, net to net, with a buffer and a dated plan.">
+<meta name="description" content="Can I leave my job, and when. A top end planner for wedding photographers with a day job, in any country: the number, the gap, the bookings and the dates.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: one column tool, 720px measure, steps stacked, result as a ledger. Numbers in mono. */
+/* Layout: one column tool, 720px measure, two short steps then a ledger. Numbers in mono. */
 :root{
   --bg:#f5f6f2; --surface:#ffffff; --surface-2:#eceee7; --fg:#172028; --muted:#5b6670; --line:#d6dad1;
   --accent:#1f6f5f; --accent-ink:#ffffff; --accent-soft:#e3efea;
@@ -33,16 +33,15 @@
 html,body{margin:0}
 body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
-.wrap{max-width:760px;margin:0 auto}
+.wrap{max-width:720px;margin:0 auto}
 h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.15;text-wrap:balance;margin:0}
 h1{font-size:clamp(2rem,6vw,2.9rem);letter-spacing:-.01em}
 h2{font-size:1.45rem}
 h3{font-size:1.1rem}
 p{margin:0}
-a{color:var(--accent)}
 .muted{color:var(--muted)}
 .small{font-size:.875rem}
-.mono,.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .eyebrow{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
 
 header.top{padding-block:36px 20px;display:grid;gap:14px}
@@ -58,8 +57,7 @@ header.top .lede{max-width:62ch;font-size:1.05rem}
 .stepname{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:18px}
 
 section.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;display:grid;gap:18px;box-shadow:var(--shadow)}
-section.panel + section.panel{margin-top:16px}
-.group{display:grid;gap:14px}
+.group{display:grid;gap:12px}
 .group > .eyebrow{margin-bottom:-4px}
 
 .field{display:grid;gap:6px;padding-block:8px;border-top:1px solid var(--line)}
@@ -69,9 +67,9 @@ section.panel + section.panel{margin-top:16px}
 .field .help{font-size:.85rem;color:var(--muted);max-width:60ch}
 .field .ctl{display:flex;align-items:center;gap:10px;flex:1 1 100%;min-width:0}
 input[type=range]{flex:1 1 auto;min-width:0;accent-color:var(--accent);height:28px}
-input[type=number],input[type=text],input[type=email],select{font:inherit;font-family:var(--mono);color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:7px 9px;width:9.5ch;text-align:right}
-input[type=text],input[type=email]{font-family:var(--body);width:100%;text-align:left}
-input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+input[type=number],input[type=text]{font:inherit;font-family:var(--mono);color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:7px 9px;width:9.5ch;text-align:right}
+input[type=text]{font-family:var(--body);text-align:left}
+input:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 .unit{font-size:.85rem;color:var(--muted);min-width:3ch}
 .field.off .ctl{opacity:.45}
 .needs{display:inline-block;font-size:.72rem;font-weight:600;padding:1px 7px;border-radius:999px;background:var(--warn-soft);color:var(--fg);margin-left:6px}
@@ -84,8 +82,7 @@ input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid 
 .switch input:checked + .knob::after{left:21px}
 .switch input:focus-visible + .knob{outline:2px solid var(--accent);outline-offset:2px}
 
-.dial{display:grid;grid-template-columns:repeat(3,1fr);}
-.dial-2{grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface-2)}
+.dial{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface-2)}
 .dial button{appearance:none;border:0;background:none;font:inherit;font-weight:600;padding:9px 6px;border-radius:999px;cursor:pointer;color:var(--muted)}
 .dial button[aria-pressed="true"]{background:var(--surface);color:var(--fg);box-shadow:0 1px 3px rgba(0,0,0,.12)}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
@@ -93,18 +90,16 @@ input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid 
 .seg button + button{border-left:1px solid var(--line)}
 .seg button[aria-pressed="true"]{background:var(--accent-soft);color:var(--fg);font-weight:600}
 
-.nav{display:flex;justify-content:space-between;gap:12px;margin-top:18px}
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:6px}
 .btn{appearance:none;font:inherit;font-weight:600;border-radius:8px;padding:12px 18px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
 .btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .btn.ghost{background:none}
-.btn:disabled{opacity:.5;cursor:not-allowed}
 
 .note{border-left:3px solid var(--accent);padding:8px 12px;background:var(--accent-soft);border-radius:0 6px 6px 0;font-size:.92rem}
 .note.warn{border-color:var(--warn);background:var(--warn-soft)}
 .note.bad{border-color:var(--bad);background:var(--bad-soft)}
 .ref{font-size:.8rem;color:var(--muted)}
 
-/* Result ledger */
 .headline{display:grid;gap:6px;padding:22px 20px;border-radius:var(--radius);background:var(--fg);color:var(--bg)}
 :root[data-theme="dark"] .headline{background:var(--surface-2);color:var(--fg)}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .headline{background:var(--surface-2);color:var(--fg)}}
@@ -122,7 +117,7 @@ td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabu
 .pill{display:inline-block;font-size:.75rem;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--fg)}
 .pill.bad{background:var(--bad-soft)}
 .pill.warn{background:var(--warn-soft)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:grid;gap:8px;min-width:0}
 .card .date{font-family:var(--mono);font-size:1.3rem;font-weight:500}
 .card ul{margin:0;padding-left:1.1em;font-size:.9rem}
@@ -131,13 +126,10 @@ details{border:1px solid var(--line);border-radius:8px;padding:10px 14px;backgro
 summary{cursor:pointer;font-weight:600}
 details .inner{margin-top:10px;display:grid;gap:10px;font-size:.9rem}
 .voice{font-family:var(--display);font-size:1.15rem;line-height:1.45;max-width:60ch}
-.gate{display:grid;gap:12px}
-.gate .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media (max-width:520px){.gate .two{grid-template-columns:1fr}}
 .foot{margin-top:28px;font-size:.8rem;color:var(--muted);max-width:70ch}
 .ladder-tiers{display:grid;gap:12px}
 .tier{border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--surface);display:grid;gap:10px}
-.tier .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.tier .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
 .tier .f{display:grid;gap:4px;font-size:.85rem;color:var(--muted)}
 .tier .f input{width:100%}
 .tier .out{display:flex;gap:14px;flex-wrap:wrap;font-size:.9rem}
@@ -147,7 +139,6 @@ details .inner{margin-top:10px;display:grid;gap:10px;font-size:.9rem}
   body{background:#fff;color:#000;padding:0}
   .tabs,.nav,.btn,header.top .lede,.steps,.stepname,#tab-calc{display:none!important}
   section.panel,.card,.kpi,.tier{box-shadow:none;break-inside:avoid}
-  .wrap{max-width:none}
 }
 </style>
 </head>
@@ -156,8 +147,8 @@ details .inner{margin-top:10px;display:grid;gap:10px;font-size:.9rem}
 <header class="top">
   <div class="eyebrow">A tool from Norman Yap, for photographers with a day job</div>
   <h1>Can I leave my job, and when?</h1>
-  <p class="lede">I was a paramedic shooting weddings on the side. This is the maths I wish I had run before I handed in my notice. It compares your take-home pay to what the business must actually earn, builds in a buffer, and gives you a date. Twenty minutes, your real numbers, no guessing. It works in any country, because every rate comes from your own payslip and your own tax office.</p>
-  <p class="small muted">For wedding photographers who are already booking paid weddings. If you are not earning from weddings yet, follow along and come back when you are.</p>
+  <p class="lede">I was a paramedic shooting weddings on the side. This is the maths I wish I had run before I handed in my notice. Eleven numbers, most of them already on your payslip, and it gives you the top end: the profit the business must make to replace everything the job pays, the gap, the bookings, and the dates. Plan for that and anything less is a bonus.</p>
+  <p class="small muted">For wedding photographers who are already booking paid weddings, in any country. If you are not earning from weddings yet, come back when you are.</p>
   <div class="tabs" role="tablist">
     <button class="tab" role="tab" id="tabbtn-calc" aria-selected="true" aria-controls="tab-calc">The calculator</button>
     <button class="tab" role="tab" id="tabbtn-ladder" aria-selected="false" aria-controls="tab-ladder">The Package Ladder</button>
@@ -166,52 +157,30 @@ details .inner{margin-top:10px;display:grid;gap:10px;font-size:.9rem}
 
 <main>
 <div id="tab-calc" role="tabpanel" aria-labelledby="tabbtn-calc">
-  <ol class="steps" id="steps"><li class="on"></li><li></li><li></li></ol>
-  <div class="stepname"><h2 id="stepTitle">Step 1. Your job</h2><span class="small muted" id="stepCount">1 of 3</span></div>
+  <ol class="steps" id="steps"><li class="on"></li><li></li></ol>
+  <div class="stepname"><h2 id="stepTitle">Step 1. Your job and your household</h2><span class="small muted" id="stepCount">1 of 2</span></div>
 
-  <!-- Step 1 -->
   <section class="panel" data-step="1">
     <div class="group">
       <div class="eyebrow">Where you work</div>
-      <div class="dial dial-2" id="regionDial" role="group" aria-label="Country">
+      <div class="dial" id="regionDial" role="group" aria-label="Country">
         <button type="button" data-v="au" aria-pressed="true">Australia</button>
         <button type="button" data-v="other" aria-pressed="false">Somewhere else</button>
       </div>
       <p class="help muted small" id="regionHelp"></p>
     </div>
-    <div class="group">
-      <div class="eyebrow">How you are employed now</div>
-      <div class="dial" id="empDial" role="group" aria-label="Employment type">
-        <button type="button" data-v="full" aria-pressed="true">Full time</button>
-        <button type="button" data-v="part" aria-pressed="false">Part time</button>
-        <button type="button" data-v="casual" aria-pressed="false">Casual</button>
-      </div>
-      <p class="help muted small" id="empHelp"></p>
-    </div>
     <div class="group" id="g-pay"></div>
-    <div class="group" id="g-leave"></div>
     <div class="group" id="g-house"></div>
     <div class="nav"><span></span><button class="btn primary" data-go="2">Next: your business</button></div>
   </section>
 
-  <!-- Step 2 -->
   <section class="panel" data-step="2" hidden>
     <div class="group" id="g-biz"></div>
-    <div class="group" id="g-direct"></div>
-    <div class="group" id="g-overhead"></div>
-    <div class="group" id="g-cash"></div>
-    <div class="nav"><button class="btn ghost" data-go="1">Back</button><button class="btn primary" data-go="3">Next: your targets</button></div>
-  </section>
-
-  <!-- Step 3 -->
-  <section class="panel" data-step="3" hidden>
     <div class="group" id="g-targets"></div>
-    <div class="group" id="g-path"></div>
-    <div class="nav"><button class="btn ghost" data-go="2">Back</button><button class="btn primary" id="showResult" type="button">Show me my number</button></div>
+    <div class="nav"><button class="btn ghost" data-go="1">Back</button><button class="btn primary" id="showResult" type="button">Show me my number</button></div>
   </section>
 
-  <!-- Result -->
-  <section class="panel" data-step="4" hidden id="result"></section>
+  <section class="panel" data-step="3" hidden id="result"></section>
 </div>
 
 <div id="tab-ladder" role="tabpanel" aria-labelledby="tabbtn-ladder" hidden>
@@ -224,115 +193,75 @@ details .inner{margin-top:10px;display:grid;gap:10px;font-size:.9rem}
 
 <script>
 /* ============================================================
-   Quit-Number Calculator. Model mirrors products/quit-number-calculator/model.py
-   and maths.md. Change rates in RATES only, once a year.
+   Quit-Number Calculator, condensed. Mirrors products/quit-number-calculator/model.py and maths.md.
+   Not a lead magnet: nothing leaves the browser. Change Australian rates in RATES only, once a year.
    ============================================================ */
-const CONFIG = { startDate: new Date() };
-// Not a lead magnet (Norm, 9 Nov 2026). No email gate, nothing is sent anywhere. The result shows on the page.
+const START = new Date();
 
 const RATES = {
-  asAt: "8 November 2026",
-  fy: "2026-27",
-  taxFree: 18200,
-  // Income Tax Rates Act 1986, Compilation No. 66 (1 July 2026), Sch 7 Pt I, 2026-27 table
+  asAt: "8 November 2026", fy: "2026-27",
+  // Income Tax Rates Act 1986, Compilation No. 66 (1 July 2026), Sch 7 Pt I, 2026-27 table. s3(1) tax-free threshold $18,200.
   brackets: [[18200,45000,.15],[45000,135000,.30],[135000,190000,.37],[190000,Infinity,.45]],
-  // Medicare Levy Act 1986, Compilation No. 53 (1 July 2026): s6 2%, s3 $28,011 / $35,013, s7 10% of excess
+  // Medicare Levy Act 1986, Compilation No. 53 (1 July 2026): s6 2%, s3 $28,011 and $35,013, s7 10% of the excess.
   medicare: {rate:.02, threshold:28011, phaseIn:35013, phaseRate:.10},
-  // SG (Administration) Act 1992, Compilation No. 77 (27 March 2026), s19(2) item 13: 12%
-  sg: .12,
-  gst: .10
+  // SG (Administration) Act 1992, Compilation No. 77 (27 March 2026), s19(2) item 13: 12%.
+  sg: 12, salesTax: 10
 };
-// Australia is the only country with built-in, sourced rates. Everywhere else the user's own
-// payslip and tax office supply gross, take-home, marginal rate, retirement contribution and sales tax.
+// Fixed top end assumptions, stated on the assumptions panel (maths.md section 7).
+const FIX = { kitLife:5, trialMonths:3, partFraction:.6, casualFraction:.25, deposit:.5, balanceDays:90, leadMonths:11.5, workingWeeks:46, cullPerHour:.35 };
 
 function incomeTax(t){let x=0;for(const [lo,hi,r] of RATES.brackets){if(t>lo)x+=(Math.min(t,hi)-lo)*r}return Math.max(x,0)}
-function medicare(t){const m=RATES.medicare;if(t<=m.threshold)return 0;const full=t*m.rate;if(t<=m.phaseIn)return Math.min(full,(t-m.threshold)*m.phaseRate);return full}
+function medicare(t){const m=RATES.medicare;if(t<=m.threshold)return 0;const full=t*m.rate;return t<=m.phaseIn?Math.min(full,(t-m.threshold)*m.phaseRate):full}
 function takeHome(t){return t-incomeTax(t)-medicare(t)}
 function grossFromNet(n){let lo=0,hi=Math.max(n*3,50000);for(let i=0;i<120;i++){const mid=(lo+hi)/2;if(takeHome(mid)<n)lo=mid;else hi=mid}return (lo+hi)/2}
 
-/* ---------- state ---------- */
+/* ---------- state: eleven inputs and three dials ---------- */
 const S = {
-  region:"au", taxMode:"table", marginalRate:0, currency:"$", salesTax:10,
-  emp:"full", payBasis:"annual", salary:90000, hourly:45, hours:38, rateLoaded:true, loading:25, penalties:0,
-  knowNet:false, netPay:70000, superRate:12, shiftworker:false, alWeeks:4, plWeeks:2, lslOn:true, lslWeeks:0.87, household:6000,
-  wedNow:10, wedLast:10, avg:5000, gst:true,
-  ssOn:true, ssRate:70, ssHours:8, editOn:true, editCost:650, albumOn:false, albumCost:1100, travelOn:true, travelCost:50, cardOn:true, cardRate:1.78, otherDirect:0,
-  insOn:true, ins:2496, acctOn:true, acct:3000, swOn:true, sw:2916, gearOn:true, kit:0, kitLife:5, mktOn:false, mkt:0, otherOH:0,
-  deposit:50, balanceDays:90, lead:11.5,
-  floor:50, bufferMonths:3, cashSaved:0, otherSave:0, sustain:true, ip:0, growthOn:false, targetAvg:7500,
-  trialMonths:3, partFrac:60, casualShifts:4, casualHours:10
+  region:"au", currency:"$",
+  gross:90000, knowNet:false, netPay:70000, marginalRate:0, retireRate:RATES.sg, household:6000,
+  wedNow:10, wedLast:10, avg:5000, costPerWedding:1260, overhead:8412, kit:0, salesTax:RATES.salesTax,
+  floor:50, bufferMonths:3, cashSaved:0, sustain:true
 };
-try{const saved=JSON.parse(localStorage.getItem("qn_state_v1")||"null");if(saved&&typeof saved==="object")Object.assign(S,saved)}catch(e){}
-function persist(){try{localStorage.setItem("qn_state_v1",JSON.stringify(S))}catch(e){}}
+try{const saved=JSON.parse(localStorage.getItem("qn_state_v2")||"null");if(saved&&typeof saved==="object")Object.assign(S,saved)}catch(e){}
+function persist(){try{localStorage.setItem("qn_state_v2",JSON.stringify(S))}catch(e){}}
 
 /* ---------- model ---------- */
 function model(s){
-  const payslip = s.taxMode==="payslip";
-  const g = s.gst ? 1 + s.salesTax/100 : 1;
-  const casual = s.emp==="casual";
-  let rate = s.hourly; if(casual && !s.rateLoaded) rate *= 1 + s.loading/100;
-  const gross = s.payBasis==="hourly" ? rate*s.hours*52 : s.salary;
-  const T0 = gross + s.penalties;
-  const N = (payslip || s.knowNet) ? s.netPay : takeHome(T0);
-  const T = payslip ? T0 : (s.knowNet ? grossFromNet(s.netPay) : T0);
-  const taxOnExtra = (base, extra) => extra<=0 ? 0 : payslip ? extra*s.marginalRate/100 : (incomeTax(base+extra)+medicare(base+extra))-(incomeTax(base)+medicare(base));
-  const U = gross * s.superRate/100;
-  const L = casual ? 0 : (s.shiftworker?5:s.alWeeks) + s.plWeeks + (s.lslOn?s.lslWeeks:0);
-  const W = 52 - L;
-  const sustain = (s.sustain?U:0) + (s.ip>0?s.ip:0);
-  const Q = T + sustain;
-
-  const rev = a => a/g;
-  const fixedDirect = (s.ssOn?s.ssRate*s.ssHours:0)+(s.editOn?s.editCost:0)+(s.albumOn?s.albumCost:0)+(s.travelOn?s.travelCost:0)+s.otherDirect;
-  const card = s.cardOn ? s.cardRate/100 : 0;
-  const direct = a => fixedDirect + card*a;
-  const contrib = a => rev(a) - direct(a);
-  const O = (s.insOn?s.ins:0)+(s.acctOn?s.acct:0)+(s.swOn?s.sw:0)+(s.gearOn&&s.kitLife>0?s.kit/s.kitLife:0)+(s.mktOn?s.mkt*12:0)+s.otherOH;
+  const payslip = s.region!=="au";
+  let T = s.gross, N, taxOnExtra;
+  if(payslip){ N = s.netPay; taxOnExtra = e => Math.max(e,0)*s.marginalRate/100; }
+  else {
+    N = s.knowNet ? s.netPay : takeHome(T);
+    T = s.knowNet ? grossFromNet(s.netPay) : T;
+    taxOnExtra = e => (incomeTax(T+Math.max(e,0))+medicare(T+Math.max(e,0)))-(incomeTax(T)+medicare(T));
+  }
+  const U = s.gross*s.retireRate/100;
+  const Q = T + (s.sustain?U:0);
+  const g = 1 + s.salesTax/100;
+  const rev = a => a/g, contrib = a => rev(a) - s.costPerWedding;
+  const O = s.overhead + s.kit/FIX.kitLife;
   const n = s.wedNow, A = s.avg;
-  const B = n*contrib(A) - O;
-  const margin = (nn,a) => nn>0 ? (contrib(a) - O/nn)/rev(a) : null;
-  const taxBiz = taxOnExtra(T, B);
-  const Bnet = B - taxBiz;
-  const gap = Q - B;
-  const need = (a, req=Q) => { const c=contrib(a); return c>0 ? Math.ceil((req+O)/c) : Infinity };
-  const held = (nn,a) => nn*Math.min(s.lead/12,1.5)*a*(s.deposit/100 + (1-s.deposit/100)*s.balanceDays/365);
-  const r100 = x => Math.round(x/100)*100;
-  const avgs = (s.growthOn && s.targetAvg>0) ? [A, s.targetAvg, r100(s.targetAvg*1.25)] : [A, r100(A*1.25), r100(A*1.5)];
+  const B = n*contrib(A) - O, taxBiz = taxOnExtra(B), Bnet = B - taxBiz, gap = Q - B;
+  const margin = (nn,a) => nn>0 ? (contrib(a)-O/nn)/rev(a) : null;
+  const need = (a,req=Q) => contrib(a)>0 ? Math.ceil((req+O)/contrib(a)) : Infinity;
+  const held = (nn,a) => nn*Math.min(FIX.leadMonths/12,1.5)*a*(FIX.deposit+(1-FIX.deposit)*FIX.balanceDays/365);
+  const r100 = v => Math.round(v/100)*100;
   const f = s.floor/100;
-  const required = avgs.map(a=>{const nn=need(a);return {a, n:nn, oh: isFinite(nn)?O/nn:null, m: isFinite(nn)?margin(nn,a):null, ok: isFinite(nn)?margin(nn,a)>=f:false, held: isFinite(nn)?held(nn,a):null}});
+  const required = [A, r100(A*1.25), r100(A*1.5)].map(a=>{const nn=need(a);const ok=isFinite(nn);return {a,n:nn,oh:ok?O/nn:null,m:ok?margin(nn,a):null,ok:ok&&margin(nn,a)>=f,held:ok?held(nn,a):null}});
   const nStar = required[0].n;
-  const denom = (1-f)/g - card;
-  const floorAvg = (isFinite(nStar) && denom>0) ? (fixedDirect + O/nStar)/denom : null;
-
-  const sick = (s.sustain && !casual) ? s.plWeeks/52*s.household*12 : 0;
-  const buffer = s.bufferMonths*s.household + sick;
-  const F = Math.max(Bnet,0)/12 + s.otherSave;
-  const mBuffer = F>0 ? Math.max(buffer - s.cashSaved,0)/F : Infinity;
-  const trialNeed = s.trialMonths*s.household;
-  const mTrial = F>0 ? Math.max(trialNeed - s.cashSaved,0)/F : Infinity;
-
+  const floorAvg = isFinite(nStar) ? (s.costPerWedding + O/nStar)/((1-f)/g) : null;
+  const buffer = s.bufferMonths*s.household, F = Math.max(Bnet,0)/12;
+  const mBuffer = F>0 ? Math.max(buffer-s.cashSaved,0)/F : Infinity;
+  const mTrial = F>0 ? Math.max(FIX.trialMonths*s.household-s.cashSaved,0)/F : Infinity;
   const G = n - s.wedLast;
-  const aPath = (s.growthOn && s.targetAvg>0) ? s.targetAvg : A;
-  const monthsTo = (req) => { const c=contrib(aPath); const needN=c>0?(req+O)/c:Infinity; if(n>=needN)return 0; if(G<=0)return Infinity; return (needN-n)/G*12 };
+  const monthsTo = req => { const c=contrib(A); const needN=c>0?(req+O)/c:Infinity; if(n>=needN)return 0; return G>0 ? (needN-n)/G*12 : Infinity };
   const mQuit = Math.max(monthsTo(Q), mBuffer);
-  const phi = s.partFrac/100;
-  const Qstep = Q - phi*(T + (s.sustain?U:0));
-  const mStep = Math.max(monthsTo(Qstep), mTrial);
-  const hourlyNow = s.hours>0 ? gross/(s.hours*52) : 0;
-  const casualRate = casual ? hourlyNow : hourlyNow*(1+s.loading/100);
-  const Y = casualRate*s.casualHours*s.casualShifts*12;
-  const Qcas = Q - Y - (s.sustain?Y*s.superRate/100:0);
-  const mCas = Math.max(monthsTo(Qcas), mTrial);
-  // bookings a year needed to be at Q in 24 months
-  const needN24 = contrib(aPath)>0 ? (Q+O)/contrib(aPath) : Infinity;
-  const gPer24 = isFinite(needN24) ? Math.max((needN24-n)/2,0) : Infinity;
-
-  return {gross,T,N,U,L,W,sustain,Q,O,ohNow:n>0?O/n:null,contribNow:contrib(A),B,taxBiz,Bnet,marginNow:margin(n,A),gap,required,floorAvg,
-    sick,buffer,F,mBuffer,mTrial,trialNeed,G,aPath,
-    full:{n:need(aPath),mTrial,mQuit},
-    part:{phi,Qstep,n:need(aPath,Math.max(Qstep,0)),mStep,mQuit},
-    cas:{Y,Qcas,n:need(aPath,Math.max(Qcas,0)),mCas},
-    gPer24, cac: (s.mktOn&&n>0)?s.mkt*12/n:0, fixedDirect, card, g, contrib, rev, need, held, margin, payslip, jobTax: T-N};
+  const Qstep = Q*(1-FIX.partFraction), mStep = Math.max(monthsTo(Qstep), mTrial);
+  const Qcas = Q*(1-FIX.casualFraction), mCas = Math.max(monthsTo(Qcas), mTrial);
+  const need24 = contrib(A)>0 ? (Q+O)/contrib(A) : Infinity, g24 = isFinite(need24)?Math.max((need24-n)/2,0):Infinity;
+  return {payslip,T,N,U,Q,O,B,taxBiz,Bnet,gap,marginNow:margin(n,A),required,floorAvg,buffer,F,mBuffer,mTrial,G,
+    full:{n:nStar,mQuit,mTrial}, part:{need:Qstep,n:need(A,Math.max(Qstep,0)),m:mStep}, cas:{need:Qcas,n:need(A,Math.max(Qcas,0)),m:mCas},
+    g24, g, contrib, rev};
 }
 
 /* ---------- helpers ---------- */
@@ -340,212 +269,123 @@ const $ = sel => document.querySelector(sel);
 const money = v => v==null||!isFinite(v) ? "n/a" : (v<0?"-":"")+(S.currency||"")+Math.round(Math.abs(v)).toLocaleString("en-AU");
 const pct = v => v==null ? "n/a" : (v*100).toFixed(1)+"%";
 const months = m => !isFinite(m) ? "not at this trajectory" : m<1 ? "under a month" : Math.round(m)+" months";
-function addMonths(d,m){const x=new Date(d.getFullYear(),d.getMonth()+Math.round(m),1);return x}
-const dateStr = m => !isFinite(m) ? "No date at this trajectory" : addMonths(CONFIG.startDate,m).toLocaleDateString("en-AU",{month:"long",year:"numeric"});
-function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+const dateStr = m => !isFinite(m) ? "No date at this trajectory" : new Date(START.getFullYear(),START.getMonth()+Math.round(m),1).toLocaleDateString("en-AU",{month:"long",year:"numeric"});
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
-/* ---------- field renderer ---------- */
-/* spec: {key, label, help, min, max, step, unit, prefix, sw (switch key), ref} */
 function field(sp){
   const sw = sp.sw ? `<label class="switch"><input type="checkbox" id="sw-${sp.sw}" data-sw="${sp.sw}" ${S[sp.sw]?"checked":""}><span class="knob"></span><span>${S[sp.sw]?"On":"Off"}</span></label>` : "";
   const off = sp.sw && !S[sp.sw] ? " off" : "";
-  const slider = sp.min!=null ? `<input type="range" id="rg-${sp.key}" data-key="${sp.key}" min="${sp.min}" max="${sp.max}" step="${sp.step||1}" value="${S[sp.key]}" aria-label="${esc(sp.label)} slider">` : "";
   const needs = sp.needs && !(S[sp.key]>0) ? `<span class="needs">Enter yours</span>` : "";
+  const prefix = sp.prefix==="$" ? (S.currency||"") : (sp.prefix||"");
   return `<div class="field${off}" data-field="${sp.key}">
     <div class="row"><label class="lbl" for="in-${sp.key}">${sp.label}${needs}</label>${sw}</div>
     ${sp.help?`<div class="help">${sp.help}</div>`:""}
-    <div class="ctl">${slider}<span class="unit">${sp.prefix==="$"?(S.currency||""):(sp.prefix||"")}</span><input type="number" id="in-${sp.key}" data-key="${sp.key}" value="${S[sp.key]}" step="${sp.step||1}" min="${sp.min!=null?sp.min:0}" inputmode="decimal"><span class="unit">${sp.unit||""}</span></div>
+    <div class="ctl"><input type="range" id="rg-${sp.key}" data-key="${sp.key}" min="${sp.min}" max="${sp.max}" step="${sp.step||1}" value="${S[sp.key]}" aria-label="${esc(sp.label)} slider"><span class="unit">${prefix}</span><input type="number" id="in-${sp.key}" data-key="${sp.key}" value="${S[sp.key]}" step="${sp.step||1}" min="0" inputmode="decimal"><span class="unit">${sp.unit||""}</span></div>
     ${sp.ref?`<div class="ref">${sp.ref}</div>`:""}
   </div>`;
 }
-function switchOnly(key,label,help,ref){
-  return `<div class="field" data-field="${key}"><div class="row"><span class="lbl">${label}</span><label class="switch"><input type="checkbox" id="sw-${key}" data-sw="${key}" ${S[key]?"checked":""}><span class="knob"></span><span>${S[key]?"On":"Off"}</span></label></div>${help?`<div class="help">${help}</div>`:""}${ref?`<div class="ref">${ref}</div>`:""}</div>`;
+function switchOnly(key,label,help){
+  return `<div class="field" data-field="${key}"><div class="row"><span class="lbl">${label}</span><label class="switch"><input type="checkbox" id="sw-${key}" data-sw="${key}" ${S[key]?"checked":""}><span class="knob"></span><span>${S[key]?"On":"Off"}</span></label></div>${help?`<div class="help">${help}</div>`:""}</div>`;
 }
-
-const EMP_HELP = {
-  full: "Full time sets 38 hours and the standard paid leave. Change anything that does not match your contract.",
-  part: "Part time means fewer hours, same leave in weeks. Enter your hours and your pay as it is on the payslip.",
-  casual: "Casual means no paid leave and a loading in your hourly rate instead. Nothing is added for leave, because the loading already stands in for it."
-};
 
 const REGION_HELP = {
-  au: "Australian income tax, Medicare levy and super guarantee for 2026-27 are built in and sourced, so I can estimate your take-home from your salary. You can still type your real take-home from a payslip.",
-  other: "I do not carry tax tables for other countries, and I will not guess them. You type what your payslip and your tax office already tell you: gross pay, take-home, the tax rate on your next dollar, your employer's retirement contribution and your sales tax rate. Everything else works the same."
+  au: "Australian income tax, Medicare levy and super guarantee for 2026-27 are built in and sourced, so I can estimate your take-home from your pay. You can still type your real take-home from a payslip.",
+  other: "I do not carry tax tables for other countries and I will not guess them. You type what your payslip and your tax office already tell you: gross pay, take-home, the tax rate on your next dollar, your employer's retirement contribution, your sales tax rate."
 };
 function applyRegion(r){
-  S.region = r;
-  if(r==="au"){ Object.assign(S,{taxMode:"table", currency:"$", salesTax:10, superRate:12, loading:25, lslOn:true, lslWeeks:0.87}); }
-  else { Object.assign(S,{taxMode:"payslip", knowNet:true, salesTax:S.region==="au"?0:S.salesTax, superRate:S.region==="au"?0:S.superRate, loading:0, lslOn:false, lslWeeks:0}); }
+  if(r==="au") Object.assign(S,{region:"au", currency:"$", salesTax:RATES.salesTax, retireRate:RATES.sg});
+  else Object.assign(S,{region:"other", knowNet:true, salesTax: S.region==="au"?0:S.salesTax, retireRate: S.region==="au"?0:S.retireRate});
   persist();
 }
+
 function renderStep1(){
-  const casual = S.emp==="casual";
   const other = S.region==="other";
   $("#regionHelp").textContent = REGION_HELP[S.region];
   $("#regionDial").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.v===S.region));
-  $("#empHelp").textContent = EMP_HELP[S.emp];
-  const payToggle = `<div class="field"><div class="row"><span class="lbl">How you want to enter your pay</span>
-    <div class="seg" id="payBasis"><button type="button" data-v="annual" aria-pressed="${S.payBasis==="annual"}">Annual salary</button><button type="button" data-v="hourly" aria-pressed="${S.payBasis==="hourly"}">Hourly rate</button></div></div></div>`;
-  let pay = `<div class="eyebrow">Your pay</div>`;
-  if(other) pay += `<div class="field"><div class="row"><label class="lbl" for="in-currency">Currency symbol</label></div><div class="help">Shown in front of every figure. Nothing is converted.</div><div class="ctl"><input type="text" id="in-currency" value="${esc(S.currency)}" style="width:8ch;text-align:left" maxlength="4" aria-label="Currency symbol"></div></div>`;
-  pay += payToggle;
-  if(S.payBasis==="annual"){
-    pay += field({key:"salary",label:"Gross salary, a year",help:"Before tax, not counting super. From your contract or the year-to-date line on a payslip.",min:30000,max:250000,step:500,prefix:"$"});
-  } else {
-    pay += field({key:"hourly",label:"Hourly rate",help:casual?"Most casual rates are quoted with the loading already in them.":"Your base hourly rate.",min:20,max:150,step:0.5,prefix:"$"});
-    pay += field({key:"hours",label:"Hours a week",help:"Average paid hours. Full time is 38.",min:4,max:60,step:0.5,unit:"hrs"});
-    if(casual) pay += switchOnly("rateLoaded","My hourly rate already includes the casual loading","If it does not, I add the loading below before working out your annual figure.");
-    if(casual) pay += field({key:"loading",label:"Casual loading",help:other?"Any loading your casual rate carries in place of paid leave. Zero if none.":"The standard loading in most modern awards is 25 percent. Your award or agreement may differ.",min:0,max:40,step:1,unit:"%"});
-  }
-  pay += field({key:"penalties",label:"Penalties and allowances, a year",help:"Shift penalties, overtime, allowances. Taxed as income. Super is not added on these here, so if yours attract super, add them to your salary instead.",min:0,max:60000,step:500,prefix:"$"});
+  let pay = `<div class="eyebrow">What the job pays you</div>`;
+  if(other) pay += `<div class="field"><div class="row"><label class="lbl" for="in-currency">Currency symbol</label></div><div class="help">Shown in front of every figure. Nothing is converted.</div><div class="ctl"><input type="text" id="in-currency" value="${esc(S.currency)}" style="width:8ch" maxlength="4" aria-label="Currency symbol"></div></div>`;
+  pay += field({key:"gross",label:"Everything the job pays you a year, before tax",help:"Base pay plus every penalty, allowance and overtime you actually earn. The year-to-date gross on a payslip is the quickest source. The top end is the whole figure, not the base rate.",min:20000,max:300000,step:1000,prefix:"$"});
   if(other){
-    pay += field({key:"netPay",label:"Take-home pay, a year",help:"Your annual net pay from the payslip, after every tax and levy your employer withholds. This is the figure the business has to replace.",min:10000,max:300000,step:500,prefix:"$",needs:true});
-    pay += field({key:"marginalRate",label:"Tax rate on your next dollar",help:"The rate your country charges on the top slice of your income, including any levies that scale with income. It is on your tax office's rate table. It taxes the profit your side business adds on top of your salary today.",min:0,max:60,step:0.5,unit:"%",needs:true});
-    pay += field({key:"superRate",label:"Employer retirement contribution rate",help:"Pension, KiwiSaver, 401(k) match, provident fund, whatever your employer pays into retirement on top of your salary. Zero if nothing.",min:0,max:30,step:0.5,unit:"%",needs:true});
+    pay += field({key:"netPay",label:"What lands in your bank a year",help:"Annual take-home after every tax and levy withheld. This is the figure the business has to put back in your account.",min:10000,max:300000,step:500,prefix:"$",needs:true});
+    pay += field({key:"marginalRate",label:"Tax rate on your next dollar",help:"The rate on the top slice of your income including levies that scale with it, from your tax office's rate table. It taxes the profit your side business adds today.",min:0,max:60,step:0.5,unit:"%",needs:true});
+    pay += field({key:"retireRate",label:"Employer retirement contribution",help:"Pension, KiwiSaver, 401(k) match, provident fund. Whatever your employer pays into retirement on top of your pay. Zero if nothing.",min:0,max:30,step:0.5,unit:"%",needs:true});
   } else {
-    pay += field({key:"netPay",label:"I know my take-home",help:"If you know your annual net pay from the payslip, switch this on and type it. It replaces my tax estimate for the job side.",min:20000,max:200000,step:500,prefix:"$",sw:"knowNet"});
-    pay += field({key:"superRate",label:"Employer super rate",help:"The super guarantee is 12 percent from 1 July 2025. Some employers pay more.",min:10,max:20,step:0.5,unit:"%",ref:"Superannuation Guarantee (Administration) Act 1992, s 19(2), compilation of 27 March 2026."});
+    pay += field({key:"netPay",label:"I know my take-home",help:"Switch on and type your annual net pay from the payslip if you have it. It replaces my estimate.",min:20000,max:200000,step:500,prefix:"$",sw:"knowNet"});
+    pay += field({key:"retireRate",label:"Employer super rate",help:"12 percent is the guarantee from 1 July 2025. Some employers pay more.",min:10,max:20,step:0.5,unit:"%",ref:"Superannuation Guarantee (Administration) Act 1992 s 19(2), compilation of 27 March 2026."});
   }
   $("#g-pay").innerHTML = pay;
-
-  let leave = `<div class="eyebrow">Paid leave the job gives you</div>`;
-  if(casual){
-    leave += `<p class="help muted small">Casual work carries no paid leave. The loading in your rate is what you get instead, and it is already counted above.</p>`;
-  } else {
-    if(!other) leave += switchOnly("shiftworker","I am a shiftworker under my award","Shiftworkers get a fifth week of annual leave.");
-    leave += field({key:"alWeeks",label:"Annual leave, weeks a year",help:other?"Paid holiday weeks a year from your contract.":"",min:0,max:8,step:0.5,unit:"wks",ref:other?"":"National Employment Standards, Fair Work Act 2009 s 87: four weeks, five for shiftworkers."});
-    leave += field({key:"plWeeks",label:"Paid sick leave, weeks a year",help:"This becomes a sick provision in your buffer, because nobody pays you when you are sick once you leave.",min:0,max:6,step:0.5,unit:"wks",ref:other?"":"Fair Work Act 2009 s 96: ten days a year."});
-    leave += field({key:"lslWeeks",label:other?"Other paid leave, weeks a year":"Long service leave, weeks a year",help:other?"Any other paid leave your job gives you that a business will not.":"In WA it is 8.667 weeks after ten years, which is 0.87 of a week a year. Other states differ.",min:0,max:2,step:0.01,unit:"wks",sw:"lslOn",ref:other?"":"WA Long Service Leave Act 1958, per wa.gov.au, page updated 2 September 2026."});
-  }
-  $("#g-leave").innerHTML = leave;
-
-  $("#g-house").innerHTML = `<div class="eyebrow">Your household</div>` + field({key:"household",label:"Household expenses, a month",help:"What the household spends, not what you earn. Mortgage or rent, food, cars, kids, insurance, the lot. This sizes your buffer.",min:2000,max:20000,step:100,prefix:"$"});
+  $("#g-house").innerHTML = `<div class="eyebrow">Your household</div>` + field({key:"household",label:"Household expenses a month",help:"What the household spends, not what you earn. Mortgage or rent, food, cars, kids, insurance, the lot. This sizes your buffer.",min:1500,max:20000,step:100,prefix:"$"});
   wire();
 }
 
 function renderStep2(){
-  let biz = `<div class="eyebrow">Your weddings</div>`;
-  biz += field({key:"wedNow",label:"Weddings this year",help:"Paid weddings shot or booked for this calendar year.",min:0,max:60,step:1});
-  biz += field({key:"wedLast",label:"Weddings last year",help:"This sets your trajectory. If this year is the same as last year, the dates will tell you that too.",min:0,max:60,step:1});
-  biz += field({key:"avg",label:"Average sale per wedding, as the couple pays it",help:"Total paid per wedding including add-ons, averaged across the year.",min:1000,max:25000,step:100,prefix:"$"});
-  biz += field({key:"salesTax",label:S.region==="au"?"Registered for GST":"Registered for sales tax (GST or VAT)",help:S.region==="au"?"Your quit number sits above the $75,000 registration turnover for almost everyone, so I treat one eleventh of every sale as GST and never as yours. Switch off only if you are under the threshold and not registered.":"The rate your country adds to a sale. That slice of every sale belongs to the tax office, never to you. Switch off only if you are not registered and do not have to be at your quit number.",min:0,max:30,step:0.5,unit:"%",sw:"gst",needs:S.region==="other"});
-  $("#g-biz").innerHTML = biz;
-
-  let d = `<div class="eyebrow">Cash cost of each wedding</div><p class="help muted small">Only cash you pay out. Your own hours never go here. Paying yourself per job and again as a wage is the double count that made my own packages look thin for a year.</p>`;
-  d += field({key:"ssRate",label:"Second photographer, rate an hour",min:0,max:200,step:5,prefix:"$",sw:"ssOn",ref:"My second shooters cost $70 an hour (cost base, 3 September 2026)."});
-  d += field({key:"ssHours",label:"Second photographer, hours",min:1,max:14,step:1,unit:"hrs",ref:"My standard is eight hours."});
-  d += field({key:"editCost",label:"Outsourced editing and culling",help:"Only if you pay someone. If you edit your own, switch it off. Your time is not a per-job cost.",min:0,max:2000,step:25,prefix:"$",sw:"editOn",ref:"Mine is $650 a wedding, outsourced (cost base 2b)."});
-  d += field({key:"albumCost",label:"Album, cost of goods and design",help:"Only if an album is inside your package.",min:0,max:3000,step:50,prefix:"$",sw:"albumOn",ref:"Mine costs $850 for the book and $250 for the design."});
-  d += field({key:"travelCost",label:"Travel and fuel",min:0,max:1000,step:10,prefix:"$",sw:"travelOn",ref:"My per-job standard is $50 inside Perth."});
-  d += field({key:"cardRate",label:"Card fees",help:"Charged on the amount the couple pays. Netted out of your sales by the processor, so it never shows up as a cost until you name it.",min:0,max:4,step:0.01,unit:"%",sw:"cardOn",ref:"1.78 percent on my books (29 October 2026)."});
-  d += field({key:"otherDirect",label:"Other cash cost per wedding",min:0,max:3000,step:25,prefix:"$"});
-  $("#g-direct").innerHTML = d;
-
-  let o = `<div class="eyebrow">What the business costs a year, whether or not you shoot</div><p class="help muted small">Annual lines. I divide them by your bookings, so overhead per wedding falls as you grow. My own studio's figure sits beside each line for reference. You do not need to carry mine.</p>`;
-  o += field({key:"ins",label:"Insurance",min:0,max:10000,step:50,prefix:"$",sw:"insOn",ref:"Mine is $208 a month, $2,496 a year."});
-  o += field({key:"acct",label:"Bookkeeping and accounting",min:0,max:12000,step:100,prefix:"$",sw:"acctOn",ref:"Mine is $250 a month."});
-  o += field({key:"sw",label:"Software: gallery, editing, storage, CRM, website",min:0,max:20000,step:50,prefix:"$",sw:"swOn",ref:"My production and client lines run $243 a month. My full stack is far larger and you do not need it yet."});
-  o += field({key:"kit",label:"What it would cost to replace your kit today",help:"Bodies, lenses, lights, computer, drives. This is the line nearly every part-timer leaves out. My own books carried it at zero and my finance review called it the most dangerous number in the stack.",min:0,max:80000,step:500,prefix:"$",sw:"gearOn"});
-  o += field({key:"kitLife",label:"Years before you replace it",min:2,max:10,step:1,unit:"yrs"});
-  o += field({key:"mkt",label:"Marketing spend, a month",help:"Ads, directories, shows. When this is on I show your cost per booking, and every package inherits it.",min:0,max:5000,step:50,prefix:"$",sw:"mktOn",ref:"I spend $1,500 to $2,000 a month. Most part-timers spend nothing yet."});
-  o += field({key:"otherOH",label:"Other annual overhead",help:"Phone, vehicle, studio, subscriptions not listed.",min:0,max:30000,step:100,prefix:"$"});
-  $("#g-overhead").innerHTML = o;
-
-  let c = `<div class="eyebrow">How couples pay you</div>`;
-  c += field({key:"deposit",label:"Retainer at booking",min:10,max:100,step:5,unit:"%",ref:"Mine is 50 percent."});
-  c += field({key:"balanceDays",label:"Balance due, days before the wedding",min:0,max:180,step:5,unit:"days",ref:"Mine is 90 days."});
-  c += field({key:"lead",label:"Months between booking and wedding",min:1,max:24,step:0.5,unit:"mo",ref:"My median is 11.5 months across 237 bookings."});
-  $("#g-cash").innerHTML = c;
-  wire();
-}
-
-function renderStep3(){
-  let t = `<div class="eyebrow">Your targets</div>`;
-  t += field({key:"floor",label:"Net margin floor",help:"Profit after direct costs and overhead, over revenue net of sales tax, before your own tax and wage. I hold my own packages to 50 percent and my associate jobs to 30. Under 30 is a hobby with expenses.",min:20,max:70,step:1,unit:"%"});
-  t += field({key:"bufferMonths",label:"Buffer, months of household expenses",help:"Cash in the household account before you resign. Three months is my minimum. Client deposits do not count.",min:0,max:12,step:1,unit:"months"});
+  const other = S.region==="other";
+  let b = `<div class="eyebrow">Your weddings</div>`;
+  b += field({key:"wedNow",label:"Weddings this year",help:"Paid weddings shot or booked this calendar year.",min:0,max:60,step:1});
+  b += field({key:"wedLast",label:"Weddings last year",help:"Sets your trajectory. If it equals this year, the dates will tell you that.",min:0,max:60,step:1});
+  b += field({key:"avg",label:"Average sale per wedding",help:"What the couple pays you per wedding including add-ons, averaged across the year.",min:500,max:25000,step:100,prefix:"$"});
+  b += field({key:"costPerWedding",label:"Cash out per wedding",help:"Second shooter, outsourced editing, travel, card fees, albums. Only cash you pay out. Your own hours never go here.",min:0,max:6000,step:50,prefix:"$",ref:other?"Replace this with your own figure in your own currency.":"Default is my second shooter ($560), outsourced editing ($650) and travel ($50). Card fees at about 1.8 percent sit on top at most volumes."});
+  b += field({key:"overhead",label:"What the business costs a year, whether or not you shoot",help:"Insurance, accounting, software, gallery hosting, website, phone, marketing. Not the kit, that is next.",min:0,max:60000,step:250,prefix:"$",ref:other?"Replace this with your own figure.":"Default is my insurance ($2,496), accounting ($3,000) and production software ($2,916)."});
+  b += field({key:"kit",label:"What it would cost to replace your kit today",help:"Bodies, lenses, lights, computer, drives. I spread it over five years as a sinking fund. Nearly every part-timer leaves this out and my own books once carried it at zero.",min:0,max:80000,step:500,prefix:"$"});
+  if(other) b += field({key:"salesTax",label:"Sales tax rate (GST or VAT)",help:"The rate your country adds to a sale. That slice of every sale belongs to the tax office. I assume you are registered, because at your quit number you will be.",min:0,max:30,step:0.5,unit:"%",needs:true});
+  $("#g-biz").innerHTML = b;
+  let t = `<div class="eyebrow">Three dials</div>`;
+  t += field({key:"floor",label:"Net margin floor",help:"Profit after cash costs and overhead, over revenue net of sales tax, before your own wage and tax. I hold my own packages to 50 percent. Under 30 is a hobby with expenses.",min:20,max:70,step:1,unit:"%"});
+  t += field({key:"bufferMonths",label:"Buffer, months of household expenses",help:"Cash in the household account before you resign. Three is my minimum. Client deposits do not count.",min:0,max:12,step:1,unit:"months"});
   t += field({key:"cashSaved",label:"Cash already set aside for this",min:0,max:150000,step:500,prefix:"$"});
-  t += field({key:"otherSave",label:"Other savings a month toward the buffer",help:"From the household, outside the business.",min:0,max:10000,step:50,prefix:"$"});
-  t += switchOnly("sustain","Sustainable, not just replaced","Adds your own super at the same rate your employer pays, and a sick-leave provision to the buffer. Replacing the payslip alone is how people quit and go backwards.");
-  t += field({key:"ip",label:"Income protection premium, a year",help:"Optional. Counts when above zero.",min:0,max:8000,step:50,prefix:"$"});
-  t += field({key:"targetAvg",label:"Target average sale",help:"Hold today's average, or set where you intend to price. The Package Ladder tab helps you get there.",min:1000,max:30000,step:100,prefix:"$",sw:"growthOn"});
+  t += switchOnly("sustain","Top end: replace the whole package, not just the payslip","Adds your own retirement contribution at the rate your employer pays now. Replacing the payslip alone is how people quit and go backwards.");
   $("#g-targets").innerHTML = t;
-
-  let p = `<div class="eyebrow">The path</div><p class="help muted small">Build the buffer first. Then take unpaid leave and run the business full time for a trial before you resign. Then choose how to step out.</p>`;
-  p += field({key:"trialMonths",label:"Unpaid leave trial, months",help:"Long enough to live the full-time week and shoot through a season. Your household needs this many months of expenses in cash before you take it.",min:1,max:6,step:1,unit:"months"});
-  p += field({key:"partFrac",label:"If you drop to part time first, how much of the job you keep",help:"Three days of five is 60 percent.",min:20,max:80,step:10,unit:"%"});
-  p += field({key:"casualShifts",label:"If you go casual, shifts a month",min:1,max:12,step:1});
-  p += field({key:"casualHours",label:"Hours a shift",min:4,max:14,step:1,unit:"hrs"});
-  $("#g-path").innerHTML = p;
   wire();
 }
 
 function wire(){
   document.querySelectorAll('input[data-key]').forEach(el=>{
-    el.oninput = e => {
-      const k = el.dataset.key; let v = parseFloat(el.value); if(isNaN(v)) return;
-      S[k] = v; persist();
-      const other = el.type==="range" ? document.getElementById("in-"+k) : document.getElementById("rg-"+k);
-      if(other) other.value = v;
-    };
+    el.oninput = () => { const k=el.dataset.key; const v=parseFloat(el.value); if(isNaN(v))return; S[k]=v; persist();
+      const other = el.type==="range" ? document.getElementById("in-"+k) : document.getElementById("rg-"+k); if(other) other.value=v; };
   });
   document.querySelectorAll('input[data-sw]').forEach(el=>{
-    el.onchange = () => { S[el.dataset.sw] = el.checked; persist(); el.parentElement.querySelector("span:last-child").textContent = el.checked?"On":"Off";
-      const f = el.closest(".field"); if(f && f.dataset.field!==el.dataset.sw) f.classList.toggle("off",!el.checked);
-      if(el.dataset.sw==="shiftworker"){ S.alWeeks = el.checked?5:4; persist(); renderStep1(); }
-      if(el.dataset.sw==="rateLoaded") renderStep1(); };
+    el.onchange = () => { S[el.dataset.sw]=el.checked; persist(); el.parentElement.querySelector("span:last-child").textContent=el.checked?"On":"Off";
+      const f=el.closest(".field"); if(f && f.dataset.field!==el.dataset.sw) f.classList.toggle("off",!el.checked); };
   });
-  const pb = $("#payBasis"); if(pb) pb.querySelectorAll("button").forEach(b=>b.onclick=()=>{S.payBasis=b.dataset.v;persist();renderStep1()});
-  const cur = $("#in-currency"); if(cur) cur.onchange = () => { S.currency = cur.value.trim().slice(0,4); persist(); };
+  const cur=$("#in-currency"); if(cur) cur.onchange=()=>{S.currency=cur.value.trim().slice(0,4);persist()};
 }
-$("#regionDial").querySelectorAll("button").forEach(b=>b.onclick=()=>{ applyRegion(b.dataset.v); renderStep1(); renderStep2(); renderStep3(); });
+$("#regionDial").querySelectorAll("button").forEach(b=>b.onclick=()=>{applyRegion(b.dataset.v);renderStep1();renderStep2()});
 
-$("#empDial").querySelectorAll("button").forEach(b=>b.onclick=()=>{
-  S.emp=b.dataset.v; if(S.emp!=="full"&&S.payBasis==="annual"&&S.hours===38){S.hours=S.emp==="part"?22.8:20} if(S.emp==="full")S.hours=38;
-  persist(); $("#empDial").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b)); renderStep1();
-});
-
-/* ---------- steps ---------- */
-const TITLES = {1:"Step 1. Your job",2:"Step 2. Your business",3:"Step 3. Your targets and the path",4:"Your number"};
+const TITLES = {1:"Step 1. Your job and your household",2:"Step 2. Your business",3:"Your number"};
 function go(n){
   document.querySelectorAll("section.panel[data-step]").forEach(s=>s.hidden = +s.dataset.step!==n);
-  $("#stepTitle").textContent = TITLES[n]; $("#stepCount").textContent = n===4 ? "" : n+" of 3";
+  $("#stepTitle").textContent=TITLES[n]; $("#stepCount").textContent = n===3?"":n+" of 2";
   $("#steps").querySelectorAll("li").forEach((li,i)=>li.classList.toggle("on",i<n));
   window.scrollTo({top:0,behavior:"smooth"});
 }
-$("#showResult").onclick = () => { renderResult(model(S)); go(4); };
 document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(+b.dataset.go));
-
-/* ---------- tabs ---------- */
-function showTab(id){
-  ["calc","ladder"].forEach(t=>{ $("#tab-"+t).hidden = t!==id; $("#tabbtn-"+t).setAttribute("aria-selected", t===id) });
-  if(id==="ladder") renderLadder();
-}
+$("#showResult").onclick=()=>{renderResult(model(S));go(3)};
+function showTab(id){["calc","ladder"].forEach(t=>{$("#tab-"+t).hidden=t!==id;$("#tabbtn-"+t).setAttribute("aria-selected",t===id)});if(id==="ladder")renderLadder()}
 $("#tabbtn-calc").onclick=()=>showTab("calc"); $("#tabbtn-ladder").onclick=()=>showTab("ladder");
 
 /* ---------- result ---------- */
 function voicePara(r){
-  const n0=r.required[0].n, a=S.avg;
+  const n0=r.required[0].n, a=S.avg, hi=r.required[2];
   if(r.gap<=0) return `On paper the business already pays for the job. I would not resign on paper. Your question now is the buffer and the calendar: ${money(r.buffer)} in the household account before you go, and enough signed contracts in the next twelve months that the quit number is covered by work already booked. Run the Package Ladder anyway, because a thin margin at this volume breaks the first quiet season.`;
-  if(!isFinite(n0)) return `At your current average sale each wedding costs you more than it brings in once card fees and direct costs come out. Nothing else on this page matters until the price moves. Open the Package Ladder and price the floor tier first.`;
-  if(r.G<=0) return `You booked the same or fewer weddings this year than last, so at this trajectory the dates never arrive. That is useful to know now. To be at your number in 24 months you need to add about ${Math.ceil(r.gPer24)} bookings a year at ${money(r.aPath)}, or lift the average. ${n0} weddings at ${money(a)} is the hard way. ${r.required[2].n} at ${money(r.required[2].a)} is the same money with ${n0-r.required[2].n} fewer Saturdays. Build the ladder before you build the calendar.`;
-  if(n0>=30) return `At ${money(a)} you need ${n0} weddings a year. That is a full-time studio's workload at a part-timer's price, and you would arrive exhausted. The lever is the average sale, not the volume. ${r.required[2].n} weddings at ${money(r.required[2].a)} replaces the same package with ${n0-r.required[2].n} fewer Saturdays and more room for the quiet months. Twenty weddings at a higher average beats forty at a lower one. Open the Package Ladder next and build the prices backwards from this number.`;
-  return `You need ${n0} weddings a year at ${money(a)}, or ${r.required[2].n} at ${money(r.required[2].a)}. Fund the buffer first, trial the full-time week on unpaid leave in ${dateStr(r.mTrial)}, and hold the resignation until the trial has run and the calendar for the next twelve months carries the number. The Package Ladder tab turns the number into prices.`;
+  if(!isFinite(n0)) return `At your current average each wedding costs you more than it brings in once sales tax and cash costs come out. Nothing else on this page matters until the price moves. Open the Package Ladder and price the floor tier first.`;
+  if(r.G<=0) return `You booked the same or fewer weddings this year than last, so at this trajectory the dates never arrive. Useful to know now. To be at your number in 24 months you need to add about ${Math.ceil(r.g24)} bookings a year at ${money(a)}, or lift the average. ${n0} weddings at ${money(a)} is the hard way. ${hi.n} at ${money(hi.a)} is the same money with ${n0-hi.n} fewer Saturdays. Build the ladder before you build the calendar.`;
+  if(n0>=30) return `At ${money(a)} you need ${n0} weddings a year. That is a full-time studio's workload at a part-timer's price, and you would arrive exhausted. The lever is the average sale, not the volume. ${hi.n} weddings at ${money(hi.a)} replaces the same package with ${n0-hi.n} fewer Saturdays and room for the quiet months. Twenty weddings at a higher average beats forty at a lower one. Open the Package Ladder next and build the prices backwards from this number.`;
+  return `You need ${n0} weddings a year at ${money(a)}, or ${hi.n} at ${money(hi.a)}. Fund the buffer first, trial the full-time week on unpaid leave in ${dateStr(r.mTrial)}, and hold the resignation until the trial has run and the next twelve months on the calendar carry the number. The Package Ladder tab turns the number into prices.`;
 }
 
 function renderResult(r){
-  const rq = r.required;
-  const rows = rq.map(x=>`<tr><td class="num">${money(x.a)}</td><td class="num"><b>${isFinite(x.n)?x.n:"n/a"}</b></td><td class="num">${money(x.oh)}</td><td class="num">${pct(x.m)} ${x.ok?'<span class="pill">clears floor</span>':'<span class="pill bad">under floor</span>'}</td><td class="num">${money(x.held)}</td></tr>`).join("");
-  const leaveLine = S.emp==="casual" ? "no paid leave, the loading stands in for it" : `${r.L.toFixed(2)} weeks of paid leave, so ${r.W.toFixed(1)} working weeks`;
-  const html = `
+  const rows = r.required.map(x=>`<tr><td class="num">${money(x.a)}</td><td class="num"><b>${isFinite(x.n)?x.n:"n/a"}</b></td><td class="num">${money(x.oh)}</td><td class="num">${pct(x.m)} ${x.ok?'<span class="pill">clears floor</span>':'<span class="pill bad">under floor</span>'}</td><td class="num">${money(x.held)}</td></tr>`).join("");
+  const retireWord = r.payslip?"retirement contribution":"super";
+  $("#result").innerHTML = `
   <div class="headline">
-    <div class="eyebrow" style="color:inherit;opacity:.75">Your quit number</div>
+    <div class="eyebrow" style="color:inherit;opacity:.75">Your quit number, the top end</div>
     <div class="big">${money(r.Q/12)} <span style="font-size:.4em;font-weight:400;opacity:.8">a month</span></div>
     <div class="sub">${money(r.Q)} a year of business profit, after every cost of running it and before your own tax. It lands <b class="mono">${money(r.N/12)}</b> a month in your bank, the same as the job does now.</div>
   </div>
   <div class="kpis">
     <div class="kpi"><span class="v">${money(r.gap/12)}</span><span class="k">Gap a month. Quit number less what the business makes today.</span></div>
-    <div class="kpi"><span class="v">${money(r.B)}</span><span class="k">Business profit this year, before tax. ${money(r.Bnet)} after the tax it adds on top of your salary.</span></div>
-    <div class="kpi"><span class="v">${money(r.ohNow)}</span><span class="k">Overhead per wedding at ${S.wedNow} a year</span></div>
+    <div class="kpi"><span class="v">${money(r.B)}</span><span class="k">Business profit this year before tax. ${money(r.Bnet)} after the tax it adds on top of your salary.</span></div>
+    <div class="kpi"><span class="v">${money(S.wedNow>0?r.O/S.wedNow:null)}</span><span class="k">Overhead per wedding at ${S.wedNow} a year</span></div>
     <div class="kpi"><span class="v">${pct(r.marginNow)}</span><span class="k">Net margin today. Floor ${S.floor}%.</span></div>
   </div>
   <p class="voice">${voicePara(r)}</p>
@@ -554,16 +394,15 @@ function renderResult(r){
     <div class="eyebrow">Net to net</div>
     <div class="tablewrap"><table>
       <tr><td>The job pays, before tax</td><td class="num">${money(r.T)}</td></tr>
-      <tr><td>${r.payslip?"Tax and levies withheld, from your payslip":"Income tax and Medicare levy, "+RATES.fy+" resident rates"}</td><td class="num">${money(r.jobTax)}</td></tr>
+      <tr><td>${r.payslip?"Tax and levies withheld, from your payslip":"Income tax and Medicare levy, "+RATES.fy+" resident rates"}</td><td class="num">${money(r.T-r.N)}</td></tr>
       <tr><td><b>Take-home</b></td><td class="num"><b>${money(r.N)}</b></td></tr>
-      <tr><td>${r.payslip?"Employer retirement contribution":"Employer super"} at ${S.superRate}%</td><td class="num">${money(r.U)}</td></tr>
-      <tr><td>Paid leave</td><td class="num">${leaveLine}</td></tr>
-      <tr><td>Sustainability items${S.sustain?" (your own "+(r.payslip?"retirement contribution":"super")+(S.ip>0?", income protection":"")+")":" (off)"}</td><td class="num">${money(r.sustain)}</td></tr>
-      <tr><td><b>Quit number</b> (job pay before tax, plus sustainability)</td><td class="num"><b>${money(r.Q)}</b></td></tr>
+      <tr><td>Employer ${retireWord} at ${S.retireRate}%</td><td class="num">${money(r.U)}</td></tr>
+      <tr><td>Your own ${retireWord}, added back${S.sustain?"":" (off)"}</td><td class="num">${money(S.sustain?r.U:0)}</td></tr>
+      <tr><td><b>Quit number</b></td><td class="num"><b>${money(r.Q)}</b></td></tr>
     </table></div>
-    <p class="small muted">Both sides sit before your personal tax, under the same tax law, for the same person. That is what net to net means. Gross wedding income never sits beside a net payslip on this page.</p>
-    ${r.payslip && S.sustain && !(S.superRate>0) ? `<div class="note warn">You entered no employer retirement contribution. If your employer pays one, add it in step 1, because it is part of what the job pays you.</div>`:""}
-    ${r.payslip && !(S.marginalRate>0) ? `<div class="note warn">You entered a zero tax rate on your next dollar, so the tax your side business pays today reads as zero and the buffer fills faster than it will. Check your bracket on your tax office's rate table.</div>`:""}
+    <p class="small muted">Both sides sit before your personal tax, under the same tax law, for the same person. That is net to net. Gross wedding income never sits beside a net payslip on this page.</p>
+    ${r.payslip && S.sustain && !(S.retireRate>0) ? `<div class="note warn">You entered no employer retirement contribution. If your employer pays one, add it in step 1. It is part of what the job pays you.</div>`:""}
+    ${r.payslip && !(S.marginalRate>0) ? `<div class="note warn">You entered a zero tax rate on your next dollar, so the tax your side business pays today reads as zero and the buffer fills faster than it will. Check your bracket.</div>`:""}
   </div>
 
   <div class="group">
@@ -572,127 +411,116 @@ function renderResult(r){
       <thead><tr><th class="num">Average sale</th><th class="num">Weddings a year</th><th class="num">Overhead each</th><th class="num">Net margin</th><th class="num">Client money you will hold</th></tr></thead>
       <tbody>${rows}</tbody>
     </table></div>
-    <p class="small muted">${r.floorAvg?`At ${rq[0].n} weddings a year, anything under <b class="mono">${money(r.floorAvg)}</b> a wedding fails your ${S.floor}% margin floor.`:""} ${r.cac>0?`Your cost per booking is <b class="mono">${money(r.cac)}</b> and every package inherits it.`:""}</p>
-    <div class="note warn"><b>Deposits are not your buffer.</b> The last column is other people's money sitting in your account for weddings you have not photographed. Cash at bank must be at least that before any of it counts as yours. Retainer ${S.deposit}%, balance ${S.balanceDays} days out, ${S.lead} months lead time.</div>
+    <p class="small muted">${r.floorAvg?`At ${r.required[0].n} weddings a year, anything under <b class="mono">${money(r.floorAvg)}</b> a wedding fails your ${S.floor}% margin floor.`:""}</p>
+    <div class="note warn"><b>Deposits are not your buffer.</b> The last column is other people's money sitting in your account for weddings you have not photographed, assuming half paid at booking, the balance 90 days out and a year's lead time. Cash at bank must be at least that before any of it counts as yours.</div>
   </div>
 
   <div class="group">
     <div class="eyebrow">The buffer</div>
     <div class="kpis">
-      <div class="kpi"><span class="v">${money(r.buffer)}</span><span class="k">Buffer target: ${S.bufferMonths} months of household expenses${r.sick>0?` plus ${money(r.sick)} sick provision`:""}</span></div>
-      <div class="kpi"><span class="v">${money(r.F)}</span><span class="k">Going into it each month: business profit after tax, plus other savings</span></div>
+      <div class="kpi"><span class="v">${money(r.buffer)}</span><span class="k">Buffer target: ${S.bufferMonths} months of household expenses</span></div>
+      <div class="kpi"><span class="v">${money(r.F)}</span><span class="k">Going into it each month: business profit after tax</span></div>
       <div class="kpi"><span class="v">${months(r.mBuffer)}</span><span class="k">To fund the buffer</span></div>
-      <div class="kpi"><span class="v">${dateStr(r.mTrial)}</span><span class="k">Trial date: ${S.trialMonths} months of household cash, enough to take unpaid leave</span></div>
+      <div class="kpi"><span class="v">${dateStr(r.mTrial)}</span><span class="k">Trial date: three months of household cash, enough to take unpaid leave</span></div>
     </div>
   </div>
 
   <div class="group">
     <div class="eyebrow">Three ways out, dated</div>
     <div class="cards">
-      <div class="card"><div class="eyebrow">Part time to full time</div><div class="date">${dateStr(r.full.mQuit)}</div>
-        <ul><li>Trial on unpaid leave: ${dateStr(r.mTrial)}</li><li>${isFinite(r.full.n)?r.full.n+" weddings a year at "+money(r.aPath):"Price is the problem first"}</li><li>Resign when the buffer is funded and the calendar carries the number</li></ul></div>
-      <div class="card"><div class="eyebrow">Drop to part time first</div><div class="date">${dateStr(r.part.mStep)}</div>
-        <ul><li>Keep ${S.partFrac}% of the job</li><li>Business must make ${money(Math.max(r.part.Qstep,0))} a year, ${isFinite(r.part.n)?r.part.n+" weddings":"n/a"}</li><li>Full quit: ${dateStr(r.full.mQuit)}. The step down buys you weekdays to add bookings sooner than this line assumes.</li></ul></div>
-      <div class="card"><div class="eyebrow">Casual bridge</div><div class="date">${dateStr(r.cas.mCas)}</div>
-        <ul><li>${S.casualShifts} shifts a month of ${S.casualHours} hours earns about ${money(r.cas.Y)} a year</li><li>Business must make ${money(Math.max(r.cas.Qcas,0))}, ${isFinite(r.cas.n)?r.cas.n+" weddings":"n/a"}</li><li>Casual shifts have no paid leave. Keep the sick provision.</li></ul></div>
+      <div class="card"><div class="eyebrow">Straight to full time</div><div class="date">${dateStr(r.full.mQuit)}</div>
+        <ul><li>Trial on unpaid leave: ${dateStr(r.mTrial)}</li><li>${isFinite(r.full.n)?r.full.n+" weddings a year at "+money(S.avg):"Price is the problem first"}</li><li>Resign when the buffer is funded and the calendar carries the number</li></ul></div>
+      <div class="card"><div class="eyebrow">Drop to part time first</div><div class="date">${dateStr(r.part.m)}</div>
+        <ul><li>Keep 60% of the job</li><li>Business must make ${money(Math.max(r.part.need,0))} a year, ${isFinite(r.part.n)?r.part.n+" weddings":"n/a"}</li><li>Full quit: ${dateStr(r.full.mQuit)}. The step down buys weekdays to add bookings sooner than this line assumes.</li></ul></div>
+      <div class="card"><div class="eyebrow">Casual bridge</div><div class="date">${dateStr(r.cas.m)}</div>
+        <ul><li>Keep about a quarter of the job's pay in casual shifts</li><li>Business must make ${money(Math.max(r.cas.need,0))}, ${isFinite(r.cas.n)?r.cas.n+" weddings":"n/a"}</li><li>Casual shifts carry no paid leave. Keep the buffer.</li></ul></div>
     </div>
-    <p class="small muted">Dates assume you keep adding ${r.G>0?r.G:0} booking${r.G===1?"":"s"} a year (this year less last year) at ${money(r.aPath)}. Change last year's figure or set a target average to see the dates move.</p>
+    <p class="small muted">Dates assume you keep adding ${r.G>0?r.G:0} booking${r.G===1?"":"s"} a year (this year less last year) at ${money(S.avg)}. Change last year's figure to see them move.</p>
   </div>
 
   <div class="nav"><button class="btn primary" type="button" id="toLadder">Build the Package Ladder from this number</button><button class="btn ghost" type="button" id="editInputs">Change my inputs</button></div>
 
-  <details><summary>Every rate and default on this page, with its source</summary><div class="inner">
-    ${r.payslip?`<p><b>Your country.</b> Gross pay, take-home, the tax rate on your next dollar, your employer's retirement contribution and your sales tax rate were entered by you from your payslip and your tax office. I carry no tax tables for countries other than Australia and I do not guess them. Leave weeks are yours from your contract.</p>`:`<p><b>Income tax, ${RATES.fy} resident rates.</b> Nil to $18,200, then 15% to $45,000, 30% to $135,000, 37% to $190,000, 45% above. Income Tax Rates Act 1986, Compilation No. 66, 1 July 2026, Schedule 7 Part I. Tax-free threshold s 3(1).</p>
-    <p><b>Medicare levy.</b> 2% of taxable income. Nil at or below $28,011, phasing in at 10% of the excess to $35,013. Medicare Levy Act 1986, Compilation No. 53, 1 July 2026, ss 3, 6, 7. Family thresholds and the surcharge are not modelled.</p>
-    <p><b>Super guarantee.</b> 12% for years from 1 July 2025. Superannuation Guarantee (Administration) Act 1992, Compilation No. 77, 27 March 2026, s 19(2).</p>
-    <p><b>Leave.</b> Four weeks annual leave, five for shiftworkers, ten days personal leave (Fair Work Act 2009 ss 87, 96). WA long service leave 8.667 weeks after ten years (wa.gov.au, 2 September 2026). Casual loading 25% as the modern awards standard. Edit any of these to match your award.</p>
-    <p><b>Not modelled.</b> The low income tax offset, study loan repayments, salary sacrifice, other offsets, company structures, seasonality. GST at one eleventh of sales when registered.</p>`}
-    ${r.payslip?`<p><b>Not modelled anywhere.</b> Study loan repayments, salary sacrifice, offsets and credits, company structures, seasonality. Sales tax at your rate comes off every sale when registered.</p>`:""}
-    <p><b>Studio defaults</b> are my own stated costs from my cost base in Australian dollars, each labelled where it appears. Every one is editable and most part-timers will not carry all of them. If you are elsewhere, replace them with your own figures in your own currency.</p>
-    <p><b>${r.payslip?"Australian rates as at "+RATES.asAt+" apply only to the Australia setting.":"Rates as at "+RATES.asAt+". Reviewed every July."}</b> This is a planning tool, not tax advice. Your accountant confirms before anything is set.</p>
+  <details><summary>Every rate and assumption on this page, with its source</summary><div class="inner">
+    ${r.payslip?`<p><b>Your country.</b> Gross pay, take-home, the tax rate on your next dollar, your employer's retirement contribution and your sales tax rate were entered by you from your payslip and your tax office. I carry no tax tables for countries other than Australia and I do not guess them.</p>`
+    :`<p><b>Income tax, ${RATES.fy} resident rates.</b> Nil to $18,200, then 15% to $45,000, 30% to $135,000, 37% to $190,000, 45% above. Income Tax Rates Act 1986, Compilation No. 66, 1 July 2026, Schedule 7 Part I.</p>
+    <p><b>Medicare levy.</b> 2% of taxable income. Nil at or below $28,011, phasing in at 10% of the excess to $35,013. Medicare Levy Act 1986, Compilation No. 53, 1 July 2026. Family thresholds and the surcharge are not modelled.</p>
+    <p><b>Super guarantee.</b> 12% from 1 July 2025. Superannuation Guarantee (Administration) Act 1992, Compilation No. 77, 27 March 2026, s 19(2).</p>
+    <p><b>GST.</b> One eleventh of every sale, assumed registered.</p>`}
+    <p><b>Fixed top end assumptions.</b> Kit replaced every five years. Unpaid leave trial of three months. Dropping to part time keeps 60% of the job. The casual bridge keeps a quarter of the job's pay. Client money held assumes half paid at booking, the balance 90 days before the wedding and an 11.5 month lead time, which are my own studio's terms and census. Paid leave is not added as dollars because the salary already pays for it.</p>
+    <p><b>Not modelled.</b> Tax offsets and credits, study loan repayments, salary sacrifice, company structures, seasonality, penalties on top of the figure you typed.</p>
+    <p><b>Studio defaults</b> are my own stated costs in Australian dollars. Replace them with yours.</p>
+    <p><b>${r.payslip?"Australian rates as at "+RATES.asAt+" apply only to the Australia setting.":"Rates as at "+RATES.asAt+". Reviewed every July."}</b> A planning tool, not tax advice. Your accountant confirms before anything is set.</p>
   </div></details>`;
-  $("#result").innerHTML = html;
-  $("#toLadder").onclick = ()=>{showTab("ladder");window.scrollTo({top:0,behavior:"smooth"})};
-  $("#editInputs").onclick = ()=>go(1);
+  $("#toLadder").onclick=()=>{showTab("ladder");window.scrollTo({top:0,behavior:"smooth"})};
+  $("#editInputs").onclick=()=>go(1);
 }
 
 /* ---------- Package Ladder ---------- */
-const LAD = { volume:null, tiers:[
-  {name:"The Ceremony", hours:7, ss:0, album:false, extra:0, price:0, mix:30},
-  {name:"The Story", hours:10, ss:6, album:false, extra:0, price:0, mix:45},
-  {name:"The Feature", hours:12, ss:10, album:false, extra:0, price:0, mix:20},
-  {name:"The Heirloom", hours:12, ss:10, album:true, extra:0, price:0, mix:5}
-], four:true, addons:[
+const LAD = { volume:null, four:true, tiers:[
+  {name:"The Ceremony", hours:7, extra:0, price:0, mix:30},
+  {name:"The Story", hours:10, extra:420, price:0, mix:45},
+  {name:"The Feature", hours:12, extra:700, price:0, mix:20},
+  {name:"The Heirloom", hours:12, extra:1800, price:0, mix:5}
+], addons:[
   {name:"Second photographer, 8 hours", cost:560, retail:1750},
   {name:"Engagement session", cost:0, retail:1600},
   {name:"Fine art album", cost:1100, retail:2600},
   {name:"Extra hour of coverage", cost:0, retail:850}
 ]};
-try{const l=JSON.parse(localStorage.getItem("qn_ladder_v1")||"null");if(l)Object.assign(LAD,l)}catch(e){}
-function persistL(){try{localStorage.setItem("qn_ladder_v1",JSON.stringify(LAD))}catch(e){}}
+try{const l=JSON.parse(localStorage.getItem("qn_ladder_v2")||"null");if(l)Object.assign(LAD,l)}catch(e){}
+function persistL(){try{localStorage.setItem("qn_ladder_v2",JSON.stringify(LAD))}catch(e){}}
 
 function renderLadder(){
   const r = model(S);
   const n = LAD.volume || (isFinite(r.required[0].n)?r.required[0].n:S.wedNow||1);
-  const f=S.floor/100, g=r.g, card=r.card;
-  const oh = r.O/n;
-  const cac = (S.mktOn&&n>0) ? S.mkt*12/n : 0;
-  const denom = (1-f)/g - card;
+  const f=S.floor/100, g=r.g, oh=r.O/n;
   const tiers = LAD.tiers.slice(0, LAD.four?4:3);
   let prevPH=null, prevPrice=null;
   const rows = tiers.map((t,i)=>{
-    const fixed = (S.editOn?S.editCost:0)+(S.travelOn?S.travelCost:0)+S.otherDirect + t.ss*S.ssRate + (t.album?S.albumCost:0) + t.extra + cac;
-    const floor = denom>0 ? (fixed+oh)/denom : Infinity;
-    // Default price: the floor, lifted so the per-hour ramp never dips below the tier beneath it.
+    const fixed = S.costPerWedding + t.extra;
+    const floor = (fixed+oh)/((1-f)/g);
     const rampMin = prevPH!=null ? prevPH*t.hours : 0;
     const price = t.price>0 ? t.price : Math.ceil(Math.max(floor,rampMin)/50)*50;
-    const rev = price/g, direct = fixed + card*price, net = rev-direct-oh, m = net/rev;
+    const rev = price/g, net = rev-fixed-oh, m = net/rev;
     const ph = t.hours>0 ? price/t.hours : null;
     const dip = prevPH!=null && ph!=null && ph<prevPH-0.5;
     const step = prevPrice ? price/prevPrice : null;
     prevPH=ph; prevPrice=price;
-    return {t,i,fixed,floor,price,m,ph,dip,step,net};
+    return {t,i,floor,price,m,ph,dip,step,net};
   });
-  const mixTotal = rows.reduce((a,x)=>a+(x.t.mix||0),0) || rows.length;
-  rows.forEach(x=>{ x.share = mixTotal ? ((x.t.mix||0)/mixTotal) : 1/rows.length; if(!rows.some(y=>y.t.mix>0)) x.share = 1/rows.length });
+  const mixTotal = rows.reduce((a,x)=>a+(x.t.mix||0),0);
+  rows.forEach(x=>{ x.share = mixTotal>0 ? (x.t.mix||0)/mixTotal : 1/rows.length });
   const mixAvg = rows.reduce((a,x)=>a+x.share*x.price,0);
   const mixNet = rows.reduce((a,x)=>a+x.share*x.net,0)*n;
-  const reqAvg = (1/g - card)>0 ? ((r.Q+r.O)/n + r.fixedDirect)/(1/g - card) : null;
-  const ownerHours = rows.reduce((a,x)=>a+x.share*x.t.hours*1.35,0); // shoot plus cull at 0.35, weighted by mix
-  const weeklyHours = ownerHours*n/r.W;
+  const reqAvg = ((r.Q+r.O)/n + S.costPerWedding)*g;
+  const ownerHours = rows.reduce((a,x)=>a+x.share*x.t.hours*(1+FIX.cullPerHour),0);
+  const weeklyHours = ownerHours*n/FIX.workingWeeks;
   const flat = rows.length>1 && rows.every(x=>x.ph!=null && Math.abs(x.ph-rows[0].ph)<1);
-  const leaveOut = [
-    ["Overhead a year", money(r.O)], ["Overhead per wedding at "+n, money(oh)], ["Gear sinking fund a year", money(S.gearOn&&S.kitLife>0?S.kit/S.kitLife:0)],
-    ["Your wage, as the quit number", money(r.Q)], ["Your own super", money(S.sustain?r.U:0)], ["Sales tax on every sale", S.gst ? S.salesTax+"%" : "not registered"], ["Card fees", S.cardOn?S.cardRate+"% of the sale":"off"],
-    ["Marketing a year", money(S.mktOn?S.mkt*12:0)], ["Cost per booking", money(cac)]
-  ];
-  const html = `
+  const leaveOut = [["Overhead a year", money(r.O)],["Overhead per wedding at "+n, money(oh)],["Gear sinking fund a year", money(S.kit/FIX.kitLife)],["Your wage, as the quit number", money(r.Q)],["Your own retirement contribution", money(S.sustain?r.U:0)],["Sales tax on every sale", S.salesTax+"%"],["Cash out per wedding", money(S.costPerWedding)]];
+  $("#ladder").innerHTML = `
   <div class="stepname"><h2>The Package Ladder</h2><span class="small muted">Turns the number into prices</span></div>
-  <p class="voice">The calculator gave you a number. Prices are how you reach it, and part-timers price from what they see other people charge, not from what the business has to clear. Every tier below starts at its floor: the price that holds your ${S.floor}% margin at ${n} weddings a year, after overhead, direct costs, card fees and the cost of winning the booking. The floor is the minimum, not the price. Price to your market above it, and keep the ramp rising.</p>
+  <p class="voice">The calculator gave you a number. Prices are how you reach it, and part-timers price from what they see other people charge, not from what the business has to clear. Every tier below starts at its floor: the price that holds your ${S.floor}% margin at ${n} weddings a year after overhead, cash costs and sales tax. The floor is the minimum, not the price. Price to your market above it, and keep the ramp rising.</p>
   <div class="field"><div class="row"><label class="lbl" for="in-ladvol">Weddings a year to price for</label></div><div class="help">Defaults to the bookings your quit number needs at today's average. Overhead per wedding is ${money(oh)} at this volume.</div>
     <div class="ctl"><input type="range" id="rg-ladvol" min="5" max="60" step="1" value="${n}" aria-label="Weddings a year slider"><span class="unit"></span><input type="number" id="in-ladvol" value="${n}" min="1" step="1"><span class="unit">a year</span></div></div>
-  <div class="row" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><span class="eyebrow">Tiers</span><div class="seg" id="tierCount"><button type="button" data-v="3" aria-pressed="${!LAD.four}">Three</button><button type="button" data-v="4" aria-pressed="${LAD.four}">Four</button></div></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><span class="eyebrow">Tiers</span><div class="seg" id="tierCount"><button type="button" data-v="3" aria-pressed="${!LAD.four}">Three</button><button type="button" data-v="4" aria-pressed="${LAD.four}">Four</button></div></div>
   <div class="ladder-tiers">${rows.map(x=>`
     <div class="tier">
       <div class="grid">
         <div class="f"><span>Tier name</span><input type="text" data-t="${x.i}" data-k="name" value="${esc(x.t.name)}"></div>
         <div class="f"><span>Coverage hours</span><input type="number" data-t="${x.i}" data-k="hours" value="${x.t.hours}" min="1" step="1"></div>
-        <div class="f"><span>Second shooter hours</span><input type="number" data-t="${x.i}" data-k="ss" value="${x.t.ss}" min="0" step="1"></div>
-        <div class="f"><span>Other inclusion cash cost</span><input type="number" data-t="${x.i}" data-k="extra" value="${x.t.extra}" min="0" step="10"></div>
-        <div class="f"><span>Album included</span><label class="switch"><input type="checkbox" data-t="${x.i}" data-k="album" ${x.t.album?"checked":""}><span class="knob"></span><span>${x.t.album?"Yes":"No"}</span></label></div>
-        <div class="f"><span>Your price, inc GST (0 = use the floor)</span><input type="number" data-t="${x.i}" data-k="price" value="${x.t.price}" min="0" step="50"></div>
+        <div class="f"><span>Extra cash cost of this tier's inclusions</span><input type="number" data-t="${x.i}" data-k="extra" value="${x.t.extra}" min="0" step="10"></div>
+        <div class="f"><span>Your price (0 = use the floor)</span><input type="number" data-t="${x.i}" data-k="price" value="${x.t.price}" min="0" step="50"></div>
         <div class="f"><span>Share of bookings, %</span><input type="number" data-t="${x.i}" data-k="mix" value="${x.t.mix||0}" min="0" max="100" step="5"></div>
       </div>
       <div class="out">
-        <span>Floor <b>${money(x.floor)}</b></span>
-        <span>Price <b>${money(x.price)}</b></span>
+        <span>Floor <b>${money(x.floor)}</b></span><span>Price <b>${money(x.price)}</b></span>
         <span>Net margin <b>${pct(x.m)}</b> ${x.m>=f?'<span class="pill">clears</span>':'<span class="pill bad">under floor</span>'}</span>
         <span>Per hour <b>${x.ph?money(x.ph):"n/a"}</b> ${x.dip?'<span class="pill bad">dips</span>':''}</span>
         ${x.step?`<span>Step <b>x${x.step.toFixed(2)}</b></span>`:""}
       </div>
     </div>`).join("")}
   </div>
-  ${rows.some(x=>x.dip)?`<div class="note bad"><b>The ramp dips.</b> A tier that is cheaper per hour than the one below it pulls couples down out of the tier above. I made this mistake with my own middle package and it was the single structural fix in my rework. Raise the price or trim the hours until every step rises.</div>`:`<div class="note"><b>The ramp rises at every step.</b> Each tier earns at least as much per hour as the one below it, so nothing cannibalises the tier above.</div>`}
+  ${rows.some(x=>x.dip)?`<div class="note bad"><b>The ramp dips.</b> A tier that is cheaper per hour than the one below it pulls couples down out of the tier above. I made this mistake with my own middle package and it was the one structural fix in my rework. Raise the price or trim the hours until every step rises.</div>`:`<div class="note"><b>The ramp rises at every step.</b> Each tier earns at least as much per hour as the one below it, so nothing cannibalises the tier above.</div>`}
   ${flat?`<div class="note warn"><b>This is an hourly rate wearing collection names.</b> Every tier works out to the same price per hour, so couples will shop you by the hour and the cheapest photographer wins. Make each step add something a cheaper photographer cannot copy, not just hours.</div>`:""}
   <div class="note warn"><b>Do not sell base hours plus add-on hours on every tier.</b> That rebuilds the hourly trap. Take hour counts off anything a couple sees, put a finish time and a continuation rate in the contract, and set that rate at or above your top tier's price per hour (${money(Math.max(...rows.map(x=>x.ph||0)))} here).</div>
 
@@ -704,14 +532,14 @@ function renderLadder(){
       <div class="kpi"><span class="v">${money(r.Q)}</span><span class="k">Your quit number</span></div>
       <div class="kpi"><span class="v">${money(reqAvg)}</span><span class="k">Average sale that reaches the number at ${n} weddings</span></div>
     </div>
-    ${mixNet>=r.Q?`<div class="note"><b>This ladder reaches your number at ${n} weddings.</b> ${money(mixNet-r.Q)} of room above it for the quiet season and the costs you have not met yet.</div>`:`<div class="note bad"><b>This ladder does not reach your number.</b> At ${n} weddings and this mix it is ${money(r.Q-mixNet)} a year short. Lift prices toward an average of ${money(reqAvg)}, move the mix up the ladder, or add bookings. Lifting the average is the lever that does not cost Saturdays.</div>`}
+    ${mixNet>=r.Q?`<div class="note"><b>This ladder reaches your number at ${n} weddings.</b> ${money(mixNet-r.Q)} of room above it for the quiet season.</div>`:`<div class="note bad"><b>This ladder does not reach your number.</b> At ${n} weddings and this mix it is ${money(r.Q-mixNet)} a year short. Lift prices toward an average of ${money(reqAvg)}, move the mix up the ladder, or add bookings. Lifting the average is the lever that does not cost Saturdays.</div>`}
     <p class="small muted">The floor prices only protect the margin. Reaching the quit number is a separate test, and it is the one that decides the resignation date. The share of bookings is your guess until you have twenty consults on these prices.</p>
   </div>
 
   <div class="group">
     <div class="eyebrow">Add-ons, each with its own margin</div>
-    <div class="tablewrap"><table><thead><tr><th>Add-on</th><th class="num">Cash cost</th><th class="num">Retail inc GST</th><th class="num">Margin</th></tr></thead><tbody>
-    ${LAD.addons.map((a,i)=>{const rev=a.retail/g;const m=rev>0?(rev-a.cost-card*a.retail)/rev:0;return `<tr><td><input type="text" data-a="${i}" data-k="name" value="${esc(a.name)}" style="width:100%"></td><td class="num"><input type="number" data-a="${i}" data-k="cost" value="${a.cost}" min="0" step="10"></td><td class="num"><input type="number" data-a="${i}" data-k="retail" value="${a.retail}" min="0" step="50"></td><td class="num">${pct(m)} ${m>=f?'<span class="pill">ok</span>':'<span class="pill warn">thin</span>'}</td></tr>`}).join("")}
+    <div class="tablewrap"><table><thead><tr><th>Add-on</th><th class="num">Cash cost</th><th class="num">Retail</th><th class="num">Margin</th></tr></thead><tbody>
+    ${LAD.addons.map((a,i)=>{const rev=a.retail/g;const m=rev>0?(rev-a.cost)/rev:0;return `<tr><td><input type="text" data-a="${i}" data-k="name" value="${esc(a.name)}" style="width:100%"></td><td class="num"><input type="number" data-a="${i}" data-k="cost" value="${a.cost}" min="0" step="10"></td><td class="num"><input type="number" data-a="${i}" data-k="retail" value="${a.retail}" min="0" step="50"></td><td class="num">${pct(m)} ${m>=f?'<span class="pill">ok</span>':'<span class="pill warn">thin</span>'}</td></tr>`}).join("")}
     </tbody></table></div>
     <p class="small muted">Cash cost only. Your own hours on an engagement session are not a cost, they are capacity, so its margin reads high and its real price is a Saturday morning. Never discount or gift the thin ones.</p>
   </div>
@@ -724,23 +552,21 @@ function renderLadder(){
 
   <div class="group">
     <div class="eyebrow">Capacity check</div>
-    <p class="small">About ${ownerHours.toFixed(1)} of your hours per wedding (shooting plus culling at 0.35 an hour, editing outsourced) times ${n} weddings over ${r.W.toFixed(0)} working weeks is <b class="mono">${weeklyHours.toFixed(1)} hours a week</b> on weddings alone, before enquiries, consults and admin. ${weeklyHours>30?"That is a full week. Price higher or book fewer.":""}</p>
+    <p class="small">About ${ownerHours.toFixed(1)} of your hours per wedding (shooting plus culling at 0.35 an hour, editing outsourced) times ${n} weddings over ${FIX.workingWeeks} working weeks is <b class="mono">${weeklyHours.toFixed(1)} hours a week</b> on weddings alone, before enquiries, consults and admin. ${weeklyHours>30?"That is a full week. Price higher or book fewer.":""}</p>
   </div>
-  <p class="ref">Print this page for the Module 1 worksheet. Rates as at ${RATES.asAt}. Not tax advice.</p>`;
-  $("#ladder").innerHTML = html;
-  const vol = v => { LAD.volume = Math.max(1,parseInt(v)||1); persistL(); renderLadder() };
-  $("#rg-ladvol").oninput = e => vol(e.target.value); $("#in-ladvol").onchange = e => vol(e.target.value);
+  <p class="ref">Print this page for the Module 1 worksheet. ${S.region==="au"?"Rates as at "+RATES.asAt+".":""} Not tax advice.</p>`;
+  const vol = v => { LAD.volume=Math.max(1,parseInt(v)||1); persistL(); renderLadder() };
+  $("#rg-ladvol").oninput=e=>vol(e.target.value); $("#in-ladvol").onchange=e=>vol(e.target.value);
   $("#tierCount").querySelectorAll("button").forEach(b=>b.onclick=()=>{LAD.four=b.dataset.v==="4";persistL();renderLadder()});
-  document.querySelectorAll("#ladder [data-t]").forEach(el=>el.onchange=()=>{const t=LAD.tiers[+el.dataset.t];const k=el.dataset.k;t[k]= el.type==="checkbox"?el.checked : el.type==="text"?el.value : (parseFloat(el.value)||0);persistL();renderLadder()});
-  document.querySelectorAll("#ladder [data-a]").forEach(el=>el.onchange=()=>{const a=LAD.addons[+el.dataset.a];const k=el.dataset.k;a[k]= el.type==="text"?el.value:(parseFloat(el.value)||0);persistL();renderLadder()});
+  document.querySelectorAll("#ladder [data-t]").forEach(el=>el.onchange=()=>{const t=LAD.tiers[+el.dataset.t];t[el.dataset.k]= el.type==="text"?el.value:(parseFloat(el.value)||0);persistL();renderLadder()});
+  document.querySelectorAll("#ladder [data-a]").forEach(el=>el.onchange=()=>{const a=LAD.addons[+el.dataset.a];a[el.dataset.k]= el.type==="text"?el.value:(parseFloat(el.value)||0);persistL();renderLadder()});
 }
 
 /* ---------- boot ---------- */
-$("#disclaimer").textContent = `Australian rates as at ${RATES.asAt}, financial year ${RATES.fy}, reviewed every July. Elsewhere, every rate is yours from your payslip and your tax office. This is a planning tool and not tax or financial advice. Your accountant confirms before anything is set. Your inputs stay in your browser and are never sent anywhere.`;
-$("#empDial").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.v===S.emp));
-renderStep1(); renderStep2(); renderStep3();
+$("#disclaimer").textContent = `Australian rates as at ${RATES.asAt}, financial year ${RATES.fy}, reviewed every July. Elsewhere, every rate is yours from your payslip and your tax office. A planning tool, not tax or financial advice. Your accountant confirms before anything is set. Your inputs stay in your browser and are never sent anywhere.`;
+renderStep1(); renderStep2();
 if(location.hash==="#ladder") showTab("ladder");
-window.QN = {model, S, RATES, incomeTax, medicare, takeHome, grossFromNet, applyRegion, renderAll:()=>{renderStep1();renderStep2();renderStep3()}};
+window.QN = {model, S, RATES, FIX, incomeTax, medicare, takeHome, grossFromNet, applyRegion, renderAll:()=>{renderStep1();renderStep2()}};
 </script>
 </body>
 </html>

@@ -8,13 +8,13 @@ Eyebrow: A tool from Norman Yap, for photographers with a day job
 
 Headline: Can I leave my job, and when?
 
-Lede: I was a paramedic shooting weddings on the side. This is the maths I wish I had run before I handed in my notice. It compares your take-home pay to what the business must actually earn, builds in a buffer, and gives you a date. Twenty minutes, your real numbers, no guessing. It works in any country, because every rate comes from your own payslip and your own tax office.
+Lede: I was a paramedic shooting weddings on the side. This is the maths I wish I had run before I handed in my notice. Eleven numbers, most of them already on your payslip, and it gives you the top end: the profit the business must make to replace everything the job pays, the gap, the bookings, and the dates. Plan for that and anything less is a bonus.
 
-Who it is for: For wedding photographers who are already booking paid weddings. If you are not earning from weddings yet, follow along and come back when you are.
+Who it is for: For wedding photographers who are already booking paid weddings, in any country. If you are not earning from weddings yet, come back when you are.
 
 Tabs: The calculator. The Package Ladder.
 
-Steps: Step 1. Your job. Step 2. Your business. Step 3. Your targets and the path. Then your number.
+Steps: Step 1. Your job and your household. Step 2. Your business. Then your number.
 
 ## Where you work (step 1)
 
@@ -22,11 +22,11 @@ Australia: Australian income tax, Medicare levy and super guarantee for 2026-27 
 
 Somewhere else: I do not carry tax tables for other countries, and I will not guess them. You type what your payslip and your tax office already tell you: gross pay, take-home, the tax rate on your next dollar, your employer's retirement contribution and your sales tax rate. Everything else works the same.
 
-Button at the end of step 3: Show me my number
+Button at the end of step 2: Show me my number
 
 ## Result page
 
-Headline: Your quit number. [X] a month.
+Headline: Your quit number, the top end. [X] a month.
 
 Sub: [$Y] a year of business profit, after every cost of running it and before your own tax. It lands [$Z] a month in your bank, the same as the job does now.
 
@@ -42,7 +42,7 @@ The paragraph in my voice changes with the result:
 
 Deposit warning: Deposits are not your buffer. The last column is other people's money sitting in your account for weddings you have not photographed. Cash at bank must be at least that before any of it counts as yours.
 
-Scenario cards: Part time to full time. Drop to part time first. Casual bridge.
+Scenario cards: Straight to full time. Drop to part time first. Casual bridge.
 
 Footer: Australian rates as at 8 November 2026, financial year 2026-27, reviewed every July. Elsewhere, every rate is yours from your payslip and your tax office. This is a planning tool and not tax or financial advice. Your accountant confirms before anything is set. Your inputs stay in your browser and are never sent anywhere.
 

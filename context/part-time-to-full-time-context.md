@@ -179,6 +179,7 @@ Everything below already exists as a template, skill or process in the studio. T
 - Craft modules moved to a phase two program rather than diluting the business promise.
 - Module 0 opens with story and quick wins, not finance. Money arrives in Module 1 as a 20 minute calculator, detailed finance in Module 5.
 - Quit-Number Calculator is the lead magnet, not "25 Ways to Get More Bookings". Revised 9 Nov 2026: Norm ruled it is not a lead magnet. No email gate, nothing emailed, the result shows on the page.
+- Quit-Number Calculator is a condensed, high level, top end planner (Norm, 9 Nov 2026): eleven inputs and three dials, no shift penalties, leave or itemised cost lines, with the fixed assumptions stated. The employment type dial was dropped as an input.
 - Quit-Number Calculator works in any country (Norm, 9 Nov 2026). Australia is the only built-in, sourced tax preset. Everywhere else the user types gross, take-home, marginal rate, employer retirement contribution and sales tax from their own payslip and tax office. No rate is ever typed from memory for another country.
 - Runs under Norman Yap the educator on a separate channel, list and name. NYP couple-facing brand and photographer education content never cross.
 - Start with Booking Pack (written assets) rather than filming Modules 1 and 4 first. Research showed sales and consult content breaks out at nine times normal views, and written assets ship in weeks with no footage.

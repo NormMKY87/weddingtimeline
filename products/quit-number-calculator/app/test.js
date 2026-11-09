@@ -1,26 +1,25 @@
-// Checks the web app against the Python reference model and takes screenshots.
+// Checks the condensed app against the Python reference model and takes screenshots.
 // Run: node test.js   (Playwright and Chromium are preinstalled in the build environment)
 const { chromium } = require('playwright');
 const path = require('path');
-const { execSync } = require('child_process');
 
 const scenarios = {
-  A: { emp: 'full', payBasis: 'annual', salary: 95000, penalties: 20000, shiftworker: true, alWeeks: 5, wedNow: 12, wedLast: 8, avg: 5500, kit: 18000, household: 7000, bufferMonths: 3 },
-  B: { emp: 'part', payBasis: 'hourly', hourly: 48, hours: 22.8, wedNow: 8, wedLast: 5, avg: 4200, ssOn: false, kit: 12000, household: 5000, bufferMonths: 3 },
-  C: { emp: 'casual', payBasis: 'hourly', hourly: 38, hours: 25, wedNow: 15, wedLast: 11, avg: 3800, ssOn: false, kit: 15000, household: 4500, bufferMonths: 4 },
-  D: { region: 'other', taxMode: 'payslip', currency: '£', emp: 'full', payBasis: 'annual', salary: 60000, netPay: 46000, knowNet: true, marginalRate: 32, superRate: 3, salesTax: 20, loading: 0, lslOn: false, lslWeeks: 0, wedNow: 10, wedLast: 7, avg: 3000, ssOn: false, kit: 9000, household: 3200, bufferMonths: 3 },
+  A: { region: 'au', gross: 115000, knowNet: false, retireRate: 12, wedNow: 12, wedLast: 8, avg: 5500, costPerWedding: 1260, overhead: 8412, kit: 18000, household: 7000, bufferMonths: 3, salesTax: 10 },
+  B: { region: 'au', gross: 56900, knowNet: true, netPay: 48200, retireRate: 12, wedNow: 8, wedLast: 5, avg: 4200, costPerWedding: 700, overhead: 8412, kit: 12000, household: 5000, bufferMonths: 3, salesTax: 10 },
+  C: { region: 'au', gross: 49400, knowNet: false, retireRate: 12, wedNow: 15, wedLast: 11, avg: 3800, costPerWedding: 700, overhead: 8412, kit: 15000, household: 4500, bufferMonths: 4, salesTax: 10 },
+  D: { region: 'other', currency: '£', gross: 60000, knowNet: true, netPay: 46000, marginalRate: 32, retireRate: 3, salesTax: 20, wedNow: 10, wedLast: 7, avg: 3000, costPerWedding: 700, overhead: 8412, kit: 9000, household: 3200, bufferMonths: 3 },
 };
-// Expected from `python3 ../model.py` (quit number, business profit, bookings at today's average, buffer target)
+// Expected from `python3 ../model.py`
 const expected = {
-  A: { Q: 126400, B: 31693, n: 39, buffer: 24231, gap: 94707 },
-  B: { Q: 63738, B: 13535, n: 25, buffer: 17308, gap: 50202 },
-  C: { Q: 55328, B: 28892, n: 25, buffer: 18000, gap: 26436 },
-  D: { Q: 61800, B: 7254, n: 42, buffer: 11077, gap: 54546 },
+  A: { Q: 128800, B: 32868, n: 38, buffer: 21000, gap: 95932 },
+  B: { Q: 63769, B: 14133, n: 24, buffer: 15000, gap: 49636 },
+  C: { Q: 55328, B: 29906, n: 25, buffer: 18000, gap: 25422 },
+  D: { Q: 61800, B: 7788, n: 41, buffer: 9600, gap: 54012 },
 };
 
 (async () => {
   const browser = await chromium.launch();
-  const page = await browser.newPage({ viewport: { width: 1200, height: 900 } });
+  const page = await browser.newPage({ viewport: { width: 1100, height: 900 } });
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
   page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
@@ -40,30 +39,30 @@ const expected = {
     }
   }
 
-  // Walk the UI with scenario A and check the result renders without dashes or semicolons in visible text
-  await page.evaluate((inp) => { Object.assign(window.QN.S, inp); localStorage.clear(); }, scenarios.A);
-  await page.reload({ waitUntil: 'networkidle' });
-  await page.evaluate((inp) => { Object.assign(window.QN.S, inp); }, scenarios.A);
-  await page.click('[data-go="2"]'); await page.click('[data-go="3"]'); await page.click('#showResult');
+  // Walk the UI with scenario A
+  await page.evaluate((inp) => { Object.assign(window.QN.S, inp); window.QN.renderAll(); }, scenarios.A);
+  await page.click('[data-go="2"]'); await page.click('#showResult');
   await page.waitForSelector('#result .headline');
   const visiblePanels = await page.evaluate(() => [...document.querySelectorAll('section.panel[data-step]')].filter(s => s.offsetParent !== null).length);
   console.log(visiblePanels === 1 ? 'ok   one step panel visible at a time' : `FAIL ${visiblePanels} step panels visible`);
   if (visiblePanels !== 1) fail++;
+  const inputCount = await page.evaluate(() => { document.querySelector('#editInputs').click(); return document.querySelectorAll('#tab-calc input[type=number]').length; });
+  console.log(`info visible number inputs across both steps: ${inputCount}`);
+  await page.click('[data-go="2"]'); await page.click('#showResult'); await page.waitForSelector('#result .headline');
   const text = await page.evaluate(() => document.querySelector('.wrap').innerText);
   const bad = (text.match(/[—–;]/g) || []).length;
   console.log(bad ? `FAIL visible text has ${bad} dash or semicolon characters` : 'ok   no dashes or semicolons in visible text');
   if (bad) { fail++; console.log(text.split('\n').filter(l => /[—–;]/.test(l)).slice(0, 10)); }
   await page.screenshot({ path: path.join(__dirname, 'shot-result-desktop.png'), fullPage: true });
-  await page.click('#toLadder');
-  await page.waitForSelector('#ladder .tier');
+  await page.click('#toLadder'); await page.waitForSelector('#ladder .tier');
   await page.screenshot({ path: path.join(__dirname, 'shot-ladder-desktop.png'), fullPage: true });
 
-  // Region switch: somewhere else renders payslip fields and the pound sign
-  await page.evaluate(() => { document.querySelector('#regionDial [data-v="other"]').click(); });
-  const otherOk = await page.evaluate(() => !!document.querySelector('#in-marginalRate') && !!document.querySelector('#in-currency') && !document.querySelector('#sw-shiftworker'));
+  // Region switch renders payslip fields
+  await page.evaluate(() => { document.querySelector('#tabbtn-calc').click(); document.querySelector('#regionDial [data-v="other"]').click(); });
+  const otherOk = await page.evaluate(() => !!document.querySelector('#in-marginalRate') && !!document.querySelector('#in-currency') && !!document.querySelector('#in-salesTax'));
   console.log(otherOk ? 'ok   somewhere else shows payslip fields' : 'FAIL somewhere else fields missing');
   if (!otherOk) fail++;
-  await page.evaluate(() => { document.querySelector('#regionDial [data-v="au"]').click(); });
+  await page.evaluate(() => document.querySelector('#regionDial [data-v="au"]').click());
 
   const phone = await browser.newPage({ viewport: { width: 390, height: 844 } });
   await phone.goto('file://' + path.join(__dirname, 'index.html'), { waitUntil: 'networkidle' });

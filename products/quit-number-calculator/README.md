@@ -4,7 +4,7 @@
 |---|---|
 | `maths.md` | The model. Norm signs this off. Every rule, input, default and output with its source. |
 | `model.py` | Reference implementation of the model. `python3 model.py` prints the three worked scenarios. |
-| `app/index.html` | The embeddable app. One file, no build step, no framework. Both tabs: the calculator and the Package Ladder. |
+| `app/index.html` | The embeddable app. One file, no build step, no framework. Condensed to eleven inputs and three dials (9 Nov 2026). Both tabs: the calculator and the Package Ladder. |
 | `app/test.js` | Checks the app's JavaScript against `model.py` for the four scenarios, checks the visible text for dashes and semicolons, checks phone width, takes screenshots. `node app/test.js`. |
 | `app/render-worksheet.js` | Renders the Package Ladder tab to `package-ladder-worksheet.pdf` for Module 1 lesson 1.2. |
 | `copy.md` | Page copy and launch piece notes. |
@@ -30,7 +30,7 @@ Norm's ruling, 9 November 2026: this is not a lead magnet. Nothing is posted any
 
 ## Any country
 
-The first dial chooses Australia (sourced rates built in) or somewhere else (payslip mode: the user types gross, take-home, marginal rate, retirement contribution rate, sales tax rate and a currency symbol). See `maths.md` section 1 and decision D10. To add a country as a sourced preset later, add its rates to `RATES`, its sources to the assumptions panel, and a case to `applyRegion`.
+The first dial chooses Australia (sourced rates built in) or somewhere else (payslip mode: the user types gross, take-home, marginal rate, retirement contribution rate, sales tax rate and a currency symbol). See `maths.md` section 1 and decision D10. To add a country as a sourced preset later, add its rates to `RATES`, its sources to the assumptions panel, and a case to `applyRegion`. Fixed top end assumptions live in `FIX` and in `maths.md` section 7.
 
 ## Yearly update
 
