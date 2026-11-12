@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en-AU" data-format="landscape"><head><meta charset="utf-8"><title>The Follow-Up Vault, mockup scene</title>
+<link rel="stylesheet" href="scene.css">
+<style>
+  .comp { --cw: 960px; --ch: 540px; }
+  .map { left: 400px; top: 70px; width: 260px; height: 368px; transform: rotateX(8deg) rotateY(-12deg) rotateZ(-4deg); }
+  .map2 { left: 560px; top: 40px; width: 230px; height: 325px; transform: rotateX(8deg) rotateY(-12deg) rotateZ(6deg) translateZ(-40px); }
+  .phone { left: 240px; top: 130px; transform: rotateX(8deg) rotateY(-14deg) rotateZ(-6deg) translateZ(70px); }
+  .cover { left: 80px; top: 40px; width: 200px; height: 283px; transform: rotateX(8deg) rotateY(-12deg) rotateZ(-10deg) translateZ(-20px); }
+
+  html[data-format="square"] .comp { --k: .8; --dy: 6px; }
+  html[data-format="square"] .map { left: 440px; top: 110px; }
+  html[data-format="square"] .map2 { left: 600px; top: 30px; }
+  html[data-format="square"] .phone { left: 330px; top: 170px; }
+  html[data-format="square"] .cover { left: 210px; top: 20px; }
+
+  html[data-format="portrait"] .comp { --k: .95; }
+  html[data-format="portrait"] .map { left: 440px; top: 180px; }
+  html[data-format="portrait"] .map2 { left: 560px; top: 70px; }
+  html[data-format="portrait"] .phone { left: 330px; top: 240px; }
+  html[data-format="portrait"] .cover { left: 240px; top: -50px; }
+
+  html[data-format="hero"] .comp { --k: 1.08; }
+</style></head>
+<body data-product="follow-up-vault">
+<div class="stage"><div class="comp">
+  <div class="page cover shadow-soft"><img src="../out/covers/03-follow-up-vault.png" alt=""></div>
+  <div class="page map2 shadow-soft"><img src="../pages/fv-04.jpg" alt=""></div>
+  <div class="page map shadow"><img src="../pages/fv-03.jpg" alt=""></div>
+  <div class="phone shadow"><div class="island"></div><div class="screen"><img src="../out/screens/phone-vault.png" alt=""></div></div>
+</div></div>
+<div class="caption"><b>No. 03</b><span class="series"></span></div>
+</body></html>

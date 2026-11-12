@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en-AU" data-format="landscape"><head><meta charset="utf-8"><title>Part-Time to Full-Time, mockup scene</title>
+<link rel="stylesheet" href="scene.css">
+<style>
+  .comp { --cw: 960px; --ch: 540px; }
+  .laptop { left: 110px; top: 60px; width: 520px; transform: rotateY(-10deg) rotateX(4deg); }
+  .tablet { left: 650px; top: 70px; transform: rotateY(-14deg) rotateX(6deg) rotateZ(3deg) translateZ(50px); }
+  .stack { left: 30px; top: 250px; width: 150px; height: 212px; transform: rotateY(-12deg) rotateX(10deg) rotateZ(-6deg) translateZ(40px); }
+  .stack .page { left: 0; top: 0; width: 150px; height: 212px; }
+  .stack .s1 { transform: translate(6px, -6px) rotateZ(1.5deg); }
+  .stack .s2 { transform: translate(12px, -12px) rotateZ(-1deg); }
+  .stack .s3 { transform: translate(18px, -18px) rotateZ(2deg); }
+  .stack .s4 { transform: translate(24px, -24px) rotateZ(-1.5deg); }
+  .cover { left: 30px; top: 20px; width: 130px; height: 184px; transform: rotateY(-12deg) rotateX(8deg) rotateZ(-6deg) translateZ(-40px); }
+
+  html[data-format="square"] .comp { --k: .78; --dy: 6px; }
+  html[data-format="square"] .laptop { left: 180px; top: 80px; width: 480px; }
+  html[data-format="square"] .tablet { left: 620px; top: 20px; }
+  html[data-format="square"] .stack { left: 180px; top: 290px; }
+  html[data-format="square"] .cover { left: 150px; top: 10px; }
+
+  html[data-format="portrait"] .comp { --k: .9; }
+  html[data-format="portrait"] .laptop { left: 240px; top: 150px; width: 500px; }
+  html[data-format="portrait"] .tablet { left: 560px; top: -60px; }
+  html[data-format="portrait"] .stack { left: 240px; top: 390px; }
+  html[data-format="portrait"] .cover { left: 190px; top: 80px; }
+
+  html[data-format="hero"] .comp { --k: .9; }
+</style></head>
+<body data-product="part-time-to-full-time">
+<div class="stage"><div class="comp">
+  <div class="laptop shadow"><div class="lid"><div class="cam"></div><div class="screen"><img src="../out/screens/player-program.png" alt=""></div></div><div class="base"></div></div>
+  <div class="tablet shadow"><div class="cam"></div><div class="screen"><img src="../out/screens/ws-seven-day-checklist.png" alt=""></div></div>
+  <div class="stack">
+    <div class="page s4 shadow-soft"><img src="../out/screens/wc-6.png" alt=""></div>
+    <div class="page s3 shadow-soft"><img src="../out/screens/wc-4.png" alt=""></div>
+    <div class="page s2 shadow-soft"><img src="../out/screens/wc-3.png" alt=""></div>
+    <div class="page s1 shadow-soft"><img src="../out/screens/wc-1.png" alt=""></div>
+    <div class="page shadow"><img src="../out/screens/wc-0.png" alt=""></div>
+  </div>
+  <div class="page cover shadow-soft"><img src="../out/covers/05-part-time-to-full-time.png" alt=""></div>
+</div></div>
+<div class="caption"><b>No. 05</b><span class="series"></span></div>
+</body></html>

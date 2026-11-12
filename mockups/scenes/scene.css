@@ -1,0 +1,73 @@
+@import url(../fonts/fonts.css);
+@import url(../tokens.css);
+
+/* Scenes are composed in CSS pixels at half the export size and rendered at
+   deviceScaleFactor 2 by render.js. The html[data-format] attribute picks the
+   size: square 540x540, portrait 540x675, landscape 960x540, hero 800x600
+   (hero is a transparent cutout). */
+
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+body { background: var(--scene-bg); font-family: var(--font-text); color: var(--ink); -webkit-font-smoothing: antialiased; position: relative; }
+body::before { content: ""; position: absolute; inset: 0;
+  background: radial-gradient(120% 95% at var(--scene-light-x) 0%, var(--white) 0%, var(--scene-bg) 50%, var(--scene-bg-2) 100%); }
+html[data-format="hero"] body { background: transparent; }
+html[data-format="hero"] body::before { display: none; }
+
+.stage { position: absolute; inset: 0; perspective: 1600px; perspective-origin: 50% 45%; }
+.comp { position: absolute; left: 50%; top: 50%; width: var(--cw, 960px); height: var(--ch, 540px);
+  transform: translate(-50%, -50%) translate(var(--dx, 0px), var(--dy, 0px)) scale(var(--k, 1)); transform-style: preserve-3d; }
+.comp > *, .comp .page, .comp .fan > * { position: absolute; transform-style: preserve-3d; }
+
+/* ---- shadows: a contact shadow, an ambient shadow and a long soft one, lit from the upper left ---- */
+:root {
+  --sh-contact: 0 1px 2px rgb(var(--shadow-rgb) / .22);
+  --sh-near: 10px 16px 30px -8px rgb(var(--shadow-rgb) / .35);
+  --sh-far: 30px 60px 90px -30px rgb(var(--shadow-rgb) / .35);
+}
+.shadow { box-shadow: var(--sh-contact), var(--sh-near), var(--sh-far); }
+.shadow-soft { box-shadow: var(--sh-contact), 6px 10px 22px -6px rgb(var(--shadow-rgb) / .28), 18px 36px 60px -24px rgb(var(--shadow-rgb) / .28); }
+
+/* ---- pages ---- */
+.page { background: var(--white); overflow: hidden; outline: 1px solid var(--page-edge); outline-offset: -1px; }
+.page img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.page.a4 { width: 210px; height: 297px; }
+
+/* a bound stack: the cover with thin page edges showing behind it */
+.book { position: relative; }
+.book::before, .book::after { content: ""; position: absolute; inset: 0; background: var(--white); outline: 1px solid var(--page-edge); outline-offset: -1px; transform: translate(4px, 3px); z-index: -1; box-shadow: var(--sh-contact); }
+.book::after { transform: translate(8px, 6px); background: var(--paper-2); }
+.book img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---- phone ---- */
+.phone { width: 150px; height: 324px; background: var(--device-bezel); border-radius: 24px; padding: 6px; box-sizing: border-box; position: absolute; }
+.phone::before { content: ""; position: absolute; inset: 0; border-radius: 24px; box-shadow: inset 0 0 0 1.5px var(--device-edge); pointer-events: none; z-index: 3; }
+.phone .screen { width: 100%; height: 100%; border-radius: 19px; overflow: hidden; background: #fff; position: relative; }
+.phone .screen img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.phone .island { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 44px; height: 13px; border-radius: 8px; background: var(--device-bezel); z-index: 4; }
+
+/* ---- tablet ---- */
+.tablet { width: 250px; height: 348px; background: var(--device-bezel); border-radius: 18px; padding: 12px; box-sizing: border-box; position: absolute; }
+.tablet::before { content: ""; position: absolute; inset: 0; border-radius: 18px; box-shadow: inset 0 0 0 1.5px var(--device-edge); z-index: 3; }
+.tablet .screen { width: 100%; height: 100%; border-radius: 6px; overflow: hidden; background: #fff; }
+.tablet .screen img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.tablet .cam { position: absolute; top: 5px; left: 50%; width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: #2b2a2e; box-shadow: inset 0 0 1px #000; z-index: 4; }
+.tablet.landscape { width: 348px; height: 250px; }
+
+/* ---- laptop, seen slightly from the front ---- */
+.laptop { width: 560px; position: absolute; }
+.laptop .lid { background: var(--device-bezel); border-radius: 12px 12px 0 0; padding: 10px 10px 12px; box-sizing: border-box; position: relative; }
+.laptop .lid::before { content: ""; position: absolute; inset: 0; border-radius: 12px 12px 0 0; box-shadow: inset 0 0 0 1.5px var(--device-edge); z-index: 3; }
+.laptop .screen { aspect-ratio: 16 / 10; overflow: hidden; background: #fff; border-radius: 3px; }
+.laptop .screen img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.laptop .base { height: 14px; margin: 0 -26px; background: linear-gradient(#54504b, #2a2724 60%, #1a1715); border-radius: 2px 2px 10px 10px; position: relative; }
+.laptop .base::after { content: ""; position: absolute; left: 50%; top: 0; width: 90px; height: 5px; margin-left: -45px; background: #141210; border-radius: 0 0 6px 6px; }
+.laptop .cam { position: absolute; top: 4px; left: 50%; width: 3px; height: 3px; margin-left: -1.5px; border-radius: 50%; background: #2b2a2e; z-index: 4; }
+
+/* ---- stamp used on the phase two scenes ---- */
+.ribbon { font-size: 9px; letter-spacing: .24em; text-transform: uppercase; font-weight: 600; color: var(--clay); border: 1.5px solid var(--clay); padding: 7px 11px; background: var(--white); }
+
+/* ---- caption line in the corner, hidden on the hero cutout ---- */
+.caption { position: absolute; left: 28px; bottom: 22px; font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--mute); font-weight: 500; z-index: 10; }
+.caption b { color: var(--ink); font-weight: 600; margin-right: 14px; }
+.caption .series::before { content: var(--series-name); }
+html[data-format="hero"] .caption { display: none; }

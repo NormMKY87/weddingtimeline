@@ -1,0 +1,94 @@
+@import url(../fonts/fonts.css);
+@import url(../tokens.css);
+html, body { margin: 0; background: #9a9a9a; }
+body { font-family: var(--font-text); color: var(--ink); -webkit-font-smoothing: antialiased; padding: 20px; display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+.brand::before { content: var(--brand-name); }
+.series::before { content: var(--series-name); }
+
+/* ---------- lesson player, laptop screen 1120 x 700 ---------- */
+.player { width: 1120px; height: 700px; background: var(--white); display: grid; grid-template-rows: 52px 1fr; overflow: hidden; }
+.player .bar { display: flex; align-items: center; justify-content: space-between; padding: 0 28px; border-bottom: 1px solid rgb(34 30 26 / .12); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); font-weight: 500; }
+.player .bar .brand { color: var(--ink); }
+.player .bar .pill { border: 1px solid rgb(34 30 26 / .2); border-radius: 999px; padding: 5px 12px; letter-spacing: .12em; font-size: 10px; }
+.player .main { display: grid; grid-template-columns: 1fr 318px; min-height: 0; }
+.player .stage { padding: 26px 28px 0; min-width: 0; }
+.video { aspect-ratio: 16 / 9; background: var(--ink); color: var(--white); position: relative; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; padding: 28px 32px; box-sizing: border-box; }
+.video .k { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--clay-soft); font-weight: 500; }
+.video h2 { font-family: var(--font-display); font-weight: 500; font-size: 46px; line-height: 1; margin: 10px 0 0; max-width: 520px; }
+.video h2 em { font-style: italic; font-weight: 400; }
+.video .play { position: absolute; right: 32px; bottom: 64px; width: 58px; height: 58px; border-radius: 50%; border: 1.5px solid var(--clay-soft); display: grid; place-items: center; }
+.video .play::after { content: ""; border-left: 16px solid var(--clay-soft); border-top: 10px solid transparent; border-bottom: 10px solid transparent; margin-left: 4px; }
+.video .scrub { height: 2px; background: rgb(251 248 242 / .25); position: relative; }
+.video .scrub i { position: absolute; left: 0; top: 0; height: 100%; width: 38%; background: var(--clay); }
+.video .time { display: flex; justify-content: space-between; font-size: 10px; letter-spacing: .12em; color: rgb(251 248 242 / .7); margin-top: 8px; }
+.under { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-top: 18px; }
+.under h3 { font-family: var(--font-display); font-weight: 500; font-size: 22px; margin: 0 0 4px; }
+.under .lbl { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--clay); font-weight: 600; margin-bottom: 6px; }
+.under p { font-size: 13px; line-height: 1.5; margin: 0; color: var(--ink-2); }
+.under .action { border-left: 2px solid var(--clay); padding-left: 14px; }
+.side { border-left: 1px solid rgb(34 30 26 / .12); padding: 22px 22px 0; overflow: hidden; background: var(--paper); }
+.side .hd { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--mute); font-weight: 600; margin-bottom: 10px; display: flex; justify-content: space-between; }
+.mod { margin-bottom: 12px; }
+.mod .m { font-family: var(--font-display); font-weight: 500; font-size: 16px; margin: 0 0 4px; display: flex; gap: 8px; align-items: baseline; }
+.mod .m span { font-size: 11px; color: var(--clay); font-family: var(--font-text); letter-spacing: .08em; }
+.mod ul { list-style: none; margin: 0; padding: 0; }
+.mod li { font-size: 12px; line-height: 1.35; padding: 5px 0 5px 20px; position: relative; color: var(--ink-2); border-top: 1px solid rgb(34 30 26 / .08); }
+.mod li::before { content: ""; position: absolute; left: 0; top: 8px; width: 11px; height: 11px; border-radius: 50%; border: 1px solid rgb(34 30 26 / .3); }
+.mod li.done::before { background: var(--clay); border-color: var(--clay); }
+.mod li.done { color: var(--mute); }
+.mod li.now { color: var(--ink); font-weight: 600; }
+.mod li.now::before { border-color: var(--clay); border-width: 2px; }
+.mod li.lock { color: rgb(34 30 26 / .4); }
+.mod li.lock::before { border-style: dashed; }
+.player[data-product="craft-program"] .video { background: var(--ink-2); }
+
+/* ---------- worksheets, A4 595 x 842 ---------- */
+.sheet { width: 595px; height: 842px; background: var(--sheet-bg, var(--white)); color: var(--sheet-fg, var(--ink)); padding: 46px 48px 40px; box-sizing: border-box; position: relative; display: flex; flex-direction: column; }
+.sheet .top { display: flex; justify-content: space-between; font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--sheet-accent, var(--clay)); font-weight: 500; margin-bottom: 26px; }
+.sheet h1 { font-family: var(--font-display); font-weight: 500; font-size: 40px; line-height: 1; margin: 0 0 10px; }
+.sheet h1 em { font-style: italic; font-weight: 400; }
+.sheet .lede { font-size: 12.5px; line-height: 1.5; color: var(--ink-2); max-width: 400px; margin: 0 0 20px; }
+.sheet .foot { margin-top: auto; border-top: 1px solid var(--sheet-rule, rgb(34 30 26 / .18)); padding-top: 10px; display: flex; justify-content: space-between; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); }
+.rows { list-style: none; margin: 0; padding: 0; }
+.rows li { display: grid; grid-template-columns: 44px 1fr 110px; gap: 12px; align-items: start; padding: 11px 0; border-top: 1px solid var(--sheet-rule, rgb(34 30 26 / .18)); font-size: 11.5px; line-height: 1.45; }
+.rows li b { font-family: var(--font-display); font-weight: 500; font-size: 20px; line-height: 1; color: var(--sheet-accent, var(--clay)); }
+.rows li .what { color: var(--ink); }
+.rows li .what small { display: block; color: var(--mute); font-size: 10.5px; margin-top: 2px; }
+.rows li .box { height: 30px; border: 1px solid rgb(34 30 26 / .35); border-radius: 3px; }
+.rows li .box.tick { display: grid; grid-template-columns: 1fr; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); align-items: end; padding: 0 0 3px 6px; box-sizing: border-box; }
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; margin: 6px 0 18px; }
+.fields .f { border-bottom: 1px solid rgb(34 30 26 / .4); padding: 20px 0 6px; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--mute); }
+.fields .f.big { grid-column: 1 / -1; padding-top: 34px; font-size: 11px; color: var(--clay); font-weight: 600; }
+.note { font-size: 11px; line-height: 1.5; color: var(--ink-2); border-left: 2px solid var(--clay); padding-left: 12px; margin: 0 0 16px; }
+
+/* worksheet covers for the stacked set, same slots as the sheet */
+.wcover { width: 595px; height: 842px; box-sizing: border-box; padding: 46px 48px 40px; display: flex; flex-direction: column; background: var(--paper); color: var(--ink); position: relative; }
+.wcover.alt { background: var(--paper-2); }
+.wcover.ink { background: var(--ink); color: var(--white); }
+.wcover.ink .top, .wcover.ink .foot { color: var(--clay-soft); border-color: rgb(251 248 242 / .22); }
+.wcover .top { display: flex; justify-content: space-between; font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--clay); font-weight: 500; }
+.wcover .no { font-family: var(--font-display); font-weight: 300; font-size: 150px; line-height: .85; color: var(--clay); margin: 120px 0 18px -4px; }
+.wcover h1 { font-family: var(--font-display); font-weight: 500; font-size: 48px; line-height: 1; margin: 0 0 14px; max-width: 440px; }
+.wcover h1 em { font-style: italic; font-weight: 400; }
+.wcover p { font-size: 13px; line-height: 1.5; color: inherit; opacity: .8; max-width: 360px; margin: 0; }
+.wcover .foot { margin-top: auto; border-top: 1px solid rgb(34 30 26 / .2); padding-top: 12px; display: flex; justify-content: space-between; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--clay); }
+
+/* ---------- phone threads, 390 x 844 ---------- */
+.phone-screen { width: 390px; height: 844px; background: var(--white); display: flex; flex-direction: column; font-size: 15px; line-height: 1.4; overflow: hidden; }
+.phone-screen .status { height: 54px; display: flex; justify-content: space-between; align-items: flex-end; padding: 0 28px 6px; font-size: 14px; font-weight: 600; }
+.phone-screen .status i { display: inline-block; width: 24px; height: 11px; border: 1.5px solid var(--ink); border-radius: 3px; position: relative; }
+.phone-screen .status i::after { content: ""; position: absolute; left: 2px; top: 2px; bottom: 2px; width: 70%; background: var(--ink); border-radius: 1px; }
+.phone-screen .head { display: flex; align-items: center; gap: 12px; padding: 8px 16px 12px; border-bottom: 1px solid rgb(34 30 26 / .1); }
+.phone-screen .head .av { width: 38px; height: 38px; border-radius: 50%; background: var(--paper-2); display: grid; place-items: center; font-family: var(--font-display); font-size: 18px; color: var(--clay); }
+.phone-screen .head b { display: block; font-size: 15px; }
+.phone-screen .head small { color: var(--mute); font-size: 12px; }
+.phone-screen .head .back { color: var(--clay); font-size: 22px; line-height: 1; margin-right: 2px; }
+.thread { flex: 1; padding: 14px 14px 0; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
+.thread .day { align-self: center; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); margin: 8px 0 4px; font-weight: 600; }
+.bub { max-width: 78%; padding: 10px 14px; border-radius: 18px; }
+.bub.them { align-self: flex-start; background: var(--paper-2); color: var(--ink); border-bottom-left-radius: 5px; }
+.bub.me { align-self: flex-end; background: var(--clay); color: var(--white); border-bottom-right-radius: 5px; }
+.bub.me + .bub.me { border-top-right-radius: 6px; }
+.phone-screen .input { margin: 10px 14px 28px; height: 40px; border: 1px solid rgb(34 30 26 / .2); border-radius: 20px; display: flex; align-items: center; padding: 0 16px; color: var(--mute); font-size: 14px; justify-content: space-between; }
+.phone-screen .input::after { content: ""; width: 10px; height: 10px; border-right: 2px solid var(--clay); border-top: 2px solid var(--clay); transform: rotate(45deg); }
+.phone-screen .home { align-self: center; width: 130px; height: 5px; border-radius: 3px; background: var(--ink); margin-bottom: 10px; opacity: .8; }

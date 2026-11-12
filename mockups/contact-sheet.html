@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><title>Product mockups, contact sheet</title>
+<link rel="stylesheet" href="fonts/fonts.css"><link rel="stylesheet" href="tokens.css">
+<style>
+  html, body { margin: 0; background: var(--paper-2); }
+  body { font-family: var(--font-text); color: var(--ink); padding: 48px 56px 64px; -webkit-font-smoothing: antialiased; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid rgb(34 30 26 / .2); padding-bottom: 18px; margin-bottom: 36px; }
+  h1 { font-family: var(--font-display); font-weight: 500; font-size: 44px; line-height: 1; margin: 0; }
+  h1 em { font-style: italic; font-weight: 400; }
+  header p { margin: 8px 0 0; font-size: 13px; color: var(--mute); max-width: 720px; line-height: 1.5; }
+  header .k { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--clay); font-weight: 600; text-align: right; line-height: 1.8; }
+  .brand::before { content: var(--brand-name); } .series::before { content: var(--series-name); }
+  section { display: grid; grid-template-columns: 220px 1fr; gap: 28px; padding: 28px 0; border-bottom: 1px solid rgb(34 30 26 / .14); align-items: start; }
+  section:last-of-type { border-bottom: 0; }
+  .meta .no { font-family: var(--font-display); font-weight: 300; font-size: 54px; line-height: .9; color: var(--clay); }
+  .meta h2 { font-family: var(--font-display); font-weight: 500; font-size: 24px; line-height: 1.05; margin: 10px 0 6px; }
+  .meta p { font-size: 12px; line-height: 1.5; color: var(--ink-2); margin: 0 0 8px; }
+  .meta .path { font-size: 10.5px; color: var(--mute); word-break: break-all; }
+  .shots { display: grid; grid-template-columns: 1.78fr 1fr 0.8fr 1.33fr; gap: 14px; align-items: start; }
+  .shots figure { margin: 0; }
+  .shots img { display: block; width: 100%; height: auto; box-shadow: 0 1px 2px rgb(46 34 22 / .18), 0 10px 24px -10px rgb(46 34 22 / .3); }
+  .shots figure.hero img { background: repeating-conic-gradient(rgb(34 30 26 / .08) 0 25%, transparent 0 50%) 0 0 / 18px 18px; box-shadow: none; }
+  .shots figcaption { font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); margin-top: 8px; font-weight: 500; }
+  .covers { display: grid; grid-template-columns: repeat(7, 1fr); gap: 14px; padding: 28px 0 8px; }
+  .covers img { display: block; width: 100%; box-shadow: 0 1px 2px rgb(46 34 22 / .18), 0 10px 24px -10px rgb(46 34 22 / .3); }
+  .label { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--clay); font-weight: 600; margin: 40px 0 0; }
+  footer { margin-top: 40px; font-size: 11px; color: var(--mute); line-height: 1.6; max-width: 820px; }
+</style></head>
+<body>
+<header>
+  <div><h1>Product mockups, <em>contact sheet</em></h1>
+  <p>Six products and the bundle, each at four sizes: landscape 1920 by 1080, square 1080, portrait 1080 by 1350, and a transparent hero cutout 1600 by 1200 for the sales page. Every scene is HTML and CSS in <code>mockups/scenes/</code>, rendered with <code>node mockups/render.js</code>. Palette, type and the brand wordmark come from <code>mockups/tokens.css</code>, so the whole suite re-skins from one file once the education brand name lands.</p></div>
+  <div class="k"><div class="series"></div><div class="brand"></div><div>Provisional brand, 12 November 2026</div></div>
+</header>
+
+<div class="label">The cover system</div>
+<div class="covers">
+  <img src="out/covers/01-quit-number-calculator.png" alt=""><img src="out/covers/02-booking-pack.png" alt=""><img src="out/covers/03-follow-up-vault.png" alt=""><img src="out/covers/04-consult-call-kit.png" alt=""><img src="out/covers/05-part-time-to-full-time.png" alt=""><img src="out/covers/06-craft-program.png" alt=""><img src="out/covers/07-bundle.png" alt="">
+</div>
+
+<div class="label">The scenes</div>
+<section>
+  <div class="meta"><div class="no">01</div><h2>The Quit-Number Calculator</h2><p>Laptop and phone on the result page of the real calculator, with the Package Ladder sheet as a floating page.</p><div class="path">mockups/out/quit-number-calculator/</div></div>
+  <div class="shots"><figure><img src="out/quit-number-calculator/landscape.png" alt=""><figcaption>Landscape</figcaption></figure><figure><img src="out/quit-number-calculator/square.png" alt=""><figcaption>Square</figcaption></figure><figure><img src="out/quit-number-calculator/portrait.png" alt=""><figcaption>Portrait</figcaption></figure><figure class="hero"><img src="out/quit-number-calculator/hero.png" alt=""><figcaption>Hero cutout</figcaption></figure></div>
+</section>
+<section>
+  <div class="meta"><div class="no">02</div><h2>The Booking Pack</h2><p>Fanned pages with the cover in front (contents, DM scripts, enquiry sequence, proposal, objection replies), plus a phone running the first reply and the invite script.</p><div class="path">mockups/out/booking-pack/</div></div>
+  <div class="shots"><figure><img src="out/booking-pack/landscape.png" alt=""><figcaption>Landscape</figcaption></figure><figure><img src="out/booking-pack/square.png" alt=""><figcaption>Square</figcaption></figure><figure><img src="out/booking-pack/portrait.png" alt=""><figcaption>Portrait</figcaption></figure><figure class="hero"><img src="out/booking-pack/hero.png" alt=""><figcaption>Hero cutout</figcaption></figure></div>
+</section>
+<section>
+  <div class="meta"><div class="no">03</div><h2>The Follow-Up Vault</h2><p>Phone thread showing Track A by day beside the cadence map pages for both tracks, cover behind.</p><div class="path">mockups/out/follow-up-vault/</div></div>
+  <div class="shots"><figure><img src="out/follow-up-vault/landscape.png" alt=""><figcaption>Landscape</figcaption></figure><figure><img src="out/follow-up-vault/square.png" alt=""><figcaption>Square</figcaption></figure><figure><img src="out/follow-up-vault/portrait.png" alt=""><figcaption>Portrait</figcaption></figure><figure class="hero"><img src="out/follow-up-vault/hero.png" alt=""><figcaption>Hero cutout</figcaption></figure></div>
+</section>
+<section>
+  <div class="meta"><div class="no">04</div><h2>The Consult Call Kit</h2><p>Tablet with the one page run sheet, the ten questions as floating pages, cover beside.</p><div class="path">mockups/out/consult-call-kit/</div></div>
+  <div class="shots"><figure><img src="out/consult-call-kit/landscape.png" alt=""><figcaption>Landscape</figcaption></figure><figure><img src="out/consult-call-kit/square.png" alt=""><figcaption>Square</figcaption></figure><figure><img src="out/consult-call-kit/portrait.png" alt=""><figcaption>Portrait</figcaption></figure><figure class="hero"><img src="out/consult-call-kit/hero.png" alt=""><figcaption>Hero cutout</figcaption></figure></div>
+</section>
+<section>
+  <div class="meta"><div class="no">05</div><h2>Part-Time to Full-Time</h2><p>Laptop with the lesson player on Lesson 1.1, tablet with the Seven Day Checklist, the stacked worksheet set for Modules 0 to 6, cover behind.</p><div class="path">mockups/out/part-time-to-full-time/</div></div>
+  <div class="shots"><figure><img src="out/part-time-to-full-time/landscape.png" alt=""><figcaption>Landscape</figcaption></figure><figure><img src="out/part-time-to-full-time/square.png" alt=""><figcaption>Square</figcaption></figure><figure><img src="out/part-time-to-full-time/portrait.png" alt=""><figcaption>Portrait</figcaption></figure><figure class="hero"><img src="out/part-time-to-full-time/hero.png" alt=""><figcaption>Hero cutout</figcaption></figure></div>
+</section>
+<section>
+  <div class="meta"><div class="no">06</div><h2>The Craft Program</h2><p>Same system as the flagship with its own cover, Modules 7 to 11 in the player and the stack, the timeline builder worksheet, marked coming 2027.</p><div class="path">mockups/out/craft-program/</div></div>
+  <div class="shots"><figure><img src="out/craft-program/landscape.png" alt=""><figcaption>Landscape</figcaption></figure><figure><img src="out/craft-program/square.png" alt=""><figcaption>Square</figcaption></figure><figure><img src="out/craft-program/portrait.png" alt=""><figcaption>Portrait</figcaption></figure><figure class="hero"><img src="out/craft-program/hero.png" alt=""><figcaption>Hero cutout</figcaption></figure></div>
+</section>
+<section>
+  <div class="meta"><div class="no">&#8942;</div><h2>The whole ladder</h2><p>All six covers in a row with the lesson player and the DM phone. For the flagship sales page and the channel banner.</p><div class="path">mockups/out/bundle/</div></div>
+  <div class="shots"><figure><img src="out/bundle/landscape.png" alt=""><figcaption>Landscape</figcaption></figure><figure><img src="out/bundle/square.png" alt=""><figcaption>Square</figcaption></figure><figure><img src="out/bundle/portrait.png" alt=""><figcaption>Portrait</figcaption></figure><figure class="hero"><img src="out/bundle/hero.png" alt=""><figcaption>Hero cutout</figcaption></figure></div>
+</section>
+
+<footer>Inner pages are the real pages from the product PDFs in <code>products/</code>, rasterised into <code>mockups/pages/</code>. The calculator screens are screenshots of the live app. The lesson player, worksheets and phone threads are HTML in <code>mockups/screens/</code>, with copy taken from the context file and the product scripts. No prices appear anywhere. Device frames are drawn in CSS.</footer>
+</body></html>

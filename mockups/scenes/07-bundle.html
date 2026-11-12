@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en-AU" data-format="landscape"><head><meta charset="utf-8"><title>The whole ladder, bundle scene</title>
+<link rel="stylesheet" href="scene.css">
+<style>
+  .comp { --cw: 960px; --ch: 540px; }
+  .row { left: 50px; top: 100px; width: 900px; height: 330px; transform: rotateX(10deg) rotateY(-10deg); }
+  .row .page { width: 190px; height: 269px; top: 0; }
+  .row .c1 { left: 0px;   transform: translateZ(0px)   rotateZ(-5deg); }
+  .row .c2 { left: 142px; transform: translateZ(10px)  rotateZ(-3deg); }
+  .row .c3 { left: 284px; transform: translateZ(20px)  rotateZ(-1deg); }
+  .row .c4 { left: 426px; transform: translateZ(30px)  rotateZ(1deg); }
+  .row .c5 { left: 568px; transform: translateZ(40px)  rotateZ(3deg); }
+  .row .c6 { left: 710px; transform: translateZ(50px)  rotateZ(5deg); }
+  .laptop { left: 280px; top: -50px; width: 420px; transform: rotateY(-6deg) rotateX(8deg) translateZ(-120px); }
+  .phone { left: 790px; top: 170px; width: 120px; height: 259px; transform: rotateX(8deg) rotateY(-14deg) rotateZ(6deg) translateZ(90px); }
+  .ribbon { left: 40px; top: 60px; }
+
+  html[data-format="square"] .comp { --k: .8; }
+  html[data-format="square"] .row { left: 180px; top: 150px; width: 620px; }
+  html[data-format="square"] .row .page { width: 170px; height: 240px; }
+  html[data-format="square"] .row .c1 { left: 0; top: 0; } html[data-format="square"] .row .c2 { left: 150px; top: 0; } html[data-format="square"] .row .c3 { left: 300px; top: 0; }
+  html[data-format="square"] .row .c4 { left: 60px; top: 120px; } html[data-format="square"] .row .c5 { left: 210px; top: 120px; } html[data-format="square"] .row .c6 { left: 360px; top: 120px; }
+  html[data-format="square"] .laptop { left: 260px; top: -90px; width: 440px; }
+  html[data-format="square"] .phone { left: 640px; top: 300px; }
+
+  html[data-format="portrait"] .comp { --k: .9; }
+  html[data-format="portrait"] .row { left: 230px; top: 150px; width: 520px; }
+  html[data-format="portrait"] .row .page { width: 170px; height: 240px; }
+  html[data-format="portrait"] .row .c1 { left: 0; top: 0; } html[data-format="portrait"] .row .c2 { left: 150px; top: 0; } html[data-format="portrait"] .row .c3 { left: 300px; top: 0; }
+  html[data-format="portrait"] .row .c4 { left: 60px; top: 150px; } html[data-format="portrait"] .row .c5 { left: 210px; top: 150px; } html[data-format="portrait"] .row .c6 { left: 360px; top: 150px; }
+  html[data-format="portrait"] .laptop { left: 250px; top: -110px; width: 460px; }
+  html[data-format="portrait"] .phone { left: 640px; top: 360px; }
+
+  html[data-format="hero"] .comp { --k: .9; }
+  html[data-format="hero"] .laptop { top: -20px; }
+</style></head>
+<body data-product="bundle">
+<div class="stage"><div class="comp">
+  <div class="laptop shadow"><div class="lid"><div class="cam"></div><div class="screen"><img src="../out/screens/player-program.png" alt=""></div></div><div class="base"></div></div>
+  <div class="row">
+    <div class="page c1 shadow"><img src="../out/covers/01-quit-number-calculator.png" alt=""></div>
+    <div class="page c2 shadow"><img src="../out/covers/02-booking-pack.png" alt=""></div>
+    <div class="page c3 shadow"><img src="../out/covers/03-follow-up-vault.png" alt=""></div>
+    <div class="page c4 shadow"><img src="../out/covers/04-consult-call-kit.png" alt=""></div>
+    <div class="page c5 shadow"><img src="../out/covers/05-part-time-to-full-time.png" alt=""></div>
+    <div class="page c6 shadow"><img src="../out/covers/06-craft-program.png" alt=""></div>
+  </div>
+  <div class="phone shadow"><div class="island"></div><div class="screen"><img src="../out/screens/phone-dm.png" alt=""></div></div>
+</div></div>
+<div class="caption"><b>The whole ladder</b><span class="series"></span></div>
+</body></html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en-AU" data-format="landscape"><head><meta charset="utf-8"><title>The Quit-Number Calculator, mockup scene</title>
+<link rel="stylesheet" href="scene.css">
+<style>
+  .comp { --cw: 960px; --ch: 540px; }
+  .laptop { left: 150px; top: 110px; transform: rotateY(-10deg) rotateX(4deg); }
+  .phone { left: 760px; top: 150px; transform: rotateY(-16deg) rotateX(6deg) rotateZ(3deg) translateZ(60px); }
+  .ladder { left: 50px; top: 60px; width: 170px; height: 240px; transform: rotateY(-14deg) rotateX(8deg) rotateZ(-8deg) translateZ(-60px); }
+  .cover { left: 20px; top: 300px; width: 120px; height: 170px; transform: rotateY(-12deg) rotateX(8deg) rotateZ(-5deg) translateZ(20px); }
+
+  html[data-format="square"] .comp { --k: .76; --dy: 6px; }
+  html[data-format="square"] .laptop { left: 190px; top: 160px; }
+  html[data-format="square"] .phone { left: 660px; top: 40px; }
+  html[data-format="square"] .ladder { left: 170px; top: -30px; }
+  html[data-format="square"] .cover { left: 690px; top: 340px; }
+
+  html[data-format="portrait"] .comp { --k: .9; }
+  html[data-format="portrait"] .laptop { left: 240px; top: 190px; width: 500px; }
+  html[data-format="portrait"] .phone { left: 600px; top: -40px; }
+  html[data-format="portrait"] .ladder { left: 230px; top: -70px; }
+  html[data-format="portrait"] .cover { left: 650px; top: 310px; transform: rotateY(-12deg) rotateX(8deg) rotateZ(6deg) translateZ(20px); }
+
+  html[data-format="hero"] .comp { --k: .92; }
+</style></head>
+<body data-product="quit-number-calculator">
+<div class="stage"><div class="comp">
+  <div class="page ladder shadow-soft"><img src="../pages/pl-01.jpg" alt=""></div>
+  <div class="laptop shadow"><div class="lid"><div class="cam"></div><div class="screen"><img src="../out/screens/calc-laptop.png" alt=""></div></div><div class="base"></div></div>
+  <div class="phone shadow"><div class="island"></div><div class="screen"><img src="../out/screens/calc-phone.png" alt=""></div></div>
+  <div class="page cover shadow-soft"><img src="../out/covers/01-quit-number-calculator.png" alt=""></div>
+</div></div>
+<div class="caption"><b>No. 01</b><span class="series"></span></div>
+</body></html>

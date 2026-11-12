@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-AU" data-format="landscape"><head><meta charset="utf-8"><title>The Booking Pack, mockup scene</title>
+<link rel="stylesheet" href="scene.css">
+<style>
+  /* composed at 960 x 540 */
+  .comp { --cw: 960px; --ch: 540px; }
+  .fan { left: 60px; top: 70px; width: 420px; height: 420px; transform: rotateX(10deg) rotateY(-14deg) rotateZ(-3deg); }
+  .fan .page { left: 150px; top: 30px; width: 230px; height: 325px; transform-origin: 50% 110%; }
+  .fan .p4 { transform: rotateZ(22deg) translateZ(-40px); }
+  .fan .p3 { transform: rotateZ(14deg) translateZ(-30px); }
+  .fan .p2 { transform: rotateZ(6deg) translateZ(-20px); }
+  .fan .p1 { transform: rotateZ(-2deg) translateZ(-10px); }
+  .fan .cover { transform: rotateZ(-10deg) translateZ(10px); }
+  .phone { left: 690px; top: 120px; transform: rotateX(8deg) rotateY(-16deg) rotateZ(4deg) translateZ(40px); }
+  .loose { left: 560px; top: 60px; width: 150px; height: 212px; transform: rotateX(10deg) rotateY(-14deg) rotateZ(6deg) translateZ(-30px); }
+
+  html[data-format="square"] .comp { --k: .8; --dy: 8px; }
+  html[data-format="square"] .fan { left: 150px; top: 70px; }
+  html[data-format="square"] .phone { left: 650px; top: 150px; }
+  html[data-format="square"] .loose { left: 560px; top: -10px; }
+
+  html[data-format="portrait"] .comp { --k: .95; --dy: 10px; }
+  html[data-format="portrait"] .fan { left: 230px; top: 90px; }
+  html[data-format="portrait"] .phone { left: 540px; top: 230px; }
+  html[data-format="portrait"] .loose { left: 560px; top: -20px; transform: rotateX(10deg) rotateY(-14deg) rotateZ(10deg) translateZ(-30px); }
+
+  html[data-format="hero"] .comp { --k: 1.1; }
+</style></head>
+<body data-product="booking-pack">
+<div class="stage"><div class="comp">
+  <div class="fan">
+    <div class="page a4 shadow-soft p4"><img src="../pages/bp-41.jpg" alt=""></div>
+    <div class="page a4 shadow-soft p3"><img src="../pages/bp-35.jpg" alt=""></div>
+    <div class="page a4 shadow-soft p2"><img src="../pages/bp-27.jpg" alt=""></div>
+    <div class="page a4 shadow-soft p1"><img src="../pages/bp-09.jpg" alt=""></div>
+    <div class="page a4 shadow cover"><img src="../out/covers/02-booking-pack.png" alt=""></div>
+  </div>
+  <div class="page loose shadow-soft"><img src="../pages/bp-02.jpg" alt=""></div>
+  <div class="phone shadow"><div class="island"></div><div class="screen"><img src="../out/screens/phone-dm.png" alt=""></div></div>
+</div></div>
+<div class="caption"><b>No. 02</b><span class="series"></span></div>
+</body></html>
