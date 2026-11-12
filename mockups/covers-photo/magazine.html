@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><title>Magazine pages</title>
+<link rel="stylesheet" href="../fonts/fonts.css"><link rel="stylesheet" href="../tokens.css">
+<style>
+  /* US Letter magazine edition of each product (612 x 792 at 72 dpi): a white cover with a
+     letterspaced masthead and framed photograph, and a two page editorial spread inside. */
+  html, body { margin: 0; background: #888; }
+  body { display: flex; gap: 20px; padding: 20px; font-family: var(--font-text); -webkit-font-smoothing: antialiased; color: var(--ink); }
+  .pg { position: relative; width: 612px; height: 792px; background: #fbfaf8; overflow: hidden; box-sizing: border-box; }
+  .pg img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .ph { position: absolute; overflow: hidden; background: #ddd; }
+  .serif { font-family: var(--font-display); }
+  /* cover */
+  .mast { position: absolute; left: 0; right: 0; top: 38px; text-align: center; font-family: var(--font-display); font-weight: 400; font-size: 46px; letter-spacing: .28em; padding-left: .28em; line-height: 1; white-space: nowrap; }
+  .lab { position: absolute; top: 100px; font-family: var(--font-display); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
+  .cov .ph { left: 34px; right: 34px; top: 122px; height: 540px; }
+  .hl { position: absolute; left: 34px; bottom: 50px; font-family: var(--font-display); font-size: 21px; line-height: 1; text-transform: uppercase; letter-spacing: .01em; }
+  .lines { position: absolute; right: 34px; bottom: 50px; text-align: right; font-family: var(--font-display); font-size: 11.5px; line-height: 1.25; text-transform: uppercase; max-width: 300px; }
+  .lines b { font-weight: 600; }
+  /* spread */
+  .kick { position: absolute; font-size: 7.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--clay); font-weight: 600; }
+  .h2 { position: absolute; font-family: var(--font-display); font-weight: 500; font-size: 15px; line-height: 1.1; text-transform: uppercase; letter-spacing: .02em; }
+  .h2 small { display: block; font-size: 11px; text-transform: none; font-style: italic; font-weight: 400; letter-spacing: 0; margin-top: 2px; }
+  .txt { position: absolute; font-family: var(--font-display); font-size: 11px; line-height: 1.4; color: var(--ink-2); }
+  .cap { position: absolute; font-family: var(--font-display); font-size: 9px; line-height: 1.35; color: var(--ink-2); }
+  .folio { position: absolute; bottom: 24px; font-size: 7px; letter-spacing: .2em; text-transform: uppercase; color: #8c847b; }
+  .folio .s::before { content: var(--series-name); }
+</style></head>
+<body><script>
+// [masthead, cover photo, photo position, headline (two lines), coverlines, spread photos (A,B,C with positions), kicker, h2, h2 small, para 1, para 2, caption]
+const M = {
+  'quit-number-calculator': ['QUIT NUMBER', 'ed-mirror', '50% 30%', 'Your number<br>and your date', '<b>The calculator</b> / net to net / <b>the gap</b> / your provisional quit date',
+    [['detail-coupe', '50% 50%'], ['ed-portico', '50% 40%'], ['ed-lace', '50% 25%'], ['ed-archway', '50% 40%']], 'Lesson 1.1', 'Compare net to net', 'The maths before the notice',
+    'The job pays you after tax, super and leave. The business has to clear all three before the numbers match, so I start every student on the payslip, not the price list.',
+    'Run the calculator with your real numbers. Write down the quit number, the gap and the provisional date, then put the date somewhere you will see it every week.',
+    'The quit number is the profit the business must make before the day job can go. Everything else in the program works backwards from it.'],
+  'booking-pack': ['BOOKING PACK', 'ed-couple-veil', '50% 25%', 'From first DM<br>to booked wedding', '<b>DM scripts</b> / the enquiry sequence / <b>the proposal</b> / objection replies',
+    [['ed-portico', '50% 40%'], ['ed-veil-bw', '50% 30%'], ['ed-seated', '50% 35%'], ['ed-garden-veil', '50% 40%']], 'Part 1', 'DM to booking', 'Scripts for the first reply',
+    'Every reply has one job, and that job is booking a short chat. The date comes first because it is the only thing the couple is waiting on.',
+    'Two bubbles at most, every time. Mirror one detail from their message, then ask if they would be open to a quick fifteen minute chat this week.',
+    'The scripts are the exact wording I use. Swap in your voice, keep the order.'],
+  'follow-up-vault': ['FOLLOW-UP VAULT', 'ed-tunnel', '50% 55%', 'Every follow-up<br>by day', '<b>Track A</b> / enquiry to call / <b>Track B</b> / proposal to signed contract',
+    [['ed-veil-bw', '50% 30%'], ['ed-garden-veil', '50% 60%'], ['ed-groom', '50% 30%'], ['detail-coupe', '50% 40%']], 'Track A, day 2', 'The detail and the question', 'The message that gets the replies',
+    'This is the message that gets most of the replies on this track, and it only works because it proves you read their enquiry properly.',
+    'Open their form. Find the one thing they wrote that was not a box they had to fill. That is your detail, and the question comes straight after it.',
+    'Each follow-up has a day, a channel and a reason to exist. None of them say just checking in.'],
+  'consult-call-kit': ['CONSULT CALL KIT', 'ed-lace', '50% 22%', 'The call that<br>books the date', '<b>The run sheet</b> / the timeline on the call / <b>ten questions</b> / budget without asking',
+    [['ed-archway', '50% 50%'], ['detail-pearls', '50% 40%'], ['ed-couple-veil', '50% 25%'], ['ed-tunnel', '50% 40%']], 'Section 02', 'The timeline on the call', 'Discovery and the recommendation, together',
+    'I build the day with them on the call. Discovery and the recommendation happen at the same time, and that is where the trust comes from.',
+    'Ask where they are getting ready, what time the ceremony starts, and what matters most about the photographs. Then build the coverage in front of them.',
+    'The run sheet keeps the call to forty minutes and ends on a clear next step.'],
+  'part-time-to-full-time': ['FULL-TIME', 'ed-seated', '50% 35%', 'Ninety days<br>to your number', '<b>Nine actions</b> / twelve weeks / <b>quick wins first</b> / a booking system that runs',
+    [['ed-groom', '50% 30%'], ['ed-mirror', '50% 30%'], ['ed-tunnel', '50% 55%'], ['detail-pearls', '50% 40%']], 'Module 0, quick win 0.5', 'Record your next consult', 'The fastest skill jump there is',
+    'The fastest skill jump available is listening back to yourself. With consent, record the next consult and play it back that same night.',
+    'Write down the moment the couple leaned in, and the moment you lost them. That is next week\'s script, and it took you forty minutes to find.',
+    'Two to four hours of your week. Quick wins inside the first fortnight.'],
+  'craft-program': ['THE CRAFT', 'ed-garden-veil', '50% 60%', 'Shoot like<br>a full-timer', '<b>The wedding day</b> / light by the hour / <b>cultural weddings</b> / shooting with a team',
+    [['detail-pearls', '50% 40%'], ['ed-lace', '50% 25%'], ['ed-archway', '50% 50%'], ['ed-couple-veil', '50% 40%']], 'Module 8', 'Light through the day', 'Build the day around the light',
+    'Where the couple stands at each hour decides the light you get. Build the day around the light and the photographs look like a full-timer made them.',
+    'Take your next booked wedding and lay the day out hour by hour. Mark where the light is at each milestone, then move one thing.',
+    'Phase two. Built after the business program, coming 2027.'],
+};
+const p = new URLSearchParams(location.search).get('p') || 'booking-pack';
+const [mast, cph, cpos, hl, lines, S, k, h2, h2s, a, b, cap] = M[p];
+const ph = (s, x, y, w, h) => `<div class="ph" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"><img src="../photos/${s[0]}.jpg" style="object-position:${s[1]}"></div>`;
+document.body.innerHTML = `
+<div class="pg cov" data-shot="cover">
+  <div class="mast" style="font-size:${mast.length > 12 ? 38 : 46}px">${mast}</div>
+  <div class="lab" style="left:34px">No. ${({'quit-number-calculator':'01','booking-pack':'02','follow-up-vault':'03','consult-call-kit':'04','part-time-to-full-time':'05','craft-program':'06'})[p]}</div>
+  <div class="lab" style="right:34px">Norman Yap</div>
+  <div class="ph"><img src="../photos/${cph}.jpg" style="object-position:${cpos}"></div>
+  <div class="hl">${hl}</div><div class="lines">${lines}</div>
+</div>
+<div class="pg" data-shot="L">
+  <div class="kick" style="left:52px;top:120px">${k}</div>
+  <div class="txt" style="left:52px;top:150px;width:200px">${a}</div>
+  <div class="h2" style="left:290px;top:112px;width:270px">${h2}<small>${h2s}</small></div>
+  <div class="txt" style="left:290px;top:160px;width:270px">${b}</div>
+  ${ph(S[0], 52, 300, 238, 420)}${ph(S[1], 302, 300, 258, 420)}
+  <div class="folio" style="left:52px">12&nbsp;&nbsp;&nbsp;<span class="s"></span></div>
+</div>
+<div class="pg" data-shot="R">
+  ${ph(S[3], 380, 52, 180, 238)}
+  <div class="cap" style="left:52px;top:350px;width:260px">${cap}</div>
+  ${ph(S[2], 52, 380, 508, 340)}
+  <div class="folio" style="right:52px"><span class="s"></span>&nbsp;&nbsp;&nbsp;13</div>
+</div>`;
+</script></body></html>

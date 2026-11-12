@@ -19,6 +19,8 @@ const PRODUCTS = {
 const q = new URLSearchParams(location.search);
 const PID = q.get('p') || 'booking-pack';
 const P = PRODUCTS[PID];
+// Photo covers are the default. ?cover=type brings back the typographic covers.
+if (q.get('cover') !== 'type') P.cover = P.cover.replace('/covers/', '/covers-photo/');
 document.body.dataset.product = PID;
 if (q.get('cutout')) document.documentElement.classList.add('cutout');
 

@@ -110,3 +110,14 @@ The reference carries the seller's logo and a "transparent background" label. Bo
 5. Slid toward the row. Still sinking: a book leaning back to the left stands on its bottom-left corner, not its bottom-right.
 6. Pivot on the bottom-left corner. Bottom edges now rise to the right as in the reference. Still clear of the row.
 7. Slid onto the row. Accepted. The reference row recedes further with more copies, a detail that does not change the read.
+
+## r12 US Letter magazine (added after the photo pass)
+
+Reference: US Letter magazine mockup, preview 2, the full screen hero. Straight down on warm grey, light from the top right, the closed issue over the left page of an open copy.
+
+- Round 1. Built a white magazine edition per product in `covers-photo/magazine.html` (letterspaced masthead, framed photograph, coverlines, a two page editorial spread with four photographs). Set the cover and spread to the reference positions. Close on layout, shadows too light.
+- Round 2. Deepened the cover's down-left shadow into three layers and strengthened the left page's gutter roll. Verdict: closest.
+
+## Photo pass
+
+Every cover in r01 to r12 is now a photo cover from `out/covers-photo/` (`covers-photo/cover.html`). Add `?cover=type` to any scene to bring back the typographic covers.

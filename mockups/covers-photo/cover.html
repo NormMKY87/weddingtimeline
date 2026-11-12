@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><title>Photo cover</title>
+<link rel="stylesheet" href="../fonts/fonts.css"><link rel="stylesheet" href="../tokens.css">
+<style>
+  /* Editorial photo cover: Norm's photograph as a framed plate on the product's colourway,
+     title set beneath it. One template, six products via ?p=. */
+  html, body { margin: 0; background: transparent; }
+  .cover { position: relative; width: 595px; height: 842px; overflow: hidden; box-sizing: border-box;
+    background: var(--cover-bg); color: var(--cover-fg); font-family: var(--font-text); -webkit-font-smoothing: antialiased;
+    display: grid; grid-template-rows: auto 1fr auto auto; padding: 30px 36px 30px; }
+  .top { display: flex; justify-content: space-between; font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--cover-kicker); font-weight: 500; padding-bottom: 14px; }
+  .top .s::before { content: var(--series-name); }
+  .plate { position: relative; overflow: hidden; min-height: 0; }
+  .plate img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .plate::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .06); }
+  .title { display: grid; grid-template-columns: auto 1fr; gap: 0 18px; align-items: end; padding-top: 22px; }
+  .no { font-family: var(--font-display); font-weight: 300; font-size: 64px; line-height: .8; color: var(--cover-accent); }
+  h1 { font-family: var(--font-display); font-weight: 500; font-size: 44px; line-height: .98; margin: 0; letter-spacing: -.01em; }
+  h1 em { font-style: italic; font-weight: 400; }
+  .sub { grid-column: 2; font-size: 11.5px; line-height: 1.5; color: var(--cover-fg-2); margin: 10px 0 0; max-width: 380px; }
+  .foot { display: flex; justify-content: space-between; border-top: 1px solid var(--cover-rule); margin-top: 20px; padding-top: 11px;
+    font-size: 8.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--cover-kicker); font-weight: 500; }
+  .foot .b::before { content: var(--brand-name); }
+  .stamp { position: absolute; right: 50px; top: 70px; z-index: 3; background: var(--white); color: var(--clay); padding: 7px 11px; font-size: 9px; letter-spacing: .22em; text-transform: uppercase; font-weight: 600; transform: rotate(-4deg); box-shadow: 0 2px 6px rgb(0 0 0 / .2); }
+</style></head>
+<body><div class="cover" id="c"></div>
+<script>
+const C = {
+  'quit-number-calculator': ['01', 'The Quit-Number <em>Calculator</em>', 'Web tool, free', 'ed-mirror', 'The maths to run before you hand in your notice. The profit the business must make, and the date it lands.', '50% 30%'],
+  'booking-pack': ['02', 'The Booking <em>Pack</em>', 'PDF, six parts', 'ed-couple-veil', 'The DM scripts, the enquiry sequence, the proposal and the objection replies I use to turn a first message into a booked wedding.', '50% 25%'],
+  'follow-up-vault': ['03', 'The Follow-Up <em>Vault</em>', 'PDF, two tracks', 'ed-tunnel', 'Every follow-up from the first reply to the signed contract, by day and by channel.', '50% 55%'],
+  'consult-call-kit': ['04', 'The Consult <em>Call Kit</em>', 'Run sheet and guides', 'ed-lace', 'The run sheet, the timeline I build on the call, and the ten questions that surface budget without asking for it.', '50% 22%'],
+  'part-time-to-full-time': ['05', 'Part-Time to <em>Full-Time</em>', '90 day program', 'ed-seated', 'Nine actions over twelve weeks. Know your quit number and have a booking system running that is on track to hit it.', '50% 35%'],
+  'craft-program': ['06', 'The Craft <em>Program</em>', 'Phase two, 90 days', 'ed-garden-veil', 'Shoot like a full-timer so you can charge like one. The wedding day, cultural weddings, shooting with a team.', '50% 60%'],
+};
+const p = new URLSearchParams(location.search).get('p') || 'booking-pack';
+const [no, title, fmt, photo, sub, pos] = C[p];
+document.body.dataset.product = p;
+document.getElementById('c').innerHTML = `
+  <div class="top"><span class="s"></span><span>${fmt}</span></div>
+  <div class="plate"><img src="../photos/${photo}.jpg" alt="" style="object-position:${pos}"></div>
+  ${p === 'craft-program' ? '<div class="stamp">Coming 2027</div>' : ''}
+  <div class="title"><div class="no">${no}</div><h1>${title}</h1><p class="sub">${sub}</p></div>
+  <div class="foot"><span class="b"></span><span>${p === 'craft-program' ? 'Built after the business program' : 'Australian edition'}</span></div>`;
+</script></body></html>

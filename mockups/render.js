@@ -1,6 +1,7 @@
 // Renders the mockup suite with the pre-installed Playwright and Chromium.
 //   node render.js            everything
-//   node render.js covers     covers only (out/covers/*.png)
+//   node render.js covers     covers only (out/covers/*.png and out/covers-photo/*.png)
+//   node render.js photocovers  the photo covers only
 //   node render.js screens    device screens (out/screens/*.png)
 //   node render.js scenes     every scene at every size (out/<product>/*.png)
 //   node render.js scenes 02  one scene, matched on the file name
@@ -51,6 +52,19 @@ async function renderCovers(browser) {
     const el = await page.$('.cover');
     const out = path.join(dir, f.replace('.html', '.png'));
     await el.screenshot({ path: out, omitBackground: true });
+    console.log('cover ', path.relative(ROOT, out));
+  }
+  await page.close();
+}
+
+async function renderPhotoCovers(browser) {
+  const dir = path.join(OUT, 'covers-photo'); fs.mkdirSync(dir, { recursive: true });
+  const page = await browser.newPage({ viewport: { width: 595, height: 842 }, deviceScaleFactor: SCALE });
+  const P = ['quit-number-calculator', 'booking-pack', 'follow-up-vault', 'consult-call-kit', 'part-time-to-full-time', 'craft-program'];
+  for (const [i, p] of P.entries()) {
+    await page.goto(url('covers-photo/cover.html') + '?p=' + p); await settle(page);
+    const out = path.join(dir, `0${i + 1}-${p}.png`);
+    await (await page.$('.cover')).screenshot({ path: out });
     console.log('cover ', path.relative(ROOT, out));
   }
   await page.close();
@@ -121,6 +135,7 @@ async function renderSheet(browser) {
   const browser = await chromium.launch();
   try {
     if (step === 'all' || step === 'covers') await renderCovers(browser);
+    if (step === 'all' || step === 'covers' || step === 'photocovers') await renderPhotoCovers(browser);
     if (step === 'all' || step === 'screens') await renderScreens(browser);
     if (step === 'all' || step === 'scenes') await renderScenes(browser, only);
     if (step === 'all' || step === 'sheet') await renderSheet(browser);

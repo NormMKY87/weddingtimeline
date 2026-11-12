@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><title>Photo pages</title>
+<link rel="stylesheet" href="../fonts/fonts.css"><link rel="stylesheet" href="../tokens.css">
+<style>
+  /* Inside pages built from Norm's photographs: a full-bleed chapter opener for the spreads,
+     and an e-reader page with the photograph above the copy. */
+  html, body { margin: 0; background: #999; font-family: var(--font-text); -webkit-font-smoothing: antialiased; }
+  body { display: flex; flex-wrap: wrap; gap: 20px; padding: 20px; }
+  .opener { position: relative; width: 595px; height: 842px; overflow: hidden; background: #111; }
+  .opener img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .opener .cap { position: absolute; left: 34px; right: 34px; bottom: 28px; display: flex; justify-content: space-between; color: #fff; font-size: 8.5px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; text-shadow: 0 1px 6px rgb(0 0 0 / .45); }
+  .opener .cap b { font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: 22px; letter-spacing: 0; text-transform: none; }
+  .reader { width: 595px; height: 842px; background: var(--white); color: var(--ink); box-sizing: border-box; padding: 0 0 40px; display: grid; grid-template-rows: 470px auto 1fr; }
+  .reader .ph { overflow: hidden; } .reader .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .reader .k { padding: 28px 52px 0; font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--clay); font-weight: 600; }
+  .reader .body { padding: 10px 52px 0; }
+  .reader h2 { font-family: var(--font-display); font-weight: 500; font-size: 36px; line-height: 1; margin: 0 0 14px; }
+  .reader h2 em { font-style: italic; font-weight: 400; }
+  .reader p { font-size: 13px; line-height: 1.6; color: var(--ink-2); margin: 0 0 10px; max-width: 470px; }
+</style></head>
+<body>
+<script>
+const D = [
+  ['quit-number-calculator', 'detail-coupe', '50% 50%', 'Your <em>number</em>', 'Lesson 1.1', 'Compare net to net. The job pays you after tax, super and leave. The business has to clear all three before the numbers match.', 'Run the calculator with your real payslip and write down the quit number, the gap and the provisional quit date.'],
+  ['booking-pack', 'ed-portico', '50% 40%', 'DM-to-Booking <em>scripts</em>', 'Part 1', 'Every reply has one job: book a short chat. The date comes first because it is the only thing the couple is waiting on.', 'Two bubbles at most, every time. Mirror one detail, then ask if they would be open to a quick 15 minute chat.'],
+  ['follow-up-vault', 'ed-veil-bw', '50% 30%', 'The detail and <em>the question</em>', 'Track A, day 2', 'This is the message that gets most of the replies on this track, and it only works because it proves you read their enquiry.', 'Open their form. Find the one thing they wrote that was not a box they had to fill. That is your detail.'],
+  ['consult-call-kit', 'ed-archway', '50% 50%', 'The timeline <em>on the call</em>', 'Section 02', 'I build the day with them on the call. Discovery and the recommendation happen at the same time, and that is where the trust comes from.', 'Ask where they are getting ready, what time the ceremony starts, and what matters most about the photos.'],
+  ['part-time-to-full-time', 'ed-groom', '50% 30%', 'Record your next <em>consult</em>', 'Module 0, quick win 0.5', 'The fastest skill jump available is listening back to yourself. With consent, record the next consult and play it back that night.', 'Write down the moment the couple leaned in, and the moment you lost them. That is next week\'s script.'],
+  ['craft-program', 'detail-pearls', '50% 40%', 'Light through <em>the day</em>', 'Module 8', 'Where the couple stands at each hour decides the light you get. Build the day around the light and the photographs look like a full-timer shot them.', 'Take your next booked wedding and lay the day out hour by hour. Mark where the light is at each milestone.'],
+];
+document.body.innerHTML = D.map(([p, ph, pos, h, k, a, b]) => `
+  <div class="opener" data-shot="photo-page-${p}"><img src="../photos/${ph}.jpg" style="object-position:${pos}" alt=""><div class="cap"><b>${k}</b><span>Part-Time to Full-Time</span></div></div>
+  <div class="reader" data-shot="reader-page-${p}"><div class="ph"><img src="../photos/${ph}.jpg" style="object-position:${pos}" alt=""></div><div class="k">${k}</div><div class="body"><h2>${h}</h2><p>${a}</p><p>${b}</p></div></div>`).join('');
+</script></body></html>

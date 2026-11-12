@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><title>US Letter magazine</title>
+<link rel="stylesheet" href="lib.css">
+<style>
+  /* Inspired by a US Letter magazine hero: straight down on flat warm grey, light from the top
+     right. The closed issue lies over the left page of an open copy, both casting soft shadows
+     down and to the left. Pages come from covers-photo/magazine.html. */
+  body { --bg: #d9d5ce; --bg-light: radial-gradient(90% 80% at 70% 20%, rgb(255 255 255 / .10), rgb(255 255 255 / 0) 70%); }
+  .spread { position: absolute; left: 409px; top: 210px; width: 612px; height: 448px; z-index: 2; }
+  .spread::before { content: ""; position: absolute; inset: 6px 4px 0 6px; z-index: -1; border-radius: 2px;
+    box-shadow: -3px 4px 6px rgb(50 42 34 / .26), -12px 16px 24px -6px rgb(50 42 34 / .30); }
+  .spread .pg { position: absolute; top: 0; height: 100%; overflow: hidden; background: #fbfaf8; }
+  .spread .pg img { display: block; width: 100%; height: 100%; object-fit: fill; }
+  .spread .l { left: 0; width: 291px; clip-path: polygon(0 1.2%, 100% 0, 100% 100%, 0 99.4%); }
+  .spread .r { left: 291px; width: 321px; }
+  /* gutter: left page rolls into a shadow, right page lifts with a soft highlight */
+  .spread .l::after { content: ""; position: absolute; inset: 0; background:
+    linear-gradient(270deg, rgb(0 0 0 / .30), rgb(0 0 0 / .13) 3%, rgb(0 0 0 / .05) 10%, rgb(0 0 0 / .015) 25%, rgb(0 0 0 / 0) 85%, rgb(0 0 0 / .05) 97%, rgb(0 0 0 / .10)); }
+  .spread .r::after { content: ""; position: absolute; inset: 0; background:
+    linear-gradient(90deg, rgb(0 0 0 / .18), rgb(0 0 0 / .05) 2.5%, rgb(255 255 255 / .10) 6%, rgb(255 255 255 / .04) 14%, rgb(0 0 0 / 0) 22%, rgb(0 0 0 / 0) 92%, rgb(0 0 0 / .04)); }
+  .spread .edge { position: absolute; left: 100%; top: 1px; bottom: 0; width: 3px; background: repeating-linear-gradient(90deg, #f1eee8 0 .8px, #cfc9bf .8px 1.3px); }
+  .cover { position: absolute; left: 177px; top: 143px; width: 344px; height: 450px; z-index: 3; }
+  .cover .sh1 { position: absolute; inset: 0; box-shadow: -3px 4px 4px rgb(50 42 34 / .38), -12px 14px 14px -4px rgb(50 42 34 / .40), -26px 30px 40px -12px rgb(50 42 34 / .30); }
+  .cover .face2 { position: absolute; inset: 0; overflow: hidden; background: #fbfaf8; }
+  .cover img { display: block; width: 100%; height: 100%; }
+  .cover .face2::after { content: ""; position: absolute; inset: 0; background:
+    linear-gradient(90deg, rgb(0 0 0 / .12), rgb(0 0 0 / .02) 1.6%, rgb(255 255 255 / .10) 2.6%, rgb(0 0 0 / 0) 5%),
+    linear-gradient(200deg, rgb(255 255 255 / .06), rgb(0 0 0 / 0) 40%, rgb(0 0 0 / .03)); }
+  .cover .spineedge { position: absolute; left: -3px; top: 1px; bottom: 0; width: 3px; background: linear-gradient(90deg, #bdb6ab, #e9e5de); }
+  .cover .bot { position: absolute; left: -2px; right: 0; bottom: -2px; height: 2px; background: #d2ccc2; }
+</style></head>
+<body>
+<div class="spread"><div class="pg l"></div><div class="pg r"></div><div class="edge"></div></div>
+<div class="cover"><div class="sh1"></div><div class="spineedge"></div><div class="bot"></div><div class="face2"></div></div>
+<div class="grain" style="--grain:.35"></div>
+<script src="lib.js"></script>
+<script>
+  const M = (n) => `../out/magazine/${PID}-${n}.jpg`;
+  document.querySelector('.spread .l').innerHTML = img(M('L'));
+  document.querySelector('.spread .r').innerHTML = img(M('R'));
+  document.querySelector('.cover .face2').innerHTML = img(M('cover'));
+</script></body></html>
