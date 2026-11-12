@@ -183,6 +183,7 @@ Everything below already exists as a template, skill or process in the studio. T
 - Quit-Number Calculator works in any country (Norm, 9 Nov 2026). Australia is the only built-in, sourced tax preset. Everywhere else the user types gross, take-home, marginal rate, employer retirement contribution and sales tax from their own payslip and tax office. No rate is ever typed from memory for another country.
 - Runs under Norman Yap the educator on a separate channel, list and name. NYP couple-facing brand and photographer education content never cross.
 - Start with Booking Pack (written assets) rather than filming Modules 1 and 4 first. Research showed sales and consult content breaks out at nine times normal views, and written assets ship in weeks with no footage.
+- The Editorial Field Guide rebuilt from Norm's own photographs (12 Nov 2026). It is not on the side products list, so the 20 copy Booking Pack gate applies. Norm asked for the rebuild directly, so it was built as an exception: built and checked, not on sale, no price. Selling it waits on couple consent, Vance's pricing and Norm confirming it can go ahead before the gate. Files in `products/editorial-field-guide/`.
 
 ## 9. Build order
 

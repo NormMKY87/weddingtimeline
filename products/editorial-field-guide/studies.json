@@ -1,0 +1,548 @@
+[
+  {
+    "id": "study-001", "photo": "window-fitting", "category": "Getting Ready", "title": "The Window Fitting",
+    "light": "A big sash window behind them, soft daylight wrapping both outlines. I exposed for skin and let the glass go white.",
+    "composition": "Two profiles face each other across the frame. The bright glass behind keeps both outlines clean and separate.",
+    "lens": "Try 50mm at f/2 from across the room, level with her waist so the window frame stays straight.",
+    "moment": "The flower girl looks up and laughs mid fitting. I give the bride a small job with her hands and wait for the look up.",
+    "before_shoot": "Clear the sill and the floor of bags and bottles. In a backlit frame every bit of clutter turns into a silhouette.",
+    "directions": [
+      {"label": "FACE TO FACE", "say": "Stand side on to the window and face each other, nice and close."},
+      {"label": "A SMALL JOB", "say": "Take her hands and fix her bracelet for her. No rush at all."},
+      {"label": "THE SECRET", "say": "Tell her a secret about today. Something only you two know."}
+    ]
+  },
+  {
+    "id": "study-002", "photo": "doorway-reveal", "category": "Getting Ready", "title": "The Doorway Reveal",
+    "light": "Even window light bouncing around white walls. Nothing harsh, so every face at the door reads clearly.",
+    "composition": "Bride soft in the near left, friends sharp in the far doorway. The open door frames them and the floor leads in.",
+    "lens": "Try 35mm at f/2.8 over the bride's shoulder, focus locked on the doorway before anyone walks in.",
+    "moment": "Her friends see the dress for the first time. Hands to mouths, one arm on the door. I keep them outside until she is ready.",
+    "before_shoot": "Pre-focus on the doorway and agree a knock signal. You get one take at this reaction, so be set before it happens.",
+    "directions": [
+      {"label": "HOLD THE HALL", "say": "Wait in the hall until I knock. Then come in together."},
+      {"label": "DON'T TURN", "say": "Stay facing the mirror. Don't turn around until you hear them."},
+      {"label": "JUST REACT", "say": "Okay, open the door and walk in. Don't pose. Just react."}
+    ]
+  },
+  {
+    "id": "study-003", "photo": "double-door-reveal", "category": "Getting Ready", "title": "The Double Door Reveal",
+    "light": "A dark corridor behind him, a bright room in front. He steps out of shadow into soft window light.",
+    "composition": "The double doors make a frame inside the frame. Her veil fills the right third out of focus.",
+    "lens": "Try 50mm at f/2 from behind her shoulder. Keep the doors square to the sensor.",
+    "moment": "Both doors open at once and his face does the rest. I have him rest his hands on the handles and wait for my nod.",
+    "before_shoot": "Test both doors before the reveal. A sticky latch or a squeak will kill the moment.",
+    "directions": [
+      {"label": "HANDS READY", "say": "Hands on both handles. Wait for my nod before you open."},
+      {"label": "TURN A LITTLE", "say": "Turn your shoulders just slightly toward the window for me."},
+      {"label": "OPEN UP", "say": "Now open them both together and take her in."}
+    ]
+  },
+  {
+    "id": "study-004", "photo": "quiet-room", "category": "Getting Ready", "title": "The Quiet Room",
+    "light": "Flat window light from camera left fills the room. The veil catches it and glows against the dark headboard.",
+    "composition": "Wide and level. She sits low on the bed, legs long to the right. The shoes and one glass tell the rest.",
+    "lens": "Try 28mm to 35mm from the corner of the room, camera at chest height, verticals straight.",
+    "moment": "A pause before the dress. She looks toward the window and lets the veil settle. I just ask her to breathe.",
+    "before_shoot": "Strip the room first. Hide the tags, chargers and coffee cups. Leave one glass and the shoes.",
+    "directions": [
+      {"label": "SIT LONG", "say": "Sit right on the edge of the bed and stretch your legs out long."},
+      {"label": "VEIL DOWN", "say": "Let the veil fall over your face. Hands relaxed on the sheet."},
+      {"label": "LOOK AWAY", "say": "Look out the window and think about the next hour."}
+    ]
+  },
+  {
+    "id": "study-005", "photo": "bath-toast", "category": "Getting Ready", "title": "The Bath Toast",
+    "light": "Bright daylight bouncing off white walls and tiles. Clean and punchy, and kind to a black suit.",
+    "composition": "Low and wide. The checked tiles lead to him, the door sits behind his head and the tap guards the right edge.",
+    "lens": "Try 24mm to 28mm close to the floor. Keep him away from the frame edge so he doesn't stretch.",
+    "moment": "A quiet toast before he leaves. I hand him the glass and ask him to sit like he owns the place.",
+    "before_shoot": "Bathrooms are small and full of mirrors. Check every angle so you aren't in your own shot.",
+    "directions": [
+      {"label": "TAKE A SEAT", "say": "Sit on the edge of the bath. One foot forward."},
+      {"label": "LEAN BACK", "say": "Free hand on your knee. Lean back a little."},
+      {"label": "THE TOAST", "say": "Glass up. That one's for you, mate. Take a sip."}
+    ]
+  },
+  {
+    "id": "study-006", "photo": "room-embrace", "category": "Getting Ready", "title": "The Room Embrace",
+    "light": "Soft daylight from the window behind the bed. Low contrast, so the emotion carries the frame.",
+    "composition": "A landscape frame with the embrace on the right two thirds. The bed and lamp sit soft on the left.",
+    "lens": "Try 50mm at f/1.8 a few metres back. Close enough to feel it, far enough not to intrude.",
+    "moment": "A hug that lasts longer than planned. She closes her eyes. I stay quiet and keep shooting through it.",
+    "before_shoot": "Know who is coming into the room and when. These hugs happen once and they happen fast.",
+    "directions": [
+      {"label": "COME IN", "say": "Come in whenever you're ready. I'll stay out of the way."},
+      {"label": "HOLD ON", "say": "Hold on a bit longer. There's no need to let go."},
+      {"label": "ONE THING", "say": "Before you step back, tell each other one thing."}
+    ]
+  },
+  {
+    "id": "study-007", "photo": "buttonhole-lay", "category": "Getting Ready", "title": "The Buttonhole Lay",
+    "light": "Soft open shade with no hard shadow. The blue board and ribbons stay cool and even.",
+    "composition": "Straight down. Eight stems scattered at loose angles, with space around each one.",
+    "lens": "Try 50mm or a 100mm macro, standing over the board with the sensor dead flat.",
+    "moment": "Detail time while the groomsmen dress. I lay them out at odd angles so the set looks scattered, not lined up.",
+    "before_shoot": "Bring your own board in a colour that suits the palette. Brush any pollen off the petals first.",
+    "directions": [
+      {"label": "ONE AT A TIME", "say": "Can you pass me the buttonholes one at a time, please?"},
+      {"label": "TURN IT", "say": "Turn that one so the ribbon faces out."},
+      {"label": "HANDS OFF", "say": "Perfect. Nobody touch them for one minute."}
+    ]
+  },
+  {
+    "id": "study-008", "photo": "seated-veil", "category": "Bridal", "title": "The Seated Veil",
+    "light": "Hard side light from a window at camera left cuts across her face and leg. Everything outside the beam falls to black.",
+    "composition": "She fills the frame. The lace train spills across the bottom and the veil arcs away to the right.",
+    "lens": "Try 35mm to 50mm, standing slightly above her so the train fills the lower half.",
+    "moment": "A held stare, not a smile. I turn her into the light, then ask for stillness and eye contact.",
+    "before_shoot": "Find the one shaft of light first, then bring her to it. Underexpose so the shadows stay deep.",
+    "directions": [
+      {"label": "SIT BACK", "say": "Sit back on the chaise and pull one knee up toward you."},
+      {"label": "FIND THE LIGHT", "say": "Hand on your ankle. Chin toward the window."},
+      {"label": "THE STARE", "say": "Now eyes to me. Don't smile. Just hold it."}
+    ]
+  },
+  {
+    "id": "study-009", "photo": "veiled-corner", "category": "Bridal", "title": "The Veiled Corner",
+    "light": "Soft window light from the left. The veil diffuses it a second time, so skin turns smooth and low contrast.",
+    "composition": "Tucked into a corner, the walls make a triangle behind her. The veil makes a second one from head to floor.",
+    "lens": "Try 50mm to 85mm at f/2, just above her eye line.",
+    "moment": "A quiet, dreamy pause. I drape the veil over her, then ask her to lean on her hand and look past me.",
+    "before_shoot": "Steam the veil edge. Every crease shows the moment light comes through it.",
+    "directions": [
+      {"label": "SIT FORWARD", "say": "Sit forward on the stool, elbow on your knee."},
+      {"label": "SOFT HAND", "say": "Chin into your hand. Lighter, like you're thinking."},
+      {"label": "DRIFT OFF", "say": "Look just past my shoulder and let your mind wander."}
+    ]
+  },
+  {
+    "id": "study-010", "photo": "lace-in-the-dark", "category": "Bridal", "title": "The Lace in the Dark",
+    "light": "Directional window light from camera right rakes across the lace, so each flower stands out against a dark room.",
+    "composition": "Three quarter length with her profile on the right. The veil runs a long diagonal from top right to bottom left.",
+    "lens": "Try 85mm at f/2.8 so the background falls away and the lace stays sharp.",
+    "moment": "Hands folded, eyes down. I lift the veil out to the side, let it fall, then ask her to look to the floor.",
+    "before_shoot": "Turn the room lights off. Mixed light turns white lace grey.",
+    "directions": [
+      {"label": "SIDE ON", "say": "Turn your shoulder to the window and fold your hands low."},
+      {"label": "EYES DOWN", "say": "Drop your chin and look down toward the floor."},
+      {"label": "SETTLE", "say": "Long breath out. Let your shoulders sink."}
+    ]
+  },
+  {
+    "id": "study-011", "photo": "floral-veil-glance", "category": "Bridal", "title": "The Floral Veil Glance",
+    "light": "Soft open shade between two columns. Even light lets the floral appliqué read across her back.",
+    "composition": "Back to camera, face turned over the shoulder. The pillars frame her on both sides.",
+    "lens": "Try 85mm at f/2. The compression keeps the columns soft behind her.",
+    "moment": "The look back. I ask her to walk away from me, stop, and look over her shoulder.",
+    "before_shoot": "Spread the veil evenly across her back so the appliqué pattern isn't bunched.",
+    "directions": [
+      {"label": "WALK AWAY", "say": "Walk away from me, slowly, toward the wall."},
+      {"label": "DROP A SHOULDER", "say": "Stop there. Drop your shoulder toward me."},
+      {"label": "JUST YOUR EYES", "say": "Now just your eyes back to me. Keep your chin down."}
+    ]
+  },
+  {
+    "id": "study-012", "photo": "window-train", "category": "Bridal", "title": "The Window Train",
+    "light": "Backlight from one tall window. The veil turns translucent and the room around it goes black.",
+    "composition": "A narrow column of light on the left. The veil fans from her toward the lens and fills the bottom.",
+    "lens": "Try 24mm to 35mm low to the floor, so the veil runs toward you.",
+    "moment": "Total stillness. I spread the veil, step back, and ask her to look out the window and not move.",
+    "before_shoot": "Expose for the window, not the room. Check your highlights before she gets into place.",
+    "directions": [
+      {"label": "IN THE WINDOW", "say": "Stand in the window, side on, and look out."},
+      {"label": "STAY STILL", "say": "Stay right there. I'm going to fan out your veil."},
+      {"label": "CHIN UP", "say": "Lift your chin a touch. Hold that for me."}
+    ]
+  },
+  {
+    "id": "study-013", "photo": "curtain-light", "category": "Bridal", "title": "The Curtain Light",
+    "light": "Sun through sheer curtains. It softens on her face and throws bright shapes across the fabric.",
+    "composition": "She stands in the left third. A curtain blows across the right side as a soft foreground layer.",
+    "lens": "Try 35mm to 50mm and shoot through the edge of the curtain.",
+    "moment": "Fabric moving around a still subject. I have someone lift the curtain and let it drop between frames.",
+    "before_shoot": "Bring a helper to work the curtain and shoot in bursts. The fabric never falls the same way twice.",
+    "directions": [
+      {"label": "HOLD THE EDGE", "say": "Hold the curtain edge lightly in one hand."},
+      {"label": "LOOK DOWN", "say": "Look down toward the floor, chin over your shoulder."},
+      {"label": "LET IT FALL", "say": "Lift the curtain and let it drop. Once more."}
+    ]
+  },
+  {
+    "id": "study-014", "photo": "stair-shadow", "category": "Bridal", "title": "The Stair Shadow",
+    "light": "Hard sun on a white wall. The shadow shapes are as much the subject as she is.",
+    "composition": "Curved steps lead from the bottom left up to her. The lantern balances the top and the shadow fills the left.",
+    "lens": "Try 35mm from the foot of the stairs, so the curves stay in frame.",
+    "moment": "Lifting the gown to climb. I ask her to gather the skirt, step up, then pause halfway.",
+    "before_shoot": "Hard light moves fast. Work out where the shadow will fall ten minutes from now.",
+    "directions": [
+      {"label": "GATHER UP", "say": "Gather your skirt in both hands."},
+      {"label": "HALFWAY", "say": "Step up and pause halfway."},
+      {"label": "KEEP CLIMBING", "say": "Look down at your feet. Keep walking slowly."}
+    ]
+  },
+  {
+    "id": "study-015", "photo": "sofa-window", "category": "Bridal", "title": "The Sofa Window",
+    "light": "Window light from the right, slightly hard. It sculpts her cheekbone and leaves the far side of the room dark.",
+    "composition": "Tight and diagonal. Her shoulders run across the frame and the sofa cushion leads up to her face.",
+    "lens": "Try 50mm to 85mm at f/2 from a seated height.",
+    "moment": "A breath between events. I hand her the glass and ask her to turn her face to the light and forget I'm there.",
+    "before_shoot": "Turn her until the window shows as a catchlight in both eyes.",
+    "directions": [
+      {"label": "SINK IN", "say": "Sit into the corner of the sofa, arm along the cushion."},
+      {"label": "GLASS LOW", "say": "Hold the glass low, in both hands."},
+      {"label": "FAR AWAY", "say": "Turn to the window and look at the farthest building."}
+    ]
+  },
+  {
+    "id": "study-016", "photo": "column-lean", "category": "Bridal", "title": "The Column Lean",
+    "light": "Open shade under a colonnade. The stone behind falls dark while her lace and veil carry the light.",
+    "composition": "The column runs top to bottom right of centre. She leans into it and a branch of leaves frames the top right corner.",
+    "lens": "Try 50mm at f/2. Step back until the column fills the height of the frame.",
+    "moment": "Veil down, eyes closed, a soft lean. I ask her to rest her weight on the column and close her eyes.",
+    "before_shoot": "Check the column for dust and flaking paint. White lace marks easily.",
+    "directions": [
+      {"label": "LEAN IN", "say": "Lean your shoulder into the column. Let it take your weight."},
+      {"label": "HOLD THE VEIL", "say": "Hold the veil lightly at your waist."},
+      {"label": "REMEMBER", "say": "Close your eyes and smile like you just remembered something."}
+    ]
+  },
+  {
+    "id": "study-017", "photo": "window-hall", "category": "Couple", "title": "The Window Hall",
+    "light": "Arched windows straight behind them. Strong backlight rims both figures and throws long shadows over the boards.",
+    "composition": "Small figures in a big room. They stand between two arches and the floorboards lead up to their feet.",
+    "lens": "Try 35mm from the middle of the room, camera at waist height.",
+    "moment": "A held look across joined hands. I bring them to the light, join their hands and ask them to talk quietly.",
+    "before_shoot": "Expose for the windows and lift the shadows later. Watch for flare across the lens.",
+    "directions": [
+      {"label": "BETWEEN THE ARCHES", "say": "Stand facing each other, right between those two windows."},
+      {"label": "HANDS LOW", "say": "Hold both hands, low between you."},
+      {"label": "TONIGHT", "say": "Tell each other what you're most excited about tonight."}
+    ]
+  },
+  {
+    "id": "study-018", "photo": "garden-overhead", "category": "Couple", "title": "The Garden from Above",
+    "light": "Bright afternoon sun with dappled shade on the paving. Her dress catches the sun while he stands in shadow.",
+    "composition": "Shot from above. The veil sweeps in a curve toward him and he anchors the bottom of the frame.",
+    "lens": "Try 35mm from a balcony or upper step, looking down over the garden.",
+    "moment": "She walks a slow loop and the veil follows her. He stays still and watches.",
+    "before_shoot": "Find your high spot before the couple arrives. Lay the veil out flat so it lands in a clean curve.",
+    "directions": [
+      {"label": "STAND STILL", "say": "Stand right here and don't move."},
+      {"label": "SLOW LOOP", "say": "Walk slowly around him in a big circle."},
+      {"label": "TURN BACK", "say": "When you reach the railing, turn back to him."}
+    ]
+  },
+  {
+    "id": "study-019", "photo": "city-walk", "category": "Couple", "title": "The City Walk",
+    "light": "Bright overcast city light. It bounces off pale stone and keeps the white dress full of detail.",
+    "composition": "Shot from behind as they walk. The building edge leads into the distance and her train fills the bottom right.",
+    "lens": "Try 35mm to 50mm, walking behind them at their pace.",
+    "moment": "A laugh over the shoulder. I ask them to walk, and her to look back at me after a few steps.",
+    "before_shoot": "Walk the route once without the couple. Check for traffic, bins and signage in the background.",
+    "directions": [
+      {"label": "WALK AWAY", "say": "Hold hands and walk away from me, nice and slow."},
+      {"label": "SWING", "say": "Swing your hands a little as you go."},
+      {"label": "LOOK BACK", "say": "Now look back at me. Tell him what I just said."}
+    ]
+  },
+  {
+    "id": "study-020", "photo": "shadow-hold", "category": "Couple", "title": "The Shadow Hold",
+    "light": "Hard, low sun. It throws long, crisp shadows across bright pavement.",
+    "composition": "No people, only shadows. Their arms and joined hands cut a zigzag across plain concrete.",
+    "lens": "Try 24mm to 35mm, pointing down at the ground.",
+    "moment": "Their shadows reach for each other. I ask them to stand apart and stretch until their hands meet.",
+    "before_shoot": "Keep your own shadow out of frame. Move until the sun throws it behind you.",
+    "directions": [
+      {"label": "STEP APART", "say": "Stand a big step apart, facing each other."},
+      {"label": "FINGERTIPS", "say": "Reach out and just touch fingertips."},
+      {"label": "STRETCH", "say": "Lean back a little. Let your arms stretch out."}
+    ]
+  },
+  {
+    "id": "study-021", "photo": "grand-stair", "category": "Couple", "title": "The Grand Stair",
+    "light": "Soft skylight from above. It lights the wall and the rail while the lower stairwell falls darker.",
+    "composition": "Strong diagonals. The banisters run corner to corner and the couple sit high where the lines meet.",
+    "lens": "Try 24mm to 35mm from the landing below, tilted up.",
+    "moment": "A kiss on the stairs. I place them a few steps apart, then ask him to step down to her.",
+    "before_shoot": "Clear the stairs of guests and staff. One stray figure on a staircase breaks the lines.",
+    "directions": [
+      {"label": "TWO STEPS", "say": "Stand a couple of steps apart on the stairs."},
+      {"label": "STEP DOWN", "say": "Step down to her. Hand on her waist."},
+      {"label": "THE KISS", "say": "Now kiss her. Slowly."}
+    ]
+  },
+  {
+    "id": "study-022", "photo": "close-dance", "category": "Couple", "title": "The Close Dance",
+    "light": "Soft open shade, with warm stone bouncing light back into their faces.",
+    "composition": "Tight. Faces fill the top, joined hands sit in the centre and her lace sleeve leads in from the bottom right.",
+    "lens": "Try 85mm at f/2 from a few metres away.",
+    "moment": "A slow dance with no music. I ask them to hold hands like a waltz and sway.",
+    "before_shoot": "Check the ring hand faces the camera. It's a small detail, but every couple notices.",
+    "directions": [
+      {"label": "HAND UP", "say": "Take her hand up to your chest."},
+      {"label": "CHEEK IN", "say": "Rest your forehead on his cheek."},
+      {"label": "SWAY", "say": "Now sway. Tell him something that makes him grin."}
+    ]
+  },
+  {
+    "id": "study-023", "photo": "navy-door-kiss", "category": "Couple", "title": "The Navy Door Kiss",
+    "light": "Open shade in a deep doorway. Even light holds the white dress against the dark navy door.",
+    "composition": "Symmetrical. The door sits dead centre between two columns and her veil sweeps across the steps.",
+    "lens": "Try 35mm, square on to the door, verticals straight.",
+    "moment": "Her arm around his neck, the veil lifting. I wait for a breeze, or have someone throw the veil.",
+    "before_shoot": "Look for a door with a strong colour and clean steps. Sweep the leaves before you shoot.",
+    "directions": [
+      {"label": "AT THE DOOR", "say": "Stand in front of the door, close together."},
+      {"label": "PULL HIM IN", "say": "Arm around his neck. Pull him in."},
+      {"label": "ON THREE", "say": "Throw the veil on three. One, two, three."}
+    ]
+  },
+  {
+    "id": "study-024", "photo": "column-steps", "category": "Couple", "title": "The Column Steps",
+    "light": "Overcast daylight between tall columns. Soft and even, so the lace detail holds.",
+    "composition": "Two levels. He stands higher on the left, she stands front and right, and her train fills the bottom.",
+    "lens": "Try 35mm from the bottom step, slightly below her eye line.",
+    "moment": "Two separate poses in one frame. I give each a job. He does his button, she looks up to the light.",
+    "before_shoot": "Spread the train wide over the steps. On a big set of stairs it reads as scale.",
+    "directions": [
+      {"label": "UP A STEP", "say": "Up one step for me. Do your top button."},
+      {"label": "CHIN UP", "say": "Hands by your sides, chin up."},
+      {"label": "TO THE LIGHT", "say": "Both of you, look toward the light. Hold."}
+    ]
+  },
+  {
+    "id": "study-025", "photo": "balcony-arches", "category": "Couple", "title": "The Balcony Arches",
+    "light": "Soft skylight fills a white room. Very high key, with almost no shadow.",
+    "composition": "The architecture is the frame. Arches and a balustrade fill the page and the couple sit small in the lower centre.",
+    "lens": "Try 35mm to 50mm from a balcony on the far side of the atrium.",
+    "moment": "He leads her along the balcony. I direct from across the room, so we agree hand signals first.",
+    "before_shoot": "Agree hand signals before you split up. Shouting across a foyer ruins the mood.",
+    "directions": [
+      {"label": "THE MIDDLE", "say": "Walk to the middle of the balcony and stop."},
+      {"label": "BEHIND HIM", "say": "Hold his hand and step in behind him."},
+      {"label": "LEAD HER", "say": "Now walk her along. Nice and slow."}
+    ]
+  },
+  {
+    "id": "study-026", "photo": "car-window", "category": "Couple", "title": "The Back Seat",
+    "light": "Daylight through the car windows. Soft, flat and kind to skin.",
+    "composition": "Tight and layered. He sits soft in the foreground, she looks out the window and the car frame boxes them in.",
+    "lens": "Try 35mm from the opposite seat or through the open door.",
+    "moment": "The ride between ceremony and reception. Neither looks at the camera. I ask them to settle in and talk.",
+    "before_shoot": "Ask the driver for two minutes parked before you leave. Shooting a moving car is a gamble.",
+    "directions": [
+      {"label": "SLIDE IN", "say": "Slide right in close to each other."},
+      {"label": "LOOK OUT", "say": "Look out your windows for a second."},
+      {"label": "FAVOURITE PART", "say": "Now tell her your favourite part so far."}
+    ]
+  },
+  {
+    "id": "study-027", "photo": "garden-stairs-party", "category": "Party", "title": "The Garden Stairs",
+    "light": "Open shade with sun high in the trees. Even light across every face.",
+    "composition": "Built on the stairs with heads at different heights. The couple sit centre and friends spill up and down the steps.",
+    "lens": "Try 35mm from the bottom step, slightly below eye level.",
+    "moment": "A styled group with personality. I place the couple first, then give each friend a different pose.",
+    "before_shoot": "Plan the arrangement before everyone arrives. Big groups lose energy fast.",
+    "directions": [
+      {"label": "COUPLE FIRST", "say": "Couple, middle of the stairs. Everyone else build around you."},
+      {"label": "MIX IT UP", "say": "Every second person, take a seat on a step."},
+      {"label": "OWN IT", "say": "Look at me like you all own the place."}
+    ]
+  },
+  {
+    "id": "study-028", "photo": "stone-arch-party", "category": "Party", "title": "The Stone Arch",
+    "light": "Soft open shade at a stone arch. The dark arch behind separates every head.",
+    "composition": "Couple centred under the arch. The party fans out on both sides, some leaning, some seated on the step.",
+    "lens": "Try 24mm to 35mm close in, so the arch curves over the whole group.",
+    "moment": "Relaxed and confident. I give each person somewhere to lean or sit, so nobody stands stiff.",
+    "before_shoot": "Spread the train and veil across the bricks before the group steps in around it.",
+    "directions": [
+      {"label": "FIND A WALL", "say": "Couple under the arch. Everyone else, lean on the walls."},
+      {"label": "HANDS", "say": "Groomsmen, one hand in your pocket."},
+      {"label": "EYES UP", "say": "Everyone, chin down and eyes up to me."}
+    ]
+  },
+  {
+    "id": "study-029", "photo": "party-cheer", "category": "Party", "title": "The Party Cheer",
+    "light": "Bright overcast sky. Flat light, so every face reads evenly at every height.",
+    "composition": "A tight cluster from a low angle. Bodies overlap and crouch, and bouquets and glasses break up the top edge.",
+    "lens": "Try 24mm to 35mm close in, crouching low.",
+    "moment": "Pure noise. I count them in and ask for the loudest cheer of the day.",
+    "before_shoot": "Turn every bottle and can so the label faces away from the lens.",
+    "directions": [
+      {"label": "SQUEEZE IN", "say": "Squeeze in tight. Taller ones at the back."},
+      {"label": "GET LOW", "say": "Front row, drop down low for me."},
+      {"label": "ON THREE", "say": "Glasses up. Loudest cheer on three. One, two, three."}
+    ]
+  },
+  {
+    "id": "study-030", "photo": "fountain-from-above", "category": "Venue", "title": "The Ring of Trees",
+    "light": "High sun, straight down. Shadows stay short so the shapes on the ground read clearly.",
+    "composition": "Perfect symmetry. A round drive circles a ring of trees, and the long table runs through the middle.",
+    "lens": "A drone at roughly 60 metres, camera pointing straight down.",
+    "moment": "The setting before anyone sits. I fly it once the tables are set and the guests are still elsewhere.",
+    "before_shoot": "Check the airspace rules and the venue's drone policy. Charge two batteries.",
+    "directions": [
+      {"label": "HOLD THE GUESTS", "say": "Can we keep everyone out of the garden for five minutes?"},
+      {"label": "WATCH ABOVE", "say": "Call out if anyone walks under the drone."},
+      {"label": "TABLE LIGHTS", "say": "Can we switch the table lights on while I'm up?"}
+    ]
+  },
+  {
+    "id": "study-031", "photo": "red-brick-quad", "category": "Venue", "title": "The Red Brick Quad",
+    "light": "Bright sun from the side picks out the roof tiles and throws shadows from the battlements.",
+    "composition": "An oblique drone angle. The building wraps the courtyard and two vintage cars on the drive add scale.",
+    "lens": "A drone at about 40 metres, camera tilted down around 45 degrees.",
+    "moment": "Arrival. The cars are parked and the tables are set. The whole day sits in one frame.",
+    "before_shoot": "Fly it before the guests spill out. An empty courtyard reads cleaner from the air.",
+    "directions": [
+      {"label": "PARK UP", "say": "Can you leave the cars on the drive for ten minutes?"},
+      {"label": "CLEAR IT", "say": "Tell me when the courtyard is clear."},
+      {"label": "GOING UP", "say": "Drone's going up now. Two minutes and I'm done."}
+    ]
+  },
+  {
+    "id": "study-032", "photo": "cathedral-courtyard", "category": "Venue", "title": "The Cathedral Courtyard",
+    "light": "Bright overcast. Even light, so the brick and slate texture holds across the whole building.",
+    "composition": "Shot from a window above. The roof line runs left to right and the bell tower anchors the top left.",
+    "lens": "Try 24mm to 35mm from a high window. Keep the tower vertical.",
+    "moment": "The building between moments. I grab it while everyone is still inside.",
+    "before_shoot": "Ask the venue for upper floor access well before the day. Most will say yes if you ask early.",
+    "directions": [
+      {"label": "ACCESS", "say": "Is there a window upstairs I could use for one frame?"},
+      {"label": "HOLD THE DOOR", "say": "Hold everyone at the door for one minute, please."},
+      {"label": "RELEASE", "say": "Thanks. Let them out now."}
+    ]
+  },
+  {
+    "id": "study-033", "photo": "marquee-blue-hour", "category": "Venue", "title": "The Marquee at Blue Hour",
+    "light": "Blue hour outside, warm lamps inside. The marquee glows against a deep sky.",
+    "composition": "Low and wide. The lawn fills the bottom half and leads to the tent, its peaks against the clouds.",
+    "lens": "Try 24mm on a tripod, far enough back to show the lawn.",
+    "moment": "Dinner in full swing. The guests are small enough to read as warmth, not faces.",
+    "before_shoot": "Bring a tripod and check the sunset time. The blue only lasts about twenty minutes.",
+    "directions": [
+      {"label": "WALLS UP", "say": "Can we keep the side walls rolled up for ten minutes?"},
+      {"label": "LIGHTS FULL", "say": "Lights up full inside, please."},
+      {"label": "SKY CHECK", "say": "Call me the second the sky turns blue."}
+    ]
+  },
+  {
+    "id": "study-034", "photo": "chapel-wall", "category": "Venue", "title": "The Chapel Wall",
+    "light": "Hard midday sun on pale stone. The sky deepens to blue and the trees throw shade at the edges.",
+    "composition": "The building is the subject. The couple walk small along the bottom, with trees framing both sides.",
+    "lens": "Try 24mm to 35mm from across the lawn, verticals kept straight.",
+    "moment": "A walk past the building. I send them from one tree to the other and shoot the whole way.",
+    "before_shoot": "Step back until the spires sit inside the frame. Tilt up and the walls start to lean.",
+    "directions": [
+      {"label": "TREE TO TREE", "say": "Walk from that tree over to the other one."},
+      {"label": "HOLD HANDS", "say": "Hold hands, with the dress on the outside."},
+      {"label": "HALFWAY", "say": "Look at each other halfway along."}
+    ]
+  },
+  {
+    "id": "study-035", "photo": "five-flutes", "category": "Reception Details", "title": "The Five Flutes",
+    "light": "Soft, even light on a white backdrop. The glass edges go dark and the wine glows.",
+    "composition": "Five flutes in a row with their mirror image below. Equal spacing, centred and calm.",
+    "lens": "Try 50mm to 100mm, camera level with the base of the glasses.",
+    "moment": "Before the toast. I line up the glasses myself while the room is still being set.",
+    "before_shoot": "Polish every glass. A reflective surface doubles every smudge.",
+    "directions": [
+      {"label": "BORROW", "say": "Could I borrow five glasses and a pour, please?"},
+      {"label": "SAME LEVEL", "say": "Same level in each one, if you can."},
+      {"label": "RETURN", "say": "Thank you. They'll be back in two minutes."}
+    ]
+  },
+  {
+    "id": "study-036", "photo": "berry-cake", "category": "Reception Details", "title": "The Berry Cake",
+    "light": "Hard light from the side lifts the berries and piped cream and leaves the background dark.",
+    "composition": "Tight and diagonal. The cake runs off the top left and the tablecloth folds fill the bottom.",
+    "lens": "Try 50mm to 85mm, close and slightly above the cake.",
+    "moment": "The cake before the cut. I shoot it as soon as it's placed, while the fruit still shines.",
+    "before_shoot": "Ask for the cake to be turned so its best side faces your light.",
+    "directions": [
+      {"label": "A QUARTER TURN", "say": "Can we turn the cake a quarter toward the window?"},
+      {"label": "TIDY THE CLOTH", "say": "Pull that cloth tight across the front, please."},
+      {"label": "ALL YOURS", "say": "Perfect. One minute and it's all yours."}
+    ]
+  },
+  {
+    "id": "study-037", "photo": "bow-coupe", "category": "Reception Details", "title": "The Bow Coupe",
+    "light": "Soft directional light on a dark backdrop. It lifts the cocktail, ring and ribbon off the background.",
+    "composition": "The hand enters from the right. The glass sits high and the bow hangs down into empty space.",
+    "lens": "Try 50mm to 85mm, close in.",
+    "moment": "A hand holding the welcome drink. I tie the bow, then ask her to reach in from the side.",
+    "before_shoot": "Bring a dark cloth or board. It turns any bar corner into a studio.",
+    "directions": [
+      {"label": "BY THE STEM", "say": "Hold the glass by the stem. Reach in from the side."},
+      {"label": "SHOW THE RING", "say": "Turn your ring toward me. Fingers soft."},
+      {"label": "STILL", "say": "Hold it still. Breathe out."}
+    ]
+  },
+  {
+    "id": "study-038", "photo": "garden-plan", "category": "Reception Details", "title": "The Garden Plan",
+    "light": "Soft late day light straight down. Gentle enough to keep the white tables from blowing out.",
+    "composition": "A floor plan in a frame. Paths make a cross, round tables fill each quarter and the dance floor sits top left.",
+    "lens": "A drone at about 50 metres, camera pointing straight down.",
+    "moment": "Cocktail hour. Guests spread through the garden, small enough to read as pattern.",
+    "before_shoot": "Fly before dark. A lit garden from the air at night loses all its detail.",
+    "directions": [
+      {"label": "SPOTTER", "say": "Keep an eye on the drone while I fly, please."},
+      {"label": "CLEAR FLOOR", "say": "Can we keep the dance floor clear for five minutes?"},
+      {"label": "TIME CHECK", "say": "Call the time for me. We're done in five."}
+    ]
+  },
+  {
+    "id": "study-039", "photo": "lawn-dance", "category": "Flash", "title": "The Lawn Dance",
+    "light": "Direct flash at night. It freezes them in white and drops the background to black.",
+    "composition": "Two figures, full length. Arms reach toward each other and the dark lawn fills the bottom.",
+    "lens": "Try 35mm at f/4 with on-camera flash, about four metres back.",
+    "moment": "Shoes off and dancing on the grass. I take them outside after the speeches and ask them to forget I'm there.",
+    "before_shoot": "Set the flash to manual and test on a stand-in. Grass eats light, so you'll need more power.",
+    "directions": [
+      {"label": "SHOES OFF", "say": "Out on the grass. Kick your shoes off."},
+      {"label": "SPIN OUT", "say": "Take her hand and spin her out."},
+      {"label": "PULL IN", "say": "Now pull her back in. Go."}
+    ]
+  },
+  {
+    "id": "study-040", "photo": "cake-cut", "category": "Flash", "title": "The Cake Cut",
+    "light": "Flash off to the side. It lights the cake and the couple and pushes the hedge behind them into shadow.",
+    "composition": "Couple on the left, cake on the right, both the same height in frame. The tablecloth grounds the bottom.",
+    "lens": "Try 35mm to 50mm at f/4, flash on a stand at 45 degrees.",
+    "moment": "A nuzzle during the cut. I ask them to hold the knife together and look at each other, not me.",
+    "before_shoot": "Ask the coordinator when the cut is. Be in position before the MC calls it.",
+    "directions": [
+      {"label": "BOTH HANDS", "say": "Both hands on the knife. Stand close."},
+      {"label": "CHEEK TO CHEEK", "say": "Cheek to cheek for me."},
+      {"label": "IGNORE ME", "say": "Ignore me. Look at each other and cut."}
+    ]
+  },
+  {
+    "id": "study-041", "photo": "champagne-tower", "category": "Flash", "title": "The Champagne Tower",
+    "light": "Bounced flash lifts the couple out of a dim marquee. A slower shutter keeps the fairy lights glowing.",
+    "composition": "Bride centre with her arm stretched to the bottle. The tower on the left catches the pour.",
+    "lens": "Try 24mm to 35mm close in, shutter around 1/30 to hold the fairy lights.",
+    "moment": "The first pour. Champagne overflows and she reacts. I ask her to pour slowly so I get more than one frame.",
+    "before_shoot": "Check the tower is stable and the floor is dry. Spilt champagne and long gowns don't mix.",
+    "directions": [
+      {"label": "BOTTLE HIGH", "say": "Bottle up high. Start pouring slowly."},
+      {"label": "ARM AROUND", "say": "Arm around her waist, and stay close."},
+      {"label": "LET IT SPILL", "say": "Keep pouring. Watch it spill over."}
+    ]
+  },
+  {
+    "id": "study-042", "photo": "ballroom-spin", "category": "Flash", "title": "The Ballroom Spin",
+    "light": "Off-camera light from behind rims them both and glows through her veil while the room stays dim.",
+    "composition": "Couple in the lower centre on a patterned floor. Candles and tables sit behind and the ceiling fills the top.",
+    "lens": "Try 24mm to 35mm wide, with a flash on a stand behind the couple.",
+    "moment": "A spin during the first dance. I place the backlight before they walk onto the floor.",
+    "before_shoot": "Hide the stand behind the groom. Check the frame with a test shot on a stand-in.",
+    "directions": [
+      {"label": "CENTRE", "say": "Start right in the middle of the floor."},
+      {"label": "ARM OUT", "say": "Arm out. Let him turn you."},
+      {"label": "SPIN", "say": "Spin out and laugh."}
+    ]
+  }
+]
