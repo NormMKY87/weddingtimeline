@@ -70,6 +70,11 @@
 [data-product="craft-program"] {
   --cover-bg: var(--white); --cover-rule: rgb(34 30 26 / 0.2);
 }
+[data-product="editorial-field-guide"] {
+  --cover-bg: #9B7854; --cover-fg: var(--white); --cover-fg-2: #F1E6D9;
+  --cover-kicker: #F1E6D9; --cover-accent: var(--white);
+  --cover-rule: rgb(251 248 242 / 0.32); --cover-motif: rgb(251 248 242 / 0.9);
+}
 [data-product="bundle"] {
   --cover-bg: var(--ink-2); --cover-fg: var(--white); --cover-fg-2: #D9D0C2;
   --cover-kicker: var(--clay-soft); --cover-accent: var(--clay-soft);

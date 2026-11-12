@@ -14,6 +14,8 @@ const PRODUCTS = {
     cover: '../out/covers/05-part-time-to-full-time.png', L: '../out/screens/ws-seven-day-checklist.png', R: '../out/screens/ws-your-number.png', X: '../out/screens/wc-1.png' },
   'craft-program': { no: '06', title: 'The Craft Program', short: 'The Craft Program',
     cover: '../out/covers/06-craft-program.png', L: '../out/screens/ws-timeline-builder.png', R: '../out/screens/wc-8.png', X: '../out/screens/wc-9.png' },
+  'editorial-field-guide': { no: '07', title: 'The Editorial Field Guide', short: 'Editorial Field Guide',
+    cover: '../out/covers/07-editorial-field-guide.png', L: '../pages/efg-window-hall.jpg', R: '../pages/efg-garden-overhead.jpg', X: '../pages/efg-seated-veil.jpg' },
 };
 
 const q = new URLSearchParams(location.search);

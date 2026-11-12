@@ -60,7 +60,7 @@ async function renderCovers(browser) {
 async function renderPhotoCovers(browser) {
   const dir = path.join(OUT, 'covers-photo'); fs.mkdirSync(dir, { recursive: true });
   const page = await browser.newPage({ viewport: { width: 595, height: 842 }, deviceScaleFactor: SCALE });
-  const P = ['quit-number-calculator', 'booking-pack', 'follow-up-vault', 'consult-call-kit', 'part-time-to-full-time', 'craft-program'];
+  const P = ['quit-number-calculator', 'booking-pack', 'follow-up-vault', 'consult-call-kit', 'part-time-to-full-time', 'craft-program', 'editorial-field-guide'];
   for (const [i, p] of P.entries()) {
     await page.goto(url('covers-photo/cover.html') + '?p=' + p); await settle(page);
     const out = path.join(dir, `0${i + 1}-${p}.png`);

@@ -60,6 +60,11 @@ const M = {
     'Where the couple stands at each hour decides the light you get. Build the day around the light and the photographs look like a full-timer made them.',
     'Take your next booked wedding and lay the day out hour by hour. Mark where the light is at each milestone, then move one thing.',
     'Phase two. Built after the business program, coming 2027.'],
+  'editorial-field-guide': ['FIELD GUIDE', 'grand-stair', CROP['grand-stair'], 'Light. Composition.<br>Moment.', '<b>42 studies</b> / getting ready to the reception / <b>three directions</b> to say out loud',
+    [['window-hall', CROP['window-hall']], ['garden-overhead', CROP['garden-overhead']], ['balcony-arches', CROP['balcony-arches']], ['seated-veil', CROP['seated-veil']]], 'Study 17', 'The window hall', 'Backlight in a big room',
+    'Arched windows straight behind them. Strong backlight rims both figures and throws long shadows over the boards.',
+    'Small figures in a big room. They stand between two arches and the floorboards lead up to their feet.',
+    'Every study ends with three directions you can say out loud on the day.'],
 };
 const p = new URLSearchParams(location.search).get('p') || 'booking-pack';
 const [mast, cph, cpos, hl, lines, S, k, h2, h2s, a, b, cap] = M[p];
@@ -67,7 +72,7 @@ const ph = (s, x, y, w, h) => `<div class="ph" style="left:${x}px;top:${y}px;wid
 document.body.innerHTML = `
 <div class="pg cov" data-shot="cover">
   <div class="mast" style="font-size:${mast.length > 12 ? 38 : 46}px">${mast}</div>
-  <div class="lab" style="left:34px">No. ${({'quit-number-calculator':'01','booking-pack':'02','follow-up-vault':'03','consult-call-kit':'04','part-time-to-full-time':'05','craft-program':'06'})[p]}</div>
+  <div class="lab" style="left:34px">No. ${({'quit-number-calculator':'01','booking-pack':'02','follow-up-vault':'03','consult-call-kit':'04','part-time-to-full-time':'05','craft-program':'06','editorial-field-guide':'07'})[p]}</div>
   <div class="lab" style="right:34px">Norman Yap</div>
   <div class="ph"><img src="../photos/${cph}.jpg" style="object-position:${cpos}"></div>
   <div class="hl">${hl}</div><div class="lines">${lines}</div>

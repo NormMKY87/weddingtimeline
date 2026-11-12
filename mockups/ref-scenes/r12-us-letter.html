@@ -36,7 +36,8 @@
 <script src="lib.js"></script>
 <script>
   const M = (n) => `../out/magazine/${PID}-${n}.jpg`;
-  document.querySelector('.spread .l').innerHTML = img(M('L'));
-  document.querySelector('.spread .r').innerHTML = img(M('R'));
+  const real = PID === 'editorial-field-guide';  // show the guide's real study pages
+  document.querySelector('.spread .l').innerHTML = img(real ? P.R : M('L'));
+  document.querySelector('.spread .r').innerHTML = img(real ? P.L : M('R'));
   document.querySelector('.cover .face2').innerHTML = img(M('cover'));
 </script></body></html>

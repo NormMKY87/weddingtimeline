@@ -1,6 +1,6 @@
 // Renders the US Letter magazine pages for each product to out/magazine/<product>-{cover,L,R}.png
 const { chromium } = require('playwright'); const fs = require('fs'); const path = require('path');
-const P = ['quit-number-calculator', 'booking-pack', 'follow-up-vault', 'consult-call-kit', 'part-time-to-full-time', 'craft-program'];
+const P = ['quit-number-calculator', 'booking-pack', 'follow-up-vault', 'consult-call-kit', 'part-time-to-full-time', 'craft-program', 'editorial-field-guide'];
 (async () => {
   const b = await chromium.launch(); const pg = await b.newPage({ viewport: { width: 2000, height: 900 }, deviceScaleFactor: 2 });
   const dir = path.join(__dirname, 'out', 'magazine'); fs.mkdirSync(dir, { recursive: true });
