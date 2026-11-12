@@ -26,7 +26,7 @@ def assets(p):
     L, R, X = PAGES[p]
     guide = p == 'editorial-field-guide'
     return dict(
-        cover=P('out/magazine', p + '-cover.jpg'), bleed=P('out/assets', p + '-bleed.png'),
+        cover=P('out/magazine', p + '-cover.jpg'), cover_pb=P('out/assets', p + '-cover-pb.png'), bleed=P('out/assets', p + '-bleed.png'),
         spine=P('out/assets', p + '-spine.png'), spine_dark=P('out/assets', p + '-spine-dark.png'),
         band=P('out/assets', p + '-band.png'), L=P(L), R=P(R), X=P(X),
         magL=P(R) if guide else P('out/magazine', p + '-L.jpg'),
@@ -130,14 +130,14 @@ def image(path):
     return _img[path]
 
 
-def printed(path, rough=0.5, crop=(0, 1), glow=0.0, back=None):
+def printed(path, rough=0.5, crop=(0, 1), glow=0.0, back=None, vcrop=(0, 1)):
     """Paper printed with an image. crop trims the texture left and right. back is the reverse side."""
     m, b = principled(os.path.basename(path))
     nt = m.node_tree
     uv = nt.nodes.new('ShaderNodeTexCoord')
     mp = nt.nodes.new('ShaderNodeMapping')
-    mp.inputs['Location'].default_value = (crop[0], 0, 0)
-    mp.inputs['Scale'].default_value = (crop[1] - crop[0], 1, 1)
+    mp.inputs['Location'].default_value = (crop[0], vcrop[0], 0)
+    mp.inputs['Scale'].default_value = (crop[1] - crop[0], vcrop[1] - vcrop[0], 1)
     tx = nt.nodes.new('ShaderNodeTexImage')
     tx.image, tx.extension = image(path), 'EXTEND'
     nt.links.new(uv.outputs['UV'], mp.inputs['Vector'])
@@ -314,27 +314,27 @@ def group(objs, loc=(0, 0, 0), rot=(0, 0, 0)):
 # Each returns (background colour, light spot (x, y, radius, strength), grain)
 def r01(A):
     """Paperback lying flat, three-quarter view, on pale grey."""
-    b = book(0.30, 0.39, 0.024, printed(A['cover'], 0.5), spine=printed(A['spine'], 0.5))
-    b.rotation_euler = (0, 0, math.radians(31))
+    b = book(0.262, 0.393, 0.020, printed(A['cover_pb'], 0.55), spine=printed(A['spine'], 0.55))
+    b.rotation_euler = (0, 0, math.radians(34))
     catcher()
-    sky(0.62); sun(125, 52, 2.3, 14)
-    camera((0.06, -2.55, 3.05), (0.06, 0.0, 0), lens=170)
-    return (224, 224, 224), (0.3, 0.3, 0.9, 12)
+    sky(0.74); sun(118, 60, 1.5, 22)
+    camera((-0.005, -2.55, 3.05), (-0.005, 0.03, 0), lens=178)
+    return (221, 221, 221), (0.45, 0.4, 0.9, 6)
 
 
 def r02(A):
     """Open paperback, same camera."""
-    l, r, _ = open_spread(0.29, 0.40, 0.020, A['L'], A['R'], bulge=0.012, a=0.05)
+    l, r, _ = open_spread(0.266, 0.40, 0.022, A['L'], A['R'], bulge=0.014, a=0.05)
     group([l, r], rot=(0, 0, math.radians(27)))
     catcher()
-    sky(0.62); sun(125, 52, 2.3, 14)
+    sky(0.74); sun(118, 60, 1.5, 22)
     camera((0.02, -2.55, 3.05), (0.02, 0.0, 0), lens=150)
-    return (224, 224, 224), (0.3, 0.3, 0.9, 12)
+    return (221, 221, 221), (0.45, 0.4, 0.9, 6)
 
 
 def r03(A):
     """Hardcover standing on white, a sliver of spine, soft floor shadow to the left."""
-    w, h, t, bd = 0.30, 0.40, 0.042, 0.004
+    w, h, t, bd = 0.285, 0.40, 0.064, 0.004
     cloth = flat('cloth', (0.035, 0.033, 0.032), 0.55)
     parts = [book(w, h, bd, printed(A['bleed'], 0.38), back=cloth, spine=cloth, edges=cloth, bevel=0.0008)]
     parts[0].location = (0, 0, t - bd)
@@ -344,31 +344,32 @@ def r03(A):
     pg = book(w - 0.012, h - 0.016, t - 2 * bd, flat('pg', (0.93, 0.92, 0.9)), bevel=0)
     pg.location = (-0.002, 0, bd)
     g = group(parts + [bk, sp, pg])
-    g.rotation_euler = (math.radians(90), 0, math.radians(24))   # stand up, turn the spine toward the camera
+    g.rotation_euler = (math.radians(90), 0, math.radians(28))   # stand up, turn the spine toward the camera
     g.location = (0, 0, h / 2)
     catcher()
-    sky(0.8); sun(-50, 40, 1.6, 30)
-    camera((0, -4.2, 0.30), (0.0, 0, 0.2), lens=200)
+    sky(0.85); sun(-60, 46, 1.3, 34)
+    camera((0.03, -1.9, 0.215), (0.03, 0, 0.2), lens=86)
     return (255, 255, 255), None
 
 
 def r04(A):
-    """Three copies fanned in a stack with a kraft band, top-down on sage."""
-    w, h, t = 0.433, 0.560, 0.009
-    cx, cy = px(590, 388)
-    for k, (dx, dy, rz) in enumerate([(0.034, -0.05, -3.4), (0.016, -0.026, -1.4), (0, 0, 1.0)]):
-        m = magazine(w, h, t, A['cover'])
-        m.location = (cx + dx, cy + dy, k * (t + 0.0006))
+    """Three folded copies fanned in a stack with a kraft band, top-down on sage."""
+    w, h, t = 0.464, 0.344, 0.011
+    vc = (1 - 612 * h / w / 792, 1)              # the fold shows the top of the cover
+    cx, cy = px(552, 452)
+    paper = flat('fold', (0.94, 0.935, 0.92), 0.6)
+    for k, (dx, dy, rz) in enumerate([(0.085, -0.115, 1.5), (0.045, -0.06, -0.8), (0, 0, 0.6)]):
+        m = book(w, h, t, printed(A['cover'], 0.55, vcrop=vc), back=paper, spine=paper, edges=paper, bevel=0.0035)
+        m.location = (cx + dx, cy + dy, k * (t + 0.0005))
         m.rotation_euler = (0, 0, math.radians(rz))
-    bw = 0.092
-    band = book(bw, h + 0.012, 0.0014, printed(A['band'], 0.75), back=flat('kraft', (0.72, 0.6, 0.45), 0.8),
-                edges=flat('kraft2', (0.70, 0.58, 0.43), 0.8), spine=flat('kraft3', (0.70, 0.58, 0.43), 0.8), bevel=0)
-    band.location = (cx + 0.06, cy, 3 * t + 0.002)
-    band.rotation_euler = (0, 0, math.radians(1.0))
+    kraft = flat('kraft', (0.70, 0.58, 0.43), 0.8)
+    band = book(0.125, h + 0.016, 0.0016, printed(A['band'], 0.75, vcrop=(0.42, 1)), back=kraft, edges=kraft, spine=kraft, bevel=0)
+    band.location = (cx + 0.07, cy, 3 * t + 0.0025)
+    band.rotation_euler = (0, 0, math.radians(0.6))
     catcher()
-    sky(0.48); sun(60, 60, 2.6, 8)
+    sky(0.5); sun(62, 60, 2.5, 9)
     topdown(1.2)
-    return (163, 176, 147), (0.5, 0.45, 0.75, 16)
+    return (163, 176, 147), (0.5, 0.5, 0.8, 18)
 
 
 def r05(A):

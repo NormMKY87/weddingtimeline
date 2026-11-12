@@ -91,4 +91,7 @@ document.body.innerHTML = `
   ${ph(S[2], 52, 380, 508, 340)}
   <div class="folio" style="right:52px"><span class="s"></span>&nbsp;&nbsp;&nbsp;13</div>
 </div>`;
+// ?w=528 gives a 2:3 paperback cover for the book scenes
+const cw = +new URLSearchParams(location.search).get('w');
+if (cw) { const c = document.querySelector('.cov'), m = c.querySelector('.mast'); c.style.width = cw + 'px'; c.style.flex = 'none'; m.style.fontSize = (parseFloat(m.style.fontSize) * cw / 612 * 0.96) + 'px'; c.querySelector('.lines').style.maxWidth = '230px'; }
 </script></body></html>

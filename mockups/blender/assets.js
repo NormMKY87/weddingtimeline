@@ -18,6 +18,12 @@ const P = ['quit-number-calculator', 'booking-pack', 'follow-up-vault', 'consult
       await el.screenshot({ path: path.join(dir, `${p}-${await el.getAttribute('data-shot')}.png`) });
     }
   }
+  for (const p of P) {   // 2:3 paperback cover from the magazine cover template
+    await pg.goto('file://' + path.join(__dirname, '..', 'covers-photo', 'magazine.html') + '?p=' + p + '&w=528');
+    await pg.evaluate(() => document.fonts.ready);
+    await pg.evaluate(async () => Promise.all([...document.images].filter(i => !i.complete).map(i => new Promise(r => { i.onload = i.onerror = r; }))));
+    await (await pg.$('[data-shot=cover]')).screenshot({ path: path.join(dir, `${p}-cover-pb.png`) });
+  }
   await b.close();
   console.log('assets done');
 })();
