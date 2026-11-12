@@ -28,6 +28,7 @@ Working plan as of 8 November 2026. Dates are deadlines on the Asana board. Vanc
 | Booking Pack on sale | 8 Dec |
 | Consult Call Kit written | 21 Dec | Written and designed 8 Nov in a cloud session. Run sheet, timeline on the call, recording habit, objections in depth, ten questions and PDF in `products/consult-call-kit/`. Open: live test of the ten questions on the next consult, Norm's PDF review. See `pc-session-list.md` |
 | Channel pieces 4 to 7 | 6, 13, 20, 27 Dec |
+| Product mockups for the six products plus the bundle shot | 5 Dec | Built 12 Nov in a cloud session. Seven covers on a provisional token palette, seven scenes at four sizes, contact sheet and render script in `mockups/`. Open: Norm's review of `mockups/contact-sheet.html`, confirmation of the six products, and the education brand name for the re-skin |
 
 Gate: nothing off the side products list starts until the Booking Pack has sold 20 copies.
 
