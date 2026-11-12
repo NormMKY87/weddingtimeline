@@ -375,16 +375,16 @@ def r04(A):
 def r05(A):
     """Cover in raking window light, top-down on warm beige."""
     m = magazine(0.433, 0.560, 0.009, A['cover'])
-    m.location = (*px(660, 404), 0)
+    m.location = (*px(650, 404), 0.022)
     catcher()
     dark = flat('gobo', (0, 0, 0))
     for (x, y, rz, sx, sy) in [(0.50, 1.05, -40, 0.22, 3.0), (1.22, 0.62, -40, 0.42, 3.0)]:  # window bars out of frame
         g = box(sx, sy, 0.01, dark, (x, y, 1.1))
         g.rotation_euler = (0, 0, math.radians(rz))
         g.visible_camera = False
-    sky(0.5, (1, 0.97, 0.94)); sun(40, 50, 2.6, 9, (1, 0.96, 0.9))
+    sky(0.46, (1, 0.97, 0.94)); sun(42, 44, 2.7, 10, (1, 0.96, 0.9))
     topdown(1.2)
-    return (212, 200, 190), (0.42, 0.55, 0.7, 14)
+    return (204, 192, 184), (0.42, 0.55, 0.7, 12)
 
 
 def r06(A):
@@ -395,9 +395,9 @@ def r06(A):
     lean = math.radians(82)
     m = magazine(w, h, t, A['cover'])
     m.rotation_euler = (lean, 0, 0)
-    m.location = (0.13, -h / 2 * math.cos(lean) - 0.004, h / 2 * math.sin(lean))
+    m.location = (-0.015, -h / 2 * math.cos(lean) - 0.004, h / 2 * math.sin(lean))
     wall, wb = principled('wall')
-    wb.inputs['Base Color'].default_value = (0.80, 0.735, 0.675, 1)
+    wb.inputs['Base Color'].default_value = (0.74, 0.665, 0.60, 1)
     wb.inputs['Roughness'].default_value = 0.9
     nt = wall.node_tree
     nz = nt.nodes.new('ShaderNodeTexNoise'); nz.inputs['Scale'].default_value = 60; nz.inputs['Detail'].default_value = 8
@@ -409,8 +409,8 @@ def r06(A):
     nt = marble.node_tree
     nz = nt.nodes.new('ShaderNodeTexNoise'); nz.inputs['Scale'].default_value = 3.2; nz.inputs['Detail'].default_value = 12; nz.inputs['Distortion'].default_value = 2.4
     ramp = nt.nodes.new('ShaderNodeValToRGB')
-    ramp.color_ramp.elements[0].position = 0.40; ramp.color_ramp.elements[0].color = (0.78, 0.77, 0.76, 1)
-    ramp.color_ramp.elements[1].position = 0.50; ramp.color_ramp.elements[1].color = (0.95, 0.945, 0.94, 1)
+    ramp.color_ramp.elements[0].position = 0.43; ramp.color_ramp.elements[0].color = (0.60, 0.59, 0.585, 1)
+    ramp.color_ramp.elements[1].position = 0.50; ramp.color_ramp.elements[1].color = (1.0, 0.995, 0.99, 1)
     nt.links.new(nz.outputs['Fac'], ramp.inputs['Fac']); nt.links.new(ramp.outputs['Color'], mb.inputs['Base Color'])
     mb.inputs['Roughness'].default_value = 0.42
     bpy.ops.mesh.primitive_plane_add(size=12, location=(0, -6, 0))
@@ -419,8 +419,8 @@ def r06(A):
     random.seed(7)
     leafm = flat('leaf', (0, 0, 0))
     to_sun = Vector((-0.42, -0.62, 0.66)).normalized()
-    for b_ in range(15):
-        c = Vector((random.uniform(-0.7, 0.7), 0, random.uniform(0.34, 0.72))) + to_sun * 0.95
+    for b_ in range(22):
+        c = Vector((random.uniform(-0.75, 0.75), 0, random.uniform(0.40, 0.78))) + to_sun * 0.95
         for k in range(26):
             bpy.ops.mesh.primitive_circle_add(vertices=10, radius=1, fill_type='NGON')
             o = bpy.context.object
@@ -429,7 +429,7 @@ def r06(A):
             o.rotation_euler = (random.uniform(0, 3.1), random.uniform(0, 3.1), random.uniform(0, 3.1))
             o.data.materials.append(leafm)
             o.visible_camera = False
-    sky(0.34, (1, 0.96, 0.93))
+    sky(0.27, (1, 0.96, 0.93))
     d = bpy.data.lights.new('sun', 'SUN'); d.energy, d.angle, d.color = 3.3 * EXPOSURE, math.radians(1.9), (1, 0.95, 0.88)
     o = link(bpy.data.objects.new('sun', d)); o.rotation_euler = to_sun.to_track_quat('Z', 'Y').to_euler()
     camera((0, -4.6, 0.58), (0, 0, 0.225), lens=158)
@@ -439,13 +439,26 @@ def r06(A):
 def r07(A):
     """E-reader standing against an olive wall, cropped at the bottom."""
     w, h, t = 0.552, 0.776, 0.014
-    body = box(w, t, h, flat('bezel', (0.02, 0.02, 0.022), 0.35), (0, 0, 0), bevel=0.008)
-    scr = book(w - 0.030, h - 0.030, 0.0004, printed(A['reader'], 0.25, glow=0.55), bevel=0)
-    scr.rotation_euler = (math.radians(90), 0, 0)
-    scr.location = (0, -t / 2 - 0.0002, 0)
-    g = group([body, scr], loc=(0.02, -t / 2 - 0.03, -0.096), rot=(math.radians(-4), 0, 0))
+    def rounded(rw, rh, rt, mat, rad):          # a rounded slab, face toward the camera
+        bpy.ops.mesh.primitive_plane_add(size=1)
+        o = bpy.context.object
+        o.scale = (rw, rh, 1)
+        bpy.ops.object.transform_apply(scale=True)
+        o.data.materials.append(mat)
+        b = o.modifiers.new('round', 'BEVEL')
+        b.affect, b.width, b.segments = 'VERTICES', rad, 10
+        if rt:
+            sd = o.modifiers.new('solid', 'SOLIDIFY')
+            sd.thickness, sd.offset = rt, -1
+        o.rotation_euler = (math.radians(90), 0, 0)
+        return o
+    body = rounded(w, h, t, flat('bezel', (0.02, 0.02, 0.022), 0.35), 0.03)
+    body.location = (0, -t / 2, 0)
+    scr = rounded(w - 0.026, h - 0.026, 0, printed(A['reader'], 0.25, glow=0.55), 0.019)
+    scr.location = (0, -t / 2 - 0.0004, 0)
+    g = group([body, scr], loc=(0.0, -t / 2 - 0.03, -0.096), rot=(math.radians(-4), 0, 0))
     catcher(rot=(math.radians(90), 0, 0))
-    sky(0.55); sun(-52, 30, 2.0, 12)
+    sky(0.5); sun(-40, 28, 2.3, 10)
     camera((0, -5, 0), (0, 0, 0), ortho=1.2)
     return (176, 167, 143), (0.62, 0.4, 0.8, 10)
 
@@ -453,7 +466,7 @@ def r07(A):
 def r08(A):
     """The cover repeated on the diagonal, edge to edge."""
     w, h, t = 0.40, 0.518, 0.007
-    ang = math.radians(-27)
+    ang = math.radians(27)
     ux, uy = Vector((math.cos(ang), math.sin(ang))), Vector((-math.sin(ang), math.cos(ang)))
     for i in range(-3, 4):
         for j in range(-3, 4):
@@ -465,7 +478,7 @@ def r08(A):
     catcher()
     sky(0.48, (1, 0.98, 0.96)); sun(55, 58, 2.6, 8)
     topdown(1.2)
-    return (236, 225, 214), None
+    return (238, 229, 220), None
 
 
 def _cover_on_spread(A, left, right, crop):
