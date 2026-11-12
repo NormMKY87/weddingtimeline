@@ -8,5 +8,6 @@ One Claude Code session per side product. Each brief below is the opening instru
 | 2. The Booking Pack | `sessions/02-booking-pack.md` | Written and reviewed 30 Nov 2026 |
 | 3. The Follow-Up Vault | `sessions/03-follow-up-vault.md` | 7 Dec 2026 |
 | 4. The Consult Call Kit | `sessions/04-consult-call-kit.md` | 21 Dec 2026 |
+| 5. Digital product mockups (six products plus bundle) | `sessions/05-product-mockups.md` | 5 Dec 2026, before the sales page |
 
 All Dropbox paths are under the account root. `00_COMPUTER_SYNC` is the synced working folder. Read before writing, cite the source for every number, and never invent a figure (Vance's law one).
