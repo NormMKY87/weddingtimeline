@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><title>Diagonal tile</title>
+<link rel="stylesheet" href="lib.css">
+<style>
+  /* Inspired by: the same cover repeated in a loose grid turned on the diagonal, cropped by
+     every edge of the frame, flat from above on a cream surface, each with a soft shadow. */
+  body { --bg: var(--surf-cream); --bg-light: linear-gradient(120deg, rgb(0 0 0 / .05), rgb(255 255 255 / .08) 50%, rgb(0 0 0 / .03)); }
+  .tile { position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform: rotate(-30deg); }
+  .tile .c { position: absolute; width: 420px; height: 594px; box-shadow: -2px 2px 0 #E9E4DC, -3px 3px 0 #D8D2C8, 0 1px 2px rgb(var(--shadow-rgb) / .25), -12px 14px 26px -6px rgb(var(--shadow-rgb) / .32), -26px 34px 60px -20px rgb(var(--shadow-rgb) / .25); }
+  .tile .c img { display: block; width: 100%; height: 100%; }
+  .tile .c::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgb(255 255 255 / .08), rgb(255 255 255 / 0) 40%); }
+</style></head>
+<body><div class="tile" id="t"></div><div class="grain" style="--grain:.35"></div>
+<script src="lib.js"></script>
+<script>
+  const t = document.getElementById('t'), W = 420, H = 594, GX = 490, GY = 660;
+  for (let r = -2; r <= 2; r++) for (let c = -2; c <= 2; c++) {
+    const x = c * GX + (r % 2 ? GX / 2 : 0) - W / 2, y = r * GY - H / 2;
+    mount(`<div class="c" style="left:${x}px;top:${y}px">${img(P.cover)}</div>`, t);
+  }
+</script></body></html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><title>Leaning against a wall</title>
+<link rel="stylesheet" href="lib.css">
+<style>
+  /* Inspired by: a single cover leaning against a warm plaster wall on a pale marble ledge,
+     soft daylight from the left, a blurred leaf shadow falling across the top of the wall. */
+  body { --bg: var(--surf-wall);
+    --bg-light: linear-gradient(100deg, rgb(255 255 255 / .18), rgb(255 255 255 / 0) 60%), radial-gradient(60% 60% at 50% 70%, rgb(255 255 255 / .12), rgb(255 255 255 / 0)); }
+  .ledge { position: absolute; left: 0; right: 0; top: 650px; bottom: 0; z-index: 5;
+    background: linear-gradient(rgb(0 0 0 / .05), rgb(0 0 0 / 0) 12%), var(--surf-marble);
+    box-shadow: 0 -1px 0 rgb(255 255 255 / .6); overflow: hidden; }
+  .ledge::after { content: ""; position: absolute; inset: 0; opacity: .5; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='150'><filter id='m'><feTurbulence type='fractalNoise' baseFrequency='.006 .03' numOctaves='4' seed='7'/><feColorMatrix values='0 0 0 0 .55 0 0 0 0 .54 0 0 0 0 .53 0 0 0 1.4 -.55'/></filter><rect width='100%' height='100%' filter='url(%23m)'/></svg>"); }
+  .book { position: absolute; z-index: 10; left: 413px; top: 186px; width: 330px; height: 466px; transform-origin: 50% 100%; transform: perspective(1400px) rotateX(-4deg);
+    box-shadow: -2px 0 0 rgb(0 0 0 / .05); }
+  .book img { display: block; width: 100%; height: 100%; }
+  .book::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(0 0 0 / .12), rgb(0 0 0 / 0) 3%, rgb(255 255 255 / .08) 5%, rgb(0 0 0 / 0) 9%); z-index: 2; }
+  .edge { position: absolute; z-index: 9; left: 413px; top: 182px; width: 330px; height: 6px; background: linear-gradient(#f4f1ec, #ddd7ce); transform-origin: 50% 100%; }
+  .wallshadow { position: absolute; z-index: 4; left: 413px; top: 196px; width: 330px; height: 458px; background: linear-gradient(90deg, rgb(var(--shadow-rgb) / .7), rgb(var(--shadow-rgb) / .3)); filter: blur(12px); transform: translate(-48px, 6px) skewX(5deg); }
+  .contact { z-index: 6; }
+  .leaves { position: absolute; inset: 0; z-index: 30; pointer-events: none; mix-blend-mode: multiply; opacity: .6; filter: blur(13px); }
+</style></head>
+<body>
+<div class="env wallshadow"></div>
+<div class="ledge env"></div>
+<div class="contact env" style="position:absolute;left:400px;top:642px;width:360px;height:16px;border-radius:50%;--a:.5;--b:5px"></div>
+<div class="edge"></div>
+<div class="book"></div>
+<svg class="leaves env" viewBox="0 0 1200 800" preserveAspectRatio="none"></svg>
+<div class="grain" style="--grain:.45"></div>
+<script src="lib.js"></script>
+<script>
+  document.querySelector('.book').innerHTML = img(P.cover);
+  // a branch of leaves across the top of the wall, seeded so every render is identical
+  let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const g = [];
+  const leaf = (x, y, a, s) => g.push(`<path transform="translate(${x} ${y}) rotate(${a}) scale(${s})" d="M0 0 C 22 -22, 66 -22, 90 0 C 66 22, 22 22, 0 0 Z" />`);
+  const branch = (x0, y0, x1, y1, n) => { g.push(`<path d="M${x0} ${y0} Q ${(x0 + x1) / 2} ${(y0 + y1) / 2 + 40} ${x1} ${y1}" stroke-width="5" fill="none"/>`);
+    for (let i = 0; i < n; i++) { const t = i / n, x = x0 + (x1 - x0) * t, y = y0 + (y1 - y0) * t + 40 * 4 * t * (1 - t); leaf(x, y, (i % 2 ? 40 : -40) + rnd() * 50 + (x1 > x0 ? 0 : 180), .9 + rnd() * .8); } };
+  for (const [a,b,c,d,n] of [[-60,40,520,120,24],[-40,150,300,250,14],[100,-50,680,40,22],[560,-50,1260,90,28],[760,40,1260,220,20],[980,-20,1200,300,12],[-40,240,160,360,9],[1040,200,1260,380,10]]) branch(a,b,c,d,n);
+  const svg = document.querySelector('.leaves');
+  svg.innerHTML = `<g fill="rgb(70 52 40)" stroke="rgb(70 52 40)">${g.join('')}</g>`;
+</script></body></html>

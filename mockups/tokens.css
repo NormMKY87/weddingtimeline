@@ -80,3 +80,18 @@
 [data-product="part-time-to-full-time"] .sheet, [data-product="craft-program"] .sheet {
   --sheet-bg: var(--white); --sheet-fg: var(--ink); --sheet-accent: var(--clay); --sheet-rule: rgb(34 30 26 / 0.18);
 }
+
+/* Surfaces for the reference-inspired scenes in ref-scenes/. One or two tones
+   per scene, like the Creative Market genre. Change here to re-light the set. */
+:root {
+  --surf-grey: #E4E4E2;
+  --surf-white: #F7F7F6;
+  --surf-sage: #A4AE93;
+  --surf-taupe: #BDB4AA;
+  --surf-wall: #DBD0C5;
+  --surf-marble: #F1EFEC;
+  --surf-olive: #C8C3B0;
+  --surf-cream: #EEE5D9;
+  --surf-stone: #DAD5CD;
+  --band: #C9A982;          /* paper band on the stacked set */
+}

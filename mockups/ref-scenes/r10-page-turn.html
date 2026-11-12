@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><title>Page turning</title>
+<link rel="stylesheet" href="lib.css">
+<style>
+  /* Inspired by: straight down on an open spread on a stone surface, one right-hand page
+     lifting from the gutter and curling over toward the left. */
+  body { --bg: var(--surf-stone); --bg-light: radial-gradient(80% 70% at 50% 45%, rgb(255 255 255 / .18), rgb(255 255 255 / 0) 70%); --persp: 2000px; --po: 50% 50%; }
+  .plane { transform: translate(-50%, -50%) translate(0px, 20px); }
+  .pg { position: absolute; top: 0; overflow: hidden; background: #fbfaf7; }
+  .pg img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .l::after { content: ""; position: absolute; inset: 0; background: linear-gradient(270deg, rgb(0 0 0 / .20), rgb(0 0 0 / .06) 4%, rgb(0 0 0 / 0) 10%); }
+  .r::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(0 0 0 / .16), rgb(0 0 0 / .04) 4%, rgb(0 0 0 / 0) 12%); }
+</style></head>
+<body><div class="stage"><div class="plane" id="pl"></div></div><div class="grain" style="--grain:.4"></div>
+<script src="lib.js"></script>
+<script>
+  const W = 335, H = 490;
+  const pl = document.getElementById('pl');
+  mount(`<div class="shadow" style="width:${W*2}px;height:${H}px;left:${-W - 6}px;top:${-H/2 + 8}px;--b:14px;--a:.32"></div>`, pl);
+  mount(`<div class="pg l" style="left:${-W}px;top:${-H/2}px;width:${W}px;height:${H}px">${img(P.L)}</div>`, pl);
+  mount(`<div class="pg r" style="left:0;top:${-H/2}px;width:${W}px;height:${H}px">${img(P.X)}</div>`, pl);
+  // the turning sheet: flat at the gutter, lifting and curling back over to the left
+  const ang = [...Array(15).fill(0), -6, -12, -18, -22, -24, -24, -24, -20, -16, -14, ...Array(6).fill(0)];
+  const shade = (i, n, back) => back
+    ? (i < 25 ? `rgb(0 0 0 / ${(.03 + (25 - i) * .01).toFixed(3)})` : 'linear-gradient(90deg, rgb(0 0 0 / .05), rgb(255 255 255 / .05))')
+    : (i < 15 ? 'none' : `rgb(0 0 0 / ${Math.min(.2, (i - 14) * .02).toFixed(3)})`);
+  // shadow the sheet throws onto the page below
+  mount(`<div class="shadow" style="width:${W * .2}px;height:${H - 40}px;left:${W * .52}px;top:${-H/2 + 24}px;--b:16px;--a:.30;transform:rotate(-4deg)"></div>`, pl);
+  mount(`<div class="group" style="left:0;top:${-H/2}px;transform:translateZ(1px) rotateZ(-3deg);transform-origin:0 100%">${curvedPage({ src: P.R, back: null, w: W, h: H, angles: ang, dir: 1, shadeFn: shade })}</div>`, pl);
+</script></body></html>

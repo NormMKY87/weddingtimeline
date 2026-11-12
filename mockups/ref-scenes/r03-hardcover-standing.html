@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><title>Standing hardcover</title>
+<link rel="stylesheet" href="lib.css">
+<style>
+  /* Inspired by: a thick hardcover standing upright, seen almost front on and slightly
+     from the left, a sliver of rounded spine, a soft floor shadow on white. */
+  body { --bg: #FFFFFF; --persp: 3000px; --po: 30% 55%; }
+  .plane { transform: translate(-50%, -50%) translate(8px, -16px); }
+  .floor { position: absolute; left: -600px; top: 0; width: 1200px; height: 400px; transform-origin: 50% 0; transform: rotateX(90deg); }
+</style></head>
+<body><div class="stage"><div class="plane" id="pl"></div></div><div class="grain" style="--grain:.15"></div>
+<script src="lib.js"></script>
+<script>
+  const W = 462, H = 630, T = 64;
+  const pl = document.getElementById('pl');
+  // soft floor shadow drawn on screen under the base, spreading left away from the light
+  mount(`<div class="env" style="position:absolute;left:270px;top:${400 - 16 + H/2 - 30}px;width:560px;height:46px;border-radius:50%;background:radial-gradient(closest-side, rgb(var(--shadow-rgb) / .34), rgb(var(--shadow-rgb) / 0));filter:blur(6px)"></div>`, document.body.insertBefore(document.createElement('div'), document.body.firstChild));
+  mount(`<div class="env" style="position:absolute;left:350px;top:${400 - 16 + H/2 - 9}px;width:470px;height:14px;border-radius:50%;background:radial-gradient(closest-side, rgb(var(--shadow-rgb) / .45), rgb(var(--shadow-rgb) / 0));filter:blur(3px)"></div>`, document.body.insertBefore(document.createElement('div'), document.body.firstChild));
+  const hard = closedBook({ w: W, h: H, t: T, faces: {
+      // hardcover boards overhang the page block: draw the edges as board + pages
+      right: '<div style="position:absolute;inset:4px 0;background:#f2efe9 repeating-linear-gradient(90deg, rgb(0 0 0 / 0) 0 .9px, rgb(0 0 0 / .06) .9px 1.5px)"></div><div style="position:absolute;inset:0 auto 0 0;width:4px;background:var(--cover-bg)"></div><div style="position:absolute;inset:0 0 0 auto;width:4px;background:var(--cover-bg)"></div>',
+      rightCls: '',
+      left: '<div class="spine" style="width:100%;height:100%;border-radius:0;background:linear-gradient(90deg, rgb(0 0 0 / .28), rgb(0 0 0 / .05) 45%, rgb(255 255 255 / .08) 60%, rgb(0 0 0 / .18)), var(--cover-bg)"><span style="font-size:22px">' + P.short + '</span><small style="font-size:9px;margin-top:30px">No. ' + P.no + '</small></div>',
+    },
+    shade: { left: 'none', front: 'linear-gradient(90deg, rgb(0 0 0 / .14), rgb(0 0 0 / 0) 3%, rgb(255 255 255 / .05) 5%, rgb(0 0 0 / 0) 9%, rgb(0 0 0 / 0) 70%, rgb(0 0 0 / .05))' } });
+  mount(`<div class="group" style="left:${-W/2}px;top:${-H/2}px;transform:rotateY(14deg)">${hard}</div>`, pl);
+</script></body></html>

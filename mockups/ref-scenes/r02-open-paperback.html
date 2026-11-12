@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><title>Open paperback</title>
+<link rel="stylesheet" href="lib.css">
+<style>
+  /* Inspired by: an open paperback lying on a pale grey surface at an angle,
+     pages lifting from the gutter, the page stack visible along the edges. */
+  body { --bg: var(--surf-grey); --bg-light: radial-gradient(90% 80% at 55% 35%, rgb(255 255 255 / .55), rgb(255 255 255 / 0) 70%); --persp: 2200px; --po: 45% 30%; }
+  .plane { transform: translate(-50%, -50%) translate(-75px, -15px) rotateX(46deg) rotateZ(-24deg); }
+</style></head>
+<body><div class="stage"><div class="plane" id="pl"></div></div><div class="grain"></div>
+<script src="lib.js"></script>
+<script>
+  const W = 330, H = 468;
+  const ang = [-26, 10, 7, 5, 3, 1];
+  let cum = 0; const T = ang.reduce((s, a) => { cum += a; return s + (W / ang.length) * Math.sin(-cum * Math.PI / 180); }, 0);
+  const pl = document.getElementById('pl');
+  // shadow
+  mount(`<div class="shadow" style="width:${W*2}px;height:${H}px;left:${-W + 16}px;top:${-H/2 + 14}px;--b:22px;--a:.26"></div>`, pl);
+  mount(`<div class="contact" style="width:${W*2 + 4}px;height:${H + 3}px;left:${-W - 2}px;top:${-H/2 - 1}px;--a:.4"></div>`, pl);
+  // page profile: height of the top sheet at each strip boundary, from the gutter out
+  const prof = [0]; { let c = 0, z = 0; for (const a of ang) { c += a; z += (W / ang.length) * Math.sin(-c * Math.PI / 180); prof.push(z); } }
+  const n = ang.length, sw = W / n;
+  // head and tail edges of each half: page stacks that taper to the gutter (clip follows the profile)
+  const poly = (flip) => 'polygon(' + prof.map((z, i) => `${(flip ? W - i * sw : i * sw).toFixed(1)}px ${(T - z).toFixed(1)}px`).join(',') + `,${flip ? 0 : W}px ${T}px,${flip ? W : 0}px ${T}px)`;
+  const edge = (x, y, rot, flip, shade) => mount(`<div class="face pages" style="width:${W}px;height:${T}px;left:${x}px;top:${y}px;transform-origin:50% 100%;transform:${rot};clip-path:${poly(flip)};--shade:${shade}"></div>`, pl);
+  edge(0, H/2 - T, 'rotateX(-90deg)', false, 'rgb(0 0 0 / .05)');
+  edge(-W, H/2 - T, 'rotateX(-90deg)', true, 'rgb(0 0 0 / .05)');
+  // outer fore-edges, full height
+  mount(`<div class="face pages v" style="width:${T}px;height:${H}px;left:${W}px;top:${-H/2}px;transform-origin:0 50%;transform:rotateY(-90deg);--shade:rgb(0 0 0 / .14)"></div>`, pl);
+  mount(`<div class="face pages v" style="width:${T}px;height:${H}px;left:${-W - T}px;top:${-H/2}px;transform-origin:100% 50%;transform:rotateY(90deg);--shade:rgb(0 0 0 / .08)"></div>`, pl);
+  // the two curved top pages, rising from the gutter then settling
+  const gut = (i, n, back) => back ? 'none' : i === 0 ? 'linear-gradient(90deg, rgb(0 0 0 / .22), rgb(0 0 0 / .04))' : i === 1 ? 'linear-gradient(90deg, rgb(0 0 0 / .05), rgb(0 0 0 / 0))' : 'none';
+  const gutL = (i, n, back) => back ? 'none' : i === 0 ? 'linear-gradient(270deg, rgb(0 0 0 / .26), rgb(0 0 0 / .06))' : i === 1 ? 'linear-gradient(270deg, rgb(0 0 0 / .08), rgb(0 0 0 / 0))' : 'none';
+  mount(`<div class="group" style="left:0;top:${-H/2}px;transform:translateZ(1px)">${curvedPage({ src: P.R, w: W, h: H, angles: ang, dir: 1, shadeFn: gut })}</div>`, pl);
+  mount(`<div class="group" style="left:0;top:${-H/2}px;transform:translateZ(1px)">${curvedPage({ src: P.L, w: W, h: H, angles: ang, dir: -1, shadeFn: gutL })}</div>`, pl);
+</script></body></html>

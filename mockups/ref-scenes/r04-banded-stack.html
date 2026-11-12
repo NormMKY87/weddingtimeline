@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><title>Banded stack</title>
+<link rel="stylesheet" href="lib.css">
+<style>
+  /* Inspired by: three copies of the same print piece fanned in a short stack, the top one
+     wrapped with a kraft paper band, seen nearly from above on a sage vignette. */
+  body { --bg: var(--surf-sage); --bg-light: radial-gradient(70% 70% at 50% 45%, rgb(255 255 255 / .16), rgb(255 255 255 / 0) 70%), radial-gradient(120% 100% at 50% 50%, rgb(0 0 0 / 0) 55%, rgb(0 0 0 / .18)); --persp: 2400px; --po: 50% 40%; }
+  .plane { transform: translate(-50%, -50%) translate(-60px, -10px) rotateX(18deg); }
+  .band { position: absolute; top: -2px; bottom: -2px; background: var(--band); box-shadow: 1px 0 2px rgb(0 0 0 / .25), -1px 0 2px rgb(0 0 0 / .2);
+    background-image: linear-gradient(90deg, rgb(0 0 0 / .08), rgb(255 255 255 / .06) 30%, rgb(0 0 0 / .04)), url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='3'/><feColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .15 0 0 0 .35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    display: flex; flex-direction: column; align-items: center; color: #2b2119; font-family: var(--font-text); }
+  .band .lbl { margin-top: 70px; width: 100%; background: var(--ink); color: var(--white); text-align: center; padding: 14px 0 12px; }
+  .band .lbl b { display: block; font-family: var(--font-display); font-weight: 500; font-size: 22px; line-height: 1; white-space: nowrap; }
+  .band .lbl span { display: block; font-size: 7px; letter-spacing: .24em; text-transform: uppercase; margin-top: 6px; color: var(--clay-soft); }
+  .band .t { font-size: 6.5px; letter-spacing: .16em; padding: 0 6px; text-transform: uppercase; font-weight: 600; margin-top: 22px; text-align: center; line-height: 1.7; }
+  .band .t::before { content: var(--series-name); display: block; }
+  .band .rule { width: 34px; height: 1px; background: currentColor; opacity: .5; margin: 18px 0; }
+  .band .d { font-family: var(--font-display); font-style: italic; font-size: 15px; text-align: center; padding: 0 14px; line-height: 1.25; }
+  .band .zig { position: absolute; left: 0; right: 0; height: 6px; background: linear-gradient(135deg, transparent 50%, var(--ink) 50%) 0 0 / 8px 6px, linear-gradient(225deg, transparent 50%, var(--ink) 50%) 0 0 / 8px 6px; }
+</style></head>
+<body><div class="stage"><div class="plane" id="pl"></div></div><div class="grain" style="--grain:.2"></div>
+<script src="lib.js"></script>
+<script>
+  const W = 360, H = 510, T = 3, DX = 30, DY = 26;
+  const pl = document.getElementById('pl');
+  const copies = [2, 1, 0];
+  mount(`<div class="shadow" style="width:${W + 2*DX}px;height:${H + 2*DY}px;left:${-W/2 + 10}px;top:${-H/2 + 16}px;--b:20px;--a:.42"></div>`, pl);
+  for (const i of copies) {
+    const x = -W/2 + i * DX - DX, y = -H/2 + i * DY - DY;
+    mount(`<div class="contact" style="width:${W}px;height:${H}px;left:${x + 1}px;top:${y + 2}px;--b:3px;--a:.4;transform:translateZ(${(2 - i) * T}px)"></div>`, pl);
+    mount(`<div class="group" style="left:${x}px;top:${y}px;transform:translateZ(${(2 - i) * T + T}px)">${closedBook({ w: W, h: H, t: T, spineLabel: false })}</div>`, pl);
+  }
+  // band around the top copy
+  const topCopy = [...pl.querySelectorAll('.group')].pop();
+  mount(`<div class="band" style="top:-2px;height:${H + 4}px;left:${W * 0.74}px;width:${W * 0.19}px;transform:translateZ(${T/2 + 5}px)">
+    <div class="lbl"><b>No. ${P.no}</b><span>First edition</span></div>
+    <div class="zig" style="top:135px"></div>
+    <div class="t"><span>Norman Yap</span></div>
+    <div class="rule"></div>
+    <div class="d">${P.short}</div>
+  </div>`, topCopy);
+</script></body></html>

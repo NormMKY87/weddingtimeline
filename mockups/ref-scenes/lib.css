@@ -1,0 +1,33 @@
+@import url(../fonts/fonts.css);
+@import url(../tokens.css);
+
+/* Every scene is composed on a 1200 x 800 canvas, the size of the reference
+   previews, and exported at 2x. */
+html, body { margin: 0; width: 1200px; height: 800px; overflow: hidden; }
+body { position: relative; font-family: var(--font-text); -webkit-font-smoothing: antialiased; background: var(--bg, var(--surf-grey)); }
+body::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: var(--bg-light, none); }
+body::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: var(--bg-overlay, none); mix-blend-mode: multiply; z-index: 50; }
+html.cutout body { background: transparent; }
+html.cutout body::before, html.cutout body::after, html.cutout .env { display: none; }
+
+.stage { position: absolute; inset: 0; perspective: var(--persp, 2600px); perspective-origin: var(--po, 50% 40%); }
+.plane, .group, .box, .strip { position: absolute; transform-style: preserve-3d; }
+.plane { left: 50%; top: 50%; width: 0; height: 0; }
+.face { position: absolute; left: 0; top: 0; overflow: hidden; backface-visibility: hidden; }
+.face > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.face::after { content: ""; position: absolute; inset: 0; background: var(--shade, none); pointer-events: none; }
+
+/* page block: the stack of sheets seen on an edge */
+.pages { background: #F4F1EC repeating-linear-gradient(var(--pd, 0deg), rgb(0 0 0 / 0) 0 0.9px, rgb(0 0 0 / .07) 0.9px 1.4px); }
+.pages.v { --pd: 90deg; }
+.spine { background: var(--cover-bg); color: var(--cover-fg); display: flex; align-items: center; justify-content: center; }
+.spine span { writing-mode: vertical-rl; font-family: var(--font-display); font-size: var(--spine-fs, 11px); letter-spacing: .04em; white-space: nowrap; }
+.spine small { writing-mode: vertical-rl; font-family: var(--font-text); font-size: 6px; letter-spacing: .2em; text-transform: uppercase; color: var(--cover-kicker); margin-top: 14px; }
+
+/* shadows live on the surface plane */
+.shadow { position: absolute; background: rgb(var(--shadow-rgb) / var(--a, .45)); filter: blur(var(--b, 16px)); border-radius: 2px; }
+.contact { position: absolute; background: rgb(var(--shadow-rgb) / var(--a, .5)); filter: blur(var(--b, 2px)); }
+
+/* paper grain on any surface */
+.grain { position: absolute; inset: 0; pointer-events: none; opacity: var(--grain, .35); mix-blend-mode: multiply; z-index: 40;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5 0 0 0 0 .48 0 0 0 0 .46 0 0 0 .25 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }

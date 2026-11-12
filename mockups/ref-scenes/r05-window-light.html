@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><title>Cover in window light</title>
+<link rel="stylesheet" href="lib.css">
+<style>
+  /* Inspired by: a single cover flat on a warm taupe surface seen straight down, a long soft
+     drop shadow to the lower left, and raking window light with mullion shadows across the top right. */
+  body { --bg: var(--surf-taupe);
+    --bg-light: radial-gradient(80% 70% at 75% 15%, rgb(255 250 240 / .35), rgb(255 255 255 / 0) 65%);
+    --persp: 4000px; }
+  .plane { transform: translate(-50%, -50%) translate(90px, -2px); }
+  .window { position: absolute; inset: -200px; z-index: 45; pointer-events: none; mix-blend-mode: multiply; filter: blur(10px); opacity: .7;
+    transform: rotate(38deg) translate(360px, -290px); }
+  .window i { position: absolute; background: rgb(var(--shadow-rgb) / .9); }
+</style></head>
+<body><div class="stage"><div class="plane" id="pl"></div></div>
+<div class="window"><i style="left:0;right:0;top:0;height:300px"></i><i style="left:0;right:0;top:420px;height:46px"></i></div>
+<div class="grain" style="--grain:.5"></div>
+<script src="lib.js"></script>
+<script>
+  const W = 410, H = 580, T = 4;
+  const pl = document.getElementById('pl');
+  // long, soft shadow cast down and to the left, and a tight contact shadow
+  mount(`<div class="shadow" style="width:${W}px;height:${H}px;left:${-W/2 - 46}px;top:${-H/2 + 46}px;--b:30px;--a:.55"></div>`, pl);
+  mount(`<div class="shadow" style="width:${W}px;height:${H}px;left:${-W/2 - 12}px;top:${-H/2 + 14}px;--b:9px;--a:.38"></div>`, pl);
+  mount(`<div class="group" style="left:${-W/2}px;top:${-H/2}px;transform:translateZ(${T/2}px)">${closedBook({ w: W, h: H, t: T, spineLabel: false, shade: { front: 'linear-gradient(200deg, rgb(255 255 255 / .10), rgb(255 255 255 / 0) 40%)' } })}</div>`, pl);
+</script></body></html>

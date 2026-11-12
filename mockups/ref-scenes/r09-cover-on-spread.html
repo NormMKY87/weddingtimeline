@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><title>Cover on the spread</title>
+<link rel="stylesheet" href="lib.css">
+<style>
+  /* Inspired by: straight down on a stone surface, the closed issue lying over the left page
+     of an open copy, so the buyer sees the cover and the inside at once. */
+  body { --bg: var(--surf-stone); --bg-light: radial-gradient(80% 70% at 45% 40%, rgb(255 255 255 / .18), rgb(255 255 255 / 0) 70%); }
+  .spread { position: absolute; left: 410px; top: 210px; width: 612px; height: 446px; z-index: 2;
+    box-shadow: 0 1px 2px rgb(var(--shadow-rgb) / .2), -6px 8px 16px -4px rgb(var(--shadow-rgb) / .28); }
+  .spread .pg { position: absolute; top: 0; width: 50%; height: 100%; overflow: hidden; background: #fbfaf7; }
+  .spread .pg img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .spread .l { left: 0; } .spread .r { right: 0; }
+  .spread .l::after { content: ""; position: absolute; inset: 0; background: linear-gradient(270deg, rgb(0 0 0 / .20), rgb(0 0 0 / .06) 4%, rgb(0 0 0 / 0) 10%, rgb(0 0 0 / 0) 92%, rgb(0 0 0 / .04)); }
+  .spread .r::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(0 0 0 / .16), rgb(0 0 0 / .04) 4%, rgb(255 255 255 / .05) 12%, rgb(0 0 0 / 0) 20%, rgb(0 0 0 / 0) 94%, rgb(0 0 0 / .05)); }
+  .spread .edge { position: absolute; right: -4px; top: 2px; bottom: -3px; width: 4px; background: repeating-linear-gradient(90deg, #f3f0ea 0 1px, #d9d4cb 1px 1.6px); }
+  .spread .edgeb { position: absolute; left: 50%; right: -4px; bottom: -3px; height: 3px; background: repeating-linear-gradient(#f3f0ea 0 1px, #d9d4cb 1px 1.6px); }
+  .cover { position: absolute; left: 176px; top: 142px; width: 344px; height: 452px; z-index: 3; overflow: hidden;
+    box-shadow: 0 1px 2px rgb(var(--shadow-rgb) / .3), -10px 12px 18px -4px rgb(var(--shadow-rgb) / .38), -22px 30px 50px -18px rgb(var(--shadow-rgb) / .3); }
+  .cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(0 0 0 / .14), rgb(0 0 0 / 0) 2.5%, rgb(255 255 255 / .06) 4%, rgb(0 0 0 / 0) 7%); }
+</style></head>
+<body>
+<div class="spread"><div class="pg l"></div><div class="pg r"></div><div class="edge"></div><div class="edgeb"></div></div>
+<div class="cover"></div>
+<div class="grain" style="--grain:.4"></div>
+<script src="lib.js"></script>
+<script>
+  document.querySelector('.spread .l').innerHTML = img(P.L);
+  document.querySelector('.spread .r').innerHTML = img(P.R);
+  document.querySelector('.cover').innerHTML = img(P.cover);
+</script></body></html>

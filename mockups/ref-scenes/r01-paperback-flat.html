@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><title>Paperback lying flat</title>
+<link rel="stylesheet" href="lib.css">
+<style>
+  /* Inspired by: a single paperback lying flat on a pale grey surface, seen from above
+     and to the front left, spine and page block both visible, soft shadow to the right. */
+  body { --bg: var(--surf-grey); --bg-light: radial-gradient(90% 80% at 40% 30%, rgb(255 255 255 / .55), rgb(255 255 255 / 0) 70%); --persp: 2200px; --po: 40% 30%; }
+  .plane { transform: translate(-50%, -50%) translate(-55px, -25px) rotateX(44deg) rotateZ(-36deg); }
+</style></head>
+<body><div class="stage"><div class="plane" id="pl"></div></div><div class="grain"></div>
+<script src="lib.js"></script>
+<script>
+  const W = 440, H = 630, T = 28;
+  const pl = document.getElementById('pl');
+  mount(`<div class="shadow" style="width:${W}px;height:${H}px;left:${-W/2 + 18}px;top:${-H/2 + 10}px;--b:22px;--a:.30"></div>`, pl);
+  mount(`<div class="contact" style="width:${W + 2}px;height:${H + 2}px;left:${-W/2 - 1}px;top:${-H/2 - 1}px;--b:2px;--a:.45"></div>`, pl);
+  mount(`<div class="group" style="left:${-W/2}px;top:${-H/2}px;transform:translateZ(${T/2}px)">${closedBook({ w: W, h: H, t: T, shade: { left: 'linear-gradient(90deg, rgb(0 0 0 / .30), rgb(0 0 0 / .16))', bottom: 'linear-gradient(rgb(0 0 0 / .04), rgb(0 0 0 / .10))' } })}</div>`, pl);
+</script></body></html>

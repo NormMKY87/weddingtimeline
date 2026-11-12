@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><title>Leaning stack</title>
+<link rel="stylesheet" href="lib.css">
+<style>
+  /* Inspired by: a row of identical hardcovers standing spine out on a white floor, the last
+     two leaning back against the row with their covers turned to camera, a paper band round
+     every copy, hard afternoon sun throwing a crisp shadow to the right. */
+  body { --bg: #FBFBFA; --persp: 2600px; --po: 40% 30%; }
+  .plane { transform: translate(-50%, -50%) translate(-90px, 40px) rotateX(-22deg) rotateY(4deg); }
+  .bandv { position: absolute; left: 0; right: 0; top: 17%; height: 9%; background: var(--band); box-shadow: 0 0 1px rgb(0 0 0 / .2); }
+  .floorsh { position: absolute; background: rgb(150 148 145 / .55); filter: blur(1.2px); }
+</style></head>
+<body><div class="stage"><div class="plane" id="pl"></div></div><div class="grain" style="--grain:.12"></div>
+<script src="lib.js"></script>
+<script>
+  const W = 300, H = 470, T = 40, N = 5, G = 3;
+  const pl = document.getElementById('pl');
+  const band = '<div class="bandv"></div>';
+  const book = () => closedBook({ w: W, h: H, t: T, faces: {
+      front: img(P.cover) + band,
+      left: spine(undefined, 14) + band, leftCls: '',
+      right: '<div style="position:absolute;inset:0;background:#f3f0ea repeating-linear-gradient(90deg, rgb(0 0 0 / 0) 0 .9px, rgb(0 0 0 / .06) .9px 1.5px)"></div><div style="position:absolute;inset:0 auto 0 0;width:3px;background:var(--cover-bg)"></div><div style="position:absolute;inset:0 0 0 auto;width:3px;background:var(--cover-bg)"></div>', rightCls: '',
+      top: '<div style="position:absolute;inset:0 3px;background:#f3f0ea repeating-linear-gradient(rgb(0 0 0 / 0) 0 .9px, rgb(0 0 0 / .06) .9px 1.5px)"></div><div style="position:absolute;inset:0 0 0 auto;width:3px;background:var(--cover-bg)"></div><div style="position:absolute;inset:0 auto 0 0;width:3px;background:var(--cover-bg)"></div>', topCls: '',
+    },
+    shade: { left: 'linear-gradient(90deg, rgb(255 255 255 / .06), rgb(0 0 0 / .04))', front: 'linear-gradient(90deg, rgb(0 0 0 / .10), rgb(0 0 0 / .02))', back: 'rgb(0 0 0 / .25)', top: 'none' } });
+  const rowW = N * (T + G);
+  const x0 = -rowW / 2 - 60;
+  // hard sun shadow on the floor: the row's footprint and its cast, light from the front left
+  const dx = H * 0.75, dy = -H * 0.42, X1 = x0 + rowW + 120;
+  const poly = [[x0, W/2], [X1, W/2], [X1 + dx, W/2 + dy], [X1 + dx, -W/2 + dy], [x0 + dx, -W/2 + dy], [x0, -W/2]];
+  const minx = x0 - 20, miny = -W/2 + dy - 20;
+  mount(`<div class="group" style="left:0;top:${H/2}px;transform:rotateX(90deg)"><div class="floorsh" style="left:${minx}px;top:${miny}px;width:1400px;height:1000px;clip-path:polygon(${poly.map(([x, y]) => `${x - minx}px ${y - miny}px`).join(',')})"></div></div>`, pl);
+  // the row, spines to camera
+  for (let i = 0; i < N; i++) mount(`<div class="group" style="left:${x0 + i * (T + G) + T/2 - W/2}px;top:${-H/2}px;transform:rotateY(90deg)">${book()}</div>`, pl);
+  // two copies leaning back on the end of the row, covers to camera, bases on the floor
+  const lean = (dxp, dz, rz, ry) => mount(`<div class="group" style="left:${x0 + rowW + dxp}px;top:${-H/2}px;width:${W}px;height:${H}px;transform-origin:0 100%;transform:translateZ(${dz}px) rotateY(${ry}deg) rotateZ(${rz}deg)">${book()}</div>`, pl);
+  lean(H * Math.sin(16 * Math.PI / 180) - 170, 24, -16, -8);
+  lean(H * Math.sin(24 * Math.PI / 180) - 150, 52, -24, -10);
+</script></body></html>
