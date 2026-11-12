@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en-AU"><head><meta charset="utf-8"><title>Photo pages</title>
 <link rel="stylesheet" href="../fonts/fonts.css"><link rel="stylesheet" href="../tokens.css">
+<script src="../photos/crops.js"></script>
 <style>
   /* Inside pages built from Norm's photographs: a full-bleed chapter opener for the spreads,
      and an e-reader page with the photograph above the copy. */
@@ -21,12 +22,12 @@
 <body>
 <script>
 const D = [
-  ['quit-number-calculator', 'detail-coupe', '50% 50%', 'Your <em>number</em>', 'Lesson 1.1', 'Compare net to net. The job pays you after tax, super and leave. The business has to clear all three before the numbers match.', 'Run the calculator with your real payslip and write down the quit number, the gap and the provisional quit date.'],
-  ['booking-pack', 'ed-portico', '50% 40%', 'DM-to-Booking <em>scripts</em>', 'Part 1', 'Every reply has one job: book a short chat. The date comes first because it is the only thing the couple is waiting on.', 'Two bubbles at most, every time. Mirror one detail, then ask if they would be open to a quick 15 minute chat.'],
-  ['follow-up-vault', 'ed-veil-bw', '50% 30%', 'The detail and <em>the question</em>', 'Track A, day 2', 'This is the message that gets most of the replies on this track, and it only works because it proves you read their enquiry.', 'Open their form. Find the one thing they wrote that was not a box they had to fill. That is your detail.'],
-  ['consult-call-kit', 'ed-archway', '50% 50%', 'The timeline <em>on the call</em>', 'Section 02', 'I build the day with them on the call. Discovery and the recommendation happen at the same time, and that is where the trust comes from.', 'Ask where they are getting ready, what time the ceremony starts, and what matters most about the photos.'],
-  ['part-time-to-full-time', 'ed-groom', '50% 30%', 'Record your next <em>consult</em>', 'Module 0, quick win 0.5', 'The fastest skill jump available is listening back to yourself. With consent, record the next consult and play it back that night.', 'Write down the moment the couple leaned in, and the moment you lost them. That is next week\'s script.'],
-  ['craft-program', 'detail-pearls', '50% 40%', 'Light through <em>the day</em>', 'Module 8', 'Where the couple stands at each hour decides the light you get. Build the day around the light and the photographs look like a full-timer shot them.', 'Take your next booked wedding and lay the day out hour by hour. Mark where the light is at each milestone.'],
+  ['quit-number-calculator', 'grand-stair', CROP['grand-stair'], 'Your <em>number</em>', 'Lesson 1.1', 'Compare net to net. The job pays you after tax, super and leave. The business has to clear all three before the numbers match.', 'Run the calculator with your real payslip and write down the quit number, the gap and the provisional quit date.'],
+  ['booking-pack', 'veil-wind', CROP['veil-wind'], 'DM-to-Booking <em>scripts</em>', 'Part 1', 'Every reply has one job: book a short chat. The date comes first because it is the only thing the couple is waiting on.', 'Two bubbles at most, every time. Mirror one detail, then ask if they would be open to a quick 15 minute chat.'],
+  ['follow-up-vault', 'white-wall', CROP['white-wall'], 'The detail and <em>the question</em>', 'Track A, day 2', 'This is the message that gets most of the replies on this track, and it only works because it proves you read their enquiry.', 'Open their form. Find the one thing they wrote that was not a box they had to fill. That is your detail.'],
+  ['consult-call-kit', 'chapel-colour', CROP['chapel-colour'], 'The timeline <em>on the call</em>', 'Section 02', 'I build the day with them on the call. Discovery and the recommendation happen at the same time, and that is where the trust comes from.', 'Ask where they are getting ready, what time the ceremony starts, and what matters most about the photos.'],
+  ['part-time-to-full-time', 'veil-wind', CROP['veil-wind'], 'Record your next <em>consult</em>', 'Module 0, quick win 0.5', 'The fastest skill jump available is listening back to yourself. With consent, record the next consult and play it back that night.', 'Write down the moment the couple leaned in, and the moment you lost them. That is next week\'s script.'],
+  ['craft-program', 'speech-backlit', CROP['speech-backlit'], 'Light through <em>the day</em>', 'Module 8', 'Where the couple stands at each hour decides the light you get. Build the day around the light and the photographs look like a full-timer shot them.', 'Take your next booked wedding and lay the day out hour by hour. Mark where the light is at each milestone.'],
 ];
 document.body.innerHTML = D.map(([p, ph, pos, h, k, a, b]) => `
   <div class="opener" data-shot="photo-page-${p}"><img src="../photos/${ph}.jpg" style="object-position:${pos}" alt=""><div class="cap"><b>${k}</b><span>Part-Time to Full-Time</span></div></div>

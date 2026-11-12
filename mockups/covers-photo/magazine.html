@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en-AU"><head><meta charset="utf-8"><title>Magazine pages</title>
 <link rel="stylesheet" href="../fonts/fonts.css"><link rel="stylesheet" href="../tokens.css">
+<script src="../photos/crops.js"></script>
 <style>
   /* US Letter magazine edition of each product (612 x 792 at 72 dpi): a white cover with a
      letterspaced masthead and framed photograph, and a two page editorial spread inside. */
@@ -29,33 +30,33 @@
 <body><script>
 // [masthead, cover photo, photo position, headline (two lines), coverlines, spread photos (A,B,C with positions), kicker, h2, h2 small, para 1, para 2, caption]
 const M = {
-  'quit-number-calculator': ['QUIT NUMBER', 'ed-mirror', '50% 30%', 'Your number<br>and your date', '<b>The calculator</b> / net to net / <b>the gap</b> / your provisional quit date',
-    [['detail-coupe', '50% 50%'], ['ed-portico', '50% 40%'], ['ed-lace', '50% 25%'], ['ed-archway', '50% 40%']], 'Lesson 1.1', 'Compare net to net', 'The maths before the notice',
+  'quit-number-calculator': ['QUIT NUMBER', 'stair-gown', CROP['stair-gown'], 'Your number<br>and your date', '<b>The calculator</b> / net to net / <b>the gap</b> / your provisional quit date',
+    [['lace-hands', CROP['lace-hands']], ['grand-stair', CROP['grand-stair']], ['first-dance', CROP['first-dance']], ['bow-back', CROP['bow-back']]], 'Lesson 1.1', 'Compare net to net', 'The maths before the notice',
     'The job pays you after tax, super and leave. The business has to clear all three before the numbers match, so I start every student on the payslip, not the price list.',
     'Run the calculator with your real numbers. Write down the quit number, the gap and the provisional date, then put the date somewhere you will see it every week.',
     'The quit number is the profit the business must make before the day job can go. Everything else in the program works backwards from it.'],
-  'booking-pack': ['BOOKING PACK', 'ed-couple-veil', '50% 25%', 'From first DM<br>to booked wedding', '<b>DM scripts</b> / the enquiry sequence / <b>the proposal</b> / objection replies',
-    [['ed-portico', '50% 40%'], ['ed-veil-bw', '50% 30%'], ['ed-seated', '50% 35%'], ['ed-garden-veil', '50% 40%']], 'Part 1', 'DM to booking', 'Scripts for the first reply',
+  'booking-pack': ['BOOKING PACK', 'veil-portrait', CROP['veil-portrait'], 'From first DM<br>to booked wedding', '<b>DM scripts</b> / the enquiry sequence / <b>the proposal</b> / objection replies',
+    [['arcade-walk', CROP['arcade-walk']], ['veil-wind', CROP['veil-wind']], ['parlour-couple', CROP['parlour-couple']], ['marble-bride', CROP['marble-bride']]], 'Part 1', 'DM to booking', 'Scripts for the first reply',
     'Every reply has one job, and that job is booking a short chat. The date comes first because it is the only thing the couple is waiting on.',
     'Two bubbles at most, every time. Mirror one detail from their message, then ask if they would be open to a quick fifteen minute chat this week.',
     'The scripts are the exact wording I use. Swap in your voice, keep the order.'],
-  'follow-up-vault': ['FOLLOW-UP VAULT', 'ed-tunnel', '50% 55%', 'Every follow-up<br>by day', '<b>Track A</b> / enquiry to call / <b>Track B</b> / proposal to signed contract',
-    [['ed-veil-bw', '50% 30%'], ['ed-garden-veil', '50% 60%'], ['ed-groom', '50% 30%'], ['detail-coupe', '50% 40%']], 'Track A, day 2', 'The detail and the question', 'The message that gets the replies',
+  'follow-up-vault': ['FOLLOW-UP VAULT', 'garden-overhead', CROP['garden-overhead'], 'Every follow-up<br>by day', '<b>Track A</b> / enquiry to call / <b>Track B</b> / proposal to signed contract',
+    [['speech-backlit', CROP['speech-backlit']], ['white-wall', CROP['white-wall']], ['balcony-arches', CROP['balcony-arches']], ['lace-hands', CROP['lace-hands']]], 'Track A, day 2', 'The detail and the question', 'The message that gets the replies',
     'This is the message that gets most of the replies on this track, and it only works because it proves you read their enquiry properly.',
     'Open their form. Find the one thing they wrote that was not a box they had to fill. That is your detail, and the question comes straight after it.',
     'Each follow-up has a day, a channel and a reason to exist. None of them say just checking in.'],
-  'consult-call-kit': ['CONSULT CALL KIT', 'ed-lace', '50% 22%', 'The call that<br>books the date', '<b>The run sheet</b> / the timeline on the call / <b>ten questions</b> / budget without asking',
-    [['ed-archway', '50% 50%'], ['detail-pearls', '50% 40%'], ['ed-couple-veil', '50% 25%'], ['ed-tunnel', '50% 40%']], 'Section 02', 'The timeline on the call', 'Discovery and the recommendation, together',
+  'consult-call-kit': ['CONSULT CALL KIT', 'framed-bride', CROP['framed-bride'], 'The call that<br>books the date', '<b>The run sheet</b> / the timeline on the call / <b>ten questions</b> / budget without asking',
+    [['curtain-cake', CROP['curtain-cake']], ['chapel-colour', CROP['chapel-colour']], ['garden-couple', CROP['garden-couple']], ['bow-back', CROP['bow-back']]], 'Section 02', 'The timeline on the call', 'Discovery and the recommendation, together',
     'I build the day with them on the call. Discovery and the recommendation happen at the same time, and that is where the trust comes from.',
     'Ask where they are getting ready, what time the ceremony starts, and what matters most about the photographs. Then build the coverage in front of them.',
     'The run sheet keeps the call to forty minutes and ends on a clear next step.'],
-  'part-time-to-full-time': ['FULL-TIME', 'ed-seated', '50% 35%', 'Ninety days<br>to your number', '<b>Nine actions</b> / twelve weeks / <b>quick wins first</b> / a booking system that runs',
-    [['ed-groom', '50% 30%'], ['ed-mirror', '50% 30%'], ['ed-tunnel', '50% 55%'], ['detail-pearls', '50% 40%']], 'Module 0, quick win 0.5', 'Record your next consult', 'The fastest skill jump there is',
+  'part-time-to-full-time': ['FULL-TIME', 'seated-veil', CROP['seated-veil'], 'Ninety days<br>to your number', '<b>Nine actions</b> / twelve weeks / <b>quick wins first</b> / a booking system that runs',
+    [['arrival-candid', CROP['arrival-candid']], ['veil-wind', CROP['veil-wind']], ['grand-stair', CROP['grand-stair']], ['marble-bride', CROP['marble-bride']]], 'Module 0, quick win 0.5', 'Record your next consult', 'The fastest skill jump there is',
     'The fastest skill jump available is listening back to yourself. With consent, record the next consult and play it back that same night.',
     'Write down the moment the couple leaned in, and the moment you lost them. That is next week\'s script, and it took you forty minutes to find.',
     'Two to four hours of your week. Quick wins inside the first fortnight.'],
-  'craft-program': ['THE CRAFT', 'ed-garden-veil', '50% 60%', 'Shoot like<br>a full-timer', '<b>The wedding day</b> / light by the hour / <b>cultural weddings</b> / shooting with a team',
-    [['detail-pearls', '50% 40%'], ['ed-lace', '50% 25%'], ['ed-archway', '50% 50%'], ['ed-couple-veil', '50% 40%']], 'Module 8', 'Light through the day', 'Build the day around the light',
+  'craft-program': ['THE CRAFT', 'window-hall', CROP['window-hall'], 'Shoot like<br>a full-timer', '<b>The wedding day</b> / light by the hour / <b>cultural weddings</b> / shooting with a team',
+    [['chapel-colour', CROP['chapel-colour']], ['speech-backlit', CROP['speech-backlit']], ['balcony-arches', CROP['balcony-arches']], ['white-wall', CROP['white-wall']]], 'Module 8', 'Light through the day', 'Build the day around the light',
     'Where the couple stands at each hour decides the light you get. Build the day around the light and the photographs look like a full-timer made them.',
     'Take your next booked wedding and lay the day out hour by hour. Mark where the light is at each milestone, then move one thing.',
     'Phase two. Built after the business program, coming 2027.'],
