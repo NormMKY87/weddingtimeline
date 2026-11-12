@@ -40,3 +40,19 @@ No prices on any visible surface. No NYP client names or venues. Inner pages are
 - Confirm the six products and the bundle (listed in the session brief table).
 - The brand name and palette are provisional. Swap `tokens.css` when the education brand lands.
 - Norm's own photographs can replace the plain backgrounds once a Dropbox folder is nominated.
+
+## Reference-inspired scenes (12 Nov 2026)
+
+Norm asked for the scenes in six Creative Market listings to be recreated as closely as possible. Eleven scene types were rebuilt in `ref-scenes/`, one HTML file each, sharing `lib.js` (3D book boxes, curved pages, shadows) and `lib.css`. Every scene renders for all six products from the same source: `?p=<product>` picks the product.
+
+```
+node mockups/ref-scenes/render.js            # all 66, about two minutes
+node mockups/ref-scenes/render.js r05        # one scene, all six products
+node mockups/ref-scenes/render.js --cutout   # transparent PNG versions
+```
+
+Exports: `out/ref/<scene>/<product>.jpg` at 2400 by 1600. Scene surfaces live in `tokens.css` under the `--surf-*` tokens.
+
+How each scene was matched, round by round, is in `iteration-log.md`. The reference images were studied in a scratch folder and are not in the repo: they are paid, licensed products.
+
+Review gallery (private until shared): https://claude.ai/artifact/YEAjFkhQxeBNFoTeiqbFFn
