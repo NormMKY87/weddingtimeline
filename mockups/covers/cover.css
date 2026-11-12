@@ -1,0 +1,43 @@
+@import url(../fonts/fonts.css);
+@import url(../tokens.css);
+
+html, body { margin: 0; padding: 0; background: transparent; }
+body { font-family: var(--font-text); -webkit-font-smoothing: antialiased; }
+
+/* A4 at 72 dpi, rendered at 2x by render.js */
+.cover {
+  position: relative; width: 595px; height: 842px; overflow: hidden;
+  background: var(--cover-bg); color: var(--cover-fg);
+  padding: 44px 46px 40px; box-sizing: border-box;
+  display: flex; flex-direction: column; justify-content: flex-start;
+}
+.top { display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--cover-kicker); font-weight: 500; }
+.top .series::before { content: var(--series-name); }
+
+.mid { position: relative; z-index: 2; margin-top: 92px; }
+.nb { white-space: nowrap; }
+.no { font-family: var(--font-display); font-weight: 300; font-size: 96px; line-height: .9; color: var(--cover-accent); margin: 0 0 26px -3px; letter-spacing: -.02em; }
+.no small { display: block; font-family: var(--font-text); font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--cover-kicker); margin-bottom: 10px; font-weight: 500; }
+h1 { font-family: var(--font-display); font-weight: 500; font-size: 68px; line-height: .98; letter-spacing: -.015em; margin: 0 0 22px; max-width: 470px; }
+h1 em { font-style: italic; font-weight: 400; }
+.sub { font-size: 14px; line-height: 1.52; max-width: 360px; color: var(--cover-fg-2); margin: 0; }
+
+.foot { position: relative; z-index: 2; margin-top: auto; border-top: 1px solid var(--cover-rule); padding-top: 14px; display: flex; justify-content: space-between;
+  font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--cover-kicker); font-weight: 500; }
+.foot .brand::before { content: var(--brand-name); }
+.foot .edition::before { content: var(--edition); }
+
+/* motif: a line drawing in the lower right, behind the type */
+.motif { position: absolute; right: 46px; bottom: 84px; z-index: 1; color: var(--cover-motif); transform: scale(.88); transform-origin: bottom right; }
+.motif svg { display: block; overflow: visible; }
+.motif svg * { vector-effect: non-scaling-stroke; }
+
+/* stamp for the phase two cover */
+.stamp { position: absolute; right: 46px; top: 120px; z-index: 3; border: 1.5px solid var(--cover-accent); color: var(--cover-accent);
+  padding: 8px 12px; font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; font-weight: 600; transform: rotate(-6deg); }
+
+/* the bundle cover carries the list of six */
+.list { margin: 28px 0 0; padding: 0; list-style: none; font-size: 11.5px; line-height: 1.5; color: var(--cover-fg-2); columns: 2; column-gap: 24px; max-width: 420px; }
+.list li { break-inside: avoid; padding: 6px 0; border-top: 1px solid var(--cover-rule); display: flex; gap: 10px; }
+.list li b { font-family: var(--font-display); font-weight: 500; font-size: 15px; color: var(--cover-accent); min-width: 22px; line-height: 1.1; }

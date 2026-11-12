@@ -1,0 +1,6 @@
+/* Local copies of two Google Fonts (SIL Open Font License), latin subset.
+   Cormorant Garamond by Christian Thalmann. Karla by Jonny Pinhorn.
+   Kept in the repo so every render is identical offline. */
+@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 300 700; src: url(cormorant-garamond-latin.woff2) format("woff2"); }
+@font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 300 700; src: url(cormorant-garamond-italic-latin.woff2) format("woff2"); }
+@font-face { font-family: "Karla"; font-style: normal; font-weight: 200 800; src: url(karla-latin.woff2) format("woff2"); }

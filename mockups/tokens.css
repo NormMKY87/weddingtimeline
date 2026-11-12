@@ -1,0 +1,82 @@
+/* Part-Time to Full-Time product mockups: design tokens.
+   Provisional. The education brand name and palette are not final.
+   Everything in covers/, screens/, scenes/ and contact-sheet.html reads from here,
+   so a re-skin is a change to this file and a re-render. */
+
+:root {
+  /* names (CSS strings, injected with content: var()) */
+  --brand-name: "Norman Yap";
+  --series-name: "Part-Time to Full-Time";
+  --edition: "2026 edition";
+
+  /* palette, warm two tone */
+  --paper: #F3EDE2;
+  --paper-2: #E8DFCF;
+  --sand: #D9CCB7;
+  --white: #FBF8F2;
+  --ink: #221E1A;
+  --ink-2: #3D3631;
+  --mute: #7C7268;
+  --stone: #5E574F;
+  --clay: #B5603B;
+  --clay-deep: #8E4A2D;
+  --clay-soft: #E9C9B5;
+
+  /* type */
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-text: "Karla", "Helvetica Neue", Arial, sans-serif;
+
+  /* scenes */
+  --scene-bg: var(--paper);
+  --scene-bg-2: var(--paper-2);
+  --scene-light-x: 35%;          /* where the single light source sits */
+  --shadow-rgb: 46 34 22;        /* warm shadow colour, used as rgb(var(--shadow-rgb) / a) */
+  --device-bezel: #1A1715;
+  --device-edge: #3A3430;
+  --page-edge: rgb(var(--shadow-rgb) / 0.10);
+}
+
+/* Cover variants: one system, one set of slots, six colourways plus the bundle. */
+[data-product] {
+  --cover-bg: var(--paper);
+  --cover-fg: var(--ink);
+  --cover-fg-2: var(--ink-2);
+  --cover-kicker: var(--clay);
+  --cover-accent: var(--clay);
+  --cover-rule: rgb(34 30 26 / 0.25);
+  --cover-motif: rgb(181 96 59 / 0.85);
+}
+[data-product="quit-number-calculator"] {
+  --cover-bg: var(--stone); --cover-fg: var(--white); --cover-fg-2: #E6DED1;
+  --cover-kicker: var(--clay-soft); --cover-accent: var(--clay-soft);
+  --cover-rule: rgb(251 248 242 / 0.28); --cover-motif: rgb(233 201 181 / 0.9);
+}
+[data-product="booking-pack"] {
+  --cover-bg: var(--clay); --cover-fg: var(--white); --cover-fg-2: #F6E6DB;
+  --cover-kicker: #F2D9C8; --cover-accent: var(--white);
+  --cover-rule: rgb(251 248 242 / 0.35); --cover-motif: rgb(251 248 242 / 0.9);
+}
+[data-product="follow-up-vault"] {
+  --cover-bg: var(--paper);
+}
+[data-product="consult-call-kit"] {
+  --cover-bg: var(--sand); --cover-rule: rgb(34 30 26 / 0.3);
+}
+[data-product="part-time-to-full-time"] {
+  --cover-bg: var(--ink); --cover-fg: var(--white); --cover-fg-2: #D9D0C2;
+  --cover-kicker: var(--clay-soft); --cover-accent: var(--clay);
+  --cover-rule: rgb(251 248 242 / 0.22); --cover-motif: rgb(181 96 59 / 0.95);
+}
+[data-product="craft-program"] {
+  --cover-bg: var(--white); --cover-rule: rgb(34 30 26 / 0.2);
+}
+[data-product="bundle"] {
+  --cover-bg: var(--ink-2); --cover-fg: var(--white); --cover-fg-2: #D9D0C2;
+  --cover-kicker: var(--clay-soft); --cover-accent: var(--clay-soft);
+  --cover-rule: rgb(251 248 242 / 0.22); --cover-motif: rgb(233 201 181 / 0.9);
+}
+
+/* Worksheet and screen variants share the same slots */
+[data-product="part-time-to-full-time"] .sheet, [data-product="craft-program"] .sheet {
+  --sheet-bg: var(--white); --sheet-fg: var(--ink); --sheet-accent: var(--clay); --sheet-rule: rgb(34 30 26 / 0.18);
+}
