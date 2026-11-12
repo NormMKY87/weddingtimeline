@@ -121,3 +121,22 @@ Reference: US Letter magazine mockup, preview 2, the full screen hero. Straight 
 ## Photo pass
 
 Every cover in r01 to r12 is now a photo cover from `out/covers-photo/` (`covers-photo/cover.html`). Add `?cover=type` to any scene to bring back the typographic covers.
+
+## 3D rebuild (Blender Cycles)
+
+Norm's verdict on the CSS scenes: still artificial, not close enough. All twelve scenes were rebuilt as real 3D geometry in `blender/mock.py` and rendered with Cycles: a sun, sky fill and a shadow catcher, composited over each reference's ground colour. Covers switched to the white magazine cover, because most references use light covers with a framed photograph.
+
+- Round 1. Geometry and framing for all twelve at low resolution. Objects too small, light too hot.
+- Round 2. One exposure dial for every light, reference sizes for each object, spine turned to the correct side on the hardcover.
+- Round 3, side by side with the references at full size:
+  - r01: 2:3 paperback cover (`out/assets/*-cover-pb.png`), new rotation and placement, softer shadow.
+  - r02: narrower pages, deeper gutter curve.
+  - r03: thick hardcover, wide spine, 86 mm lens up close so the edges converge.
+  - r04: folded copies showing the top of the cover, fanned down and right, wider band.
+  - r05: cover lifted 22 mm for the deep soft shadow, darker taupe ground.
+  - r06: magazine centred, 22 leaf clusters, darker wall.
+  - r07: rounded tablet built from a bevelled plane, centred.
+  - r08: tile angle flipped to match the reference lean.
+- Verdicts. Closest: r01 to r05, r07, r08, r09, r12. Close: r10. Close with a limit: r06 (generated marble), r11 (fewer, thicker copies than the reference).
+
+Renders are 1800 by 1200 at 48 samples with denoising, about 85 seconds each on four cores. `ref-scenes/` keeps the earlier CSS versions.
