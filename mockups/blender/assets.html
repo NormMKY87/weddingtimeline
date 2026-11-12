@@ -1,0 +1,39 @@
+<!doctype html><html lang="en-AU"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../fonts/fonts.css"><link rel="stylesheet" href="../tokens.css"><script src="../photos/crops.js"></script>
+<style>
+/* Print assets for the 3D scenes: a full-bleed photo cover, a spine strip and a kraft band label per product. */
+html,body{margin:0;background:#777} body{display:flex;flex-direction:column;gap:20px;padding:20px;font-family:var(--font-text);-webkit-font-smoothing:antialiased}
+.bleed{position:relative;width:612px;height:792px;overflow:hidden;background:#111;color:#fff}
+.bleed img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgb(0 0 0/.28),rgb(0 0 0/0) 22%,rgb(0 0 0/0) 55%,rgb(0 0 0/.62))}
+.bleed .k{position:absolute;z-index:2;left:40px;right:40px;top:34px;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.24em;text-transform:uppercase;font-weight:500}
+.bleed h1{position:absolute;z-index:2;left:40px;right:40px;bottom:78px;margin:0;font-family:var(--font-display);font-weight:500;font-size:60px;line-height:.95}
+.bleed h1 em{font-style:italic;font-weight:400}
+.bleed .s{position:absolute;z-index:2;left:40px;bottom:40px;font-size:9px;letter-spacing:.24em;text-transform:uppercase;font-weight:500}
+.spine{width:792px;height:60px;background:#fbfaf8;color:#221e1a;display:flex;align-items:center;justify-content:space-between;padding:0 34px;box-sizing:border-box}
+.spine b{font-family:var(--font-display);font-weight:500;font-size:25px;letter-spacing:.04em}
+.spine span{font-size:10px;letter-spacing:.24em;text-transform:uppercase}
+.spine.dark{background:#1b1917;color:#f4efe8}
+.band{width:160px;height:792px;background:#c9ab85;color:#2a2019;display:flex;flex-direction:column;align-items:center;padding:150px 0 0;box-sizing:border-box;gap:14px}
+.band .n{font-family:var(--font-display);font-size:34px;line-height:1}
+.band .l{font-size:7.5px;letter-spacing:.24em;text-transform:uppercase;text-align:center;line-height:1.7;font-weight:600}
+.band .r{width:60px;height:1px;background:#2a2019;opacity:.5}
+.band .t{font-family:var(--font-display);font-style:italic;font-size:17px;text-align:center;line-height:1.1;padding:0 14px}
+</style></head><body><script>
+const T = {
+  'quit-number-calculator': ['01', 'The Quit-Number <em>Calculator</em>', 'stair-gown'],
+  'booking-pack': ['02', 'The Booking <em>Pack</em>', 'veil-portrait'],
+  'follow-up-vault': ['03', 'The Follow-Up <em>Vault</em>', 'garden-overhead'],
+  'consult-call-kit': ['04', 'The Consult <em>Call Kit</em>', 'framed-bride'],
+  'part-time-to-full-time': ['05', 'Part-Time to <em>Full-Time</em>', 'seated-veil'],
+  'craft-program': ['06', 'The Craft <em>Program</em>', 'window-hall'],
+  'editorial-field-guide': ['07', 'The Editorial <em>Field Guide</em>', 'grand-stair'],
+};
+const p = new URLSearchParams(location.search).get('p') || 'booking-pack';
+const [no, t, ph] = T[p]; const plain = t.replace(/<\/?em>/g, '');
+document.body.innerHTML = `
+<div class="bleed" data-shot="bleed"><img src="../photos/${ph}.jpg" style="object-position:${CROP[ph]}"><div class="k"><span>Part-Time to Full-Time</span><span>No. ${no}</span></div><h1>${t}</h1><div class="s">Norman Yap</div></div>
+<div class="spine" data-shot="spine"><span>No. ${no}</span><b>${plain}</b><span>Norman Yap</span></div>
+<div class="spine dark" data-shot="spine-dark"><span>No. ${no}</span><b>${plain}</b><span>Norman Yap</span></div>
+<div class="band" data-shot="band"><div class="n">No. ${no}</div><div class="r"></div><div class="l">Part-Time<br>to Full-Time</div><div class="r"></div><div class="t">${plain}</div></div>`;
+</script></body></html>
