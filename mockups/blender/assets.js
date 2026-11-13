@@ -19,10 +19,12 @@ const P = ['quit-number-calculator', 'booking-pack', 'follow-up-vault', 'consult
     }
   }
   for (const p of P) {   // 2:3 paperback cover from the magazine cover template
-    await pg.goto('file://' + path.join(__dirname, '..', 'covers-photo', 'magazine.html') + '?p=' + p + '&w=528');
-    await pg.evaluate(() => document.fonts.ready);
-    await pg.evaluate(async () => Promise.all([...document.images].filter(i => !i.complete).map(i => new Promise(r => { i.onload = i.onerror = r; }))));
-    await (await pg.$('[data-shot=cover]')).screenshot({ path: path.join(dir, `${p}-cover-pb.png`) });
+    for (const [tag, w] of [['pb', 528], ['a4', 560]]) {   // pb is 2:3, a4 is the A4 ratio the PSD templates use
+      await pg.goto('file://' + path.join(__dirname, '..', 'covers-photo', 'magazine.html') + '?p=' + p + '&w=' + w);
+      await pg.evaluate(() => document.fonts.ready);
+      await pg.evaluate(async () => Promise.all([...document.images].filter(i => !i.complete).map(i => new Promise(r => { i.onload = i.onerror = r; }))));
+      await (await pg.$('[data-shot=cover]')).screenshot({ path: path.join(dir, `${p}-cover-${tag}.png`) });
+    }
   }
   await b.close();
   console.log('assets done');
