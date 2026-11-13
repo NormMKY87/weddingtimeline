@@ -28,6 +28,8 @@ const T = {
   'part-time-to-full-time': ['05', 'Part-Time to <em>Full-Time</em>', 'seated-veil'],
   'craft-program': ['06', 'The Craft <em>Program</em>', 'window-hall'],
   'editorial-field-guide': ['07', 'The Editorial <em>Field Guide</em>', 'grand-stair'],
+  'warm-list-emails': ['08', 'The Warm List <em>Emails</em>', 'lace-hands'],
+  'quiet-month-playbook': ['09', 'The Quiet Month <em>Playbook</em>', 'bow-back'],
 };
 const p = new URLSearchParams(location.search).get('p') || 'booking-pack';
 const [no, t, ph] = T[p]; const plain = t.replace(/<\/?em>/g, '');

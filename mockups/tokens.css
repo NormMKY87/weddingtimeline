@@ -75,6 +75,15 @@
   --cover-kicker: #F1E6D9; --cover-accent: var(--white);
   --cover-rule: rgb(251 248 242 / 0.32); --cover-motif: rgb(251 248 242 / 0.9);
 }
+[data-product="warm-list-emails"] {
+  --cover-bg: var(--clay-soft); --cover-kicker: var(--clay-deep); --cover-accent: var(--clay-deep);
+  --cover-rule: rgb(34 30 26 / 0.28); --cover-motif: rgb(142 74 45 / 0.9);
+}
+[data-product="quiet-month-playbook"] {
+  --cover-bg: var(--clay-deep); --cover-fg: var(--white); --cover-fg-2: #F2DFD2;
+  --cover-kicker: var(--clay-soft); --cover-accent: var(--clay-soft);
+  --cover-rule: rgb(251 248 242 / 0.3); --cover-motif: rgb(233 201 181 / 0.9);
+}
 [data-product="bundle"] {
   --cover-bg: var(--ink-2); --cover-fg: var(--white); --cover-fg-2: #D9D0C2;
   --cover-kicker: var(--clay-soft); --cover-accent: var(--clay-soft);

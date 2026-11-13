@@ -16,6 +16,11 @@ const PRODUCTS = {
     cover: '../out/covers/06-craft-program.png', L: '../out/screens/ws-timeline-builder.png', R: '../out/screens/wc-8.png', X: '../out/screens/wc-9.png' },
   'editorial-field-guide': { no: '07', title: 'The Editorial Field Guide', short: 'Editorial Field Guide',
     cover: '../out/covers/07-editorial-field-guide.png', L: '../pages/efg-window-hall.jpg', R: '../pages/efg-garden-overhead.jpg', X: '../pages/efg-seated-veil.jpg' },
+  // 08 and 09 are not written yet: placeholder draft pages from screens/draft-pages.html
+  'warm-list-emails': { no: '08', title: 'The Warm List Emails', short: 'The Warm List Emails',
+    cover: '../out/covers/08-warm-list-emails.png', L: '../out/screens/dp-warm-list-emails-2.png', R: '../out/screens/dp-warm-list-emails-3.png', X: '../out/screens/dp-warm-list-emails-1.png' },
+  'quiet-month-playbook': { no: '09', title: 'The Quiet Month Playbook', short: 'Quiet Month Playbook',
+    cover: '../out/covers/09-quiet-month-playbook.png', L: '../out/screens/dp-quiet-month-playbook-2.png', R: '../out/screens/dp-quiet-month-playbook-3.png', X: '../out/screens/dp-quiet-month-playbook-1.png' },
 };
 
 const q = new URLSearchParams(location.search);

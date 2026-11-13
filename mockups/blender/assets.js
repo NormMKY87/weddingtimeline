@@ -3,7 +3,7 @@ const { chromium } = require('playwright');
 const path = require('path');
 const fs = require('fs');
 
-const P = ['quit-number-calculator', 'booking-pack', 'follow-up-vault', 'consult-call-kit', 'part-time-to-full-time', 'craft-program', 'editorial-field-guide'];
+const P = ['quit-number-calculator', 'booking-pack', 'follow-up-vault', 'consult-call-kit', 'part-time-to-full-time', 'craft-program', 'editorial-field-guide', 'warm-list-emails', 'quiet-month-playbook'];
 
 (async () => {
   const b = await chromium.launch();

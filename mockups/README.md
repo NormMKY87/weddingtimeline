@@ -56,3 +56,19 @@ Exports: `out/ref/<scene>/<product>.jpg` at 2400 by 1600. Scene surfaces live in
 How each scene was matched, round by round, is in `iteration-log.md`. The reference images were studied in a scratch folder and are not in the repo: they are paid, licensed products.
 
 Review gallery (private until shared): https://claude.ai/artifact/YEAjFkhQxeBNFoTeiqbFFn
+
+## Products 08 and 09 (13 Nov 2026)
+
+Norm asked for two more products in the suite. Both are proposals with working titles: The Warm List Emails (`warm-list-emails`) and The Quiet Month Playbook (`quiet-month-playbook`). Briefs are in `products/`.
+
+- Each has a photo cover, a magazine edition, print assets, a reader page and all twelve photoreal scenes in `out/ref/`.
+- Neither product is written. The inside pages come from `screens/draft-pages.html` and are placeholders that show the page system. This is the one exception to the rule that inner pages are real product pages. Swap them when the PDFs exist.
+- To rename one, change its title in `covers-photo/cover.html`, `covers-photo/magazine.html`, `blender/assets.html`, `ref-scenes/lib.js` and `screens/draft-pages.html`, then re-render.
+
+```
+node mockups/render.js photocovers && node mockups/render.js screens
+node mockups/mag-render.js && node mockups/blender/assets.js
+python mockups/blender/mock.py all warm-list-emails,quiet-month-playbook --samples 48
+```
+
+Review sheet for the two: `out/review-08-09.jpg`.
