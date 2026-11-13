@@ -140,3 +140,14 @@ Norm's verdict on the CSS scenes: still artificial, not close enough. All twelve
 - Verdicts. Closest: r01 to r05, r07, r08, r09, r12. Close: r10. Close with a limit: r06 (generated marble), r11 (fewer, thicker copies than the reference).
 
 Renders are 1800 by 1200 at 48 samples with denoising, about 85 seconds each on four cores. `ref-scenes/` keeps the earlier CSS versions.
+
+## Purchased PSD templates
+
+Norm bought the template packs and put them in Dropbox. `psd/compose.py` now places our designs straight into them: it rebuilds each PSD's layer stack (blend modes, masks, clipping, fill opacity, quad and mesh warps) and swaps the smart objects for our covers, pages and screens. `psd/build.py` maps every slot in 33 templates to a product asset.
+
+- Packs used: Magazine Mockups (6), Newspaper Mock-Up Set (10), Multi-Device Scene Creator (10), Laptop Screen Mockup (7).
+- Layer effects and adjustment layers are not rebuilt. Each template's flattened preview has blank designs, so the ratio of that preview to our own blank render carries them (vignettes, lighting curves). It is smoothed and applied to every render.
+- `mag1` ships with sample artwork in its preview, so it skips that step.
+- Output: `out/psd/<scene>/<product>.jpg`, 2000 px wide, 231 files.
+- Not used: FORK Creative Portfolio and the Magazine Duo Pack. They are InDesign and Canva layout templates, not mockup scenes.
+- The PSDs are licensed and stay out of the repo.
