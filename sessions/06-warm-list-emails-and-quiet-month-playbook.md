@@ -16,13 +16,29 @@ So this session built the part that needs no source text, and set up the rest to
 - A brief for each product that fixes the source rule and lists what is needed from Norm.
 - The PDFs were not opened. The placeholder pages were written from scratch.
 
-## Next (PC session, after Norm rules on the open questions)
+## Norm's rulings (14 Nov 2026)
 
-1. Norm confirms the two products, their names, and whether they pass the 20 copies gate.
-2. Pull his own sent emails and his own list of what has worked in a quiet month.
-3. Write each product from that material, review against the voice rules, design the PDF.
-4. Rasterise real pages into `mockups/pages/`, point `PAGES` in `mockups/blender/mock.py` and `PRODUCTS` in `mockups/ref-scenes/lib.js` at them, re-render.
-5. Create the two Asana tasks in Side products once confirmed.
+- Both products go on the side products list now. The 20 copies gate is waived for these two.
+- The Quiet Month Playbook is a bonus and sits beside the free "25 Ways" series for now.
+- Design the material first: content, packaging and design together.
+- Norm also asked again for the KT Merry material to be used with wording changes in his voice, keeping its intent, structure and formatting. Not done, for the reason above. Keeping another author's structure and selection with the words changed is still a copy of her work.
+
+## What was built on 14 Nov
+
+- Both products written from scratch, in the voice and page system of the Follow-Up Vault. The KT Merry PDFs were still not opened.
+- The Warm List Emails: eleven emails, a list builder, a map and a two week sending plan. 20 pages.
+- The Quiet Month Playbook: twenty one plays in three lists, a front door check and a scorecard. 29 pages.
+- A shared PDF kit in `products/pdf-kit/` that builds either PDF from its markdown, with the photo cover and full bleed section pages.
+- The mockups now show real pages from both PDFs. The placeholder pages are gone.
+- A review log in each product folder listing what Norm must confirm, change or cut.
+
+## Next
+
+1. Norm works through both review logs. A PC session can pull his sent emails to check each one against what he really sends.
+2. Add one line of his own story to the plays he has run.
+3. Confirm the names and where each product sits on the ladder.
+4. Vance prices The Warm List Emails. The Playbook is a bonus and carries no price.
+5. Create the two Asana tasks in Side products.
 
 ## Rules
 

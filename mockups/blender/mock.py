@@ -20,9 +20,8 @@ PAGES = {  # real inside pages: left, right, page underneath
     'part-time-to-full-time': ('out/screens/ws-seven-day-checklist.png', 'out/screens/ws-your-number.png', 'out/screens/wc-1.png'),
     'craft-program': ('out/screens/ws-timeline-builder.png', 'out/screens/wc-8.png', 'out/screens/wc-9.png'),
     'editorial-field-guide': ('pages/efg-window-hall.jpg', 'pages/efg-garden-overhead.jpg', 'pages/efg-seated-veil.jpg'),
-    # 08 and 09 are not written yet: placeholder draft pages from screens/draft-pages.html
-    'warm-list-emails': ('out/screens/dp-warm-list-emails-2.png', 'out/screens/dp-warm-list-emails-3.png', 'out/screens/dp-warm-list-emails-1.png'),
-    'quiet-month-playbook': ('out/screens/dp-quiet-month-playbook-2.png', 'out/screens/dp-quiet-month-playbook-3.png', 'out/screens/dp-quiet-month-playbook-1.png'),
+    'warm-list-emails': ('pages/wle-09.jpg', 'pages/wle-15.jpg', 'pages/wle-05.jpg'),
+    'quiet-month-playbook': ('pages/qmp-06.jpg', 'pages/qmp-18.jpg', 'pages/qmp-03.jpg'),
 }
 
 

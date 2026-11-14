@@ -1,0 +1,529 @@
+<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><title>The Quiet Month Playbook</title><style>
+@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 300 700; src: url("../../../mockups/fonts/cormorant-garamond-latin.woff2") format("woff2"); }
+@font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 300 700; src: url("../../../mockups/fonts/cormorant-garamond-italic-latin.woff2") format("woff2"); }
+@font-face { font-family: "Karla"; font-style: normal; font-weight: 200 800; src: url("../../../mockups/fonts/karla-latin.woff2") format("woff2"); }
+@page { size: A4; margin: 20mm 18mm 22mm;
+  @bottom-left { content: "The Quiet Month Playbook"; font: 400 7pt "Karla", sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #7C7268; }
+  @bottom-right { content: counter(page); font: 400 7.5pt "Karla", sans-serif; color: #7C7268; } }
+@page bleed { margin: 0; @bottom-left { content: none; } @bottom-right { content: none; } }
+:root { --ink: #221E1A; --ink-2: #3D3631; --mute: #7C7268; --rule: #D9D1C7; --clay: #B5603B; --clay-deep: #8E4A2D; --card: #F6F1E8; --white: #FBF8F2; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: "Karla", "Helvetica Neue", Arial, sans-serif; color: var(--ink); font-size: 11pt; line-height: 1.58; -webkit-font-smoothing: antialiased; }
+.page { break-after: page; }
+.page:last-child { break-after: auto; }
+.bleed { page: bleed; position: relative; width: 210mm; height: 297mm; overflow: hidden; }
+.bleed img.full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.kicker { font-size: 7.5pt; letter-spacing: .22em; text-transform: uppercase; color: var(--clay-deep); font-weight: 600; margin: 0 0 9pt; }
+h2.title { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: 36pt; line-height: 1.04; letter-spacing: -.005em; margin: 0 0 16pt; }
+h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: 19pt; line-height: 1.15; margin: 20pt 0 7pt; break-after: avoid; }
+p { margin: 0 0 8pt; max-width: 158mm; }
+h2.title + p, .facts + p { font-size: 12.2pt; line-height: 1.52; color: var(--ink-2); margin-bottom: 12pt; }
+strong { font-weight: 600; }
+.v { color: var(--clay-deep); }
+ul, ol { margin: 4pt 0 10pt; padding: 0; list-style: none; max-width: 158mm; }
+ul li { position: relative; padding-left: 14pt; margin-bottom: 5pt; }
+ul li::before { content: ""; position: absolute; left: 1pt; top: .68em; width: 5pt; height: 1px; background: var(--clay); }
+ol { counter-reset: n; margin-top: 10pt; }
+ol li { counter-increment: n; position: relative; padding: 10pt 0 10pt 30pt; border-top: 1px solid var(--rule); margin: 0; }
+ol li:last-child { border-bottom: 1px solid var(--rule); }
+ol li::before { content: counter(n); position: absolute; left: 2pt; top: 6pt; font-family: "Cormorant Garamond", Georgia, serif; font-size: 18pt; color: var(--clay-deep); }
+/* facts under a title */
+.facts { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0 8mm; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); margin: 0 0 16pt; padding: 10pt 0 11pt; }
+.facts div { font-size: 10.2pt; line-height: 1.4; }
+.facts b { display: block; font-size: 6.8pt; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: var(--mute); margin-bottom: 3pt; }
+/* message cards */
+.msg { background: var(--card); border-left: 2px solid var(--clay); padding: 15pt 19pt 8pt; margin: 12pt 0 12pt; break-inside: avoid; }
+.msg .ch { display: block; text-transform: uppercase; letter-spacing: .18em; font-size: 6.8pt; color: var(--clay-deep); font-weight: 600; margin-bottom: 4pt; }
+.msg .subj { font-size: 10.4pt; font-weight: 600; border-bottom: 1px solid rgb(34 30 26 / .14); padding-bottom: 7pt; margin-bottom: 8pt; }
+.msg p { margin: 0 0 9pt; font-size: 10.8pt; line-height: 1.58; max-width: none; }
+.pl { font-size: 6.6pt; letter-spacing: .16em; font-weight: 600; color: var(--clay-deep); margin-right: 3pt; }
+.skip { font-size: 10.2pt; margin: 14pt 0 0; padding: 1pt 0 1pt 12pt; border-left: 2px solid var(--rule); color: var(--ink-2); }
+.goes { font-size: 10.2pt; color: var(--ink-2); margin: 10pt 0 0; }
+.goes b, .skip b { font-weight: 600; color: var(--ink); }
+/* three columns */
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7mm; margin: 6pt 0 12pt; }
+.grid3 > div { border-top: 1px solid var(--ink); padding-top: 8pt; }
+.grid3 h4 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: 14pt; line-height: 1.15; margin: 0 0 5pt; }
+.grid3 p { font-size: 10pt; line-height: 1.5; margin: 0; }
+/* tables */
+table { width: 100%; border-collapse: collapse; font-size: 10pt; line-height: 1.4; margin: 8pt 0 12pt; break-inside: avoid; }
+th { text-align: left; font-weight: 600; text-transform: uppercase; letter-spacing: .14em; font-size: 6.6pt; color: var(--mute); padding: 0 8pt 6pt 0; border-bottom: 1px solid var(--ink); }
+td { padding: 8.5pt 8pt 8.5pt 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+td:first-child:not(:empty) { white-space: nowrap; }
+table.num td:first-child { font-family: "Cormorant Garamond", Georgia, serif; font-size: 13pt; line-height: 1; padding-top: 6pt; width: 9mm; color: var(--clay-deep); }
+table.fill td { padding-top: 8.2pt; padding-bottom: 8.2pt; }
+table.long td { padding-top: 4.6pt; padding-bottom: 4.6pt; }
+table.long.num td:first-child { padding-top: 3pt; }
+table.fill td:nth-child(n+3) { width: 27mm; border-left: 1px solid var(--rule); }
+/* contents page */
+.contents .top { display: flex; justify-content: space-between; font-size: 7.5pt; letter-spacing: .22em; text-transform: uppercase; color: var(--mute); border-bottom: 1px solid var(--ink); padding-bottom: 8pt; margin-bottom: 30mm; }
+.contents h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: 46pt; line-height: 1; margin: 0 0 14pt; max-width: 150mm; }
+.contents .lede { font-size: 12.5pt; line-height: 1.5; color: var(--ink-2); max-width: 135mm; margin-bottom: 22mm; }
+.contents table td { padding: 9pt 10pt 9pt 0; font-size: 10pt; }
+.contents table td:nth-child(2) { font-family: "Cormorant Garamond", Georgia, serif; font-size: 14.5pt; line-height: 1.1; white-space: nowrap; }
+.contents table td:nth-child(3) { color: var(--mute); }
+.contents .close { font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-size: 15pt; line-height: 1.3; margin-top: 18mm; max-width: 120mm; }
+/* photograph pages */
+.opener::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(0 0 0 / .3), rgb(0 0 0 / 0) 24%, rgb(0 0 0 / 0) 40%, rgb(0 0 0 / .62) 66%, rgb(0 0 0 / .88)); }
+.opener .txt { position: absolute; z-index: 2; left: 18mm; right: 18mm; bottom: 20mm; color: #fff; }
+.opener .kicker { color: #fff; opacity: .9; }
+.opener h2.title { font-size: 50pt; margin-bottom: 10pt; color: #fff; }
+.opener .txt p { font-size: 13pt; line-height: 1.45; max-width: 120mm; color: #fff; }
+/* play pages: a log pinned to the foot */
+.page.play { min-height: 253mm; display: flex; flex-direction: column; }
+.log { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr 2.4fr; gap: 0 8mm; border-top: 1px solid var(--ink); padding-top: 8pt; }
+.log div { font-size: 6.8pt; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: var(--mute); height: 15mm; border-bottom: 1px solid var(--rule); }
+.opener .series { position: absolute; z-index: 2; left: 18mm; right: 18mm; top: 16mm; display: flex; justify-content: space-between; color: #fff; font-size: 7.5pt; letter-spacing: .22em; text-transform: uppercase; }
+</style></head><body><section class="page bleed"><img class="full" src="../../../mockups/out/covers-photo/09-quiet-month-playbook.png" alt=""></section><section class="page contents"><div class="top"><span>Part-Time to Full-Time</span><span>First edition</span></div><div class="kicker">A bonus with the Booking Pack</div><h1>The Quiet Month Playbook</h1><p class="lede">Twenty one plays for the month the calendar has a gap. Sorted so the fastest come first.</p><div class="kicker">Inside</div><table class="num"><tr><td>1</td><td>Start here</td><td>How this works, and the check to run before play one</td></tr><tr><td>2</td><td>List one: people who know you</td><td>Plays 1 to 7. These can pay back in days</td></tr><tr><td>3</td><td>List two: people who send you work</td><td>Plays 8 to 14. These can pay back in weeks</td></tr><tr><td>4</td><td>List three: people who have never heard of you</td><td>Plays 15 to 21. These can pay back in months</td></tr><tr><td>5</td><td>The scorecard</td><td>One line a play, so you know which five are yours</td></tr></table><p class="close">Pick one play from the first list. Finish it before you read the rest.</p></section><section class="page"><div class="kicker">Start here</div>
+<h2 class="title">How this works</h2>
+<p>The calendar goes quiet for every wedding photographer at some point. The usual answer is to post more and wait. This playbook is a list of things to do instead, sorted so the fastest ones come first.</p>
+<p>There are twenty one plays. A play is one action you can finish in a sitting. It ends with a message sent or a to-do set, never with something to think about.</p>
+<h3>Three lists, worked in this order</h3>
+<div class="grid3"><div><h4>1. People who know you</h4><p>Past couples, their families, their wedding parties, and enquiries you already have. Seven plays. These can pay back in days.</p></div><div><h4>2. People who send you work</h4><p>Venues, planners, vendors and other photographers. Seven plays. These can pay back in weeks.</p></div><div><h4>3. People who have never heard of you</h4><p>Search, social, listings and new work. Seven plays. These can pay back in months.</p></div></div>
+
+<p>Most photographers work this list backwards. They start with strangers because posting feels like marketing and writing to a past couple feels like asking. Start at the top. Move to the second list when the first is done.</p>
+<h3>How to read each play</h3>
+<ul>
+<li><strong>Time</strong> is what it takes to run the play once, start to finish.</li>
+<li><strong>Can pay back in</strong> is how soon a play can lead to an enquiry. Days, weeks or months. It is a guide to the order, never a promise.</li>
+<li><strong>You need</strong> is what to have open before you start.</li>
+<li><strong>Skip it when</strong> is the honest reason to leave a play alone.</li>
+<li>Where a play needs an email or a message, it names the one to use. The emails are in The Warm List Emails. The follow-ups are in the Follow-Up Vault. The DM scripts are in the Booking Pack.</li>
+</ul>
+<h3>The first hour</h3>
+<p>Run the check on the next page. Then pick one play from the first list and finish it before you read the rest.</p></section><section class="page play"><div class="kicker">Before play one</div>
+<h2 class="title">Check the front door</h2>
+<div class="facts"><div><b>Time</b>Twenty minutes</div><div><b>Can pay back in</b>Days</div><div><b>You need</b>Your phone, off the wifi</div></div>
+<p>A quiet month is sometimes a broken form. Before you go looking for new enquiries, make sure the ones you are sent can reach you.</p>
+<ol>
+<li>On your phone, find your own business the way a couple would. Search for it. Tap through from your social profile.</li>
+<li>Fill in your own enquiry form with a real email address that is not your work one.</li>
+<li>Time how long the reply takes to arrive. Check the spam folder.</li>
+<li>Tap every link in the reply. The gallery, the booking page, the pricing guide.</li>
+<li>Send yourself a DM from a second account. See where it lands, and whether you would have noticed it.</li>
+<li>Fix anything that took more than two taps or went nowhere.</li>
+</ol>
+<p class="skip"><b>Skip it when:</b> you ran this check in the last three months and nothing on your site has changed since.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page bleed opener"><img class="full" src="../../../mockups/photos/bow-back.jpg" alt=""><div class="series"><span>The Quiet Month Playbook</span><span>Part-Time to Full-Time</span></div><div class="txt"><div class="kicker">List one</div>
+<h2 class="title">People who know you</h2>
+<p>Seven plays for past couples, their people, and the enquiries already in your inbox. These can pay back in days.</p></div></section><section class="page play"><div class="kicker">Play 1 / People who know you</div>
+<h2 class="title">The unanswered enquiry sweep</h2>
+<div class="facts"><div><b>Time</b>One hour</div><div><b>Can pay back in</b>Days</div><div><b>You need</b>Your inbox, your CRM, your DMs</div></div>
+<p>The fastest booking in a quiet month is usually an enquiry you already have. Somewhere in the last twelve months a couple wrote to you, you replied once, and neither of you wrote again.</p>
+<ol>
+<li>Search your inbox, your enquiry form entries and your message requests for the last twelve months.</li>
+<li>List every couple who never got a second message from you.</li>
+<li>Cross off any whose wedding date has passed.</li>
+<li>Send each one the revival message from the Follow-Up Vault. One true, recent thing and one easy question.</li>
+<li>Set a to-do for two days from now on every name.</li>
+</ol>
+<p class="skip"><b>Skip it when:</b> you already run the Vault on every lead. Your list will be empty, which is the point of the Vault.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 2 / People who know you</div>
+<h2 class="title">The anniversary run</h2>
+<div class="facts"><div><b>Time</b>Forty five minutes</div><div><b>Can pay back in</b>Days</div><div><b>You need</b>The wedding dates of your past couples</div></div>
+<p>The anniversary is the one date you and the couple both remember. It gives you a reason to write that needs no explaining.</p>
+<ol>
+<li>List every couple with an anniversary in the next eight weeks.</li>
+<li>Choose two or three session dates you can really do.</li>
+<li>Write the anniversary note for each couple. Change the frame you mention every time.</li>
+<li>Send them one at a time across two mornings.</li>
+<li>Answer every reply inside the hour, with the days you have free.</li>
+</ol>
+<p class="goes"><b>The email:</b> The Warm List Emails, email 3.</p>
+<p class="skip"><b>Skip it when:</b> you have nothing open in the month you would name.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 3 / People who know you</div>
+<h2 class="title">The album and print window</h2>
+<div class="facts"><div><b>Time</b>One hour</div><div><b>Can pay back in</b>Days</div><div><b>You need</b>A real order date from your lab</div></div>
+<p>An album is the purchase most couples mean to make and never get to. A date gives them a reason to decide this month.</p>
+<ol>
+<li>Ring or email your lab and set the date of your next order.</li>
+<li>List every couple from the last three years who has no album.</li>
+<li>For each, note one part of their day that belongs in print.</li>
+<li>Send the album and print window email with the order date and a reply-by date a week before it.</li>
+<li>Offer to choose the photographs for them. Choosing is the part that stops people.</li>
+</ol>
+<p class="goes"><b>The email:</b> The Warm List Emails, email 2.</p>
+<p class="skip"><b>Skip it when:</b> you do not sell albums or prints. Add one product first and run this next quarter.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 4 / People who know you</div>
+<h2 class="title">The gallery follow-up</h2>
+<div class="facts"><div><b>Time</b>Five minutes a couple</div><div><b>Can pay back in</b>Days</div><div><b>You need</b>Last season's galleries</div></div>
+<p>The gallery goes out, the couple says thank you, and the conversation ends. Reopening it is the start of every other play on this list.</p>
+<ol>
+<li>List the couples whose galleries went out between six weeks and six months ago.</li>
+<li>Open each gallery and pick the one frame that stays with you.</li>
+<li>Send the gallery follow-up, naming that frame and asking for theirs.</li>
+<li>Save every reply. Their favourites are the photographs to show the next couple.</li>
+<li>Note who replied warmly. They are your list for play 6.</li>
+</ol>
+<p class="goes"><b>The email:</b> The Warm List Emails, email 1.</p>
+<p class="skip"><b>Skip it when:</b> you spoke to them about favourites at delivery.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 5 / People who know you</div>
+<h2 class="title">The review run</h2>
+<div class="facts"><div><b>Time</b>Thirty minutes</div><div><b>Can pay back in</b>Weeks</div><div><b>You need</b>Your review link</div></div>
+<p>Couples who have never heard of you read reviews before they write to you. Most happy couples would leave one, and nobody asks them.</p>
+<ol>
+<li>Find the direct link to leave a review on the site couples in your area use most.</li>
+<li>List your last ten couples.</li>
+<li>Send each one the review ask, with the three questions that make it easy to write.</li>
+<li>Thank everyone who leaves one, by name, the same day.</li>
+<li>Add the review ask to your routine, two weeks after every gallery.</li>
+</ol>
+<p class="goes"><b>The email:</b> The Warm List Emails, email 4.</p>
+<p class="skip"><b>Skip it when:</b> something went wrong at a wedding and you have not put it right. Fix it first.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 6 / People who know you</div>
+<h2 class="title">The introduction</h2>
+<div class="facts"><div><b>Time</b>Twenty minutes</div><div><b>Can pay back in</b>Weeks</div><div><b>You need</b>The warm replies from play 4</div></div>
+<p>A couple who has just married usually knows the next couple to get engaged. They will mention you if they think of it. Asking makes sure they think of it.</p>
+<ol>
+<li>List every couple who replied warmly to you in the last month.</li>
+<li>Send each one the introduction email. Ask for a name, so the next step is yours.</li>
+<li>When a name comes back, write to that person yourself the same day and say who sent you.</li>
+<li>Tell the couple what happened. A referral they hear nothing about is the last one they send.</li>
+</ol>
+<p class="goes"><b>The email:</b> The Warm List Emails, email 5.</p>
+<p class="skip"><b>Skip it when:</b> nobody has replied to you since their wedding. Run play 4 first.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 7 / People who know you</div>
+<h2 class="title">The engaged guest list</h2>
+<div class="facts"><div><b>Time</b>One hour</div><div><b>Can pay back in</b>Weeks</div><div><b>You need</b>Last season's family formals lists and tagged photographs</div></div>
+<p>Someone from a wedding party has watched you work for a whole day. When they get engaged, you are the only photographer they have seen at work.</p>
+<ol>
+<li>Go through the wedding parties from your last two seasons.</li>
+<li>Check who has become engaged since. Their social accounts will tell you.</li>
+<li>For each, find one true thing they did on the day. A speech, a moment, a frame they are in.</li>
+<li>Send the newly engaged guest email inside a week of the news.</li>
+<li>Set a reminder to run this list again in three months.</li>
+</ol>
+<p class="goes"><b>The email:</b> The Warm List Emails, email 7.</p>
+<p class="skip"><b>Skip it when:</b> you cannot name one true thing about them from the day.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page bleed opener"><img class="full" src="../../../mockups/photos/arcade-walk.jpg" alt=""><div class="series"><span>The Quiet Month Playbook</span><span>Part-Time to Full-Time</span></div><div class="txt"><div class="kicker">List two</div>
+<h2 class="title">People who send you work</h2>
+<p>Seven plays for venues, planners, vendors and other photographers. These can pay back in weeks.</p></div></section><section class="page play"><div class="kicker">Play 8 / People who send you work</div>
+<h2 class="title">The venue gallery</h2>
+<div class="facts"><div><b>Time</b>Forty five minutes</div><div><b>Can pay back in</b>Weeks</div><div><b>You need</b>One recent wedding at the venue</div></div>
+<p>Planners and venues refer the people who make their job easier. Photographs they can use this week do that better than a coffee catch-up.</p>
+<ol>
+<li>Pick the last wedding you photographed at a venue you want more of.</li>
+<li>Choose twenty frames that show the venue well. Rooms, light, details, and one or two of the couple.</li>
+<li>Check with the couple that they are happy for the venue to use them.</li>
+<li>Export at web size and put them in a gallery the coordinator can download from.</li>
+<li>Send the venue gallery email, with one specific thank you in the second line.</li>
+<li>Set a to-do for two weeks from today to see where the photographs were used.</li>
+</ol>
+<p class="goes"><b>The email:</b> The Warm List Emails, email 8.</p>
+<p class="skip"><b>Skip it when:</b> your last wedding there was more than a year ago. Photograph there again first.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 9 / People who send you work</div>
+<h2 class="title">The vendor thank you round</h2>
+<div class="facts"><div><b>Time</b>Ten minutes a vendor</div><div><b>Can pay back in</b>Weeks</div><div><b>You need</b>The vendor list from your last two weddings</div></div>
+<p>Vendors rarely get good photographs of their own work. A small gallery puts your name in front of them every time they post from it.</p>
+<ol>
+<li>Open the vendor list from each of your last two weddings.</li>
+<li>Pull five to ten frames that show each vendor's work at its best.</li>
+<li>Send each one the vendor thank you, with one line about what they did on the day.</li>
+<li>Follow each vendor's account, and comment when they post your frames.</li>
+<li>Add this to your routine for the week every gallery goes out.</li>
+</ol>
+<p class="goes"><b>The email:</b> The Warm List Emails, email 9.</p>
+<p class="skip"><b>Skip it when:</b> the couple has asked for privacy.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 10 / People who send you work</div>
+<h2 class="title">The open dates note</h2>
+<div class="facts"><div><b>Time</b>Thirty minutes</div><div><b>Can pay back in</b>Weeks</div><div><b>You need</b>Your calendar for the next six months</div></div>
+<p>Planners and coordinators get asked for a photographer at short notice. They recommend whoever they know is free and easy to work with.</p>
+<ol>
+<li>List your open weekend dates for the next six months.</li>
+<li>List every planner and coordinator you worked with in the last year.</li>
+<li>Send each one the open dates note. Three dates is enough.</li>
+<li>When a date books, write to the same people and tell them. It shows the list is real.</li>
+</ol>
+<p class="goes"><b>The email:</b> The Warm List Emails, email 10.</p>
+<p class="skip"><b>Skip it when:</b> you sent this in the last three months. Once a quarter is the limit.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 11 / People who send you work</div>
+<h2 class="title">The open dates swap</h2>
+<div class="facts"><div><b>Time</b>Thirty minutes</div><div><b>Can pay back in</b>Weeks</div><div><b>You need</b>Three photographers you trust</div></div>
+<p>Every photographer turns down dates they are already booked for. Those couples still need someone, and they will take a name from the person they wanted.</p>
+<ol>
+<li>List three photographers whose work sits near yours and whose couples would like you.</li>
+<li>Send each one your open dates for the next six months, and ask for theirs.</li>
+<li>Keep both lists somewhere you can find in ten seconds.</li>
+<li>When an enquiry lands on a date you cannot do, reply with a name inside the hour.</li>
+<li>Tell the other photographer you sent a couple their way, so they know to look for it.</li>
+</ol>
+<p class="goes"><b>The email:</b> The Warm List Emails, email 11.</p>
+<p class="skip"><b>Skip it when:</b> you would not hand your own sibling's wedding to them.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 12 / People who send you work</div>
+<h2 class="title">The venue light report</h2>
+<div class="facts"><div><b>Time</b>One afternoon</div><div><b>Can pay back in</b>Weeks</div><div><b>You need</b>A venue you want more of, and an hour on site</div></div>
+<p>Every couple asks the coordinator where and when to take photographs. A one page answer with your name on it gets handed out on tours.</p>
+<ol>
+<li>Ask the coordinator for an hour on site, at the time of day most ceremonies run.</li>
+<li>Walk the ceremony spot, the portrait locations and the reception room. Note where the light falls at each hour.</li>
+<li>Photograph each spot as you go.</li>
+<li>Write one page. The best ceremony time, the best portrait time, and the wet weather plan.</li>
+<li>Send it as a PDF with your name and enquiry link at the foot. Tell them it is theirs to give to every couple.</li>
+<li>Update it when the season changes.</li>
+</ol>
+<p class="skip"><b>Skip it when:</b> you have never photographed there. Go as a guest of the coordinator first, and say so on the page.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 13 / People who send you work</div>
+<h2 class="title">The recommended list</h2>
+<div class="facts"><div><b>Time</b>Twenty minutes</div><div><b>Can pay back in</b>Weeks</div><div><b>You need</b>A venue you have worked at twice or more</div></div>
+<p>Most venues keep a list of recommended suppliers, on the website or in the pack they hand to couples. Getting on it is usually a matter of asking, after you have given them something.</p>
+<ol>
+<li>Check the venue website for a recommended suppliers page.</li>
+<li>If you are on it, check the link works and the photograph is one you would choose today.</li>
+<li>If you are not, ask the coordinator in one line what it takes to be added.</li>
+<li>Send what they ask for the same day. A logo, three photographs taken at their venue, two lines about you.</li>
+<li>Ask whether they keep a printed list as well.</li>
+</ol>
+<p class="skip"><b>Skip it when:</b> you have not sent them a venue gallery. Run play 8 first, then ask.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 14 / People who send you work</div>
+<h2 class="title">The second shooter day</h2>
+<div class="facts"><div><b>Time</b>Thirty minutes</div><div><b>Can pay back in</b>Days</div><div><b>You need</b>Your open dates and a full gallery to show</div></div>
+<p>An open Saturday earns nothing. Second shooting fills it, and it puts you beside a photographer who turns couples away every season.</p>
+<ol>
+<li>List your open weekend dates for the next three months.</li>
+<li>Message five photographers who are busier than you, with those dates.</li>
+<li>Say what you shoot with, and send one full gallery. Highlights tell them nothing.</li>
+<li>On the day, shoot to their brief and hand over the files their way.</li>
+<li>Afterwards, send them the open dates swap.</li>
+</ol>
+<p class="goes"><b>The email for step 5:</b> The Warm List Emails, email 11.</p>
+<p class="skip"><b>Skip it when:</b> your own enquiries for those dates are still open.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page bleed opener"><img class="full" src="../../../mockups/photos/speech-backlit.jpg" alt=""><div class="series"><span>The Quiet Month Playbook</span><span>Part-Time to Full-Time</span></div><div class="txt"><div class="kicker">List three</div>
+<h2 class="title">People who have never heard of you</h2>
+<p>Seven plays for search, social, listings and new work. These can pay back in months.</p></div></section><section class="page play"><div class="kicker">Play 15 / People who have never heard of you</div>
+<h2 class="title">The search profile hour</h2>
+<div class="facts"><div><b>Time</b>One hour</div><div><b>Can pay back in</b>Weeks</div><div><b>You need</b>The login for your business listing on the search engine couples use</div></div>
+<p>When a couple searches for a wedding photographer in your city, the business listing shows before your website does. Most listings were set up once and never opened again.</p>
+<ol>
+<li>Search for a wedding photographer in your city, in a private window. See what a stranger sees.</li>
+<li>Open your listing. Fix the category, the service area, the hours and the enquiry link.</li>
+<li>Add ten recent photographs. Name each file with the venue.</li>
+<li>Reply to every review, the old ones included.</li>
+<li>Write one short post about your last wedding, with the venue name in it.</li>
+<li>Set a monthly to-do to add photographs and a post.</li>
+</ol>
+<p class="skip"><b>Skip it when:</b> you have no listing. Setting one up is the play.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 16 / People who have never heard of you</div>
+<h2 class="title">The venue post</h2>
+<div class="facts"><div><b>Time</b>One afternoon</div><div><b>Can pay back in</b>Months</div><div><b>You need</b>One full wedding at a venue couples search for</div></div>
+<p>Couples search for a venue long before they search for a photographer. A post about one real wedding there puts your work in front of them at that moment.</p>
+<ol>
+<li>Pick the venue, and one wedding you photographed there.</li>
+<li>Title the post with the venue name and the word wedding.</li>
+<li>Write what a couple planning there wants to know. Where the ceremony ran, when the light was best, what happened when the weather turned.</li>
+<li>Add thirty to forty photographs in the order of the day.</li>
+<li>Link to your enquiry page at the top and the bottom.</li>
+<li>Send the link to the venue and to the couple.</li>
+</ol>
+<p class="skip"><b>Skip it when:</b> the couple has asked for privacy, or you have fewer than thirty frames you would stand behind.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 17 / People who have never heard of you</div>
+<h2 class="title">The planning resource</h2>
+<div class="facts"><div><b>Time</b>One afternoon</div><div><b>Can pay back in</b>Weeks</div><div><b>You need</b>One thing you explain to every couple</div></div>
+<p>A couple will message you for something useful months before they are ready to ask about booking. Give them a reason to.</p>
+<ol>
+<li>Pick one thing you explain on every consult. How to build the timeline, where the light is at your favourite venues, which vendors you trust.</li>
+<li>Write it up in one or two pages.</li>
+<li>Choose one word couples can comment or message to get it.</li>
+<li>Post about it three times in two weeks, each time from a different angle.</li>
+<li>Answer every request by hand, the same day.</li>
+</ol>
+<p class="goes"><b>The replies:</b> The Booking Pack, DM-to-Booking scripts.</p>
+<p class="skip"><b>Skip it when:</b> you cannot answer requests the same day. A resource nobody sends is worse than none.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 18 / People who have never heard of you</div>
+<h2 class="title">The engagement session offer</h2>
+<div class="facts"><div><b>Time</b>One hour to set up</div><div><b>Can pay back in</b>Weeks</div><div><b>You need</b>Two dates you can give</div></div>
+<p>An engagement session lets a couple try you before the biggest booking of their year. For you, it is the easiest way into a conversation about the wedding.</p>
+<ol>
+<li>Set the number of sessions and two dates.</li>
+<li>Decide the terms. What is included, what it costs, and the day the offer ends.</li>
+<li>Announce it once in your feed and once in your stories, with the number of places.</li>
+<li>Ask each couple for their wedding date and venue when they reply.</li>
+<li>Deliver the gallery inside a week.</li>
+<li>Ask about their wedding plans on a call, with the gallery open in front of you both.</li>
+</ol>
+<p class="skip"><b>Skip it when:</b> you cannot deliver a gallery inside a week this month.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 19 / People who have never heard of you</div>
+<h2 class="title">The profile tidy</h2>
+<div class="facts"><div><b>Time</b>Thirty minutes</div><div><b>Can pay back in</b>Weeks</div><div><b>You need</b>Your phone and a friend outside the industry</div></div>
+<p>A couple decides in a few seconds whether to keep looking. Your profile has to tell them who you photograph, where, and how to reach you.</p>
+<ol>
+<li>Read your bio as a stranger would. It should say who you photograph, where, and how to enquire.</li>
+<li>Point the link straight at your enquiry form.</li>
+<li>Pin three posts. Your best wedding, one that shows your face, one that explains how to book.</li>
+<li>Remove highlights that are more than two years old.</li>
+<li>Hand your phone to a friend and ask them to enquire. Time them, and watch where they get stuck.</li>
+</ol>
+<p class="skip"><b>Skip it when:</b> you did this in the last three months.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 20 / People who have never heard of you</div>
+<h2 class="title">The listing audit</h2>
+<div class="facts"><div><b>Time</b>One hour</div><div><b>Can pay back in</b>Weeks</div><div><b>You need</b>A list of everywhere your business appears</div></div>
+<p>Old listings keep sending couples to dead links and photographs from years ago. Each one is a small front door you forgot you had.</p>
+<ol>
+<li>Search for your business name and write down every place it appears. Directories, venue pages, old profiles.</li>
+<li>In each one, fix the name, the city, the link and the photographs.</li>
+<li>Remove any listing you cannot update.</li>
+<li>Send a test enquiry through each one that has a form.</li>
+<li>Note which listings have ever sent you a couple. Keep those current and let the rest go.</li>
+</ol>
+<p class="skip"><b>Skip it when:</b> you have fewer than three listings. Check the links work and move on.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page play"><div class="kicker">Play 21 / People who have never heard of you</div>
+<h2 class="title">The small shoot</h2>
+<div class="facts"><div><b>Time</b>One day, plus a week of planning</div><div><b>Can pay back in</b>Months</div><div><b>You need</b>Two vendors you want to work with again</div></div>
+<p>A small shoot gives three businesses new photographs and a reason to talk about each other. It is also the slowest play in this book.</p>
+<ol>
+<li>Ask one stylist or planner and one florist you would like more work with.</li>
+<li>Agree on one look, one location and a two hour window.</li>
+<li>Ask a past couple to model. They already trust you, and it gives you a reason to write.</li>
+<li>Deliver each vendor their own gallery inside a week.</li>
+<li>Agree on a week to post, so all three of you share it together.</li>
+</ol>
+<p class="goes"><b>The email for step 4:</b> The Warm List Emails, email 9.</p>
+<p class="skip"><b>Skip it when:</b> you are planning a shoot to avoid writing to a past couple. Go back to list one.</p><div class="log"><div>Date run</div><div>First enquiry</div><div>What came of it</div></div></section><section class="page"><div class="kicker">Keeping score</div>
+<h2 class="title">The scorecard</h2>
+<p>Write the date beside each play you run, and the date of the first enquiry it brings in. After three months you will know which five plays are yours. Run those first next time.</p>
+<table class="num fill long">
+<thead>
+<tr>
+<th></th>
+<th>Play</th>
+<th>Date run</th>
+<th>First enquiry</th>
+<th>Booked</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Check the front door</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>The unanswered enquiry sweep</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>The anniversary run</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>The album and print window</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>The gallery follow-up</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>The review run</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>The introduction</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>The engaged guest list</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>The venue gallery</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>The vendor thank you round</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>The open dates note</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>The open dates swap</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>The venue light report</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>The recommended list</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>The second shooter day</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>The search profile hour</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>The venue post</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>The planning resource</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>The engagement session offer</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>The profile tidy</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>The listing audit</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>The small shoot</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></section></body></html>

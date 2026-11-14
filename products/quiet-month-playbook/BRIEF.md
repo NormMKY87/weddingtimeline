@@ -1,51 +1,42 @@
 # The Quiet Month Playbook (working title)
 
-Product 09. Proposed by Norm on 13 November 2026. Status: mockups built, nothing written, not yet on the side products list. No Asana task yet.
+Product 09. Added by Norm on 14 November 2026 as a bonus that sits beside the free "25 Ways" series. Status: draft v0.1 written and designed in a cloud session, waiting on Norm's review. No Asana task yet.
 
 ## Job
 
 A list of actions that bring in enquiries when the calendar has a gap, sorted so the fastest ones come first.
 
-## Structure (proposed)
+## Contents
 
-Three lists, worked in order:
+1. Start here. What a play is, the three lists, how to read a play.
+2. Check the front door. The test to run before play one.
+3. List one, people who know you. Plays 1 to 7. Can pay back in days.
+4. List two, people who send you work. Plays 8 to 14. Can pay back in weeks.
+5. List three, people who have never heard of you. Plays 15 to 21. Can pay back in months.
+6. The scorecard. One line a play.
 
-1. People who already know you (past couples, their families, recent enquiries). Can pay back in days.
-2. People who send you work (venues, planners, vendors, other photographers). Can pay back in weeks.
-3. People who have never heard of you (search, social, directories, press). Can pay back in months.
+One page per play: the time it takes, how soon it can pay back, what you need, the steps, when to skip it, and a log at the foot of the page.
 
-One page per play: the time it takes, how soon it can pay back, what you need, the steps, and when to skip it. Each play ends with a message sent or a to-do set.
-
-## How many plays
-
-Not set. The count is however many Norm has run himself and can show a result for. A round number chosen first and filled afterwards is how a list goes generic, and the context file already records that a "25 ways" list attracts hobbyists.
+Files: `00-start-here.md` to `04-scorecard.md`. PDF: `the-quiet-month-playbook.pdf`, 29 pages, built with `python products/pdf-kit/build.py quiet-month-playbook`.
 
 ## Fit with decisions already made
 
-- Section 8 of the context file rules that "25 Ways to Get More Bookings" is a free content series, not a lead magnet. This brief proposes the paid, long form of the same ground. Norm to rule whether the free series stays, feeds this, or replaces it.
-- Where a play needs an email, it points to The Warm List Emails or The Follow-Up Vault. It does not reprint the script.
-- No income claims and no figures that are not Norm's own, sourced.
+- Norm, 14 Nov 2026: the Playbook is a bonus and sits beside the free "25 Ways to Get More Bookings" series for now. Section 8 of the context file still rules that series free.
+- Twenty one plays, seven a list. The count came from the content, and it can change when Norm cuts or adds.
+- Where a play needs an email it points to The Warm List Emails, the Follow-Up Vault or the Booking Pack. It never reprints a script.
+- "Can pay back in" is days, weeks or months only. No figures and no income claims.
 
-## Source rule
+## Source
 
-Every play is something Norm has done in his own business, told with what happened. Sources: his enquiry and booking history, the lead magnets already built (venue light report, budget reality check, timeline planner, vendor list), the engagement session offer, vendor referral notes and the KPI tracker.
+Written from scratch on 14 November 2026. Several plays are built on systems the context file already records as Norm's: the venue light report, the planning resource, the engagement session offer, vendor galleries, venue relationships. The KT Merry Insiders PDFs were not opened and nothing in this product comes from them. See `sessions/06-warm-list-emails-and-quiet-month-playbook.md` for the ruling.
 
-The KT Merry Insiders material in Dropbox (`/18_Education & Professional Development/KT Merry Insiders`) is a paid course Norm bought to learn from. It stays private study notes. None of its wording, list, order or titles goes into this product, reworded or not. A tactic that also appears there is fine to teach when Norm has run it himself and tells it with his own example. This matches the rule already in force for Laura Higgins and Alex Hormozi material.
-
-The inside pages in the mockups (`mockups/screens/draft-pages.html`) are placeholders written on 13 November without opening the KT Merry PDFs. They show the page system. They are not the product.
-
-## Needed from Norm (PC session)
-
-- Everything he has done to bring in enquiries in a slow stretch, in his own words. A voice note is enough.
-- For each one: roughly when, what it cost in time, and what came of it.
-- The ones that failed. They become "when to skip it" lines or get cut.
+Because it was written in a cloud session, it has not been checked against what Norm has really run. `REVIEW-LOG.md` lists what he needs to confirm or cut.
 
 ## Open questions
 
-- Does this join the side products list now, or wait for the 20 copies gate?
 - Name. "The Quiet Month Playbook" is a working title.
-- Paid product, or the written companion to the free channel series.
+- Which product it is a bonus to. The PDF says the Booking Pack.
 
 ## Done when
 
-Every play traces to something Norm has run, the three lists are complete, the PDF is designed in the same system as the other products, and the mockup inside pages are swapped for real pages.
+Norm has worked through `REVIEW-LOG.md`, every play is one he has run or would stand behind, and the PDF is rebuilt.

@@ -1,0 +1,549 @@
+<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><title>The Warm List Emails</title><style>
+@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 300 700; src: url("../../../mockups/fonts/cormorant-garamond-latin.woff2") format("woff2"); }
+@font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 300 700; src: url("../../../mockups/fonts/cormorant-garamond-italic-latin.woff2") format("woff2"); }
+@font-face { font-family: "Karla"; font-style: normal; font-weight: 200 800; src: url("../../../mockups/fonts/karla-latin.woff2") format("woff2"); }
+@page { size: A4; margin: 20mm 18mm 22mm;
+  @bottom-left { content: "The Warm List Emails"; font: 400 7pt "Karla", sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #7C7268; }
+  @bottom-right { content: counter(page); font: 400 7.5pt "Karla", sans-serif; color: #7C7268; } }
+@page bleed { margin: 0; @bottom-left { content: none; } @bottom-right { content: none; } }
+:root { --ink: #221E1A; --ink-2: #3D3631; --mute: #7C7268; --rule: #D9D1C7; --clay: #B5603B; --clay-deep: #8E4A2D; --card: #F6F1E8; --white: #FBF8F2; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: "Karla", "Helvetica Neue", Arial, sans-serif; color: var(--ink); font-size: 11pt; line-height: 1.58; -webkit-font-smoothing: antialiased; }
+.page { break-after: page; }
+.page:last-child { break-after: auto; }
+.bleed { page: bleed; position: relative; width: 210mm; height: 297mm; overflow: hidden; }
+.bleed img.full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.kicker { font-size: 7.5pt; letter-spacing: .22em; text-transform: uppercase; color: var(--clay-deep); font-weight: 600; margin: 0 0 9pt; }
+h2.title { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: 36pt; line-height: 1.04; letter-spacing: -.005em; margin: 0 0 16pt; }
+h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: 19pt; line-height: 1.15; margin: 20pt 0 7pt; break-after: avoid; }
+p { margin: 0 0 8pt; max-width: 158mm; }
+h2.title + p, .facts + p { font-size: 12.2pt; line-height: 1.52; color: var(--ink-2); margin-bottom: 12pt; }
+strong { font-weight: 600; }
+.v { color: var(--clay-deep); }
+ul, ol { margin: 4pt 0 10pt; padding: 0; list-style: none; max-width: 158mm; }
+ul li { position: relative; padding-left: 14pt; margin-bottom: 5pt; }
+ul li::before { content: ""; position: absolute; left: 1pt; top: .68em; width: 5pt; height: 1px; background: var(--clay); }
+ol { counter-reset: n; margin-top: 10pt; }
+ol li { counter-increment: n; position: relative; padding: 10pt 0 10pt 30pt; border-top: 1px solid var(--rule); margin: 0; }
+ol li:last-child { border-bottom: 1px solid var(--rule); }
+ol li::before { content: counter(n); position: absolute; left: 2pt; top: 6pt; font-family: "Cormorant Garamond", Georgia, serif; font-size: 18pt; color: var(--clay-deep); }
+/* facts under a title */
+.facts { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0 8mm; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); margin: 0 0 16pt; padding: 10pt 0 11pt; }
+.facts div { font-size: 10.2pt; line-height: 1.4; }
+.facts b { display: block; font-size: 6.8pt; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: var(--mute); margin-bottom: 3pt; }
+/* message cards */
+.msg { background: var(--card); border-left: 2px solid var(--clay); padding: 15pt 19pt 8pt; margin: 12pt 0 12pt; break-inside: avoid; }
+.msg .ch { display: block; text-transform: uppercase; letter-spacing: .18em; font-size: 6.8pt; color: var(--clay-deep); font-weight: 600; margin-bottom: 4pt; }
+.msg .subj { font-size: 10.4pt; font-weight: 600; border-bottom: 1px solid rgb(34 30 26 / .14); padding-bottom: 7pt; margin-bottom: 8pt; }
+.msg p { margin: 0 0 9pt; font-size: 10.8pt; line-height: 1.58; max-width: none; }
+.pl { font-size: 6.6pt; letter-spacing: .16em; font-weight: 600; color: var(--clay-deep); margin-right: 3pt; }
+.skip { font-size: 10.2pt; margin: 14pt 0 0; padding: 1pt 0 1pt 12pt; border-left: 2px solid var(--rule); color: var(--ink-2); }
+.goes { font-size: 10.2pt; color: var(--ink-2); margin: 10pt 0 0; }
+.goes b, .skip b { font-weight: 600; color: var(--ink); }
+/* three columns */
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7mm; margin: 6pt 0 12pt; }
+.grid3 > div { border-top: 1px solid var(--ink); padding-top: 8pt; }
+.grid3 h4 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: 14pt; line-height: 1.15; margin: 0 0 5pt; }
+.grid3 p { font-size: 10pt; line-height: 1.5; margin: 0; }
+/* tables */
+table { width: 100%; border-collapse: collapse; font-size: 10pt; line-height: 1.4; margin: 8pt 0 12pt; break-inside: avoid; }
+th { text-align: left; font-weight: 600; text-transform: uppercase; letter-spacing: .14em; font-size: 6.6pt; color: var(--mute); padding: 0 8pt 6pt 0; border-bottom: 1px solid var(--ink); }
+td { padding: 8.5pt 8pt 8.5pt 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+td:first-child:not(:empty) { white-space: nowrap; }
+table.num td:first-child { font-family: "Cormorant Garamond", Georgia, serif; font-size: 13pt; line-height: 1; padding-top: 6pt; width: 9mm; color: var(--clay-deep); }
+table.fill td { padding-top: 8.2pt; padding-bottom: 8.2pt; }
+table.long td { padding-top: 4.6pt; padding-bottom: 4.6pt; }
+table.long.num td:first-child { padding-top: 3pt; }
+table.fill td:nth-child(n+3) { width: 27mm; border-left: 1px solid var(--rule); }
+/* contents page */
+.contents .top { display: flex; justify-content: space-between; font-size: 7.5pt; letter-spacing: .22em; text-transform: uppercase; color: var(--mute); border-bottom: 1px solid var(--ink); padding-bottom: 8pt; margin-bottom: 30mm; }
+.contents h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: 46pt; line-height: 1; margin: 0 0 14pt; max-width: 150mm; }
+.contents .lede { font-size: 12.5pt; line-height: 1.5; color: var(--ink-2); max-width: 135mm; margin-bottom: 22mm; }
+.contents table td { padding: 9pt 10pt 9pt 0; font-size: 10pt; }
+.contents table td:nth-child(2) { font-family: "Cormorant Garamond", Georgia, serif; font-size: 14.5pt; line-height: 1.1; white-space: nowrap; }
+.contents table td:nth-child(3) { color: var(--mute); }
+.contents .close { font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-size: 15pt; line-height: 1.3; margin-top: 18mm; max-width: 120mm; }
+/* photograph pages */
+.opener::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(0 0 0 / .3), rgb(0 0 0 / 0) 24%, rgb(0 0 0 / 0) 40%, rgb(0 0 0 / .62) 66%, rgb(0 0 0 / .88)); }
+.opener .txt { position: absolute; z-index: 2; left: 18mm; right: 18mm; bottom: 20mm; color: #fff; }
+.opener .kicker { color: #fff; opacity: .9; }
+.opener h2.title { font-size: 50pt; margin-bottom: 10pt; color: #fff; }
+.opener .txt p { font-size: 13pt; line-height: 1.45; max-width: 120mm; color: #fff; }
+/* play pages: a log pinned to the foot */
+.page.play { min-height: 253mm; display: flex; flex-direction: column; }
+.log { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr 2.4fr; gap: 0 8mm; border-top: 1px solid var(--ink); padding-top: 8pt; }
+.log div { font-size: 6.8pt; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: var(--mute); height: 15mm; border-bottom: 1px solid var(--rule); }
+.opener .series { position: absolute; z-index: 2; left: 18mm; right: 18mm; top: 16mm; display: flex; justify-content: space-between; color: #fff; font-size: 7.5pt; letter-spacing: .22em; text-transform: uppercase; }
+</style></head><body><section class="page bleed"><img class="full" src="../../../mockups/out/covers-photo/08-warm-list-emails.png" alt=""></section><section class="page contents"><div class="top"><span>Part-Time to Full-Time</span><span>First edition</span></div><div class="kicker">A companion to the Booking Pack</div><h1>The Warm List Emails</h1><p class="lede">Eleven emails for the people who already know your work. Past couples, their families, and the venues and vendors you have stood beside.</p><div class="kicker">Inside</div><table class="num"><tr><td>1</td><td>Start here</td><td>How this works, and the three rules behind every email</td></tr><tr><td>2</td><td>Build your list</td><td>Thirty minutes, six groups, and the map of all eleven emails</td></tr><tr><td>3</td><td>Part one: past couples</td><td>Emails 1 to 7, from the gallery follow-up to the newly engaged guest</td></tr><tr><td>4</td><td>Part two: venues and vendors</td><td>Emails 8 to 11, from the venue gallery to the open dates swap</td></tr><tr><td>5</td><td>The sending plan</td><td>Two weeks, one group a day, then the routine after every wedding</td></tr></table><p class="close">Open this, find the person, change the line in brackets, press send.</p></section><section class="page"><div class="kicker">Start here</div>
+<h2 class="title">How this works</h2>
+<p>Your warm list is everyone who has already seen you work. Couples you have photographed. Their families and their wedding parties. The venue, the planner and the vendors who stood beside you on the day.</p>
+<p>When the calendar has a gap, most photographers go looking for strangers. Strangers take the longest to say yes. The people on your warm list already know what your photographs look like and how you behave at a wedding, and most of them have heard nothing from you since the gallery went out.</p>
+<p>The Booking Pack and the Follow-Up Vault cover a new enquiry, from the first message to the signed contract. These eleven emails start after the wedding.</p>
+<h3>Three rules behind every email</h3>
+<div class="grid3"><div><h4>Lead with something true</h4><p>The first line is about them. A frame, a moment, something they did on the day. It proves the email was written for one person.</p></div><div><h4>One offer, one end date</h4><p>Each email carries one thing. If there is an offer, it ends on a real date. Never invent a deadline. Pick one you will keep.</p></div><div><h4>Ask for a reply</h4><p>A booking link asks them to decide. A reply costs them nothing, and it starts a conversation you can finish.</p></div></div>
+
+<h3>How to read each email</h3>
+<ul>
+<li>Anything in <span class="v">[square brackets]</span> is yours to fill. Delete the brackets.</li>
+<li>Lines marked PERSONAL are where you write one real sentence about this person. Never leave a generic line there.</li>
+<li>Send every email from your own inbox, one at a time. An email that arrives alone gets answered. A newsletter gets filed.</li>
+<li>Sign off with your first name. Your normal email signature does the rest.</li>
+<li>Ask the couple before any of their photographs go to a venue or a vendor. Every time.</li>
+<li>Reply inside the hour when one comes back. The email opens the door. Your reply is what books the work.</li>
+</ul></section><section class="page"><div class="kicker">Before you send anything</div>
+<h2 class="title">Build your list</h2>
+<p>Thirty minutes with a spreadsheet or a notebook. You are looking for names, one date and one true detail for each.</p>
+<table>
+<thead>
+<tr>
+<th>Who</th>
+<th>Where to find them</th>
+<th>Write down</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Couples from the last five years</td>
+<td>Your CRM, your gallery host, your calendar</td>
+<td>Names, wedding date, venue, one frame you remember</td>
+</tr>
+<tr>
+<td>Couples who now have children</td>
+<td>Their last message, their social accounts</td>
+<td>The children's names, the month you last spoke</td>
+</tr>
+<tr>
+<td>Wedding parties and close guests</td>
+<td>The family formals list, tagged photographs</td>
+<td>Anyone who has become engaged since</td>
+</tr>
+<tr>
+<td>Venues</td>
+<td>Your calendar</td>
+<td>The coordinator's name, the last date you worked there</td>
+</tr>
+<tr>
+<td>Planners and vendors</td>
+<td>The vendor list from each wedding</td>
+<td>Name, what they did, one frame of their work</td>
+</tr>
+<tr>
+<td>Photographers you trust</td>
+<td>People you have second shot for or referred couples to</td>
+<td>Their style, their busy months</td>
+</tr>
+</tbody>
+</table>
+<p>Count each row. Start with the smallest group and write every email in it by hand before you move to the next. Small groups are where you learn which line gets the reply.</p></section><section class="page"><div class="kicker">The map</div>
+<h2 class="title">The eleven emails</h2>
+<p>Every email in this pack, who it goes to and when. Part one is emails 1 to 7. Part two is emails 8 to 11.</p>
+<table class="num long">
+<thead>
+<tr>
+<th></th>
+<th>Email</th>
+<th>Send to</th>
+<th>When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>The gallery follow-up</td>
+<td>Couples from the last season</td>
+<td>Six weeks after delivery</td>
+</tr>
+<tr>
+<td>2</td>
+<td>The album and print window</td>
+<td>Past couples without an album</td>
+<td>Before a real lab order date</td>
+</tr>
+<tr>
+<td>3</td>
+<td>The anniversary note</td>
+<td>Couples married one to five years</td>
+<td>Three weeks before their date</td>
+</tr>
+<tr>
+<td>4</td>
+<td>The review ask</td>
+<td>Couples who loved their gallery</td>
+<td>Two weeks after delivery</td>
+</tr>
+<tr>
+<td>5</td>
+<td>The introduction</td>
+<td>Couples who have replied warmly</td>
+<td>The week after that reply</td>
+</tr>
+<tr>
+<td>6</td>
+<td>The family session invitation</td>
+<td>Couples who now have children</td>
+<td>Once a year, before a school holiday</td>
+</tr>
+<tr>
+<td>7</td>
+<td>The newly engaged guest</td>
+<td>Someone from a past wedding party</td>
+<td>Inside a week of the news</td>
+</tr>
+<tr>
+<td>8</td>
+<td>The venue gallery</td>
+<td>The coordinator who ran the day</td>
+<td>Inside two weeks of the wedding</td>
+</tr>
+<tr>
+<td>9</td>
+<td>The vendor thank you</td>
+<td>The florist, stylist, celebrant, makeup artist</td>
+<td>The week the gallery goes out</td>
+</tr>
+<tr>
+<td>10</td>
+<td>The open dates note</td>
+<td>Planners and coordinators</td>
+<td>Once a quarter at most</td>
+</tr>
+<tr>
+<td>11</td>
+<td>The open dates swap</td>
+<td>Three photographers you trust</td>
+<td>Once, then keep it current</td>
+</tr>
+</tbody>
+</table></section><section class="page bleed opener"><img class="full" src="../../../mockups/photos/lace-hands.jpg" alt=""><div class="series"><span>The Warm List Emails</span><span>Part-Time to Full-Time</span></div><div class="txt"><div class="kicker">Part one</div>
+<h2 class="title">Past couples</h2>
+<p>Seven emails for the people you have already photographed, and the people who stood beside them.</p></div></section><section class="page"><div class="kicker">Email 1</div>
+<h2 class="title">The gallery follow-up</h2>
+<div class="facts"><div><b>Send to</b>Couples from the last season</div><div><b>When</b>Six weeks after delivery</div><div><b>Level</b>Fully personalised</div></div>
+<p>The gallery goes out, the couple says thank you, and the conversation ends there. Six weeks later they have looked at every frame and chosen their favourites. This email reopens the conversation, and their answer tells you which photographs to show the next couple.</p>
+<div class="msg"><span class="ch">Email</span><div class="subj">Subject: The frame I keep coming back to</div>
+<p>Hi <span class="v">[Partner 1]</span> and <span class="v">[Partner 2]</span>,</p>
+<p><span class="pl">PERSONAL</span> <span class="v">[One frame from their gallery and why it stays with you. Example: "The one of your dad fixing your veil on the steps. He had no idea I was there."]</span></p>
+<p>I'd love to know which one is yours. Couples almost never pick the one I expect.</p>
+<p>If you are thinking about prints or an album, my next order goes to the lab on <span class="v">[order date]</span>. Reply with your favourites and I will put a layout together for you to look at. There is no obligation.</p>
+<p><span class="v">[Your first name]</span></p>
+</div>
+<div class="msg"><span class="ch">SMS</span>
+<p>Hi <span class="v">[Partner 1]</span>, <span class="v">[Your first name]</span> here. I sent you a note about my favourite frame from your wedding, with one question. It's in your inbox whenever you have a minute.</p>
+</div>
+<p class="skip"><b>Skip it when:</b> you had this conversation at delivery, or the gallery went out less than a month ago.</p></section><section class="page"><div class="kicker">Email 2</div>
+<h2 class="title">The album and print window</h2>
+<div class="facts"><div><b>Send to</b>Past couples without an album</div><div><b>When</b>Three weeks before a real lab order date</div><div><b>Level</b>Half personalised</div></div>
+<p>An album is the purchase most couples mean to make and never get to. A real order date gives them a reason to decide this month. The email also takes the work off them, because choosing the photographs is the part that stops people.</p>
+<div class="msg"><span class="ch">Email</span><div class="subj">Subject: Album orders for <span class="v">[month]</span></div>
+<p>Hi <span class="v">[Partner 1]</span> and <span class="v">[Partner 2]</span>,</p>
+<p>My next album and print order goes to the lab on <span class="v">[order date]</span>, and I wanted to check in with you before it does.</p>
+<p><span class="pl">PERSONAL</span> <span class="v">[One line about their wedding that belongs in print. Example: "Your ceremony on the lawn would open an album beautifully."]</span></p>
+<p>Here is how it works. You choose <span class="v">[number]</span> favourites, or I choose them for you. I design the layout and send it to you to change. Nothing is ordered until you are happy with every page.</p>
+<p>Reply by <span class="v">[reply-by date]</span> and I will start your design.</p>
+<p><span class="v">[Your first name]</span></p>
+</div>
+<p class="skip"><b>Skip it when:</b> they already have an album, or you have no real order date. Set one with your lab first.</p></section><section class="page"><div class="kicker">Email 3</div>
+<h2 class="title">The anniversary note</h2>
+<div class="facts"><div><b>Send to</b>Couples married one to five years</div><div><b>When</b>Three weeks before their date</div><div><b>Level</b>Half personalised</div></div>
+<p>The anniversary is the one date you both remember. Writing three weeks ahead leaves them time to book something before it arrives. The photograph comes first because it proves the email is for them.</p>
+<div class="msg"><span class="ch">Email</span><div class="subj">Subject: <span class="v">[One year]</span> already</div>
+<p>Hi <span class="v">[Partner 1]</span> and <span class="v">[Partner 2]</span>,</p>
+<p><span class="v">[One year]</span> ago this <span class="v">[Saturday]</span> you were <span class="v">[where they were in one frame. Example: "standing at the top of the stairs at the venue"]</span>, and I still think about that frame.</p>
+<p>I am opening a small number of anniversary sessions in <span class="v">[month]</span>. An hour, somewhere that matters to you both, and a gallery inside <span class="v">[turnaround]</span>.</p>
+<p>I am holding them for couples I have already photographed until <span class="v">[date]</span>. If you would like one, reply and I will send the days I have free.</p>
+<p>Either way, happy anniversary to you both.</p>
+<p><span class="v">[Your first name]</span></p>
+</div>
+<div class="msg"><span class="ch">SMS</span>
+<p>Hi <span class="v">[Partner 1]</span>, it's <span class="v">[Your first name]</span>. <span class="v">[One year]</span> this <span class="v">[Saturday]</span>. I have sent you a note about anniversary sessions in <span class="v">[month]</span>. No rush, it's in your inbox.</p>
+</div>
+<p class="skip"><b>Skip it when:</b> their gallery went out less than six months ago, or you have nothing open in the month you name.</p></section><section class="page"><div class="kicker">Email 4</div>
+<h2 class="title">The review ask</h2>
+<div class="facts"><div><b>Send to</b>Couples who loved their gallery</div><div><b>When</b>Two weeks after delivery</div><div><b>Level</b>Template</div></div>
+<p>Couples who have never heard of you read reviews before they write to you. Most happy couples would leave one, and nobody asks them. Three questions make it easy to write, and the answers read like a story.</p>
+<div class="msg"><span class="ch">Email</span><div class="subj">Subject: A small favour</div>
+<p>Hi <span class="v">[Partner 1]</span> and <span class="v">[Partner 2]</span>,</p>
+<p>I am so glad you love the gallery.</p>
+<p>Could I ask a small favour? A short review on <span class="v">[review site]</span> helps other couples find me, and it would mean a great deal coming from you.</p>
+<p>If you are not sure what to write, these three questions are enough.</p>
+<p>What were you worried about before the wedding?<br />
+What was it like having me there on the day?<br />
+How did you feel when you opened the gallery?</p>
+<p>Here is the link: <span class="v">[review link]</span>. Two or three sentences is plenty.</p>
+<p>Thank you both.</p>
+<p><span class="v">[Your first name]</span></p>
+</div>
+<p class="skip"><b>Skip it when:</b> anything went wrong that you have not put right. Fix it first, then ask.</p></section><section class="page"><div class="kicker">Email 5</div>
+<h2 class="title">The introduction</h2>
+<div class="facts"><div><b>Send to</b>Couples who have replied warmly to any email here</div><div><b>When</b>The week after that reply</div><div><b>Level</b>Half personalised</div></div>
+<p>A couple who has just married usually knows the next couple to get engaged. They will mention you if they think of it. This email makes sure they think of it, and it asks for a name so the next step is yours.</p>
+<div class="msg"><span class="ch">Email</span><div class="subj">Subject: One more thing</div>
+<p>Hi <span class="v">[Partner 1]</span>,</p>
+<p>Thank you for <span class="v">[what they said. Example: "the lovely message about the gallery"]</span>. It made my week.</p>
+<p>One more thing. <span class="pl">PERSONAL</span> <span class="v">[One true line about what referrals mean to you. Example: "My favourite weddings have all come through couples like you two."]</span></p>
+<p>If someone close to you gets engaged and you think we would get along, I would love an introduction. A reply with their name is all it takes. I will write to them myself and tell them you sent me.</p>
+<p><span class="v">[Your first name]</span></p>
+</div>
+<p class="skip"><b>Skip it when:</b> they have not replied to anything since the wedding. Earn the reply first with email 1.</p></section><section class="page"><div class="kicker">Email 6</div>
+<h2 class="title">The family session invitation</h2>
+<div class="facts"><div><b>Send to</b>Couples who now have children</div><div><b>When</b>Once a year, before a school holiday</div><div><b>Level</b>Half personalised</div></div>
+<p>Couples become families. You are the photographer they already trust, and the last one they would think to ask unless they know you do this work. Offering it to them before anyone else is true, and it reads as a favour.</p>
+<div class="msg"><span class="ch">Email</span><div class="subj">Subject: Family sessions in <span class="v">[month]</span></div>
+<p>Hi <span class="v">[Partner 1]</span> and <span class="v">[Partner 2]</span>,</p>
+<p><span class="pl">PERSONAL</span> <span class="v">[One line that shows you have kept up. Example: "I saw the photo of Isla on the beach and could not believe how big she is."]</span></p>
+<p>I am setting aside <span class="v">[number]</span> mornings in <span class="v">[month]</span> for family sessions, and I am offering them to couples I have photographed before I open them to anyone else.</p>
+<p><span class="v">[Session length]</span>, <span class="v">[location, or "somewhere you love"]</span>, and a gallery inside <span class="v">[turnaround]</span>.</p>
+<p>The dates are <span class="v">[date 1]</span> and <span class="v">[date 2]</span>. If one suits, reply and I will hold a time for you.</p>
+<p><span class="v">[Your first name]</span></p>
+</div>
+<p class="skip"><b>Skip it when:</b> you do not want family work. Sending this teaches your whole list that you do.</p></section><section class="page"><div class="kicker">Email 7</div>
+<h2 class="title">The newly engaged guest</h2>
+<div class="facts"><div><b>Send to</b>Someone from a past wedding party</div><div><b>When</b>Inside a week of the news</div><div><b>Level</b>Fully personalised</div></div>
+<p>A bridesmaid or a best man has watched you work for a whole day. That tells them more than any website can. The email only works if you can name one true thing about them from that day.</p>
+<div class="msg"><span class="ch">Email</span><div class="subj">Subject: Congratulations</div>
+<p>Hi <span class="v">[Name]</span>,</p>
+<p><span class="v">[Your first name]</span> here. I photographed <span class="v">[Couple]</span>'s wedding at <span class="v">[Venue]</span>, where you <span class="v">[what they did. Example: "gave the speech that had the whole room in tears"]</span>.</p>
+<p>I saw the news. Congratulations to you and <span class="v">[Partner]</span>.</p>
+<p>If you are starting to think about photographs, I would love to hear what you are planning. Do you have a date or a season in mind yet?</p>
+<p><span class="v">[Your first name]</span></p>
+</div>
+<div class="msg"><span class="ch">Instagram DM</span>
+<p>Hi <span class="v">[Name]</span>, <span class="v">[Your first name]</span> here, from <span class="v">[Couple]</span>'s wedding. I saw the news and wanted to say congratulations to you both. If you are starting to think about photographs, I would love to hear what you are planning.</p>
+</div>
+<p class="skip"><b>Skip it when:</b> you cannot name one true thing about them from the day. Without it, this is a message from a stranger.</p></section><section class="page bleed opener"><img class="full" src="../../../mockups/photos/balcony-arches.jpg" alt=""><div class="series"><span>The Warm List Emails</span><span>Part-Time to Full-Time</span></div><div class="txt"><div class="kicker">Part two</div>
+<h2 class="title">Venues and vendors</h2>
+<p>Four emails for the people who are asked, every week, to recommend a photographer.</p></div></section><section class="page"><div class="kicker">Email 8</div>
+<h2 class="title">The venue gallery</h2>
+<div class="facts"><div><b>Send to</b>The coordinator who ran the day</div><div><b>When</b>Inside two weeks of the wedding</div><div><b>Level</b>Half personalised</div></div>
+<p>Planners and venues refer the people who make their job easier. This email gives before it asks. The coordinator gets photographs they can use this week, and the request sits in one line at the end.</p>
+<div class="msg"><span class="ch">Email</span><div class="subj">Subject: Photographs from <span class="v">[Names]</span>' wedding, for your team</div>
+<p>Hi <span class="v">[Coordinator]</span>,</p>
+<p>Thank you for looking after us on <span class="v">[date]</span>. <span class="pl">PERSONAL</span> <span class="v">[One specific thing they did. Example: "Moving the ceremony inside with twenty minutes' notice, and making it look planned."]</span></p>
+<p>I have put <span class="v">[number]</span> photographs of the venue and the day in a gallery for you: <span class="v">[link]</span>. They are sized for your website and your socials, and you are welcome to use them with a credit to <span class="v">[@handle]</span>.</p>
+<p>If a couple touring the venue asks about photography, I would love to be on your list.</p>
+<p><span class="v">[Your first name]</span></p>
+</div>
+<p class="skip"><b>Skip it when:</b> the couple has asked for their photographs to stay private. Ask them first, every time.</p></section><section class="page"><div class="kicker">Email 9</div>
+<h2 class="title">The vendor thank you</h2>
+<div class="facts"><div><b>Send to</b>The florist, stylist, celebrant, hair and makeup artist</div><div><b>When</b>The week the gallery goes out</div><div><b>Level</b>Half personalised</div></div>
+<p>Vendors rarely get good photographs of their own work. A small gallery costs you ten minutes, and your name appears every time they post from it. The last line tells them you will look out for them next time, which is what a referral partner wants to hear.</p>
+<div class="msg"><span class="ch">Email</span><div class="subj">Subject: Your work at <span class="v">[Names]</span>' wedding</div>
+<p>Hi <span class="v">[Name]</span>,</p>
+<p><span class="pl">PERSONAL</span> <span class="v">[One line about their work on the day. Example: "The arch held in that wind and looked better for it."]</span></p>
+<p>I have pulled <span class="v">[number]</span> frames of your work into a small gallery: <span class="v">[link]</span>. They are yours to use, with a credit to <span class="v">[@handle]</span> where you can.</p>
+<p>If there was a shot you needed and I missed it, tell me. I will look for it the next time we work together.</p>
+<p><span class="v">[Your first name]</span></p>
+</div>
+<p class="skip"><b>Skip it when:</b> the couple has asked for privacy, or you have no frame that shows their work well. Send a thank you without the gallery.</p></section><section class="page"><div class="kicker">Email 10</div>
+<h2 class="title">The open dates note</h2>
+<div class="facts"><div><b>Send to</b>Planners and coordinators you worked with in the last year</div><div><b>When</b>At the start of a quiet stretch, once a quarter at most</div><div><b>Level</b>Template</div></div>
+<p>Planners and coordinators get asked for a photographer at short notice. They recommend whoever they know is free and easy to work with. This tells them, in under a minute, without asking for a meeting.</p>
+<div class="msg"><span class="ch">Email</span><div class="subj">Subject: Dates I still have this <span class="v">[season]</span></div>
+<p>Hi <span class="v">[Name]</span>,</p>
+<p>A quick one. I still have a few dates open this <span class="v">[season]</span>, and I would rather you heard it from me than had to ask.</p>
+<p><span class="v">[Date 1]</span><br />
+<span class="v">[Date 2]</span><br />
+<span class="v">[Date 3]</span></p>
+<p>If a couple comes to you without a photographer for any of those, I would love the introduction. I will look after them the way we looked after <span class="v">[Couple from a wedding you shared]</span>.</p>
+<p><span class="v">[Your first name]</span></p>
+</div>
+<p class="skip"><b>Skip it when:</b> you have not worked with them in the past year. Send email 8 or 9 after your next wedding together, then this one.</p></section><section class="page"><div class="kicker">Email 11</div>
+<h2 class="title">The open dates swap</h2>
+<div class="facts"><div><b>Send to</b>Three photographers you trust</div><div><b>When</b>Once, then keep the list current</div><div><b>Level</b>Half personalised</div></div>
+<p>Every photographer turns down dates they are already booked for. Those couples still need someone, and they will take a name from the person they wanted. A standing swap means the name they hear is yours.</p>
+<div class="msg"><span class="ch">Email</span><div class="subj">Subject: Swapping open dates</div>
+<p>Hi <span class="v">[Name]</span>,</p>
+<p><span class="pl">PERSONAL</span> <span class="v">[One line about their recent work. Example: "The reception frames from your last wedding at the winery were something else."]</span></p>
+<p>When an enquiry lands on a date I already have booked, I would rather send that couple to someone I trust. I think our couples would like each other.</p>
+<p>Would you be open to swapping open dates? I will send you mine for the next six months, you send me yours, and when either of us is booked we pass the couple on.</p>
+<p>Mine are below.</p>
+<p><span class="v">[Your open dates]</span></p>
+<p><span class="v">[Your first name]</span></p>
+</div>
+<p class="skip"><b>Skip it when:</b> you would not hand your own sibling's wedding to them. Your name travels with every referral.</p></section><section class="page"><div class="kicker">The sending plan</div>
+<h2 class="title">Two weeks, one group a day</h2>
+<p>The emails work best in small batches. Write each one by hand, send it from your own inbox, and leave the afternoon free to answer what comes back.</p>
+<h3>Week one: past couples</h3>
+<table class="num">
+<thead>
+<tr>
+<th>Day</th>
+<th>Do this</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Build your list. No email today</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Write to every couple from last season you have not spoken to since delivery</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Write to every couple with an anniversary in the next eight weeks</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Set a real order date with your lab, then write to couples without an album</td>
+<td>2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Answer everything that has come back. Send the introduction to anyone who replied warmly</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<h3>Week two: venues and vendors</h3>
+<table class="num">
+<thead>
+<tr>
+<th>Day</th>
+<th>Do this</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>Send a venue gallery for each of your last two weddings</td>
+<td>8</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Send a small gallery to every vendor from those weddings</td>
+<td>9</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Send your open dates to the planners and coordinators from the last year</td>
+<td>10</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Write to three photographers about swapping dates</td>
+<td>11</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Answer everything. Write to anyone from a past wedding party who is newly engaged</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p>Emails 4 and 6 have their own timing. The review ask goes two weeks after each gallery. The family invitation goes once a year.</p></section><section class="page"><div class="kicker">After the two weeks</div>
+<h2 class="title">Make it part of every wedding</h2>
+<p>Four of these emails belong in your routine after every wedding. Set the to-dos the day the gallery goes out, in your CRM or your calendar, and the warm list looks after itself.</p>
+<table>
+<thead>
+<tr>
+<th>The day the gallery goes out, set a to-do for</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Today: the venue gallery and the vendor thank you</td>
+<td>8 and 9</td>
+</tr>
+<tr>
+<td>Two weeks from today: the review ask</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Six weeks from today: the gallery follow-up</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Three weeks before their first anniversary: the anniversary note</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h3>Keep a tally</h3>
+<p>For each email, write down how many you sent, how many replied and what came of it. After a season you will know which three emails are yours. Send those first next time.</p>
+<table class="fill long">
+<thead>
+<tr>
+<th>Email</th>
+<th>Sent</th>
+<th>Replied</th>
+<th>Came of it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. The gallery follow-up</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2. The album and print window</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3. The anniversary note</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4. The review ask</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5. The introduction</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6. The family session invitation</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7. The newly engaged guest</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8. The venue gallery</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9. The vendor thank you</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10. The open dates note</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11. The open dates swap</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></section></body></html>
