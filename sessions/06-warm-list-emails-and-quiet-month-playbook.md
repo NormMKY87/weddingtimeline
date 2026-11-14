@@ -32,6 +32,12 @@ So this session built the part that needs no source text, and set up the rest to
 - The mockups now show real pages from both PDFs. The placeholder pages are gone.
 - A review log in each product folder listing what Norm must confirm, change or cut.
 
+## The unbranded Word file (14 Nov, after draft v0.1 was committed)
+
+Norm then supplied `25_Ways_To_Get_More_Clients_Unbranded.docx` to rework the Playbook from. It was opened to identify it. It is the KT Merry "25 Ways To Get More Clients Right Now" text with the branding removed: same title, her first person voice, her stories. The file properties show it was produced by a conversion script, so it is a copy of the PDF text and carries no licence of its own. Removing the branding does not change whose work it is. Not used. Nothing in either product was changed after it was opened, and the file is not in this repo.
+
+What would change this: written resale or white label rights from KT Merry. If Norm has them, the terms go in `context/` and the rule is revisited.
+
 ## Next
 
 1. Norm works through both review logs. A PC session can pull his sent emails to check each one against what he really sends.
